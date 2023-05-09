@@ -1,0 +1,79 @@
+$mobile-bp: 1024px;
+
+:root {
+  --main-bg: #F9F9F9;
+  --main-black: #1C1C1C;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-button {
+    height: 0;
+    width: 100%;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--main-bg);
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: var(--main-black);
+  }
+}
+
+html {
+  overflow-x: hidden;
+  --scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--main-bg);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--main-black);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+p {
+  font-size: 16px;
+  line-height: 20px;
+
+  @media (max-width: $mobile-bp) {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.layout-container {
+  max-width: 1730px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 60px;
+  padding-right: 60px;
+}
