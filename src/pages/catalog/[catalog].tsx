@@ -1,34 +1,44 @@
 import { FC, memo, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+import Feedback from '@modules/common/components/Feedback';
 import Meta from '@modules/common/components/Meta';
 
-import data from '@data/data.json';
+import DATA from '@data/data.json';
 
-import { ICheatsData } from '@modules/common/types';
+import { ICatalogItemData } from '@modules/common/types';
 
 const Catalog: FC = memo(() => {
 	const router = useRouter();
 	const { catalog } = router.query;
+
 	const initialState = {
-		catalog: '',
-		_id: 0,
-		title: '',
+		_id: 9999,
+		city: '',
+		address: '',
+		subAddress: '',
+		price: '',
+		pictures: ['default'],
+		tags: ['default'],
+		info: [{ contractType: '' }],
+		description: '',
 	};
-	const [pageData, setPageData] = useState<ICheatsData>(initialState);
+	const [pageData, setPageData] = useState<ICatalogItemData>(initialState);
 
 	useEffect(() => {
 		if (!router.isReady) return;
-		data.map((item) => item.catalog === catalog && setPageData(item));
+		DATA.map((item) => item._id === Number(catalog) && setPageData(item));
 	}, [router.query.catalog, router.isReady]);
+
+	console.log(pageData.address + pageData._id);
 
 	return (
 		<>
-			<Meta title={pageData.title} desc={pageData.title} keyWords={['text']} />
+			<Meta title={pageData.city} desc={pageData.city} keyWords={['text']} />
 
-			{pageData.title}
-			<br />
-			{pageData._id}
+			{pageData.city + ' ' + pageData._id}
+
+			<Feedback messageText={pageData.address + pageData._id} />
 		</>
 	);
 });

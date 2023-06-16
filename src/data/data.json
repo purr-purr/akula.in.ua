@@ -1,12 +1,197 @@
 [
   {
+    "_id": 0,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
     "_id": 1,
-    "catalog": "js",
-    "title": "JavaScript"
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
   },
   {
     "_id": 2,
-    "catalog": "react",
-    "title": "ReactJS"
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 3,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 4,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 5,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 6,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 7,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 8,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 9,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 10,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 11,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
+  },
+  {
+    "_id": 12,
+    "city": "Kiev",
+    "address": "Street",
+    "subAddress": "Additional address",
+    "price": "2000$",
+    "pictures": ["picUrl1", "picUrl2"],
+    "tags": ["tag1", "tag2"],
+    "info": [
+      {
+        "contractType": "Rent"
+      }
+    ],
+    "description": "Property description"
   }
 ]
