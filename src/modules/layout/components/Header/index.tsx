@@ -1,6 +1,8 @@
 import Logo from '@modules/common/components/Logo';
 import Nav from '@modules/nav/components/Nav';
 import NavButton from '@modules/nav/components/NavBurgerButton';
+import NavContacts from '@modules/nav/components/NavContacts';
+import cn from 'classnames';
 
 import { useMediaQuery } from '@modules/common/hooks';
 
@@ -13,9 +15,10 @@ const Header = () => {
 
 	return (
 		<header className={s.container}>
-			<div className="layout-container">
+			<div className={cn('layout-container', s.inner)}>
 				<Logo />
 				<Nav />
+				<NavContacts />
 				{isMobile && <NavButton />}
 			</div>
 		</header>

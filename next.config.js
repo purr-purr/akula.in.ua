@@ -2,8 +2,8 @@
 
 const nextConfig = {
 	reactStrictMode: true,
-	compiler: {
-		styledComponents: true,
+	sassOptions: {
+		additionalData: `@import "src/assets/styles/variables.scss"; @import "src/assets/styles/mixins.scss";`,
 	},
 	images: {
 		unoptimized: true,

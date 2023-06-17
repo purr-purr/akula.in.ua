@@ -1,0 +1,33 @@
+@mixin flex-align($align-position) {
+  display: flex;
+  align-items: $align-position;
+}
+
+@mixin flex-justify($justify-position) {
+  display: flex;
+  justify-content: $justify-position;
+}
+
+@mixin flex-justify-align($justify-position, $align-position) {
+  display: flex;
+  justify-content: $justify-position;
+  align-items: $align-position;
+}
+
+@mixin media-laptop {
+  @media (max-width: $laptop-bp) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (max-width: $tablet-bp) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media (max-width: $mobile-bp) {
+    @content;
+  }
+}

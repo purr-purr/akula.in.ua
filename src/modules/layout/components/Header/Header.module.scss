@@ -1,3 +1,7 @@
 .container {
   background-color: #999;
 }
+
+.inner {
+  @include flex-align(center);
+}
