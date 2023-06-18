@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
-import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
-
+import {useEffect} from 'react';
+import type {AppProps} from 'next/app';
+import {useRouter} from 'next/router';
+import {appWithI18Next} from 'ni18n';
+import {ni18nConfig} from 'ni18n.config';
 import * as gtag from '@utils/gtag';
 
 import '@styles/globals.scss';
 import Layout from '@modules/layout/components/Layout';
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({Component, pageProps}: AppProps) {
 	const router = useRouter();
 	const isProduction = process.env.NODE_ENV === 'production';
 
@@ -27,3 +28,5 @@ export default function App({ Component, pageProps }: AppProps) {
 		</Layout>
 	);
 }
+
+export default appWithI18Next(App, ni18nConfig);

@@ -1,23 +1,14 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ **/
 
-const nextConfig = {
-	reactStrictMode: true,
+module.exports = {
 	sassOptions: {
 		additionalData: `@import "src/assets/styles/variables.scss"; @import "src/assets/styles/mixins.scss";`,
 	},
-	images: {
-		unoptimized: true,
-	},
-	trailingSlash: true,
-	exportPathMap: async function () {
-		return {
-			'/': { page: '/' },
-			'/catalog/js': {
-				page: '/catalog/[catalog]',
-			},
-			'/404': { page: '/404' },
-		};
-	},
-};
-
-module.exports = nextConfig;
+	i18n: {
+		defaultLocale: 'ua',
+		locales: ['en', 'ru', 'ua'],
+		localeDetection: false
+	}
+}
