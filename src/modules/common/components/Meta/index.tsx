@@ -16,10 +16,10 @@ const Meta: FC<{
 	desc: string | string[];
 	keyWords: string[];
 }> = ({ title, desc, keyWords }) => {
-	const manifestPath = '/assets/manifest.webmanifest';
-	const metaTitle = formatMetaTitle(title);
-	const metaDesc = formatMetaDesc(desc);
-	const metaKeyWords = formatMetaKeyWords(title, keyWords);
+	const manifestPath: string = '/assets/manifest.webmanifest';
+	const metaTitle: string = formatMetaTitle(title);
+	const metaDesc: string = formatMetaDesc(desc);
+	const metaKeyWords: string = formatMetaKeyWords(title, keyWords);
 
 	return (
 		<Head>

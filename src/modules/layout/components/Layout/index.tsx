@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
 
 import Footer from '@modules/layout/components/Footer';
 import Header from '@modules/layout/components/Header';
@@ -11,11 +11,13 @@ import { MOBILE_BREAKPOINT } from '@utils/const';
 
 import s from './Layout.module.scss';
 
-import { IChildrenProps } from '@modules/layout/types';
+interface IChildrenProps {
+	children: ReactNode;
+}
 
 const Layout = ({ children }: IChildrenProps) => {
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
-	const [isMobileNavMode, setIsMobileNavMode] = useState(false);
+	const [isMobileNavMode, setIsMobileNavMode] = useState<boolean>(false);
 
 	const handleMobileNavMode = useCallback((value: boolean) => {
 		setIsMobileNavMode(value);

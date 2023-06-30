@@ -1,4 +1,5 @@
 import Logo from '@modules/common/components/Logo';
+import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
 import Nav from '@modules/nav/components/Nav';
 import NavButton from '@modules/nav/components/NavBurgerButton';
 import NavContacts from '@modules/nav/components/NavContacts';
@@ -19,6 +20,7 @@ const Header = () => {
 				<Logo />
 				<Nav />
 				<NavContacts />
+				<SelectChangeLanguage />
 				{isMobile && <NavButton />}
 			</div>
 		</header>

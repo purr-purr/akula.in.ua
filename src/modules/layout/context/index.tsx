@@ -1,9 +1,9 @@
 import { createContext } from 'react';
 
-type AppContextType = {
+interface AppContextType {
 	isMobileNavMode: boolean;
 	handleMobileNavMode: (isDarkMode: boolean) => void;
-};
+}
 
 const AppContext = createContext<AppContextType>({
 	isMobileNavMode: false,

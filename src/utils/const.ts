@@ -1,11 +1,13 @@
-export const DYNAMIC_PAGE_CATALOG_NAME = 'catalog';
-export const APP_LINK = 'https://xxx.com/';
-export const APP_TITLE = 'Title';
-export const APP_AUTHOR = 'Anton Shaposhnikov';
-export const APP_AUTHOR_SIGNATURE = '=> shaposhnikov.in';
-export const APP_META_DESC = 'text';
-export const COMMON_KEY_WORDS = 'text';
-export const MOBILE_BREAKPOINT = 1024;
-export const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
-export const TG_BOT_TOKEN = process.env.NEXT_PUBLIC_TG_BOT_TOKEN;
-export const TG_CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
+export const DYNAMIC_PAGE_CATALOG_NAME: string = 'catalog';
+export const APP_LINK: string = 'https://xxx.com/';
+export const APP_TITLE: string = 'Title';
+export const APP_AUTHOR: string = 'Anton Shaposhnikov';
+export const APP_AUTHOR_SIGNATURE: string = '=> shaposhnikov.in';
+export const APP_META_DESC: string = 'text';
+export const COMMON_KEY_WORDS: string = 'text';
+export const MOBILE_BREAKPOINT: number = 1024;
+export const GA_TRACKING_ID: string | undefined = process.env.GA_TRACKING_ID;
+export const TG_BOT_TOKEN: string | undefined =
+	process.env.NEXT_PUBLIC_TG_BOT_TOKEN;
+export const TG_CHAT_ID: string | undefined =
+	process.env.NEXT_PUBLIC_TG_CHAT_ID;

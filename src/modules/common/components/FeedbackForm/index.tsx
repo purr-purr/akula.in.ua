@@ -1,20 +1,29 @@
-import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
+import {
+	FC,
+	useEffect,
+	useState,
+	type ChangeEvent,
+	type FormEvent,
+} from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { TG_BOT_TOKEN, TG_CHAT_ID } from '@utils/const';
 
-const FeedbackForm: FC<{ messageText?: string }> = ({ messageText = '' }) => {
+const FeedbackForm: FC<{ messageText?: string }> = ({ messageText = '1' }) => {
+	const { t } = useTranslation('common');
 	const initFormData = {
 		name: '',
 		email: '',
 		message: messageText,
 	};
+
 	const [formData, setFormData] = useState(initFormData);
 
 	useEffect(() => {
 		if (messageText !== formData.message) {
-			setFormData({ ...formData, message: messageText });
+			setFormData({ ...formData, message: t('street') + ' ' + messageText });
 		}
-	}, [messageText]);
+	}, [messageText, t]);
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();

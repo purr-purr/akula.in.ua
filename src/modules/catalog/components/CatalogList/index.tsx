@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import Link from 'next/link';
 
+import CatalogListItem from '@modules/catalog/components/CatalogListItem';
 import Pagination from '@modules/common/components/Pagination';
 
 import DATA from '@data/data.json';
-import { DYNAMIC_PAGE_CATALOG_NAME } from '@utils/const';
 
 import s from './CatalogList.module.scss';
 
@@ -22,12 +21,8 @@ const CatalogList = () => {
 	return (
 		<>
 			<ul className={s.container}>
-				{paginationSortedData.map((item) => (
-					<li key={item._id}>
-						<Link href={`/${DYNAMIC_PAGE_CATALOG_NAME}/${item._id}`}>
-							{item.city + '' + item._id}
-						</Link>
-					</li>
+				{paginationSortedData.map((item: ICatalogItemData) => (
+					<CatalogListItem key={item._id} props={item} />
 				))}
 			</ul>
 			<Pagination data={DATA} onPaginationSorting={handlePaginationSorting} />

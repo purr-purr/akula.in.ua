@@ -30,8 +30,6 @@ const Catalog: FC = memo(() => {
 		DATA.map((item) => item._id === Number(catalog) && setPageData(item));
 	}, [router.query.catalog, router.isReady]);
 
-	console.log(pageData.address + pageData._id);
-
 	return (
 		<>
 			<Meta title={pageData.city} desc={pageData.city} keyWords={['text']} />
