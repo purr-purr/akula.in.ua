@@ -6,4 +6,5 @@ export const ni18nConfig: Ni18nOptions = {
 	detection: {
 		order: ['querystring', 'cookie', 'localStorage', 'navigator'],
 	},
+	react: { useSuspense: false },
 };

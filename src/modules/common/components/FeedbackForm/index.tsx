@@ -7,9 +7,9 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { TG_BOT_TOKEN, TG_CHAT_ID } from '@utils/const';
+import {TG_BOT_TOKEN, TG_CHAT_ID_LIST} from '@utils/const';
 
-const FeedbackForm: FC<{ messageText?: string }> = ({ messageText = '1' }) => {
+const FeedbackForm: FC<{ messageText?: string }> = ({ messageText = 'DefaultText' }) => {
 	const { t } = useTranslation('common');
 	const initFormData = {
 		name: '',
@@ -33,20 +33,22 @@ const FeedbackForm: FC<{ messageText?: string }> = ({ messageText = '1' }) => {
 			Name: ${name}\nEmail: ${email}\nMessage: ${message}
 		`;
 
-		try {
-			await fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					chat_id: TG_CHAT_ID,
-					text: messageText,
-				}),
-			});
-			setFormData(initFormData);
-			console.log('Message sent successfully!');
-		} catch (error) {
-			window.alert('Failed to send message.');
-			console.log(error);
+		for (const chatID of TG_CHAT_ID_LIST) {
+			try {
+				await fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						chat_id: chatID,
+						text: messageText,
+					}),
+				});
+				setFormData(initFormData);
+				console.log('Message sent successfully!');
+			} catch (error) {
+				window.alert('Failed to send message.');
+				console.log(error);
+			}
 		}
 	};
 

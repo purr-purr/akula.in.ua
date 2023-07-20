@@ -9,5 +9,5 @@ export const MOBILE_BREAKPOINT: number = 1024;
 export const GA_TRACKING_ID: string | undefined = process.env.GA_TRACKING_ID;
 export const TG_BOT_TOKEN: string | undefined =
 	process.env.NEXT_PUBLIC_TG_BOT_TOKEN;
-export const TG_CHAT_ID: string | undefined =
-	process.env.NEXT_PUBLIC_TG_CHAT_ID;
+export const TG_CHAT_ID_LIST: (string | undefined)[] =
+	[process.env.NEXT_PUBLIC_TG_CHAT_ID_ANTON, process.env.NEXT_PUBLIC_TG_CHAT_ID_ALINA];

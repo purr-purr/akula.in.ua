@@ -1,8 +1,8 @@
-# Akula Development Partner 
+# Solo-dev-site
 
 #### `JavaScript / ReactJS / TypeScript`
 
-# [https://akula.in.ua/](https://akula.in.ua/)
+# [https://xxx.com/](https://xxx.com/)
 
 ## Getting Started
 
