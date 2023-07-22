@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+
+  input, textarea, label {
+    display: block;
+    height: 30px;
+    width: 130px;
+  }
+}

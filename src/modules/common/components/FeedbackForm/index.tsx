@@ -9,6 +9,8 @@ import { useTranslation } from 'react-i18next';
 
 import {TG_BOT_TOKEN, TG_CHAT_ID_LIST} from '@utils/const';
 
+import s from './FeedbackForm.module.scss';
+
 const FeedbackForm: FC<{ messageText?: string }> = ({ messageText = 'DefaultText' }) => {
 	const { t } = useTranslation('common');
 	const initFormData = {
@@ -59,7 +61,7 @@ const FeedbackForm: FC<{ messageText?: string }> = ({ messageText = 'DefaultText
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className={s.container} onSubmit={handleSubmit}>
 			<label>
 				<input
 					type="text"

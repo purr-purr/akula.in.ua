@@ -1,11 +1,3 @@
-import CatalogList from '@modules/catalog/components/CatalogList';
+import Catalog from '@modules/catalog/components/Catalog';
 
-export default function Catalog() {
-	return (
-		<>
-			<h1>Catalog page</h1>
-
-			<CatalogList />
-		</>
-	);
-}
+export default Catalog;

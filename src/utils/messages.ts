@@ -3,11 +3,7 @@ interface IMessages {
 }
 
 const messages: IMessages = {
-	POWERED_BY: 'Powered by ',
-	JAVA_SCRIPT: 'JavaScript',
-	LOADING: 'Loading',
-	OPEN: 'Open',
-	PRELOADER_POSTER: 'Preloader CodePoster',
+	TEXT: 'Text',
 };
 
 export default messages;

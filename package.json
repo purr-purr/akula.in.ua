@@ -1,13 +1,12 @@
 {
-  "name": "akula-project",
+  "name": "akula-in-ua",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 4400",
-    "lint": "next lint",
-    "deploy": "next build && next export && node deploy"
+    "lint": "next lint"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -20,15 +19,14 @@
     "react-i18next": "^13.0.0"
   },
   "devDependencies": {
-    "@types/gtag.js": "^0.0.12",
-    "@types/react": "18.0.26",
     "@ianvs/prettier-plugin-sort-imports": "^3.7.1",
+    "@types/gtag.js": "^0.0.12",
     "@types/node": "18.11.18",
-    "ftp-deploy": "^2.4.3",
+    "@types/react": "18.0.26",
     "eslint": "8.22.0",
     "eslint-config-next": "13.1.1",
+    "prettier": "2.8.1",
     "sass": "^1.57.1",
-    "typescript": "4.9.4",
-    "prettier": "2.8.1"
+    "typescript": "4.9.4"
   }
 }

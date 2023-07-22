@@ -1,5 +1,5 @@
 export const DYNAMIC_PAGE_CATALOG_NAME: string = 'catalog';
-export const APP_LINK: string = 'https://xxx.com/';
+export const APP_LINK: string = 'https://akula.in.ua/';
 export const APP_TITLE: string = 'Title';
 export const APP_AUTHOR: string = 'Anton Shaposhnikov';
 export const APP_AUTHOR_SIGNATURE: string = '=> shaposhnikov.in';

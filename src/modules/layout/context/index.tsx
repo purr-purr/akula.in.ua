@@ -1,13 +1,13 @@
 import { createContext } from 'react';
 
-interface AppContextType {
+interface HeaderContextType {
 	isMobileNavMode: boolean;
 	handleMobileNavMode: (isDarkMode: boolean) => void;
 }
 
-const AppContext = createContext<AppContextType>({
+const HeaderContext = createContext<HeaderContextType>({
 	isMobileNavMode: false,
 	handleMobileNavMode: () => {},
 });
 
-export default AppContext;
+export default HeaderContext;

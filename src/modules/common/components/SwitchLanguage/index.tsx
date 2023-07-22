@@ -28,22 +28,20 @@ export default function SwitchLanguage() {
 	};
 
 	return (
-		<>
-			<select
-				className={s.container}
-				onChange={switchLanguage}
-				value={i18n.language}
-			>
-				{languages.map((item) => (
-					<option
-						disabled={i18n.language === item.code}
-						key={item.code}
-						value={item.code}
-					>
-						{item.translateKey}
-					</option>
-				))}
-			</select>
-		</>
+		<select
+			className={s.container}
+			onChange={switchLanguage}
+			value={i18n.language}
+		>
+			{languages.map((item) => (
+				<option
+					disabled={i18n.language === item.code}
+					key={item.code}
+					value={item.code}
+				>
+					{item.translateKey}
+				</option>
+			))}
+		</select>
 	);
 }

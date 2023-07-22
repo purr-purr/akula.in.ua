@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState, type ReactNode } from 'react';
 
 import Footer from '@modules/layout/components/Footer';
 import Header from '@modules/layout/components/Header';
-import AppContext from '@modules/layout/context';
+import HeaderContext from '@modules/layout/context';
 import cn from 'classnames';
 
 import { useMediaQuery } from '@modules/common/hooks';
@@ -42,13 +42,13 @@ const Layout = ({ children }: IChildrenProps) => {
 	}, [isMobileNavMode, isMobile]);
 
 	return (
-		<AppContext.Provider value={context}>
-			<main className={s.container}>
+		<main className={s.container}>
+			<HeaderContext.Provider value={context}>
 				<Header />
-				<section className={cn('layout-container', s.content)}>{children}</section>
-				<Footer />
-			</main>
-		</AppContext.Provider>
+			</HeaderContext.Provider>
+			<section className={cn('layout-container', s.content)}>{children}</section>
+			<Footer />
+		</main>
 	);
 };
 
