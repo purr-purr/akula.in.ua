@@ -1,0 +1,25 @@
+.container {
+  border: 1px solid #333;
+}
+
+.inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 258px;
+
+  & img {
+    display: block;
+    width: 100%;
+    object-fit: fill;
+  }
+}
+
+.info {
+  height: 154px;
+  border-top: 1px solid #333;
+}

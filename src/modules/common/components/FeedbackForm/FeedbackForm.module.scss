@@ -1,7 +1,8 @@
 .container {
   display: flex;
+  gap: 10px;
 
-  input, textarea, label {
+  input, textarea, button {
     display: block;
     height: 30px;
     width: 130px;

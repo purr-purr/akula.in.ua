@@ -1,0 +1,7 @@
+.container {
+  @include flex-align(center);
+  gap: 10px;
+  margin-left: auto;
+  width: fit-content;
+  margin-bottom: 10px;
+}

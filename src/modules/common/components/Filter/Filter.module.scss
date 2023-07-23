@@ -1,8 +1,33 @@
 .container {
-  width: 800px;
-  height: 150px;
+  max-width: 1116px;
+  width: 100%;
   border: 1px solid #333;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
+  padding: 10px;
+}
+
+.navigation {
+  @include flex-justify-align(center, center);
+  margin-bottom: 20px;
+}
+
+.tab {
+  height: 30px;
+  width: 130px;
+
+  &.active {
+    font-weight: bold;
+  }
+}
+
+.form {
+  @include flex-align(center);
+  gap: 10px;
+
+  select, button, label {
+    height: 30px;
+    width: 130px;
+  }
 }

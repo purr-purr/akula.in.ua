@@ -29,7 +29,7 @@ const Pagination: FC<{
 	}, [startIndex, endIndex]);
 
 	return (
-		<div className={s.container}>
+		<article className={s.container}>
 			<button onClick={handlePrevBtn} disabled={currentPage === 1}>
 				{'<='}
 			</button>
@@ -45,7 +45,7 @@ const Pagination: FC<{
 			<button onClick={handleNextBtn} disabled={lastPage === currentPage - 1}>
 				{'=>'}
 			</button>
-		</div>
+		</article>
 	);
 };
 

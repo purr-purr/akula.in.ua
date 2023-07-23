@@ -16,13 +16,13 @@ const Header = () => {
 
 	return (
 		<header className={s.container}>
-			<div className={cn('layout-container', s.inner)}>
+			<section className={cn('layout-container', s.inner)}>
 				<Logo />
 				<Nav />
 				<NavContacts />
 				<SelectChangeLanguage />
 				{isMobile && <NavButton />}
-			</div>
+			</section>
 		</header>
 	);
 };

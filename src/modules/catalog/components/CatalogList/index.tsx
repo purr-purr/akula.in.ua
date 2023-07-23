@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import CatalogListItem from '@modules/catalog/components/CatalogListItem';
+import CatalogCard from '@modules/catalog/components/CatalogCard';
 import Pagination from '@modules/common/components/Pagination';
 
 import DATA from '@data/data.json';
@@ -22,7 +22,7 @@ const CatalogList = () => {
 		<>
 			<ul className={s.container}>
 				{paginationSortedData.map((item: ICatalogItemData) => (
-					<CatalogListItem key={item._id} props={item} />
+					<CatalogCard key={item._id} props={item} />
 				))}
 			</ul>
 			<Pagination data={DATA} onPaginationSorting={handlePaginationSorting} />

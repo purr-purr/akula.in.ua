@@ -3,7 +3,11 @@ import { FC } from 'react';
 import s from './CatalogHeader.module.scss';
 
 const CatalogHeader: FC = () => {
-	return <div className={s.container}>Catalog Page Header</div>;
+	return (
+		<section className={s.container}>
+			<h1>Catalog Page Header</h1>
+		</section>
+	);
 };
 
 export default CatalogHeader;

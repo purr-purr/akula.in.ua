@@ -4,4 +4,5 @@
 
 .inner {
   @include flex-align(center);
+  height: 84px;
 }
