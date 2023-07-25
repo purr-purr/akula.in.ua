@@ -19,7 +19,7 @@ const NavContacts = () => {
 	return (
 		<article className={s.container}>
 			{contactsList.map((item) => (
-				<Link key={item.url} href={''}>
+				<Link key={item.url} href={'/'}>
 					<Image src={item.icon} alt="ALT" />
 				</Link>
 			))}

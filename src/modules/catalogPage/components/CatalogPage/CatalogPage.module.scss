@@ -1,0 +1,10 @@
+.container {
+  display: grid;
+  grid-template-columns: auto 460px;
+  gap: 15px;
+}
+
+.feedback {
+  position: sticky;
+  top: 84px;
+}

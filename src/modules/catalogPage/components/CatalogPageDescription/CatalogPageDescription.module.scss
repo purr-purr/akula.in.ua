@@ -1,0 +1,20 @@
+.container {
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  tr:nth-child(odd) {
+    background-color: lightgray;
+  }
+
+  td {
+    padding-left: 5px;
+
+    &:first-child {
+      width: 300px;
+      border-right: 1px solid #333;
+    }
+  }
+}

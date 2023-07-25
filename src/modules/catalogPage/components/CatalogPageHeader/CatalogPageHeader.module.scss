@@ -1,0 +1,13 @@
+.container {
+
+}
+
+.heading {
+  @include flex-justify-align(space-between, center);
+}
+
+.tags {
+  display: flex;
+  list-style-type: none;
+  gap: 10px;
+}

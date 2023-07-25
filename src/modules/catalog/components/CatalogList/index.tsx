@@ -3,8 +3,6 @@ import { useState } from 'react';
 import CatalogCard from '@modules/catalog/components/CatalogCard';
 import Pagination from '@modules/common/components/Pagination';
 
-import DATA from '@data/data.json';
-
 import s from './CatalogList.module.scss';
 
 import { ICatalogItemData } from '@modules/common/types';
@@ -25,7 +23,7 @@ const CatalogList = () => {
 					<CatalogCard key={item._id} props={item} />
 				))}
 			</ul>
-			<Pagination data={DATA} onPaginationSorting={handlePaginationSorting} />
+			<Pagination onPaginationSorting={handlePaginationSorting} />
 		</>
 	);
 };

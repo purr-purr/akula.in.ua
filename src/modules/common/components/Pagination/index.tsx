@@ -7,12 +7,15 @@ import s from './Pagination.module.scss';
 import type { ICatalogItemData } from '@modules/common/types';
 
 const Pagination: FC<{
-	data: ICatalogItemData[];
 	onPaginationSorting: (arg0: ICatalogItemData[]) => void;
-}> = ({ data, onPaginationSorting }) => {
+}> = ({ onPaginationSorting }) => {
+	const data: ICatalogItemData[] = DATA.filter(
+		(item) => item.visibility === true && item,
+	);
+
 	const [currentPage, setCurrentPage] = useState<number>(1);
-	const itemsPerPage: number = 10;
-	const totalPages: number = Math.ceil(DATA.length / itemsPerPage);
+	const itemsPerPage: number = 9;
+	const totalPages: number = Math.ceil(data.length / itemsPerPage);
 	const startIndex: number = (currentPage - 1) * itemsPerPage;
 	const endIndex: number = startIndex + itemsPerPage;
 	const calcLastPageNumber: number = data.length / 10;
@@ -22,13 +25,13 @@ const Pagination: FC<{
 		setCurrentPage(pageNumber);
 	const handlePrevBtn = () => currentPage > 1 && setCurrentPage(currentPage - 1);
 	const handleNextBtn = () =>
-		DATA.length !== currentPage && setCurrentPage(currentPage + 1);
+		data.length !== currentPage && setCurrentPage(currentPage + 1);
 
 	useEffect(() => {
-		onPaginationSorting(DATA.slice(startIndex, endIndex));
+		onPaginationSorting(data.slice(startIndex, endIndex));
 	}, [startIndex, endIndex]);
 
-	return (
+	return data.length > 9 ? (
 		<article className={s.container}>
 			<button onClick={handlePrevBtn} disabled={currentPage === 1}>
 				{'<='}
@@ -46,7 +49,7 @@ const Pagination: FC<{
 				{'=>'}
 			</button>
 		</article>
-	);
+	) : null;
 };
 
 export default Pagination;
