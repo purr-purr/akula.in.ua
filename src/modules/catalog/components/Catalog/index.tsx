@@ -6,10 +6,10 @@ import Filter from '@modules/common/components/Filter';
 const Catalog = () => {
 	return (
 		<>
-			<CatalogHeader />
-			<Filter />
-			<CatalogSort />
-			<CatalogList />
+			<CatalogHeader/>
+			<Filter/>
+			<CatalogSort/>
+			<CatalogList/>
 		</>
 	);
 };

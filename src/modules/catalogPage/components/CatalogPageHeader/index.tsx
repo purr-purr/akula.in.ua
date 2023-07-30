@@ -13,8 +13,8 @@ const CatalogPageHeader: FC<{
 			<div className={s.heading}>
 				<h1>{city}</h1>
 				<ul className={s.tags}>
-					{tags.map((item) => (
-						<li key={item}>{item}</li>
+					{tags.map((item, i) => (
+						<li key={item + i}>{item}</li>
 					))}
 				</ul>
 			</div>

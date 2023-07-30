@@ -1,4 +1,4 @@
-import { APP_META_DESC, APP_TITLE, COMMON_KEY_WORDS } from '@utils/const';
+import {APP_META_COMMON_KEYWORDS, APP_META_DESC, APP_TITLE} from '@utils/const';
 
 export const formatMetaTitle = (title: string): string =>
 	`${title} ${APP_TITLE}`;
@@ -17,5 +17,5 @@ export const formatMetaKeyWords = (
 	allSubTitles: string[],
 ): string => {
 	const list = allSubTitles.join(', ');
-	return `${title}, ${APP_TITLE}, ${list}, ${COMMON_KEY_WORDS}`;
+	return `${title}, ${APP_TITLE}, ${list}, ${APP_META_COMMON_KEYWORDS}`;
 };

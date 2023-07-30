@@ -1,66 +1,93 @@
-import { FC, memo, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import {FC, memo, useEffect, useState} from 'react';
+import {useRouter} from 'next/router';
 
-import CatalogPageAddress from '@modules/catalogPage/components/CatalogPageAddress';
-import CatalogPageCarousel from '@modules/catalogPage/components/CatalogPageCarousel';
-import CatalogPageCrumbs from '@modules/catalogPage/components/CatalogPageCrumbs';
-import CatalogPageDescription from '@modules/catalogPage/components/CatalogPageDescription';
-import CatalogPageHeader from '@modules/catalogPage/components/CatalogPageHeader';
+import CatalogPageAddress
+	from '@modules/catalogPage/components/CatalogPageAddress';
+import CatalogPageCarousel
+	from '@modules/catalogPage/components/CatalogPageCarousel';
+import CatalogPageCrumbs
+	from '@modules/catalogPage/components/CatalogPageCrumbs';
+import CatalogPageDescription
+	from '@modules/catalogPage/components/CatalogPageDescription';
+import CatalogPageHeader
+	from '@modules/catalogPage/components/CatalogPageHeader';
 import Feedback from '@modules/common/components/Feedback';
 import Meta from '@modules/common/components/Meta';
 
-import DATA from '@data/data.json';
-
 import s from './CatalogPage.module.scss';
 
-import { ICatalogItemData } from '@modules/common/types';
+import type {ICatalogItemData} from '@modules/common/types';
+import {useDataFetching} from "@modules/common/hooks";
 
 const CatalogPage: FC = memo(() => {
+	const {dataList, loading} = useDataFetching();
 	const router = useRouter();
-	const { catalog } = router.query;
+	const {catalog} = router.query;
 
 	const initialState: ICatalogItemData = {
-		_id: 9999,
-		type: 'rent',
+		_id: 0,
 		visibility: true,
+		contractType: 'rent',
+		propertyType: '',
+		realEstateType: '',
 		city: '',
 		address: '',
 		station: '',
 		price: '',
-		pictures: ['default'],
-		tags: ['default'],
-		info: [{ title: '', value: '' }],
+		info: [{title: '', value: ''}],
 		description: '',
+		services: '',
 	};
 
 	const [pageData, setPageData] = useState<ICatalogItemData>(initialState);
-	const { city, address, price, tags, description, info, station, _id } =
-		pageData;
+	const {
+		city,
+		address,
+		price,
+		description,
+		info,
+		station,
+		_id,
+		services,
+		propertyType,
+		realEstateType,
+	} = pageData;
+
 	useEffect(() => {
 		if (!router.isReady) return;
 
-		DATA.map((value: ICatalogItemData) => {
+		dataList.map((value: ICatalogItemData) => {
 			value._id === Number(catalog) && setPageData(value);
 		});
-	}, [router.query.catalog, router.isReady]);
+	}, [dataList, router.query.catalog, router.isReady]);
 
 	const fullAddress = `${city}, ${address}`;
+	const tags = [propertyType, realEstateType];
+
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<>
-			<Meta title={city} desc={city} keyWords={['text']} />
+			<Meta title={city} desc={city} keyWords={['text']}/>
 
-			<CatalogPageCrumbs address={address} />
-			<CatalogPageHeader city={city} address={address} price={price} tags={tags} />
+			<CatalogPageCrumbs address={address}/>
+			<CatalogPageHeader city={city} address={address} price={price}
+			                   tags={tags}/>
 			<section className={s.container}>
 				<div>
-					<CatalogPageCarousel />
-					<CatalogPageDescription description={description} infoList={info} />
-					<CatalogPageAddress address={fullAddress} station={station} />
+					<CatalogPageCarousel id={_id}/>
+					<CatalogPageDescription
+						services={services}
+						description={description}
+						infoList={info}
+					/>
+					<CatalogPageAddress address={fullAddress} station={station}/>
 				</div>
 				<aside>
 					<div className={s.feedback}>
-						<Feedback messageText={fullAddress + _id} />
+						<Feedback messageText={fullAddress + _id}/>
 					</div>
 				</aside>
 			</section>

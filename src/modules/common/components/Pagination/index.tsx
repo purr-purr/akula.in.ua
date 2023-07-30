@@ -1,16 +1,19 @@
-import { FC, useEffect, useState } from 'react';
+import {FC, useEffect, useState} from 'react';
 
-import DATA from '@data/data.json';
-
+// import DATA from '@data/data.json';
 import s from './Pagination.module.scss';
 
-import type { ICatalogItemData } from '@modules/common/types';
+import type {ICatalogItemData} from '@modules/common/types';
+import {useDataFetching} from "@modules/common/hooks";
+
 
 const Pagination: FC<{
 	onPaginationSorting: (arg0: ICatalogItemData[]) => void;
-}> = ({ onPaginationSorting }) => {
-	const data: ICatalogItemData[] = DATA.filter(
-		(item) => item.visibility === true && item,
+}> = ({onPaginationSorting}) => {
+	const {dataList, loading} = useDataFetching();
+
+	const data: ICatalogItemData[] = dataList.filter(
+		(item) => item.visibility && item,
 	);
 
 	const [currentPage, setCurrentPage] = useState<number>(1);
@@ -29,14 +32,18 @@ const Pagination: FC<{
 
 	useEffect(() => {
 		onPaginationSorting(data.slice(startIndex, endIndex));
-	}, [startIndex, endIndex]);
+	}, [dataList, startIndex, endIndex]);
+
+	if (loading) {
+		return (<div>loading</div>)
+	}
 
 	return data.length > 9 ? (
 		<article className={s.container}>
 			<button onClick={handlePrevBtn} disabled={currentPage === 1}>
 				{'<='}
 			</button>
-			{Array.from({ length: totalPages }, (_, i) => i + 1).map((page: number) => (
+			{Array.from({length: totalPages}, (_, i) => i + 1).map((page: number) => (
 				<button
 					key={page}
 					onClick={() => handlePageChange(page)}
