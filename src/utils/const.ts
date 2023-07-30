@@ -1,4 +1,5 @@
 export const MOBILE_BREAKPOINT: number = 1024;
+export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 // APP
 export const APP_LINK: string = 'https://akula.in.ua/';
@@ -18,7 +19,7 @@ export const GOOGLE_MAPS_API_KEY: string | undefined =
 	process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
 // BACKEND
-export const BACKEND_LOCALHOST: string = 'http://localhost:5000';
+export const BACKEND_LOCALHOST: string = IS_PRODUCTION ? 'http://31.222.235.16:4400' : 'http://localhost:5000';
 
 // TG BOT
 export const TG_BOT_TOKEN: string | undefined =

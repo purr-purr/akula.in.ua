@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
@@ -9,7 +9,7 @@ const port = 5000;
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const address = isProduction ? 'http://31.222.235.16:4400' : 'http://localhost:3000';
+const address = isProduction ? 'http://31.222.235.16' : 'http://localhost:3000';
 
 app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin', address);

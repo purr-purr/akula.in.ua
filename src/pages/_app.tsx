@@ -1,22 +1,22 @@
-import { useEffect } from 'react';
-import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
+import {useEffect} from 'react';
+import type {AppProps} from 'next/app';
+import {useRouter} from 'next/router';
 
-import { appWithI18Next } from 'ni18n';
-import { ni18nConfig } from 'ni18n.config';
+import {appWithI18Next} from 'ni18n';
+import {ni18nConfig} from 'ni18n.config';
+import Layout from '@modules/layout/components/Layout';
+import {IS_PRODUCTION} from "@utils/const";
 
 import * as gtag from '@utils/gtag';
 
 import '@styles/globals.scss';
-import Layout from '@modules/layout/components/Layout';
 
-function App({ Component, pageProps }: AppProps) {
+function App({Component, pageProps}: AppProps) {
 	const router = useRouter();
-	const isProduction = process.env.NODE_ENV === 'production';
 
 	useEffect(() => {
 		const handleRouteChange = (url: URL) => {
-			isProduction && gtag.pageview(url);
+			IS_PRODUCTION && gtag.pageview(url);
 		};
 		router.events.on('routeChangeComplete', handleRouteChange);
 		return () => {
