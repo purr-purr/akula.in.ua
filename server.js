@@ -7,7 +7,7 @@ const app = express();
 const port = 5000;
 // app.use(cors());
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = app.get('env') === 'production';
 
 // const address = ;
 
