@@ -6,7 +6,7 @@
     "dev": "concurrently \"node server.js\" \"next dev\"",
     "build": "next build",
     "start": "next start -p 4400",
-    "prod": "concurrently \"git pull\"  \"NODE_ENV=production\" \"yarn build\" \"node server.js\" \"next start -p 4400\"",
+    "prod": "concurrently \"NODE_ENV=production\" \"node server.js\" \"next start -p 4400\"",
     "lint": "next lint"
   },
   "dependencies": {
