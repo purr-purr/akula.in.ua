@@ -73,8 +73,12 @@ const CatalogPage: FC = memo(() => {
 			<Meta title={city} desc={city} keyWords={['text']}/>
 
 			<CatalogPageCrumbs address={address}/>
-			<CatalogPageHeader city={city} address={address} price={price}
-			                   tags={tags}/>
+			<CatalogPageHeader
+				city={city}
+				address={address}
+				price={price}
+				tags={tags}
+			/>
 			<section className={s.container}>
 				<div>
 					<CatalogPageCarousel id={_id}/>
