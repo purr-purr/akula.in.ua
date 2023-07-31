@@ -95,7 +95,7 @@
     "services": "Services"
   },
   {
-    "_id": 6,
+    "_id": 5,
     "visibility": true,
     "contractType": "rent",
     "propertyType": "living estate",
@@ -104,6 +104,125 @@
     "address": "вулиця Пушкінська, 9a",
     "station": "Metro HTZ",
     "price": "21000",
+    "info": [
+      {
+        "title": "Rent",
+        "value": "1m"
+      }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec velit metus. Nulla facilisi. Sed eu nisi gravida, venenatis quam nec, fringilla mi. Fusce convallis auctor orci, eget feugiat risus. Vestibulum sit amet eleifend lorem. Integer nec risus feugiat, commodo neque a, rhoncus quam. Nullam vehicula velit at quam blandit, ut placerat massa rhoncus. Sed semper venenatis dolor, vel eleifend lacus blandit eget. Sed scelerisque justo a tincidunt tincidunt. Aliquam ut pharetra nunc, eu iaculis purus. Cras efficitur neque ac enim sagittis, eget dictum urna rhoncus. Vivamus nec elementum lorem, et facilisis lorem. Sed consequat nulla a semper aliquet. Sed eget justo eget quam euismod eleifend eu vitae est.\n",
+    "services": "Services"
+  }
+  ,
+  {
+    "_id": 6,
+    "visibility": true,
+    "contractType": "rent",
+    "propertyType": "living estate",
+    "realEstateType": "apart",
+    "city": "Київ",
+    "address": "вулиця Пушкінська, 9a",
+    "station": "Metro HTZ",
+    "price": "21200",
+    "info": [
+      {
+        "title": "Rent",
+        "value": "1m"
+      }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec velit metus. Nulla facilisi. Sed eu nisi gravida, venenatis quam nec, fringilla mi. Fusce convallis auctor orci, eget feugiat risus. Vestibulum sit amet eleifend lorem. Integer nec risus feugiat, commodo neque a, rhoncus quam. Nullam vehicula velit at quam blandit, ut placerat massa rhoncus. Sed semper venenatis dolor, vel eleifend lacus blandit eget. Sed scelerisque justo a tincidunt tincidunt. Aliquam ut pharetra nunc, eu iaculis purus. Cras efficitur neque ac enim sagittis, eget dictum urna rhoncus. Vivamus nec elementum lorem, et facilisis lorem. Sed consequat nulla a semper aliquet. Sed eget justo eget quam euismod eleifend eu vitae est.\n",
+    "services": "Services"
+  },
+  {
+    "_id": 7,
+    "visibility": true,
+    "contractType": "rent",
+    "propertyType": "living estate",
+    "realEstateType": "apart",
+    "city": "55555Київ",
+    "address": "вулиця Пушкінська, 9a",
+    "station": "Metro HTZ",
+    "price": "21000",
+    "info": [
+      {
+        "title": "Rent",
+        "value": "1m"
+      }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec velit metus. Nulla facilisi. Sed eu nisi gravida, venenatis quam nec, fringilla mi. Fusce convallis auctor orci, eget feugiat risus. Vestibulum sit amet eleifend lorem. Integer nec risus feugiat, commodo neque a, rhoncus quam. Nullam vehicula velit at quam blandit, ut placerat massa rhoncus. Sed semper venenatis dolor, vel eleifend lacus blandit eget. Sed scelerisque justo a tincidunt tincidunt. Aliquam ut pharetra nunc, eu iaculis purus. Cras efficitur neque ac enim sagittis, eget dictum urna rhoncus. Vivamus nec elementum lorem, et facilisis lorem. Sed consequat nulla a semper aliquet. Sed eget justo eget quam euismod eleifend eu vitae est.\n",
+    "services": "Services"
+  }
+  ,
+  {
+    "_id": 8,
+    "visibility": true,
+    "contractType": "rent",
+    "propertyType": "living estate",
+    "realEstateType": "apart",
+    "city": "55555Київ",
+    "address": "вулиця Пушкінська, 9a",
+    "station": "Metro HTZ",
+    "price": "21000",
+    "info": [
+      {
+        "title": "Rent",
+        "value": "1m"
+      }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec velit metus. Nulla facilisi. Sed eu nisi gravida, venenatis quam nec, fringilla mi. Fusce convallis auctor orci, eget feugiat risus. Vestibulum sit amet eleifend lorem. Integer nec risus feugiat, commodo neque a, rhoncus quam. Nullam vehicula velit at quam blandit, ut placerat massa rhoncus. Sed semper venenatis dolor, vel eleifend lacus blandit eget. Sed scelerisque justo a tincidunt tincidunt. Aliquam ut pharetra nunc, eu iaculis purus. Cras efficitur neque ac enim sagittis, eget dictum urna rhoncus. Vivamus nec elementum lorem, et facilisis lorem. Sed consequat nulla a semper aliquet. Sed eget justo eget quam euismod eleifend eu vitae est.\n",
+    "services": "Services"
+  }
+  ,
+  {
+    "_id": 9,
+    "visibility": true,
+    "contractType": "rent",
+    "propertyType": "living estate",
+    "realEstateType": "apart",
+    "city": "55555Київ",
+    "address": "вулиця Пушкінська, 9a",
+    "station": "Metro HTZ",
+    "price": "21000",
+    "info": [
+      {
+        "title": "Rent",
+        "value": "1m"
+      }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec velit metus. Nulla facilisi. Sed eu nisi gravida, venenatis quam nec, fringilla mi. Fusce convallis auctor orci, eget feugiat risus. Vestibulum sit amet eleifend lorem. Integer nec risus feugiat, commodo neque a, rhoncus quam. Nullam vehicula velit at quam blandit, ut placerat massa rhoncus. Sed semper venenatis dolor, vel eleifend lacus blandit eget. Sed scelerisque justo a tincidunt tincidunt. Aliquam ut pharetra nunc, eu iaculis purus. Cras efficitur neque ac enim sagittis, eget dictum urna rhoncus. Vivamus nec elementum lorem, et facilisis lorem. Sed consequat nulla a semper aliquet. Sed eget justo eget quam euismod eleifend eu vitae est.\n",
+    "services": "Services"
+  }
+  ,
+  {
+    "_id": 10,
+    "visibility": true,
+    "contractType": "rent",
+    "propertyType": "living estate",
+    "realEstateType": "apart",
+    "city": "55555Київ",
+    "address": "вулиця Пушкінська, 9a",
+    "station": "Metro HTZ",
+    "price": "21000",
+    "info": [
+      {
+        "title": "Rent",
+        "value": "1m"
+      }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec velit metus. Nulla facilisi. Sed eu nisi gravida, venenatis quam nec, fringilla mi. Fusce convallis auctor orci, eget feugiat risus. Vestibulum sit amet eleifend lorem. Integer nec risus feugiat, commodo neque a, rhoncus quam. Nullam vehicula velit at quam blandit, ut placerat massa rhoncus. Sed semper venenatis dolor, vel eleifend lacus blandit eget. Sed scelerisque justo a tincidunt tincidunt. Aliquam ut pharetra nunc, eu iaculis purus. Cras efficitur neque ac enim sagittis, eget dictum urna rhoncus. Vivamus nec elementum lorem, et facilisis lorem. Sed consequat nulla a semper aliquet. Sed eget justo eget quam euismod eleifend eu vitae est.\n",
+    "services": "Services"
+  }
+  ,
+  {
+    "_id": 11,
+    "visibility": true,
+    "contractType": "rent",
+    "propertyType": "living estate",
+    "realEstateType": "apart",
+    "city": "55555Київ",
+    "address": "вулиця Пушкінська, 9a",
+    "station": "Metro HTZ",
+    "price": "21020",
     "info": [
       {
         "title": "Rent",
