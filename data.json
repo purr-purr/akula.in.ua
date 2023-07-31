@@ -8,7 +8,7 @@
     "city": "Київ",
     "address": "вулиця Пушкінська, 9a",
     "station": "Metro HTZ",
-    "price": "2000$",
+    "price": "1000",
     "info": [
       {
         "title": "Rent",
@@ -27,7 +27,7 @@
     "city": "Київ",
     "address": "вулиця Пушкінська, 9a",
     "station": "Metro HTZ",
-    "price": "2000$",
+    "price": "2300",
     "info": [
       {
         "title": "Rent",
@@ -46,7 +46,7 @@
     "city": "Київ",
     "address": "вулиця Пушкінська, 9a",
     "station": "Metro HTZ",
-    "price": "2000$",
+    "price": "20550",
     "info": [
       {
         "title": "Rent",
@@ -65,7 +65,7 @@
     "city": "Київ",
     "address": "вулиця Пушкінська, 9a",
     "station": "Metro HTZ",
-    "price": "2000$",
+    "price": "2000",
     "info": [
       {
         "title": "Rent",
@@ -84,7 +84,7 @@
     "city": "Київ",
     "address": "вулиця Пушкінська, 9a",
     "station": "Metro HTZ",
-    "price": "2000$",
+    "price": "2100",
     "info": [
       {
         "title": "Rent",
@@ -99,11 +99,11 @@
     "visibility": true,
     "contractType": "rent",
     "propertyType": "living estate",
-    "realEstateType": "house",
+    "realEstateType": "apart",
     "city": "55555Київ",
     "address": "вулиця Пушкінська, 9a",
     "station": "Metro HTZ",
-    "price": "21000$",
+    "price": "21000",
     "info": [
       {
         "title": "Rent",
