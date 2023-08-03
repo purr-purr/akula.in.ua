@@ -1,13 +1,12 @@
 import {FC, useEffect, useState} from 'react';
 
-// import DATA from '@data/data.json';
-import s from './Pagination.module.scss';
+import s from './CatalogPagination.module.scss';
 
 import type {ICatalogItemData} from '@modules/common/types';
 import {useDataFetching} from "@modules/common/hooks";
 
 
-const Pagination: FC<{
+const CatalogPagination: FC<{
 	onPaginationSorting: (arg0: ICatalogItemData[]) => void;
 }> = ({onPaginationSorting}) => {
 	const {dataList, loading} = useDataFetching();
@@ -59,4 +58,4 @@ const Pagination: FC<{
 	) : null;
 };
 
-export default Pagination;
+export default CatalogPagination;

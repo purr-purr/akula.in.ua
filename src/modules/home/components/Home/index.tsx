@@ -2,6 +2,7 @@ import {useTranslation} from 'react-i18next';
 
 import Feedback from '@modules/common/components/Feedback';
 import Meta from '@modules/common/components/Meta';
+import Filter from "@modules/common/components/Filter";
 
 const Home = () => {
 	const {t, i18n} = useTranslation('common');
@@ -11,6 +12,7 @@ const Home = () => {
 			<h1>{t('home')}</h1>
 			<br/>
 			current language is: {i18n.language}
+			<Filter/>
 			<Feedback/>
 		</>
 	);

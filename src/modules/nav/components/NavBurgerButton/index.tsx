@@ -1,9 +1,9 @@
-import { useContext } from 'react';
+import {useContext} from 'react';
 
-import AppContext from '@modules/layout/context';
+import {HeaderContext} from '@modules/layout/context/HeaderContext';
 
 const NavBurgerButton = () => {
-	const { handleMobileNavMode, isMobileNavMode } = useContext(AppContext);
+	const {handleMobileNavMode, isMobileNavMode} = useContext(HeaderContext);
 
 	return (
 		<button onClick={() => handleMobileNavMode(!isMobileNavMode)}>

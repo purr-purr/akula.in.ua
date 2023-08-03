@@ -33,7 +33,7 @@ const CatalogPage: FC = memo(() => {
 		city: '',
 		address: '',
 		station: '',
-		price: '',
+		price: 0,
 		info: [{title: '', value: ''}],
 		description: '',
 		services: '',

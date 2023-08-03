@@ -1,13 +1,13 @@
-import { FC } from 'react';
+import {FC} from 'react';
 
 import s from './CatalogPageHeader.module.scss';
 
 const CatalogPageHeader: FC<{
 	city: string;
 	address: string;
-	price: string;
+	price: number;
 	tags: string[];
-}> = ({ city, address, price, tags }) => {
+}> = ({city, address, price, tags}) => {
 	return (
 		<article className={s.container}>
 			<div className={s.heading}>

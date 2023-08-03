@@ -7,8 +7,8 @@ export interface ICatalogItemData {
 	city: string;
 	address: string;
 	station?: string;
-	price: string;
+	price: number;
 	info: { title: string; value: string }[];
 	description: string;
-	services: string;
+	services?: string;
 }

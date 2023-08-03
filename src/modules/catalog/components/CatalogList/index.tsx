@@ -1,16 +1,14 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
 import CatalogCard from '@modules/catalog/components/CatalogCard';
-import Pagination from '@modules/common/components/Pagination';
+import CatalogPagination from '@modules/catalog/components/CatalogPagination';
 
 import s from './CatalogList.module.scss';
 
-import { ICatalogItemData } from '@modules/common/types';
+import type {ICatalogItemData} from '@modules/common/types';
 
 const CatalogList = () => {
-	const [paginationSortedData, setPaginationSortedData] = useState<
-		ICatalogItemData[]
-	>([]);
+	const [paginationSortedData, setPaginationSortedData] = useState<ICatalogItemData[]>([]);
 
 	const handlePaginationSorting = (value: ICatalogItemData[]) => {
 		setPaginationSortedData(value);
@@ -20,10 +18,10 @@ const CatalogList = () => {
 		<>
 			<ul className={s.container}>
 				{paginationSortedData.map((item: ICatalogItemData) => (
-					<CatalogCard key={item._id} props={item} />
+					<CatalogCard key={item._id} props={item}/>
 				))}
 			</ul>
-			<Pagination onPaginationSorting={handlePaginationSorting} />
+			<CatalogPagination onPaginationSorting={handlePaginationSorting}/>
 		</>
 	);
 };
