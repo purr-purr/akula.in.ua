@@ -1,4 +1,5 @@
 const express = require('express');
+const mysql = require('mysql');
 const fs = require('fs');
 const path = require('path');
 const app = express();
@@ -21,6 +22,23 @@ app.get('/filenames/:folderName', (req, res) => {
 			return res.status(500).json({error: 'Error reading folder'});
 		}
 		res.json(files);
+	});
+});
+
+const db = mysql.createConnection({
+	host: '31.222.235.16',
+	user: 'admin_db_test',
+	password: '0AvplAzDdI]f',
+	database: 'admin_catalog',
+});
+
+db.connect();
+
+app.get('/data', (req, res) => {
+	const query = 'SELECT * FROM real_estate';
+	db.query(query, (error, results) => {
+		if (error) throw error;
+		res.json(results);
 	});
 });
 

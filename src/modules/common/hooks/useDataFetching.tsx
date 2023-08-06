@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 
 import axios from 'axios';
 
-import {ICatalogItemData} from '@modules/common/types';
+import type {ICatalogItemData} from '@modules/common/types';
 import {DATA_FILE} from "@utils/const";
 
 const useDataFetching = () => {
