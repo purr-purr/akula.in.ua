@@ -1,9 +1,9 @@
 .container {
   flex-shrink: 0;
-  background-color: #999;
+  background-color: var(--blue);
   margin-top: 20px;
 }
 
 .inner {
-  height: 206px;
+  height: 90px;
 }

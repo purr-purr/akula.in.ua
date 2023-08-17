@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Button from '@modules/common/components/Button';
+import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
+
 import s from './NavContacts.module.scss';
 import MAP from '/public/assets/map-icon.svg';
 import PHONE from '/public/assets/phone-icon.svg';
@@ -19,13 +22,15 @@ const NavContacts = () => {
 	return (
 		<article className={s.container}>
 			{contactsList.map((item) => (
-				<Link key={item.url} href={'/'}>
+				<Link className={s.icon} key={item.url} href={'/'}>
 					<Image src={item.icon} alt="ALT" />
 				</Link>
 			))}
 
-			<button>Знайти нерухомість</button>
-			<button>Залишити заявку</button>
+			<SelectChangeLanguage />
+
+			<Button type="link" color="transparent" text="Знайти нерухомість" />
+			<Button text="Залишити заявку" />
 		</article>
 	);
 };

@@ -1,8 +1,12 @@
-$mobile-bp: 1024px;
+@import "mixins";
 
 :root {
-  --main-bg: #F9F9F9;
-  --main-black: #1C1C1C;
+  --white: #fff;
+  --dark: #222;
+  --primary: #FFA700;
+  --gray: #575757;
+  --blue: #2B5865;
+  --nude: #F0EDE8;
 }
 
 * {
@@ -11,8 +15,8 @@ $mobile-bp: 1024px;
   margin: 0;
 
   &::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 8px;
+    height: 8px;
   }
 
   &::-webkit-scrollbar-button {
@@ -21,12 +25,12 @@ $mobile-bp: 1024px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--main-bg);
+    background-color: var(--primary);
     border-radius: 50px;
   }
 
   &::-webkit-scrollbar-track-piece {
-    background-color: var(--main-black);
+    background-color: var(--white);
   }
 }
 
@@ -39,12 +43,12 @@ html {
 html,
 body {
   height: 100%;
-  background-color: var(--main-bg);
+  background-color: var(--white);
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  color: var(--main-black);
+  color: var(--dark);
 }
 
 a {
@@ -61,17 +65,17 @@ p {
   font-size: 16px;
   line-height: 20px;
 
-  @media (max-width: $mobile-bp) {
+  @include media-mobile {
     font-size: 14px;
     line-height: 17px;
   }
 }
 
 .layout-container {
-  max-width: 1540px;
+  max-width: 1500px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
 }

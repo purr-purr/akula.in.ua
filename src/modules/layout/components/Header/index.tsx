@@ -1,11 +1,10 @@
+import cn from 'classnames';
+
 import Logo from '@modules/common/components/Logo';
-import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
+import { useMediaQuery } from '@modules/common/hooks';
 import Nav from '@modules/nav/components/Nav';
 import NavButton from '@modules/nav/components/NavBurgerButton';
 import NavContacts from '@modules/nav/components/NavContacts';
-import cn from 'classnames';
-
-import { useMediaQuery } from '@modules/common/hooks';
 
 import { MOBILE_BREAKPOINT } from '@utils/const';
 
@@ -20,7 +19,6 @@ const Header = () => {
 				<Logo />
 				<Nav />
 				<NavContacts />
-				<SelectChangeLanguage />
 				{isMobile && <NavButton />}
 			</section>
 		</header>

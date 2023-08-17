@@ -1,30 +1,27 @@
-import {type ReactNode} from 'react';
+import { type ReactNode } from 'react';
+import cn from 'classnames';
 
 import Footer from '@modules/layout/components/Footer';
 import Header from '@modules/layout/components/Header';
-import {HeaderContextWrapper} from '@modules/layout/context/HeaderContext';
-import cn from 'classnames';
+import { CatalogContextWrapper } from '@modules/layout/context/CatalogContext';
+import { HeaderContextWrapper } from '@modules/layout/context/HeaderContext';
 
 import s from './Layout.module.scss';
-import {CatalogContextWrapper} from "@modules/layout/context/CatalogContext";
 
 interface IChildrenProps {
 	children: ReactNode;
 }
 
-const Layout = ({children}: IChildrenProps) => {
+const Layout = ({ children }: IChildrenProps) => {
 	return (
 		<main className={s.container}>
 			<HeaderContextWrapper>
-				<Header/>
+				<Header />
 			</HeaderContextWrapper>
-			<section
-				className={cn('layout-container', s.content)}>
-				<CatalogContextWrapper>
-					{children}
-				</CatalogContextWrapper>
+			<section className={cn('layout-container', s.content)}>
+				<CatalogContextWrapper>{children}</CatalogContextWrapper>
 			</section>
-			<Footer/>
+			<Footer />
 		</main>
 	);
 };

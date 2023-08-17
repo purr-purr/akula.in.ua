@@ -23,12 +23,6 @@
       "@modules/*": [
         "./src/modules/*"
       ],
-      "@data/*": [
-        "./src/data/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
       "@utils/*": [
         "./src/utils/*"
       ],

@@ -10,7 +10,8 @@ const CatalogPageAddress: FC<{ address: string; station?: string }> = ({
 	station,
 }) => {
 	const { i18n } = useTranslation();
-	const lang = i18n.language === 'ua' ? 'uk' : i18n.language;
+	const changedLangCode = i18n.language === 'ua' ? 'uk' : i18n.language;
+	const lang = changedLangCode ? changedLangCode : 'en';
 	const encodedAddress = encodeURIComponent(address);
 	const embeddedMapURL = `https://www.google.com/maps/embed/v1/place?q=${encodedAddress}&key=${GOOGLE_MAPS_API_KEY}&language=${lang}`;
 

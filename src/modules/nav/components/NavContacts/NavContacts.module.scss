@@ -1,5 +1,14 @@
 .container {
-  display: flex;
-  gap: 10px;
+  @include flex-align(center);
+  gap: 24px;
   margin-left: auto;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  &:nth-child(1) {
+    margin-right: 12px;
+  }
 }

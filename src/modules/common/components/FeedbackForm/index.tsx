@@ -1,17 +1,15 @@
-import {
-	FC,
-	useEffect,
-	useState,
-	type ChangeEvent,
-	type FormEvent,
-} from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import {TG_BOT_TOKEN, TG_CHAT_ID_LIST} from '@utils/const';
+import { TG_BOT_TOKEN, TG_CHAT_ID_LIST } from '@utils/const';
+
+import type { ChangeEvent, FormEvent } from 'react';
 
 import s from './FeedbackForm.module.scss';
 
-const FeedbackForm: FC<{ messageText?: string }> = ({ messageText = 'DefaultText' }) => {
+const FeedbackForm: FC<{ messageText?: string }> = ({
+	messageText = 'DefaultText',
+}) => {
 	const { t } = useTranslation('common');
 	const initFormData = {
 		name: '',

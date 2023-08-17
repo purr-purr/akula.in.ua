@@ -3,7 +3,7 @@
   margin-left: 67px;
   gap: 30px;
 
-  @include media-tablet {
+  @include media-mobile {
     display: none;
   }
 

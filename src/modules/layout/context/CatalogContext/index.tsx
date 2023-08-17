@@ -1,4 +1,6 @@
-import {createContext, FC, type ReactNode, useCallback, useState} from 'react';
+import { createContext, FC, useCallback, useState } from 'react';
+
+import type { ReactNode } from 'react';
 
 interface ICatalogContext {
 	isTestMode: boolean;
@@ -7,11 +9,10 @@ interface ICatalogContext {
 
 const CatalogContext = createContext<ICatalogContext>({
 	isTestMode: false,
-	handleTestMode: () => {
-	},
+	handleTestMode: () => {},
 });
 
-const CatalogContextWrapper: FC<{ children: ReactNode }> = ({children}) => {
+const CatalogContextWrapper: FC<{ children: ReactNode }> = ({ children }) => {
 	const [isTestMode, setIsTestMode] = useState<boolean>(false);
 
 	const handleTestMode = useCallback((value: boolean) => {
@@ -23,8 +24,6 @@ const CatalogContextWrapper: FC<{ children: ReactNode }> = ({children}) => {
 		handleTestMode,
 	};
 
-	console.log('catalog', isTestMode);
-
 	return (
 		<CatalogContext.Provider value={catalogContext}>
 			{children}
@@ -32,5 +31,4 @@ const CatalogContextWrapper: FC<{ children: ReactNode }> = ({children}) => {
 	);
 };
 
-export {CatalogContextWrapper, CatalogContext};
-
+export { CatalogContextWrapper, CatalogContext };

@@ -1,13 +1,13 @@
-import {FC, useContext, useState} from 'react';
-
+import { FC, useContext, useState } from 'react';
 import cn from 'classnames';
 
+import { CatalogContext } from '@modules/layout/context/CatalogContext';
+
 import s from './Filter.module.scss';
-import {CatalogContext} from '@modules/layout/context/CatalogContext';
 
 const Filter: FC = () => {
 	const [activeTabIndex, setActiveTabIndex] = useState(0);
-	const {isTestMode, handleTestMode} = useContext(CatalogContext);
+	const { isTestMode, handleTestMode } = useContext(CatalogContext);
 	const handleTabClick = (index: number) => {
 		setActiveTabIndex(index);
 	};
@@ -29,9 +29,7 @@ const Filter: FC = () => {
 		},
 	];
 
-	const handleFormSubmit = () => {
-
-	};
+	const handleFormSubmit = () => {};
 
 	return (
 		<article className={s.container}>

@@ -7,6 +7,8 @@ const port = 5000;
 const isProduction = app.get('env') === 'production';
 const IP = isProduction ? 'http://31.222.235.16:4400' : 'http://localhost:3000';
 
+require('dotenv').config();
+
 app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin', IP);
 	next();
@@ -15,21 +17,21 @@ app.use((req, res, next) => {
 app.get('/filenames/:folderName', (req, res) => {
 	const imagesPath = 'public/assets/property/' + req.params.folderName;
 	const folderPath = path.join(__dirname, imagesPath);
-	
+
 	fs.readdir(folderPath, (err, files) => {
 		if (err) {
 			console.error(err);
-			return res.status(500).json({error: 'Error reading folder'});
+			return res.status(500).json({ error: 'Error reading folder' });
 		}
 		res.json(files);
 	});
 });
 
 const db = mysql.createConnection({
-	host: '31.222.235.16',
-	user: 'admin_db_test',
-	password: '0AvplAzDdI]f',
-	database: 'admin_catalog',
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	database: process.env.DB_TABLE_NAME,
 });
 
 db.connect();

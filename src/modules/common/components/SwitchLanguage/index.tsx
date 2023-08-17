@@ -1,6 +1,7 @@
-import type { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
+
+import type { ChangeEvent } from 'react';
 
 import s from './SwitchLanguage.module.scss';
 

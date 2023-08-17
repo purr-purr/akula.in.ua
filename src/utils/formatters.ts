@@ -1,4 +1,8 @@
-import {APP_META_COMMON_KEYWORDS, APP_META_DESC, APP_TITLE} from '@utils/const';
+import {
+	APP_META_COMMON_KEYWORDS,
+	APP_META_DESC,
+	APP_TITLE,
+} from '@utils/const';
 
 export const formatMetaTitle = (title: string): string =>
 	`${title} ${APP_TITLE}`;
