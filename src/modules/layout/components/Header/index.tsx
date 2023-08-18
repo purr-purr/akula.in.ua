@@ -1,7 +1,7 @@
 import cn from 'classnames';
 
-import Logo from '@modules/common/components/Logo';
 import { useMediaQuery } from '@modules/common/hooks';
+import Logo from '@modules/layout/components/Logo';
 import Nav from '@modules/nav/components/Nav';
 import NavButton from '@modules/nav/components/NavBurgerButton';
 import NavContacts from '@modules/nav/components/NavContacts';

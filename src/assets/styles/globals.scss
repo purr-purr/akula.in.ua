@@ -79,3 +79,17 @@ p {
   padding-left: 40px;
   padding-right: 40px;
 }
+
+.svg-icon {
+  path {
+    transition: fill .3s ease-in-out;
+  }
+
+  &:hover {
+    path {
+      fill: var(--primary);
+      transition: fill .3s ease-in-out;
+    }
+  }
+}
+

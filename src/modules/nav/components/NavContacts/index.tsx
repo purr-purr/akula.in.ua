@@ -1,36 +1,30 @@
-import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
-import Button from '@modules/common/components/Button';
-import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
+import IconMap from '@modules/icons/components/IconMap';
+import IconPhone from '@modules/icons/components/IconPhone';
+import Button from '@modules/layout/components/Button';
+import SelectChangeLanguage from '@modules/layout/components/SwitchLanguage';
 
 import s from './NavContacts.module.scss';
-import MAP from '/public/assets/map-icon.svg';
-import PHONE from '/public/assets/phone-icon.svg';
 
 const NavContacts = () => {
-	const contactsList = [
-		{
-			url: '1',
-			icon: PHONE,
-		},
-		{
-			url: '2',
-			icon: MAP,
-		},
-	];
+	const { t } = useTranslation('common');
+
 	return (
 		<article className={s.container}>
-			{contactsList.map((item) => (
-				<Link className={s.icon} key={item.url} href={'/'}>
-					<Image src={item.icon} alt="ALT" />
-				</Link>
-			))}
+			<Link className={s.icon} href={'tel:/'}>
+				<IconPhone />
+			</Link>
+
+			<Link className={s.icon} href={'/'}>
+				<IconMap />
+			</Link>
 
 			<SelectChangeLanguage />
 
-			<Button type="link" color="transparent" text="Знайти нерухомість" />
-			<Button text="Залишити заявку" />
+			<Button type="link" color="transparent" text={t('find-real-estate')} />
+			<Button text={t('leave-a-request')} />
 		</article>
 	);
 };

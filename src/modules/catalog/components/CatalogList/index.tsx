@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import CatalogCard from '@modules/catalog/components/CatalogCard';
 import CatalogPagination from '@modules/catalog/components/CatalogPagination';
+import Loader from '@modules/layout/components/Loader';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -19,9 +20,13 @@ const CatalogList = () => {
 	return (
 		<>
 			<ul className={s.container}>
-				{paginationSortedData.map((item: ICatalogData) => (
-					<CatalogCard key={item.id} props={item} />
-				))}
+				{paginationSortedData.length !== 0 ? (
+					paginationSortedData.map((item: ICatalogData) => (
+						<CatalogCard key={item.id} props={item} />
+					))
+				) : (
+					<Loader />
+				)}
 			</ul>
 			<CatalogPagination onPaginationSorting={handlePaginationSorting} />
 		</>

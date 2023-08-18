@@ -48,8 +48,8 @@ const useDataFetching = () => {
 			return newObj;
 		});
 
-		// setLoading(false);
 		setData(result);
+		setLoading(false);
 	};
 
 	return {

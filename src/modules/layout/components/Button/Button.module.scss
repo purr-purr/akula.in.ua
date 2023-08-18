@@ -1,0 +1,49 @@
+.container {
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 500;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  transition: all 0.4s ease-in-out;
+
+  &.primary {
+    border-color: var(--primary);
+    color: var(--dark);
+    background: linear-gradient(to right, var(--primary) 0%, #FFD952 100%);
+    background-size: 200% 200%;
+
+    &:hover {
+      border-color: #FFD952;
+      box-shadow: 0 4px 14px 0 rgba(255, 167, 0, 0.38);
+      animation: gradientAnimation .4s forwards;
+      transition: all .4s ease-in-out;
+    }
+  }
+
+  &.transparent {
+    color: var(--gray);
+    border-color: var(--nude);
+    background-color: transparent;
+
+    &:hover {
+      color: var(--dark);
+      border-color: transparent;
+      box-shadow: 0 4px 12px 0 rgba(175, 175, 175, 0.25);
+      transition: all .4s ease-in-out;
+    }
+  }
+}
+
+.link {
+}
+
+.button {
+}
+
+@keyframes gradientAnimation {
+  to {
+    background-position: 99% 50%;
+  }
+}

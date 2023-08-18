@@ -9,6 +9,7 @@ import CatalogPageHeader from '@modules/catalogPage/components/CatalogPageHeader
 import Feedback from '@modules/common/components/Feedback';
 import Meta from '@modules/common/components/Meta';
 import { useDataFetching } from '@modules/common/hooks';
+import Loader from '@modules/layout/components/Loader';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -47,7 +48,7 @@ const CatalogPage: FC = memo(() => {
 	const tags = [property_type, real_estate_type];
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return <Loader />;
 	}
 
 	return (
