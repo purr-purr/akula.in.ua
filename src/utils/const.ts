@@ -3,7 +3,7 @@ export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 // APP
 export const APP_LINK: string = 'https://akula.in.ua/';
-export const APP_TITLE: string = 'Title';
+export const APP_TITLE: string = 'Akula Development Partner';
 export const APP_AUTHOR: string = 'Anton Shaposhnikov';
 export const APP_AUTHOR_SIGNATURE: string = '=> shaposhnikov.in';
 export const APP_CATALOG_NAME: string = 'catalog';

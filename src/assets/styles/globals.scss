@@ -6,6 +6,7 @@
   --primary: #FFA700;
   --gray: #575757;
   --blue: #2B5865;
+  --secondary-blue: #8FBDC2;
   --nude: #F0EDE8;
 }
 
@@ -63,12 +64,17 @@ button {
 
 p {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 1.2;
 
   @include media-mobile {
     font-size: 14px;
-    line-height: 17px;
   }
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .layout-container {

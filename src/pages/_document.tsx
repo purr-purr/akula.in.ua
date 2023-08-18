@@ -1,9 +1,8 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
-import { GA_TRACKING_ID } from '@utils/const';
+import { GA_TRACKING_ID, IS_PRODUCTION } from '@utils/const';
 
 export default function Document() {
-	const isProduction = process.env.NODE_ENV === 'production';
 	return (
 		<Html lang="en">
 			<Head>
@@ -14,10 +13,10 @@ export default function Document() {
 					crossOrigin="true"
 				/>
 				<link
-					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@700&display=swap"
 					rel="stylesheet"
 				/>
-				{isProduction && (
+				{IS_PRODUCTION && (
 					<>
 						<script
 							async
