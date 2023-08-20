@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const port = 5000;
 const isProduction = app.get('env') === 'production';
-const IP = isProduction ? 'http://akula.in.ua' : 'http://localhost:3000';
+const IP = isProduction ? 'http://31.222.235.16' : 'http://localhost:3000';
 
 require('dotenv').config();
 
