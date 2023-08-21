@@ -18,7 +18,7 @@ export const GOOGLE_MAPS_API_KEY: string | undefined =
 
 // BACKEND
 export const BACKEND_LOCALHOST: string = IS_PRODUCTION
-	? 'https://akula.in.ua:5000'
+	? 'http://31.222.235.16:5000'
 	: 'http://localhost:5000';
 
 // TG BOT
