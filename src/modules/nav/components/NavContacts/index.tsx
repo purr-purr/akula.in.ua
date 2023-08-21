@@ -6,6 +6,8 @@ import IconPhone from '@modules/icons/components/IconPhone';
 import Button from '@modules/layout/components/Button';
 import SelectChangeLanguage from '@modules/layout/components/SwitchLanguage';
 
+import { APP_CATALOG_NAME } from '@utils/const';
+
 import s from './NavContacts.module.scss';
 
 const NavContacts = () => {
@@ -23,7 +25,12 @@ const NavContacts = () => {
 
 			<SelectChangeLanguage />
 
-			<Button type="link" color="transparent" text={t('find-real-estate')} />
+			<Button
+				type="link"
+				linkPath={`/${APP_CATALOG_NAME}`}
+				color="transparent"
+				text={t('find-real-estate')}
+			/>
 			<Button text={t('leave-a-request')} />
 		</article>
 	);

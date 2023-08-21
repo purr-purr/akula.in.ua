@@ -9,13 +9,13 @@
   width: 100%;
   background-color: transparent;
   border: none;
-  font-size: 14px;
-  line-height: 17px;
-  font-weight: 500;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
   color: var(--gray);
   padding: 4px 2px;
   transition: color .3s ease-in-out;
-  
+
   &:hover {
     color: var(--primary);
     transition: color .3s ease-in-out;
@@ -49,12 +49,16 @@
     line-height: 17px;
 
     &:hover {
-      color: var(--gray);
+      color: var(--primary);
     }
   }
 }
 
 .disabled {
   pointer-events: none;
+  opacity: .5;
+}
+
+.current {
   color: var(--primary);
 }

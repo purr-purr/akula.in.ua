@@ -1,11 +1,17 @@
 import { FC, useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
+import Button from '@modules/layout/components/Button';
+import Select from '@modules/layout/components/Select';
 import { CatalogContext } from '@modules/layout/context/CatalogContext';
+
+import type { FormEvent } from 'react';
 
 import s from './Filter.module.scss';
 
 const Filter: FC = () => {
+	const { t } = useTranslation('common');
 	const [activeTabIndex, setActiveTabIndex] = useState(0);
 	const { isTestMode, handleTestMode } = useContext(CatalogContext);
 	const handleTabClick = (index: number) => {
@@ -29,11 +35,13 @@ const Filter: FC = () => {
 		},
 	];
 
-	const handleFormSubmit = () => {};
+	const handleFormSubmit = (event: FormEvent) => {
+		event.preventDefault();
+	};
 
 	return (
 		<article className={s.container}>
-			<div className={s.navigation}>
+			<div className={s.tabs}>
 				{tabs.map((tab, index) => (
 					<button
 						key={index}
@@ -46,16 +54,9 @@ const Filter: FC = () => {
 			</div>
 			<form className={s.form} onSubmit={handleFormSubmit}>
 				{MOCK_FILTERS_LIST.map((item) => (
-					<label key={item.category}>
-						<select>
-							{item.list.map((item) => (
-								<option key={item}>{item}</option>
-							))}
-						</select>
-					</label>
+					<Select key={item.category} label={item.category} options={item.list} />
 				))}
-				<button type="submit">Search</button>
-				<div onClick={() => handleTestMode(!isTestMode)}>test</div>
+				<Button text={t('find-real-estate')} />
 			</form>
 		</article>
 	);

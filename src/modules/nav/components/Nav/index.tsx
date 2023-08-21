@@ -1,4 +1,6 @@
 import { useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 import cn from 'classnames';
 
 import { useMediaQuery } from '@modules/common/hooks';
@@ -15,6 +17,8 @@ import s from './Nav.module.scss';
 const Nav = () => {
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 	const { isMobileNavMode, handleMobileNavMode } = useContext(HeaderContext);
+	const { t } = useTranslation('common');
+	const { pathname } = useRouter();
 
 	useEffect(() => {
 		const element = document.querySelector('html');
@@ -32,7 +36,12 @@ const Nav = () => {
 	return (
 		<nav className={cn(s.container, isMobileNavMode && s.active)}>
 			{NAVIGATION.map((item: INavigation) => (
-				<NavItem key={item.path} title={item.title} path={item.path} />
+				<NavItem
+					isActive={item.path === pathname}
+					key={item.path}
+					title={t(`navigation.${item.title}`)}
+					path={item.path}
+				/>
 			))}
 		</nav>
 	);

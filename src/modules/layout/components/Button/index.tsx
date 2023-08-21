@@ -17,7 +17,7 @@ const Button: FC<{
 	onClick,
 	color = 'primary',
 }) => {
-	const classNameList = cn(s.container, s[type], s[color]);
+	const classNameList = cn(s.container, s[color]);
 
 	return type === 'link' ? (
 		<Link className={classNameList} href={linkPath} onClick={onClick}>

@@ -3,9 +3,9 @@
   font-size: 14px;
   line-height: 17px;
   color: var(--gray);
-  position: relative;
   padding-top: 4px;
   padding-bottom: 4px;
+  position: relative;
 
   &:after {
     content: '';
@@ -24,4 +24,11 @@
       transition: width .4s ease-in-out;
     }
   }
+
+  &.active:after {
+    width: 100%;
+    transition: width .4s ease-in-out;
+  }
 }
+
+

@@ -6,6 +6,9 @@
   border-radius: 8px;
   border-width: 1px;
   border-style: solid;
+  min-width: 161px;
+  text-align: center;
+  white-space: nowrap;
   transition: all 0.4s ease-in-out;
 
   &.primary {
@@ -25,7 +28,7 @@
   &.transparent {
     color: var(--gray);
     border-color: var(--nude);
-    background-color: transparent;
+    background-color: var(--white);
 
     &:hover {
       color: var(--dark);
@@ -34,12 +37,6 @@
       transition: all .4s ease-in-out;
     }
   }
-}
-
-.link {
-}
-
-.button {
 }
 
 @keyframes gradientAnimation {

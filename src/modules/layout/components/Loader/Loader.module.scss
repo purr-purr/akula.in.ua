@@ -1,0 +1,26 @@
+.container {
+  img, p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img {
+    display: block;
+    animation: rotate 20s linear infinite;
+  }
+
+  p {
+    margin-top: 20px;
+    width: fit-content;
+    color: var(--gray);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

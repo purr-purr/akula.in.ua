@@ -5,7 +5,7 @@ import {
 } from '@utils/const';
 
 export const formatMetaTitle = (title: string): string =>
-	`${title} ${APP_TITLE}`;
+	`${title} | ${APP_TITLE}`;
 
 export const formatMetaDesc = (title: string | string[]): string => {
 	if (typeof title !== 'string') {

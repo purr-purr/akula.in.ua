@@ -1,4 +1,11 @@
 {
-  "home": "Home page",
-  "street": "Street"
+  "intro": {
+    "we-will-find": "We will find the perfect property for you",
+    "your-reliable-assistant": "Akula Development Partner – is your reliable assistant in the world of real estate. We are ready to offer you the best solutions and long-term cooperation, based on our professionalism and competence.",
+    "m2-under-the-management": "m2 under the management of the company",
+    "objects-under-the-management": "objects under the management of the company",
+    "tenants": "tenants",
+    "": "",
+    "": ""
+  }
 }

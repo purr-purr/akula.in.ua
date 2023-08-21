@@ -2,5 +2,13 @@
   "home": "Домашня сторінка",
   "street": "Вулиця",
   "find-real-estate": "Знайти нерухомість",
-  "leave-a-request": "Залишити заявку"
+  "leave-a-request": "Залишити заявку",
+  "loading": "Завантаження...",
+  "building": "Будівля",
+  "navigation": {
+    "main": "Головна",
+    "all-real-estate": "Вся нерухомість",
+    "services": "Послуги"
+  },
+  "x": ""
 }

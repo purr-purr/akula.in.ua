@@ -1,6 +1,14 @@
 {
   "home": "Home page",
+  "street": "Street",
   "find-real-estate": "Find real estate",
   "leave-a-request": "Leave a request",
-  "street": "Street"
+  "loading": "Loading...",
+  "building": "Building",
+  "navigation": {
+    "main": "Home",
+    "all-real-estate": "All real estate",
+    "services": "Services"
+  },
+  "x": ""
 }

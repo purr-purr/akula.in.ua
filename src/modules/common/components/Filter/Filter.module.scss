@@ -1,33 +1,30 @@
 .container {
-  max-width: 1116px;
-  width: 100%;
-  border: 1px solid #333;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-  padding: 10px;
+  margin-top: 48px;
+  padding: 34px 10px;
+  border-radius: 0 25px 25px 25px;
+  background: var(--white);
+  box-shadow: 0 4px 12px 0 rgba(175, 175, 175, 0.25);
 }
 
-.navigation {
+.tabs {
   @include flex-justify-align(center, center);
-  margin-bottom: 20px;
 }
 
 .tab {
-  height: 30px;
-  width: 130px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--gray);
+  padding: 12px;
+
+  background-color: transparent;
+  border: none;
 
   &.active {
-    font-weight: bold;
+    color: var(--primary);
   }
 }
 
 .form {
-  @include flex-align(center);
-  gap: 10px;
-
-  select, button, label {
-    height: 30px;
-    width: 130px;
-  }
+  @include flex-justify-align(center, flex-end);
+  gap: 46px;
 }

@@ -10,18 +10,19 @@ const Dropdown: FC<{
 	disabledItem?: string;
 	onClick?: (item: string) => void;
 	customSelectedItem?: string;
-}> = ({ options, disabledItem, onClick, customSelectedItem }) => {
+	className?: string;
+}> = ({ options, disabledItem, onClick, customSelectedItem, className }) => {
 	const [isDropdown, setIsDropdown] = useState(false);
 	const [selectedItem, setSelectedItem] = useState<string | undefined>(
 		options[0],
 	);
 
-	const handleItemClick = (selectedItem: string) => {
-		setSelectedItem(selectedItem);
-		setIsDropdown(false);
-		onClick && onClick(selectedItem);
-	};
 	const targetRef = useRef<HTMLDivElement | null>(null);
+
+	const handleItemClick = (selectedItem: string) => {
+		onClick && onClick(selectedItem);
+		setSelectedItem(selectedItem);
+	};
 
 	const handleClickOutside = (event: MouseEvent) => {
 		if (targetRef.current && !targetRef.current.contains(event.target as Node)) {
@@ -36,20 +37,28 @@ const Dropdown: FC<{
 		};
 	}, []);
 
+	useEffect(() => {
+		setIsDropdown(false);
+	}, [selectedItem]);
+
 	return (
-		<div className={s.container} ref={targetRef}>
+		<div className={cn(s.container, className && className)} ref={targetRef}>
 			<button
 				onClick={() => setIsDropdown(!isDropdown)}
 				className={cn(s.selected, isDropdown && s.active)}
 			>
-				{customSelectedItem ? customSelectedItem : selectedItem}
+				{customSelectedItem || selectedItem}
 				<IconArrow />
 			</button>
 			{isDropdown && (
 				<ul className={s.list}>
 					{options.map((item) => (
 						<li
-							className={cn(s[`list-item`], disabledItem === item && s.disabled)}
+							className={cn(
+								s[`list-item`],
+								disabledItem === item && s.disabled,
+								customSelectedItem || (selectedItem === item && s.current),
+							)}
 							key={item}
 							onClick={() => handleItemClick(item)}
 						>

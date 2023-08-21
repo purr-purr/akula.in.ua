@@ -17,9 +17,8 @@
 }
 
 .list {
-  //@include flex-align(center);
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 200px 1fr max(150px);
   list-style-type: none;
 
   & li {
@@ -32,8 +31,6 @@
       position: relative;
       padding-left: 50px;
       padding-right: 50px;
-      max-width: 210px;
-      width: 100%;
 
       &:after, &:before {
         content: '';
@@ -41,6 +38,7 @@
         top: 0;
         width: 2px;
         height: 100%;
+        border-radius: 10px;
         background-color: var(--primary);
       }
 
@@ -76,21 +74,10 @@
 
 .posters {
   min-width: 700px;
-
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 340px 340px 340px;
-  list-style-type: none;
-
-  & li {
-    overflow: hidden;
-    background-color: #2B5865;
-
-    img {
-      object-fit: cover;
-      height: 100%;
-    }
-  }
+  position: relative;
 
   & .first {
     grid-column: 1 / 2;
@@ -118,3 +105,8 @@
   }
 }
 
+.loader {
+  position: absolute;
+  left: -65px;
+  top: 29px;
+}
