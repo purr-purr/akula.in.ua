@@ -39,7 +39,7 @@ const Nav = () => {
 				<NavItem
 					isActive={item.path === pathname}
 					key={item.path}
-					title={t(`navigation.${item.title}`)}
+					title={t(`NAVIGATION.${item.title}`)}
 					path={item.path}
 				/>
 			))}

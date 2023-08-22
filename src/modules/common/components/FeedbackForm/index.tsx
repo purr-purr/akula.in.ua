@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import Button from '@modules/layout/components/Button';
+
 import { TG_BOT_TOKEN, TG_CHAT_ID_LIST } from '@utils/const';
 
 import type { ChangeEvent, FormEvent } from 'react';
@@ -71,8 +73,8 @@ const FeedbackForm: FC<{ messageText?: string }> = ({
 			</label>
 			<label>
 				<input
-					type="email"
-					name="email"
+					type="tel"
+					name="tel"
 					placeholder="email"
 					value={formData.email}
 					onChange={handleChange}
@@ -87,7 +89,7 @@ const FeedbackForm: FC<{ messageText?: string }> = ({
 				/>
 			</label>
 
-			<button type="submit">Submit</button>
+			<Button text={t('LEAVE_A_REQUEST')} />
 		</form>
 	);
 };

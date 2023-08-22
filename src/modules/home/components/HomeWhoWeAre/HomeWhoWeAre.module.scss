@@ -1,0 +1,17 @@
+.container {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.inner {
+  padding: 64px 120px;
+  background-image: url('../../assets/HomeWhoWeAre/transparent-logo.svg'), url('../../assets/HomeWhoWeAre/bg-building.png');
+  background-position: left bottom, right center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+}
+
+.desc {
+  max-width: 699px;
+  width: 100%;
+}

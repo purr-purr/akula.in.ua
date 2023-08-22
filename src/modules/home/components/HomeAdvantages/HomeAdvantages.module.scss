@@ -1,0 +1,49 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style-type: none;
+  margin-bottom: 76px;
+}
+
+.item, .techSupport {
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 18px 34px 0 rgba(0, 0, 0, 0.11);
+}
+
+.techSupport {
+  text-align: center;
+  background-color: var(--secondary-blue);
+  color: var(--white);
+  background-image: url("../../assets/HomeAdvantages/clock.svg");
+  background-position: 330px 19px;
+  background-repeat: no-repeat;
+  background-size: 164px;
+
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 50%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  span {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    line-height: 1;
+    font-weight: 700;
+  }
+}
+
+.item {
+  @include flex-align(center);
+  gap: 15px;
+  background-color: var(--white);
+
+  img {
+    border-radius: 12px;
+  }
+}

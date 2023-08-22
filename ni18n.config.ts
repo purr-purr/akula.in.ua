@@ -7,4 +7,5 @@ export const ni18nConfig: Ni18nOptions = {
 		order: ['querystring', 'cookie', 'localStorage', 'navigator'],
 	},
 	react: { useSuspense: false },
+	interpolation: { escapeValue: false },
 };

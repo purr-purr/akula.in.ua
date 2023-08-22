@@ -1,0 +1,37 @@
+.container {
+  @include flex-align(center);
+  gap: 45px;
+  margin-bottom: 150px;
+}
+
+.poster {
+  max-width: 700px;
+  width: 100%;
+  border-top-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.info {
+  max-width: 675px;
+  width: 100%;
+}
+
+.list {
+  margin-top: 42px;
+
+  & li {
+    @include flex-align(center);
+    gap: 24px;
+
+    &:not(:last-of-type) {
+      margin-bottom: 42px;
+    }
+  }
+}

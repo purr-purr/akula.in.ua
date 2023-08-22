@@ -10,7 +10,9 @@ import type { FormEvent } from 'react';
 
 import s from './Filter.module.scss';
 
-const Filter: FC = () => {
+const Filter: FC<{
+	side?: 'left' | 'center';
+}> = ({ side = 'left' }) => {
 	const { t } = useTranslation('common');
 	const [activeTabIndex, setActiveTabIndex] = useState(0);
 	const { isTestMode, handleTestMode } = useContext(CatalogContext);
@@ -18,19 +20,19 @@ const Filter: FC = () => {
 		setActiveTabIndex(index);
 	};
 
-	const tabs = ['Sales', 'Rent'];
+	const tabs = [t('SELLING'), t('RENT')];
 
 	const MOCK_FILTERS_LIST = [
 		{
-			category: 'Type',
+			category: t('PROPERTY_TYPE'),
 			list: ['All', 'Type1', 'Type2', 'Type3'],
 		},
 		{
-			category: 'Looks',
+			category: t('TYPE_OF_REAL_ESTATE'),
 			list: ['All', 'Looks1', 'Looks2', 'Looks3'],
 		},
 		{
-			category: 'City',
+			category: t('CITY'),
 			list: ['All', 'City1', 'City2', 'City3'],
 		},
 	];
@@ -40,8 +42,8 @@ const Filter: FC = () => {
 	};
 
 	return (
-		<article className={s.container}>
-			<div className={s.tabs}>
+		<section className={cn(s.container, side && s[side])}>
+			<div className={cn(s.tabs, side && s[side])}>
 				{tabs.map((tab, index) => (
 					<button
 						key={index}
@@ -56,9 +58,9 @@ const Filter: FC = () => {
 				{MOCK_FILTERS_LIST.map((item) => (
 					<Select key={item.category} label={item.category} options={item.list} />
 				))}
-				<Button text={t('find-real-estate')} />
+				<Button text={t('FIND_REAL_ESTATE')} />
 			</form>
-		</article>
+		</section>
 	);
 };
 

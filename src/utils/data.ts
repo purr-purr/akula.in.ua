@@ -4,7 +4,7 @@ export interface INavigation {
 }
 
 export const NAVIGATION: INavigation[] = [
-	{ title: 'main', path: `/` },
-	{ title: 'services', path: `/services` },
-	{ title: 'all-real-estate', path: `/catalog` },
+	{ title: 'MAIN', path: `/` },
+	{ title: 'SERVICES', path: `/services` },
+	{ title: 'ALL_REAL_ESTATE', path: `/catalog` },
 ];

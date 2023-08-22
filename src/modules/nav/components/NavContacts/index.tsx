@@ -29,9 +29,9 @@ const NavContacts = () => {
 				type="link"
 				linkPath={`/${APP_CATALOG_NAME}`}
 				color="transparent"
-				text={t('find-real-estate')}
+				text={t('FIND_REAL_ESTATE')}
 			/>
-			<Button text={t('leave-a-request')} />
+			<Button text={t('LEAVE_A_REQUEST')} />
 		</article>
 	);
 };

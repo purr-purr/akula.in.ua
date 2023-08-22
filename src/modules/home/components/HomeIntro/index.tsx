@@ -11,22 +11,22 @@ import s from './HomeIntro.module.scss';
 const HomeIntro = () => {
 	const { t: tCommon } = useTranslation('common');
 	const { t: tHome } = useTranslation('home');
-	const buildingText = tCommon('building');
+	const buildingText = tCommon('BUILDING');
 
 	const advantages = [
-		{ text: tHome('intro.m2-under-the-management'), value: 96000 },
+		{ text: tHome('INTRO.M_2_UNDER_THE_MANAGEMENT'), value: 96000 },
 		{
-			text: tHome('intro.objects-under-the-management'),
+			text: tHome('INTRO.OBJECTS_UNDER_THE_MANAGEMENT'),
 			value: 240,
 		},
-		{ text: tHome('intro.tenants'), value: 730 },
+		{ text: tHome('INTRO.TENANTS'), value: 730 },
 	];
 
 	return (
 		<section className={s.container}>
 			<article>
-				<h1 className={s.title}>{tHome('intro.we-will-find')}</h1>
-				<p className={s.description}>{tHome('intro.your-reliable-assistant')}</p>
+				<h1 className={s.title}>{tHome('INTRO.WE_WILL_FIND')}</h1>
+				<p className={s.description}>{tHome('INTRO.YOUR_RELIABLE_ASSISTANT')}</p>
 				<ul className={s.list}>
 					{advantages.map((item) => (
 						<li key={item.value}>

@@ -12,7 +12,7 @@ const Loader: FC<{
 	className?: string;
 }> = ({ type = 'short', className }) => {
 	const { t } = useTranslation('common');
-	const loadingText = t('loading');
+	const loadingText = t('LOADING');
 
 	return (
 		<div className={cn(s.container, className && className)}>

@@ -66,6 +66,7 @@ button {
 p {
   font-size: 16px;
   line-height: 1.2;
+  font-weight: 300;
 
   @include media-mobile {
     font-size: 14px;
@@ -76,6 +77,14 @@ h1, h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   line-height: 1.2;
+}
+
+b {
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 500;
 }
 
 .layout-container {
@@ -100,3 +109,18 @@ h1, h2 {
   }
 }
 
+.nude-bg {
+  position: relative;
+  z-index: 2;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: calc((100% - 100vw) / 2);
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: var(--nude);
+  }
+}

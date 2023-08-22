@@ -1,0 +1,17 @@
+.container {
+  @include flex-justify-align(space-between, center);
+  gap: 5px;
+  list-style-type: none;
+  margin-bottom: 150px;
+
+  & li {
+    max-width: 267px;
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

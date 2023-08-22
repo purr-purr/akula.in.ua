@@ -1,11 +1,23 @@
 {
-  "intro": {
-    "we-will-find": "We will find the perfect property for you",
-    "your-reliable-assistant": "Akula Development Partner – is your reliable assistant in the world of real estate. We are ready to offer you the best solutions and long-term cooperation, based on our professionalism and competence.",
-    "m2-under-the-management": "m2 under the management of the company",
-    "objects-under-the-management": "objects under the management of the company",
-    "tenants": "tenants",
-    "": "",
-    "": ""
+  "INTRO": {
+    "WE_WILL_FIND": "We will find the perfect property for you",
+    "YOUR_RELIABLE_ASSISTANT": "Akula Development Partner – is your reliable assistant in the world of real estate. We are ready to offer you the best solutions and long-term cooperation, based on our professionalism and competence.",
+    "M_2_UNDER_THE_MANAGEMENT": "m2 under the management of the company",
+    "OBJECTS_UNDER_THE_MANAGEMENT": "objects under the management of the company",
+    "TENANTS": "tenants"
+  },
+  "WHO_WE_ARE": {
+    "ABOUT_US": "We are <0>Akula Development Partner</0>, a company with vast experience in the real estate market. Our philosophy is competence in everything. The level of professionalism allows us to manage commercial, non-residential and residential objects of any complexity, we do not stand still. The results of our careful work:\n"
+  },
+  "TEAM": {
+    "A_TEAM_OF_PROFESSIONALS": "A team of professionals",
+    "AKULA_TEAM_IS": "The <0>Akula Development Partner</0> team is made up of competent professionals who are not willing to stand still. Every Akula Development Partner specialist shares our vision of continuous development and improvement. Interaction within the team is built on values, among which are:\n",
+    "CONTINUOUS_DEVELOPMENT": "<0>Continuous development,</0> as we don't stand still and improve management processes to achieve better results.\n",
+    "LONG_TERM_PLANNING": "<0>Long-term planning,</0> which allows us to create business relationships with our clients on a long-term basis.\n",
+    "QUALITY_AND_REPUTATION": "<0>Quality and reputation</0> are the foundation of our company. Every new client is the most important to us, so we provide the best service and management regardless of the type of facility or its complexity.\n"
+  },
+  "ADVANTAGES": {
+    "ADVANTAGES_OF_THE_COMPANY": "Advantages of the company",
+    "TECHNICAL_CUSTOMER_SUPPORT": "Technical customer support"
   }
 }

@@ -1,14 +1,20 @@
 {
-  "home": "Home page",
-  "street": "Street",
-  "find-real-estate": "Find real estate",
-  "leave-a-request": "Leave a request",
-  "loading": "Loading...",
-  "building": "Building",
-  "navigation": {
-    "main": "Home",
-    "all-real-estate": "All real estate",
-    "services": "Services"
+  "SELLING": "Selling",
+  "RENT": "Rent",
+  "PROPERTY_TYPE": "Property type",
+  "TYPE_OF_REAL_ESTATE": "Type of real estate",
+  "CITY": "City",
+  "FIND_REAL_ESTATE": "Find real estate",
+  "LEAVE_A_REQUEST": "Leave a request",
+  "LOADING": "Loading...",
+  "BUILDING": "Building",
+  "NAVIGATION": {
+    "MAIN": "Home",
+    "ALL_REAL_ESTATE": "All real estate",
+    "SERVICES": "Services"
   },
-  "x": ""
+  "FEEDBACK": {
+    "INTERESTED_IN_COOPERATION": "Interested in collaborating?",
+    "INTERESTED_IN_COOPERATION_DESC": "If you want to get the most out of the property you own, our experts are ready to help you do just that. To learn more details about our services and to benefit from the support of knowledgeable property management professionals, leave your contact information in the feedback form below. You will be contacted by an AKULA DEVELOPMENT PARTNER representative as soon as the application has been processed, to give you an in depth overview of our range of services and to discuss the purchase, rental and sale of your property. If you are an owner of a property and want to make it a source of income, we know how to help you!\n"
+  }
 }

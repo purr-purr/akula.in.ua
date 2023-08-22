@@ -7,7 +7,7 @@ const Catalog = () => {
 	return (
 		<>
 			<CatalogHeader />
-			<Filter />
+			<Filter side="center" />
 			<CatalogSort />
 			<CatalogList />
 		</>
