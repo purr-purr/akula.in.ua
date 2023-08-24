@@ -6,7 +6,7 @@ import IconPhone from '@modules/icons/components/IconPhone';
 import Button from '@modules/layout/components/Button';
 import SelectChangeLanguage from '@modules/layout/components/SwitchLanguage';
 
-import { APP_CATALOG_NAME } from '@utils/const';
+import { APP } from '@utils/const';
 
 import s from './NavContacts.module.scss';
 
@@ -27,7 +27,7 @@ const NavContacts = () => {
 
 			<Button
 				type="link"
-				linkPath={`/${APP_CATALOG_NAME}`}
+				linkPath={`/${APP.CATALOG_NAME}`}
 				color="transparent"
 				text={t('FIND_REAL_ESTATE')}
 			/>

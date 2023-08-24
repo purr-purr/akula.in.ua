@@ -1,8 +1,7 @@
 import { FC } from 'react';
-// import Image from 'next/image';
 import Link from 'next/link';
 
-import { APP_CATALOG_NAME } from '@utils/const';
+import { APP } from '@utils/const';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -13,7 +12,7 @@ const CatalogCard: FC<{
 }> = ({ props }) => {
 	return (
 		<li className={s.container}>
-			<Link className={s.inner} href={`/${APP_CATALOG_NAME}/${props.id}`}>
+			<Link className={s.inner} href={`/${APP.CATALOG_NAME}/${props.id}`}>
 				<div className={s.image}>{/*<Image src={'/'} alt="" />*/}</div>
 
 				<div className={s.info}>

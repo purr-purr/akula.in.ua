@@ -1,21 +1,25 @@
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 
 import Button from '@modules/layout/components/Button';
+import InputField from '@modules/layout/components/InputField';
 
-import { TG_BOT_TOKEN, TG_CHAT_ID_LIST } from '@utils/const';
+import { TG_BOT } from '@utils/const';
 
 import type { ChangeEvent, FormEvent } from 'react';
 
 import s from './FeedbackForm.module.scss';
 
-const FeedbackForm: FC<{ messageText?: string }> = ({
-	messageText = 'DefaultText',
-}) => {
+const FeedbackForm: FC<{ message?: string }> = ({ message }) => {
 	const { t } = useTranslation('common');
+	const { basePath, asPath } = useRouter();
+	const fullLink = `https://akula.in.ua${basePath + asPath}`;
+	const messageText = message ? message : 'Заявка з головної сторінки';
+
 	const initFormData = {
 		name: '',
-		email: '',
+		phone: '',
 		message: messageText,
 	};
 
@@ -30,19 +34,16 @@ const FeedbackForm: FC<{ messageText?: string }> = ({
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		const { name, email, message } = formData;
-		const messageText = `
-			Name: ${name}\nEmail: ${email}\nMessage: ${message}
-		`;
+		const botTemplate = `Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}\nOrder from: ${fullLink}`;
 
-		for (const chatID of TG_CHAT_ID_LIST) {
+		for (const chatID of TG_BOT.CHAT_ID_LIST) {
 			try {
-				await fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
+				await fetch(`https://api.telegram.org/bot${TG_BOT.TOKEN}/sendMessage`, {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({
 						chat_id: chatID,
-						text: messageText,
+						text: botTemplate,
 					}),
 				});
 				setFormData(initFormData);
@@ -60,36 +61,41 @@ const FeedbackForm: FC<{ messageText?: string }> = ({
 		setFormData({ ...formData, [event.target.name]: event.target.value });
 	};
 
+	const isDisabledButton = formData.phone.length < 1 || formData.name.length < 1;
+
 	return (
 		<form className={s.container} onSubmit={handleSubmit}>
-			<label>
+			<InputField label="Name" color="dark">
 				<input
 					type="text"
 					name="name"
-					placeholder="name"
+					placeholder="Name"
 					value={formData.name}
 					onChange={handleChange}
 				/>
-			</label>
-			<label>
+			</InputField>
+
+			<InputField label="Phone" color="dark">
 				<input
 					type="tel"
-					name="tel"
-					placeholder="email"
-					value={formData.email}
+					name="phone"
+					placeholder="Phone"
+					value={formData.phone}
 					onChange={handleChange}
 				/>
-			</label>
-			<label>
-				<textarea
-					name="message"
-					placeholder="message"
-					value={formData.message}
-					onChange={handleChange}
-				/>
-			</label>
+			</InputField>
 
-			<Button text={t('LEAVE_A_REQUEST')} />
+			{message && (
+				<InputField label="Message">
+					<textarea
+						name="message"
+						placeholder="message"
+						value={formData.message}
+						onChange={handleChange}
+					/>
+				</InputField>
+			)}
+			<Button isDisabled={isDisabledButton} text={t('LEAVE_A_REQUEST')} />
 		</form>
 	);
 };

@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
 import Button from '@modules/layout/components/Button';
-import Select from '@modules/layout/components/Select';
+import Dropdown from '@modules/layout/components/Dropdown';
+import Select from '@modules/layout/components/InputField';
+import InputField from '@modules/layout/components/InputField';
 import { CatalogContext } from '@modules/layout/context/CatalogContext';
 
 import type { FormEvent } from 'react';
@@ -56,7 +58,9 @@ const Filter: FC<{
 			</div>
 			<form className={s.form} onSubmit={handleFormSubmit}>
 				{MOCK_FILTERS_LIST.map((item) => (
-					<Select key={item.category} label={item.category} options={item.list} />
+					<InputField key={item.category} label={item.category}>
+						<Dropdown options={item.list} />
+					</InputField>
 				))}
 				<Button text={t('FIND_REAL_ESTATE')} />
 			</form>

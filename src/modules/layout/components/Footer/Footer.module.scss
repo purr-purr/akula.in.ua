@@ -2,8 +2,72 @@
   flex-shrink: 0;
   background-color: var(--blue);
   margin-top: 20px;
+  padding-top: 50px;
+  padding-bottom: 21px;
 }
 
 .inner {
-  height: 90px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  column-gap: 50px;
+}
+
+.socials {
+  text-align: center;
+  width: fit-content;
+
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--primary);
+  }
+
+  &-list {
+    @include flex-align(center);
+    gap: 40px;
+    list-style-type: none;
+  }
+
+  &-item {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: 1fr 170px;
+  justify-self: end;
+  grid-gap: 20px;
+  max-width: 600px;
+  width: 100%;
+
+  list-style-type: none;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 300;
+
+  & a {
+    @include flex-align(center);
+    gap: 8px;
+    transition: color .4s ease-in-out;
+
+    &:hover {
+      color: var(--primary);
+      transition: color .4s ease-in-out;
+
+      path {
+        fill: var(--primary);
+      }
+    }
+  }
+}
+
+.rights {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary-gray);
+  text-align: center;
+  margin-top: 50px;
 }

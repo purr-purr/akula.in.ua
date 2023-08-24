@@ -4,14 +4,24 @@
 }
 
 .inner {
-  padding: 64px 120px;
-  background-image: url('../../assets/HomeWhoWeAre/transparent-logo.svg'), url('../../assets/HomeWhoWeAre/bg-building.png');
-  background-position: left bottom, right center;
-  background-repeat: no-repeat, no-repeat;
-  background-size: contain, contain;
+  padding: 64px 20px 64px 375px;
+  background: url('../../assets/HomeWhoWeAre/transparent-logo.svg') left bottom/contain no-repeat;
 }
 
 .desc {
   max-width: 699px;
   width: 100%;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: -20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 10px;
+  }
 }

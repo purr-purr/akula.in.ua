@@ -5,6 +5,7 @@
   --dark: #222;
   --primary: #FFA700;
   --gray: #575757;
+  --secondary-gray: #A5A5A5;
   --blue: #2B5865;
   --secondary-blue: #8FBDC2;
   --nude: #F0EDE8;
@@ -123,4 +124,9 @@ strong {
     height: 100%;
     background-color: var(--nude);
   }
+}
+
+
+.cont .carousel-slider .control-arrow {
+  left: -200px;
 }

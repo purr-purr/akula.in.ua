@@ -7,6 +7,7 @@ import CatalogPageCrumbs from '@modules/catalogPage/components/CatalogPageCrumbs
 import CatalogPageDescription from '@modules/catalogPage/components/CatalogPageDescription';
 import CatalogPageHeader from '@modules/catalogPage/components/CatalogPageHeader';
 import Feedback from '@modules/common/components/Feedback';
+import FeedbackForm from '@modules/common/components/FeedbackForm';
 import Meta from '@modules/common/components/Meta';
 import { useDataFetching } from '@modules/common/hooks';
 import Loader from '@modules/layout/components/Loader';
@@ -69,7 +70,7 @@ const CatalogPage: FC = memo(() => {
 				</div>
 				<aside>
 					<div className={s.feedback}>
-						<Feedback messageText={fullAddress + id} />
+						<FeedbackForm message={fullAddress + id} />
 					</div>
 				</aside>
 			</section>

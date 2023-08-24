@@ -10,21 +10,23 @@ const Button: FC<{
 	onClick?: () => void;
 	type?: 'button' | 'link';
 	color?: 'primary' | 'transparent';
+	isDisabled?: boolean;
 }> = ({
 	text,
 	type = 'button',
 	linkPath = '/',
 	onClick,
 	color = 'primary',
+	isDisabled = false,
 }) => {
-	const classNameList = cn(s.container, s[color]);
+	const classNameList = cn(s.container, s[color], isDisabled && s.disabled);
 
 	return type === 'link' ? (
 		<Link className={classNameList} href={linkPath} onClick={onClick}>
 			{text}
 		</Link>
 	) : (
-		<button className={classNameList} onClick={onClick}>
+		<button disabled={isDisabled} className={classNameList} onClick={onClick}>
 			{text}
 		</button>
 	);

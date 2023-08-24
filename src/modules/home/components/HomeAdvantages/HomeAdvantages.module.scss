@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   list-style-type: none;
-  margin-bottom: 76px;
+  margin-bottom: 150px;
 }
 
 .item, .techSupport {
@@ -42,6 +42,7 @@
   @include flex-align(center);
   gap: 15px;
   background-color: var(--white);
+  border: 1px solid var(--nude);
 
   img {
     border-radius: 12px;

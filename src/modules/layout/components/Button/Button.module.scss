@@ -37,6 +37,10 @@
       transition: all .4s ease-in-out;
     }
   }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
 }
 
 @keyframes gradientAnimation {

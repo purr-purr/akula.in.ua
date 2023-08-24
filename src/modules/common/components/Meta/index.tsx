@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Head from 'next/head';
 
-import { APP_AUTHOR, APP_AUTHOR_SIGNATURE, APP_LINK } from '@utils/const';
+import { APP } from '@utils/const';
 import {
 	formatMetaDesc,
 	formatMetaKeyWords,
@@ -34,14 +34,14 @@ const Meta: FC<{
 			<title>{metaTitle}</title>
 			<meta name="description" content={metaDesc} />
 			<meta name="keywords" content={metaKeyWords} />
-			<meta name="author" content={APP_AUTHOR + ' ' + APP_AUTHOR_SIGNATURE} />
+			<meta name="author" content={APP.AUTHOR + ' ' + APP.AUTHOR_SIGNATURE} />
 			<meta name="image" content={LOGO.src} />
 			<meta property="og:type" content="website" />
 			<meta property="og:title" content={metaTitle} />
 			<meta property="og:description" content={metaDesc} />
 			<meta property="og:image" content={LOGO.src} />
-			<meta property="og:url" content={APP_LINK} />
-			<link rel="canonical" href={APP_LINK} />
+			<meta property="og:url" content={APP.LINK} />
+			<link rel="canonical" href={APP.LINK} />
 			<meta name="apple-mobile-web-app-title" content={metaTitle} />
 			<meta name="apple-mobile-web-app-capable" content="yes" />
 			<meta name="format-detection" content="telephone=no" />

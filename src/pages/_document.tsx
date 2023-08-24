@@ -1,6 +1,6 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
-import { GA_TRACKING_ID, IS_PRODUCTION } from '@utils/const';
+import { GOOGLE_SERVICES, IS_PRODUCTION } from '@utils/const';
 
 export default function Document() {
 	return (
@@ -20,7 +20,7 @@ export default function Document() {
 					<>
 						<script
 							async
-							src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+							src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_SERVICES.GA_TRACKING_ID}`}
 						/>
 						<script
 							dangerouslySetInnerHTML={{
@@ -28,7 +28,7 @@ export default function Document() {
                                     window.dataLayer = window.dataLayer || [];
                                     function gtag(){dataLayer.push(arguments);}
                                     gtag('js', new Date());
-                                    gtag('config', '${GA_TRACKING_ID}', {
+                                    gtag('config', '${GOOGLE_SERVICES.GA_TRACKING_ID}', {
                                       page_path: window.location.pathname,
                                     });
                                   `,

@@ -1,18 +1,14 @@
-import {
-	APP_META_COMMON_KEYWORDS,
-	APP_META_DESC,
-	APP_TITLE,
-} from '@utils/const';
+import { APP } from '@utils/const';
 
 export const formatMetaTitle = (title: string): string =>
-	`${title} | ${APP_TITLE}`;
+	`${title} | ${APP.TITLE}`;
 
 export const formatMetaDesc = (title: string | string[]): string => {
 	if (typeof title !== 'string') {
 		const list = title.join(' and ');
-		return `${list} ${APP_TITLE} ${APP_META_DESC}`;
+		return `${list} ${APP.TITLE} ${APP.META_DESC}`;
 	} else {
-		return `${title} ${APP_TITLE} ${APP_META_DESC}`;
+		return `${title} ${APP.TITLE} ${APP.META_DESC}`;
 	}
 };
 
@@ -21,5 +17,5 @@ export const formatMetaKeyWords = (
 	allSubTitles: string[],
 ): string => {
 	const list = allSubTitles.join(', ');
-	return `${title}, ${APP_TITLE}, ${list}, ${APP_META_COMMON_KEYWORDS}`;
+	return `${title}, ${APP.TITLE}, ${list}, ${APP.META_COMMON_KEYWORDS}`;
 };

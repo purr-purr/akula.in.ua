@@ -1,17 +1,14 @@
 import { FC } from 'react';
 
-import Feedback from '@modules/common/components/Feedback';
+import CarouselSlider from '@modules/common/components/Slider';
 import ServicesList from '@modules/services/components/ServicesList';
 
 const Services: FC = () => {
 	return (
 		<>
-			<h1>Services page</h1>
 			<ServicesList />
-			<br />
-			<br />
-			<br />
-			<Feedback />
+
+			<CarouselSlider />
 		</>
 	);
 };

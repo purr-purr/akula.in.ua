@@ -1,0 +1,39 @@
+.container {
+  max-width: 300px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+
+  &.light {
+    border-bottom: 1px solid var(--nude);
+  }
+
+  &.dark {
+    border-bottom: 1px solid var(--gray);
+  }
+
+  & > div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  & > input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: 300;
+
+    &:is(:active, :focus) {
+      outline: none;
+    }
+  }
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+}

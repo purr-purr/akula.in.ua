@@ -20,7 +20,14 @@ const Home = () => {
 			<HomeTeam />
 			<HomePartners />
 			<HomeAdvantages />
-			<Feedback />
+			<Feedback type="cooperation" />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<Feedback type="owner" />
 		</>
 	);
 };

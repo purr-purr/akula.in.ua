@@ -8,17 +8,25 @@ import { HeaderContext } from '@modules/layout/context/HeaderContext';
 import NavItem from '@modules/nav/components/NavItem';
 
 import { MOBILE_BREAKPOINT } from '@utils/const';
-import { NAVIGATION } from '@utils/data';
-
-import type { INavigation } from '@utils/data';
 
 import s from './Nav.module.scss';
+
+interface INavigation {
+	title: string;
+	path: string;
+}
 
 const Nav = () => {
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 	const { isMobileNavMode, handleMobileNavMode } = useContext(HeaderContext);
 	const { t } = useTranslation('common');
 	const { pathname } = useRouter();
+
+	const NAVIGATION: INavigation[] = [
+		{ title: 'MAIN', path: `/` },
+		{ title: 'SERVICES', path: `/services` },
+		{ title: 'ALL_REAL_ESTATE', path: `/catalog` },
+	];
 
 	useEffect(() => {
 		const element = document.querySelector('html');
