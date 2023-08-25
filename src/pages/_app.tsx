@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { appWithI18Next } from 'ni18n';
 import { ni18nConfig } from 'ni18n.config';
@@ -11,9 +11,11 @@ import * as gtag from '@utils/gtag';
 import type { AppProps } from 'next/app';
 
 import '@styles/globals.scss';
+import Loader from '@modules/common/components/Loader';
 
 function App({ Component, pageProps }: AppProps) {
 	const router = useRouter();
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const handleRouteChange = (url: URL) => {
@@ -25,7 +27,15 @@ function App({ Component, pageProps }: AppProps) {
 		};
 	}, [router.events]);
 
-	return (
+	useEffect(() => {
+		setTimeout(() => {
+			setLoading(false);
+		}, 1000);
+	}, []);
+
+	return loading ? (
+		<Loader type="fullscreen" />
+	) : (
 		<Layout>
 			<Component {...pageProps} />
 		</Layout>

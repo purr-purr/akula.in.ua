@@ -2,7 +2,6 @@
   "SELLING": "Продаж",
   "RENT": "Оренда",
   "PROPERTY_TYPE": "Тип нерухомості",
-  "TYPE_OF_REAL_ESTATE": "Вид нерухомості",
   "CITY": "Місто",
   "FIND_REAL_ESTATE": "Знайти нерухомість",
   "LEAVE_A_REQUEST": "Залишити заявку",
@@ -10,10 +9,21 @@
   "BUILDING": "Будівля",
   "WE_ARE_ON_SOCIAL_NETWORKS": "Ми в соціальних мережах",
   "ALL_RIGHTS_RESERVED": "Всі права захищені",
+  "IMAGE": "Зображення",
   "NAVIGATION": {
     "MAIN": "Головна",
     "ALL_REAL_ESTATE": "Вся нерухомість",
     "SERVICES": "Послуги"
+  },
+  "TYPE_OF_REAL_ESTATE": {
+    "TYPE_OF_REAL_ESTATE": "Вид нерухомості",
+    "BUSINESS_CENTERS": "Бізнес-центри\n",
+    "SHOPPING_MALLS": "Торгово-розважальні центри\n",
+    "MARKETPLACES": "Торгові майданчики\n",
+    "OFFICE_SPACES": "Офісні приміщення\n",
+    "HOUSES_AND_APARTMENTS": "Будинки та квартири\n",
+    "LAND_PLOTS": "Земельні ділянки\n",
+    "WAREHOUSE_FACILITIES": "Складські приміщення\n"
   },
   "FEEDBACK": {
     "INTERESTED_IN_COOPERATION": "Зацікавлені у співпраці?",

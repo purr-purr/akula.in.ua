@@ -2,7 +2,6 @@
   "SELLING": "Selling",
   "RENT": "Rent",
   "PROPERTY_TYPE": "Property type",
-  "TYPE_OF_REAL_ESTATE": "Type of real estate",
   "CITY": "City",
   "FIND_REAL_ESTATE": "Find real estate",
   "LEAVE_A_REQUEST": "Leave a request",
@@ -10,10 +9,21 @@
   "BUILDING": "Building",
   "WE_ARE_ON_SOCIAL_NETWORKS": "We are on social networks",
   "ALL_RIGHTS_RESERVED": "All rights reserved",
+  "IMAGE": "Image",
   "NAVIGATION": {
     "MAIN": "Home",
     "ALL_REAL_ESTATE": "All real estate",
     "SERVICES": "Services"
+  },
+  "TYPE_OF_REAL_ESTATE": {
+    "TYPE_OF_REAL_ESTATE": "Type of real estate",
+    "BUSINESS_CENTERS": "Business centers",
+    "SHOPPING_MALLS": "Shopping malls",
+    "MARKETPLACES": "Marketplaces",
+    "OFFICE_SPACES": "Office spaces",
+    "HOUSES_AND_APARTMENTS": "Houses and apartments",
+    "LAND_PLOTS": "Land plots",
+    "WAREHOUSE_FACILITIES": "Warehouse facilities"
   },
   "FEEDBACK": {
     "INTERESTED_IN_COOPERATION": "Interested in collaborating?",

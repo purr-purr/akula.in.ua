@@ -1,3 +1,3 @@
-import Services from '@modules/services/components/Services';
+import Services from '@modules/pages/services/components/Services';
 
 export default Services;

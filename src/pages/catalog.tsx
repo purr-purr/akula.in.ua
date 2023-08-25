@@ -1,3 +1,3 @@
-import Catalog from '@modules/catalog/components/Catalog';
+import Catalog from '@modules/pages/catalog/components/Catalog';
 
 export default Catalog;

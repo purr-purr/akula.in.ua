@@ -1,3 +1,3 @@
-import CatalogPage from '@modules/catalogPage/components/CatalogPage';
+import CatalogPage from '@modules/pages/catalogPage/components/CatalogPage';
 
 export default CatalogPage;

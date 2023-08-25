@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
+import Button from '@modules/common/components/Button';
+import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
 import IconMap from '@modules/icons/components/IconMap';
 import IconPhone from '@modules/icons/components/IconPhone';
-import Button from '@modules/layout/components/Button';
-import SelectChangeLanguage from '@modules/layout/components/SwitchLanguage';
 
 import { APP } from '@utils/const';
 

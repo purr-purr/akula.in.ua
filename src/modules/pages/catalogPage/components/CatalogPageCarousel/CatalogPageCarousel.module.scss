@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.gallery {
+  :global(.image-gallery-left-nav) {
+    left: 0;
+    color: red;
+  }
+}

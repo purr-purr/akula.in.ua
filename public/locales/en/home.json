@@ -18,6 +18,18 @@
   },
   "ADVANTAGES": {
     "ADVANTAGES_OF_THE_COMPANY": "Advantages of the company",
-    "TECHNICAL_CUSTOMER_SUPPORT": "Technical customer support"
+    "TECHNICAL_CUSTOMER_SUPPORT": "Technical customer support",
+    "LIST_A_TEAM_OF_SPECIALISTS": "A team of specialists providing legal and accounting support of all processes.\n",
+    "LIST_ORGANIZATION_AND_CONDUCT": "Organizing and carrying out the search of land plots, drafting design documentation, erection and commissioning of objects of any complexity.\n",
+    "LIST_WE_ARE_READY_TO_PROVIDE": "We are ready to ensure the profitability of your property regardless of its type.\n",
+    "LIST_SPECIALISTS_IN_THE_FIELD": "Marketing and management specialists with exceptional competence, always ready to offer you results.\n",
+    "LIST_INDIVIDUAL_APPROACH": "Individual approach to each client of the company.\n",
+    "LIST_IMPROVEMENT_OF_CONDITION": "Improvement of the condition of the premises to attract more interest from potential tenants.\n",
+    "LIST_SUPPORT_OF_QUALIFIED_SPECIALISTS": "Support of qualified specialists at all stages, from the idea to the construction of the object.\n",
+    "LIST_LONG_TERM_PLANNING": "Long-term planning with a rational tenant allocation and cost optimization.\n"
+  },
+  "OBJECTS_IN_MANAGEMENT": {
+    "OBJECTS_IN_MANAGEMENT": "Objects in management",
+    "IN_THE_LIST": "in the list"
   }
 }

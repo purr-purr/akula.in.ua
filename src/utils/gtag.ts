@@ -1,8 +1,8 @@
-import { GA_TRACKING_ID } from '@utils/const';
+import { GOOGLE_SERVICES } from '@utils/const';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL): void => {
-	window.gtag('config', `${GA_TRACKING_ID}`, {
+	window.gtag('config', `${GOOGLE_SERVICES.GA_TRACKING_ID}`, {
 		page_path: url,
 	});
 };

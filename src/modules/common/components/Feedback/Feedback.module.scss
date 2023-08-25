@@ -1,7 +1,6 @@
 .container {
-  //@include flex-justify-align(space-between, center);
-  //gap: 20px;
   margin-top: 75px;
+  margin-bottom: 150px;
 }
 
 .inner {
@@ -21,7 +20,6 @@
     margin-left: 480px;
   }
 }
-
 
 .poster {
   position: absolute;

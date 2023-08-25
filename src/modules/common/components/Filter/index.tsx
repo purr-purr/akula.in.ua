@@ -2,10 +2,10 @@ import { FC, useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
-import Button from '@modules/layout/components/Button';
-import Dropdown from '@modules/layout/components/Dropdown';
-import Select from '@modules/layout/components/InputField';
-import InputField from '@modules/layout/components/InputField';
+import Button from '@modules/common/components/Button';
+import Dropdown from '@modules/common/components/Dropdown';
+import Select from '@modules/common/components/InputField';
+import InputField from '@modules/common/components/InputField';
 import { CatalogContext } from '@modules/layout/context/CatalogContext';
 
 import type { FormEvent } from 'react';
@@ -30,7 +30,7 @@ const Filter: FC<{
 			list: ['All', 'Type1', 'Type2', 'Type3'],
 		},
 		{
-			category: t('TYPE_OF_REAL_ESTATE'),
+			category: t('TYPE_OF_REAL_ESTATE.TYPE_OF_REAL_ESTATE'),
 			list: ['All', 'Looks1', 'Looks2', 'Looks3'],
 		},
 		{

@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 
-import Button from '@modules/layout/components/Button';
-import InputField from '@modules/layout/components/InputField';
+import Button from '@modules/common/components/Button';
+import InputField from '@modules/common/components/InputField';
 
 import { TG_BOT } from '@utils/const';
 

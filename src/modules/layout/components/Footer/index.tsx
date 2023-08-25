@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
+import Logo from '@modules/common/components/Logo';
 import IconEmail from '@modules/icons/components/IconEmail';
 import IconFacebook from '@modules/icons/components/IconFacebook';
 import IconInstagram from '@modules/icons/components/IconInstagram';
@@ -9,7 +10,6 @@ import IconPhone from '@modules/icons/components/IconPhone';
 import IconTelegram from '@modules/icons/components/IconTelegram';
 import IconTiktok from '@modules/icons/components/IconTiktok';
 import IconViber from '@modules/icons/components/IconViber';
-import Logo from '@modules/layout/components/Logo';
 
 import { COMPANY_INFO } from '@utils/data';
 

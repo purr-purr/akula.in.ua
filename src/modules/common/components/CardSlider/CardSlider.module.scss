@@ -1,0 +1,51 @@
+.container {
+  background-color: transparent;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  width: calc(100% + 20px) !important;
+  margin-left: -10px;
+}
+
+.card {
+  border-radius: 25px;
+  border: 1px solid var(--nude);
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.nav {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+
+  &.prev {
+    margin-left: -30px;
+  }
+
+  &.next {
+    margin-right: -30px;
+    transform: rotate(-180deg);
+  }
+}
+
+.dots {
+  @include flex-align(center);
+  gap: 20px;
+  list-style-type: none;
+  margin-bottom: -20px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--nude);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &.active {
+    background-color: var(--secondary-blue);
+  }
+}
