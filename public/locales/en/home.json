@@ -31,5 +31,8 @@
   "OBJECTS_IN_MANAGEMENT": {
     "OBJECTS_IN_MANAGEMENT": "Objects in management",
     "IN_THE_LIST": "in the list"
+  },
+  "REVIEWS": {
+    "FEEDBACK_ABOUT_COOPERATION": "Feedback about cooperation"
   }
 }

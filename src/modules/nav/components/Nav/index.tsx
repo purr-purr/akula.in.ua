@@ -1,11 +1,13 @@
 import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 
 import { useMediaQuery } from '@modules/common/hooks';
 import { HeaderContext } from '@modules/layout/context/HeaderContext';
-import NavItem from '@modules/nav/components/NavItem';
+import NavButton from '@modules/nav/components/NavBurgerButton';
+import NavContacts from '@modules/nav/components/NavContacts';
 
 import { MOBILE_BREAKPOINT } from '@utils/const';
 
@@ -42,16 +44,23 @@ const Nav = () => {
 	}, [isMobileNavMode, isMobile]);
 
 	return (
-		<nav className={cn(s.container, isMobileNavMode && s.active)}>
-			{NAVIGATION.map((item: INavigation) => (
-				<NavItem
-					isActive={item.path === pathname}
-					key={item.path}
-					title={t(`NAVIGATION.${item.title}`)}
-					path={item.path}
-				/>
-			))}
-		</nav>
+		<>
+			<nav className={cn(s.container, isMobileNavMode && s.active)}>
+				{NAVIGATION.map((item: INavigation) => (
+					<Link
+						key={item.path}
+						className={cn(s.item, item.path === pathname && s.active)}
+						onClick={() => handleMobileNavMode(false)}
+						href={item.path}
+					>
+						{t(`NAVIGATION.${item.title}`)}
+					</Link>
+				))}
+			</nav>
+
+			<NavContacts />
+			{isMobile && <NavButton />}
+		</>
 	);
 };
 

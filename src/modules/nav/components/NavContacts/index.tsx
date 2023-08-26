@@ -7,6 +7,7 @@ import IconMap from '@modules/icons/components/IconMap';
 import IconPhone from '@modules/icons/components/IconPhone';
 
 import { APP } from '@utils/const';
+import { COMPANY_INFO } from '@utils/data';
 
 import s from './NavContacts.module.scss';
 
@@ -15,11 +16,11 @@ const NavContacts = () => {
 
 	return (
 		<article className={s.container}>
-			<Link className={s.icon} href={'tel:/'}>
+			<Link className={s.icon} href={`tel:${COMPANY_INFO.MAIN_CONTACT_NUMBER}`}>
 				<IconPhone />
 			</Link>
 
-			<Link className={s.icon} href={'/'}>
+			<Link className={s.icon} href={`${COMPANY_INFO.ADDRESS_MAP}`}>
 				<IconMap />
 			</Link>
 

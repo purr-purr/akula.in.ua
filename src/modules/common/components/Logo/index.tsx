@@ -7,7 +7,7 @@ import LOGO from '@public/assets/logo.svg';
 
 const Logo: FC<{ type?: 'white' | 'black' }> = ({ type = 'black' }) => {
 	return (
-		<Link href="/src/modules/pages">
+		<Link href="/">
 			<Image
 				src={type === 'white' ? LOGO_WHITE : LOGO}
 				alt="Logo"

@@ -53,7 +53,14 @@ const renderBottomCenterControls = ({
 const CardSlider: FC<{
 	children: ReactNode | ReactNode[];
 	childrenClassName?: string;
-}> = ({ children, childrenClassName }) => {
+	frameClassName?: string;
+	withoutControls?: boolean;
+}> = ({
+	children,
+	childrenClassName,
+	frameClassName,
+	withoutControls = false,
+}) => {
 	const childrenRender = Children.map(children, (child) => {
 		if (isValidElement(child)) {
 			return cloneElement(child);
@@ -63,13 +70,14 @@ const CardSlider: FC<{
 
 	return (
 		<Carousel
-			className={s.container}
+			className={cn(s.container, frameClassName)}
+			withoutControls={withoutControls}
 			slidesToScroll={1}
 			slidesToShow={4}
 			cellSpacing={20}
 			dragThreshold={0.3}
-			autoplay={false}
-			autoplayInterval={1000}
+			autoplay={true}
+			autoplayInterval={3000}
 			disableEdgeSwiping
 			dragging
 			wrapAround={true}

@@ -31,5 +31,8 @@
   "OBJECTS_IN_MANAGEMENT": {
     "OBJECTS_IN_MANAGEMENT": "Об’єкти в управлінні",
     "IN_THE_LIST": "в списку"
+  },
+  "REVIEWS": {
+    "FEEDBACK_ABOUT_COOPERATION": "Відгуки про співпрацю"
   }
 }

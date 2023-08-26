@@ -10,8 +10,10 @@
   "WE_ARE_ON_SOCIAL_NETWORKS": "We are on social networks",
   "ALL_RIGHTS_RESERVED": "All rights reserved",
   "IMAGE": "Image",
+  "PAGE_NOT_FOUND": "<0>Page not found - Error 404.</0> <0>Sorry, but we could not find the page you requested. Maybe it was moved, deleted, or never existed. You can return to the Main page or choose another page of the site.</0>",
   "NAVIGATION": {
     "MAIN": "Home",
+    "MAIN_PAGE": "Home page",
     "ALL_REAL_ESTATE": "All real estate",
     "SERVICES": "Services"
   },

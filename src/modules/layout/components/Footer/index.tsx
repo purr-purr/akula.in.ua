@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import cn from 'classnames';
 
 import Logo from '@modules/common/components/Logo';
 import IconEmail from '@modules/icons/components/IconEmail';
@@ -56,38 +57,33 @@ const Footer = () => {
 	];
 
 	return (
-		<footer className={s.container}>
-			<article className="layout-container">
-				<div className={s.inner}>
-					<Logo type="white" />
-
-					<div className={s.socials}>
-						<p>{t('WE_ARE_ON_SOCIAL_NETWORKS')}</p>
-						<ul className={s[`socials-list`]}>
-							{SOCIALS.map((item, i) => (
-								<li key={item.link + i} className={s[`socials-item`]}>
-									<Link href={item.link}>{item.icon}</Link>
-								</li>
-							))}
-						</ul>
-					</div>
-
-					<ul className={s.contacts}>
-						{CONTACTS.map((item) => (
-							<li key={item.link}>
-								<Link href={item.link}>
-									{item.icon}
-									{item.title}
-								</Link>
+		<footer className={cn('layout-container', s.container)}>
+			<article className={s.inner}>
+				<Logo type="white" />
+				<div className={s.socials}>
+					<p>{t('WE_ARE_ON_SOCIAL_NETWORKS')}</p>
+					<ul className={s[`socials-list`]}>
+						{SOCIALS.map((item, i) => (
+							<li key={item.link + i} className={s[`socials-item`]}>
+								<Link href={item.link}>{item.icon}</Link>
 							</li>
 						))}
 					</ul>
 				</div>
-
-				<p className={s.rights}>
-					{t('ALL_RIGHTS_RESERVED')}/{currentYear}
-				</p>
+				<ul className={s.contacts}>
+					{CONTACTS.map((item) => (
+						<li key={item.link}>
+							<Link href={item.link}>
+								{item.icon}
+								{item.title}
+							</Link>
+						</li>
+					))}
+				</ul>
 			</article>
+			<p className={s.rights}>
+				{t('ALL_RIGHTS_RESERVED')}/{currentYear}
+			</p>
 		</footer>
 	);
 };
