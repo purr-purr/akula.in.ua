@@ -55,11 +55,13 @@ const CardSlider: FC<{
 	childrenClassName?: string;
 	frameClassName?: string;
 	withoutControls?: boolean;
+	slidesToShow?: number;
 }> = ({
 	children,
 	childrenClassName,
 	frameClassName,
 	withoutControls = false,
+	slidesToShow = 4,
 }) => {
 	const childrenRender = Children.map(children, (child) => {
 		if (isValidElement(child)) {
@@ -73,7 +75,7 @@ const CardSlider: FC<{
 			className={cn(s.container, frameClassName)}
 			withoutControls={withoutControls}
 			slidesToScroll={1}
-			slidesToShow={4}
+			slidesToShow={slidesToShow}
 			cellSpacing={20}
 			dragThreshold={0.3}
 			autoplay={true}

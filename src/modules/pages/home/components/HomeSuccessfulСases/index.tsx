@@ -4,11 +4,11 @@ import cn from 'classnames';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
-import STAR_ICON from '@modules/pages/home/assets/HomeSuccessfulСases/star_icon.svg';
 
-import s from './HomeReviews.module.scss';
+import STAR_ICON from '../../assets/HomeSuccessfulСases/star_icon.svg';
+import s from './HomeSuccessfulСases.module.scss';
 
-const HomeReviews = () => {
+const HomeSuccessfulCases = () => {
 	const { t } = useTranslation('home');
 
 	const CASES = [
@@ -42,9 +42,10 @@ const HomeReviews = () => {
 			color: 'blue',
 		},
 	];
+
 	return (
 		<section className={s.container}>
-			<BlockTitle title={t('REVIEWS.FEEDBACK_ABOUT_COOPERATION')} />
+			<BlockTitle title={t('SUCCESSFUL_CASES.SUCCESSFUL_CASES')} />
 
 			<CardSlider childrenClassName={s.card} slidesToShow={3}>
 				{CASES.map((item) => {
@@ -67,4 +68,4 @@ const HomeReviews = () => {
 	);
 };
 
-export default HomeReviews;
+export default HomeSuccessfulCases;

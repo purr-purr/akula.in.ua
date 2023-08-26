@@ -1,0 +1,64 @@
+.container {
+  margin-bottom: 150px;
+}
+
+.card {
+  padding: 67px 20px 47px;
+  overflow: visible;
+  position: relative;
+}
+
+.text {
+  height: 177px;
+  overflow-x: scroll;
+  margin-bottom: 12px;
+  padding-right: 5px;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 80px;
+    height: 63px;
+  }
+
+  &.gray {
+    &:before {
+      background-image: url("../../assets/HomeSuccessfulСases/quote--gray.svg");
+    }
+  }
+
+  &.blue {
+    &:before {
+      background-image: url("../../assets/HomeSuccessfulСases/quote--blue.svg");
+    }
+  }
+
+  &.darkBlue {
+    &:before {
+      background-image: url("../../assets/HomeSuccessfulСases/quote--dark-blue.svg");
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+.signature {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.rating {
+  @include flex-align(center);
+  gap: 8px;
+  list-style-type: none;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}

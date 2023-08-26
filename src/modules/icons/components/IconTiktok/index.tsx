@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import cn from 'classnames';
 
 import { IIconsProps } from '@modules/icons/types';
 
@@ -7,11 +6,10 @@ const IconTiktok: FC<IIconsProps> = ({
 	color = '#fff',
 	width = 24,
 	height = 24,
-	className,
 }) => {
 	return (
 		<svg
-			className={cn(className, 'svg-icon')}
+			className="svg-icon"
 			width={width}
 			height={height}
 			viewBox={`0 0 ${width} ${height}`}

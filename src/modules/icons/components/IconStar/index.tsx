@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import cn from 'classnames';
 
 import { IIconsProps } from '@modules/icons/types';
 
@@ -7,11 +6,10 @@ const IconStar: FC<IIconsProps> = ({
 	color = '#FFA700',
 	width = 25,
 	height = 24,
-	className,
 }) => {
 	return (
 		<svg
-			className={cn(className, 'svg-icon')}
+			className="svg-icon"
 			width={width}
 			height={height}
 			style={{ minWidth: `${width}px` }}
