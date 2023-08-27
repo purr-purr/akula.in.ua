@@ -1,7 +1,6 @@
 import { FC, memo, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import Feedback from '@modules/common/components/Feedback';
 import FeedbackForm from '@modules/common/components/FeedbackForm';
 import Loader from '@modules/common/components/Loader';
 import Meta from '@modules/common/components/Meta';

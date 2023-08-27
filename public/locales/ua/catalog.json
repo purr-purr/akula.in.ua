@@ -1,3 +1,7 @@
 {
-  "x": ""
+  "CATALOG": {
+    "CHOOSE_THE_PERFECT_PROPERTY": "Оберіть  ідеальну  нерухомість",
+    "SEARCH_RESULTS": "Результати пошуку",
+    "CLEAR_ALL_FILTERS": "Очистити всі фільтри"
+  }
 }

@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { ICatalogData } from '@modules/common/types';
-
 import { BACKEND_LOCALHOST } from '@utils/const';
 
-import type { IInitialData } from '@modules/common/types';
+import type { ICatalogData, IInitialData } from '@modules/common/types';
 
 const useDataFetching = () => {
 	const [data, setData] = useState<IInitialData[]>([]);
@@ -16,7 +14,7 @@ const useDataFetching = () => {
 		contract_type: '',
 		description: '',
 		id: 0,
-		price: 2,
+		price: 0,
 		property_type: '',
 		real_estate_type: '',
 		services: '',

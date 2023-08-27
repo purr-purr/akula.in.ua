@@ -8,7 +8,6 @@ import HomeIntro from '@modules/pages/home/components/HomeIntro';
 import HomeObjectsInManagement from '@modules/pages/home/components/HomeObjectsInManagement';
 import HomePartners from '@modules/pages/home/components/HomePartners';
 import HomeReviews from '@modules/pages/home/components/HomeReviews';
-import HomeSuccessfulCases from '@modules/pages/home/components/HomeSuccessfulСases';
 import HomeTeam from '@modules/pages/home/components/HomeTeam';
 import HomeWhoWeAre from '@modules/pages/home/components/HomeWhoWeAre';
 
@@ -27,7 +26,6 @@ const Home = () => {
 			<HomeObjectsInManagement />
 			<HomeReviews />
 			<Feedback type="owner" />
-			<HomeSuccessfulCases />
 		</>
 	);
 };

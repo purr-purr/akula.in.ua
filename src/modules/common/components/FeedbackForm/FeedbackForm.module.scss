@@ -2,3 +2,8 @@
   @include flex-align(flex-end);
   gap: 30px;
 }
+
+.column {
+  flex-direction: column;
+  align-items: baseline;
+}

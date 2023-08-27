@@ -1,2 +1,73 @@
 .container {
+  margin-bottom: 150px;
+}
+
+.card {
+  padding: 67px 20px 24px;
+  overflow: visible;
+  position: relative;
+}
+
+.text {
+  height: 210px;
+  margin-bottom: 24px;
+  padding-right: 8px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 80px;
+    height: 63px;
+  }
+
+  &.gray {
+    &:before {
+      background-image: url("../../assets/HomeReviews/quote--gray.svg");
+    }
+  }
+
+  &.blue {
+    &:before {
+      background-image: url("../../assets/HomeReviews/quote--blue.svg");
+    }
+  }
+
+  &.darkBlue {
+    &:before {
+      background-image: url("../../assets/HomeReviews/quote--dark-blue.svg");
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-blue);
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: var(--nude);
+  }
+}
+
+.signature {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.rating {
+  @include flex-align(center);
+  gap: 8px;
+  list-style-type: none;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }

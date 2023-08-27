@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
+import cn from 'classnames';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
@@ -34,7 +35,11 @@ const HomeObjectsInManagement = () => {
 			<BlockTitle title={tHome('OBJECTS_IN_MANAGEMENT.OBJECTS_IN_MANAGEMENT')} />
 			<CardSlider>
 				{list.map((item) => (
-					<Link href={`/${APP.CATALOG_NAME}`} className={s.item} key={item.text}>
+					<Link
+						href={`/${APP.CATALOG_NAME}`}
+						className={cn('yellow-shadow', s.item)}
+						key={item.text}
+					>
 						<Image src={getImagePath(item.text)} alt={tCommon('IMAGE')} />
 						<div>
 							<p className={s[`item-text`]}>

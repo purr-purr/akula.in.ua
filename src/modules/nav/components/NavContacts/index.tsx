@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
 import Button from '@modules/common/components/Button';
+import FeedbackModal from '@modules/common/components/FeedbackModal';
 import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
 import IconMap from '@modules/icons/components/IconMap';
 import IconPhone from '@modules/icons/components/IconPhone';
@@ -13,6 +15,7 @@ import s from './NavContacts.module.scss';
 
 const NavContacts = () => {
 	const { t } = useTranslation('common');
+	const [isFeedbackModal, setIsFeedbackModal] = useState(false);
 
 	return (
 		<article className={s.container}>
@@ -32,7 +35,14 @@ const NavContacts = () => {
 				color="transparent"
 				text={t('FIND_REAL_ESTATE')}
 			/>
-			<Button text={t('LEAVE_A_REQUEST')} />
+			<Button
+				onClick={() => setIsFeedbackModal(true)}
+				text={t('LEAVE_A_REQUEST')}
+			/>
+
+			{isFeedbackModal && (
+				<FeedbackModal onClick={() => setIsFeedbackModal(false)} />
+			)}
 		</article>
 	);
 };

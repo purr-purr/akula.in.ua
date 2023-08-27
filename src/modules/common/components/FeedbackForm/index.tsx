@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
+import cn from 'classnames';
 
 import Button from '@modules/common/components/Button';
 import InputField from '@modules/common/components/InputField';
@@ -11,7 +12,10 @@ import type { ChangeEvent, FormEvent } from 'react';
 
 import s from './FeedbackForm.module.scss';
 
-const FeedbackForm: FC<{ message?: string }> = ({ message }) => {
+const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
+	message,
+	isColumnType = false,
+}) => {
 	const { t } = useTranslation('common');
 	const { basePath, asPath } = useRouter();
 	const fullLink = `https://akula.in.ua${basePath + asPath}`;
@@ -64,7 +68,10 @@ const FeedbackForm: FC<{ message?: string }> = ({ message }) => {
 	const isDisabledButton = formData.phone.length < 1 || formData.name.length < 1;
 
 	return (
-		<form className={s.container} onSubmit={handleSubmit}>
+		<form
+			className={cn(s.container, isColumnType && s.column)}
+			onSubmit={handleSubmit}
+		>
 			<InputField label="Name" color="dark">
 				<input
 					type="text"

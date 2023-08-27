@@ -1,5 +1,43 @@
 .container {
+  @include flex-align(center);
+  gap: 20px;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 100px;
+
+  button {
+    background-color: transparent;
+    border: none;
+
+    &:not(.page-button) {
+      &:disabled {
+        opacity: .5;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.page-button {
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  &:disabled {
+    color: var(--primary);
+    font-weight: 900;
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: var(--blue);
+    font-weight: 900;
+  }
+}
+
+.next-button {
+  transform: rotate(180deg);
 }

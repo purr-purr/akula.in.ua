@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { IIconsProps } from '@modules/icons/types';
+import type { IIconsProps } from '@modules/icons/types';
 
 const IconViber: FC<IIconsProps> = ({
 	color = '#fff',

@@ -1,9 +1,26 @@
 .container {
-  @include flex-justify-align(center, center);
+  border-radius: 60px;
+  height: 328px;
+  padding: 65px 120px;
+  margin-bottom: -130px;
+  position: relative;
+  z-index: 1;
+  background: var(--secondary-blue) url('../../assets/CatalogHeader/background-logo.svg') -140px bottom/contain no-repeat;
+
+  h1 {
+    max-width: 495px;
+    width: 100%;
+    font-size: 50px;
+    color: var(--white);
+  }
+}
+
+.background {
+  position: absolute;
+  right: 0;
+  top: -114px;
+  max-width: 810px;
   width: 100%;
-  height: 252px;
-  border: 1px solid #333;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
+  pointer-events: none;
+  z-index: -1;
 }

@@ -9,11 +9,11 @@
   border: 1px solid var(--nude);
 
   &.left {
-    border-radius: 0 25px 25px 25px;
+    border-radius: 0 18px 18px 18px;
   }
 
   &.center {
-    border-radius: 25px;
+    border-radius: 18px;
   }
 }
 
@@ -43,7 +43,7 @@
   border: none;
   max-width: 252px;
   width: 100%;
-  border-radius: 25px 25px 0 0;
+  border-radius: 18px 18px 0 0;
   transition: background-color .4s ease-in-out, color .4s ease-in-out;
 
   &.active {

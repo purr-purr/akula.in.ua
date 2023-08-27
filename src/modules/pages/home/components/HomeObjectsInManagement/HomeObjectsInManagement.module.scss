@@ -6,28 +6,6 @@
   @include flex-align(flex-start);
   gap: 12px;
   padding: 20px;
-  position: relative;
-  z-index: 1;
-
-  &:after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background: radial-gradient(33.16% 56.71% at 96.91% 98.75%, rgba(255, 167, 0, 0.25) 0%, rgba(255, 255, 255, 0) 100%), var(--white);
-    transition: opacity .5s ease-in-out;
-  }
-
-  &:hover {
-    &:after {
-      opacity: 1;
-      transition: opacity .4s ease-in-out;
-    }
-  }
 
   img {
     pointer-events: none;

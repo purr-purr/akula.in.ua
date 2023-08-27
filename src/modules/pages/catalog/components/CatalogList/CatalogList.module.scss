@@ -1,6 +1,12 @@
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 40px;
   list-style-type: none;
+}
+
+.sort {
+  @include flex-align(flex-start);
+  margin-top: 106px;
 }

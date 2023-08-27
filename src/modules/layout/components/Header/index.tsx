@@ -8,10 +8,8 @@ import s from './Header.module.scss';
 const Header = () => {
 	return (
 		<header className={cn('layout-container', s.container)}>
-			{/*<section className={cn('layout-container', s.inner)}>*/}
 			<Logo />
 			<Nav />
-			{/*</section>*/}
 		</header>
 	);
 };

@@ -78,7 +78,7 @@ const CardSlider: FC<{
 			slidesToShow={slidesToShow}
 			cellSpacing={20}
 			dragThreshold={0.3}
-			autoplay={true}
+			autoplay={false}
 			autoplayInterval={3000}
 			disableEdgeSwiping
 			dragging

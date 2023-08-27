@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react';
+import cn from 'classnames';
 
 import { useDataFetching } from '@modules/common/hooks';
+import IconSliderButton from '@modules/icons/components/IconSliderButton';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -29,33 +31,39 @@ const CatalogPagination: FC<{
 	};
 
 	const handlePrevBtn = () => {
-		currentPage > 1 && setCurrentPage(currentPage - 1);
+		currentPage > 0 && setCurrentPage(currentPage - 1);
 	};
 
 	const handleNextBtn = () => {
-		currentPage > 1 && setCurrentPage(currentPage - 1);
+		currentPage <= 6 && setCurrentPage(currentPage + 1);
 	};
 
 	useEffect(() => {
 		onPaginationSorting(dataList.slice(startIndex, endIndex));
 	}, [data, startIndex, endIndex]);
 
-	return dataList.length > 9 ? (
+	return dataList.length > 0 ? (
 		<article className={s.container}>
 			<button onClick={handlePrevBtn} disabled={currentPage === 1}>
-				{'<='}
+				<IconSliderButton />
 			</button>
 			{Array.from({ length: totalPages }, (_, i) => i + 1).map((page: number) => (
 				<button
 					key={page}
+					className={s[`page-button`]}
+					style={{ minWidth: page > 9 ? '27px' : '17px' }}
 					onClick={() => handlePageChange(page)}
 					disabled={currentPage === page}
 				>
 					{page}
 				</button>
 			))}
-			<button onClick={handleNextBtn} disabled={lastPage === currentPage - 1}>
-				{'=>'}
+			<button
+				className={s[`next-button`]}
+				onClick={handleNextBtn}
+				disabled={currentPage - 1 === lastPage}
+			>
+				<IconSliderButton />
 			</button>
 		</article>
 	) : null;
