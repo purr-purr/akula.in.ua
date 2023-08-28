@@ -20,10 +20,10 @@ const Home = () => {
 			<Filter />
 			<HomeWhoWeAre />
 			<HomeTeam />
-			<HomePartners />
 			<HomeAdvantages />
 			<Feedback type="cooperation" />
 			<HomeObjectsInManagement />
+			<HomePartners />
 			<HomeReviews />
 			<Feedback type="owner" />
 		</>

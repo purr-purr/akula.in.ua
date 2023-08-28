@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "prettier --write \"**/*.{ts,tsx,js,jsx}\" && concurrently \"node server.js\" \"next dev\"",
+    "dev": "concurrently \"node server.js\" \"next dev\"",
     "build": "next build",
     "start": "concurrently \"NODE_ENV=production node server.js\" \"next start -p 4400\"",
     "prod": "git pull origin main && next build && concurrently \"NODE_ENV=production node server.js\" \"next start -p 4400\"",

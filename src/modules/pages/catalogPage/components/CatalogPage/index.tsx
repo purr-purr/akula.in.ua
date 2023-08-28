@@ -24,7 +24,6 @@ const CatalogPage: FC = memo(() => {
 	const {
 		address,
 		city,
-		contract_type,
 		description,
 		id,
 		price,
@@ -33,7 +32,6 @@ const CatalogPage: FC = memo(() => {
 		services,
 		station,
 		table,
-		visibility,
 	} = pageData;
 
 	useEffect(() => {
@@ -63,9 +61,9 @@ const CatalogPage: FC = memo(() => {
 					<CatalogPageDescription
 						services={services}
 						description={description}
-						infoList={table && table}
+						infoList={table}
 					/>
-					<CatalogPageAddress address={fullAddress} station={station} />
+					<CatalogPageAddress city={city} address={address} station={station} />
 				</div>
 				<aside>
 					<div className={s.feedback}>

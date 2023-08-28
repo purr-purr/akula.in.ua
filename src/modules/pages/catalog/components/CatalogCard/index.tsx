@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import cn from 'classnames';
@@ -7,6 +8,7 @@ import IconFloorPlan from '@modules/icons/components/IconFloorPlan';
 import IconRuler from '@modules/icons/components/IconRuler';
 
 import { APP } from '@utils/const';
+import { formatTranslation } from '@utils/formatters';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -16,17 +18,24 @@ import s from './CatalogCard.module.scss';
 const CatalogCard: FC<{
 	props: ICatalogData;
 }> = ({ props }) => {
-	const postersList = usePropertyPhoto(props.id);
+	const {
+		id,
+		contract_type,
+		property_type,
+		city,
+		price,
+		address,
+		real_estate_type,
+		table,
+		location,
+	} = props;
 
-	const tableInfo = props.table?.reduce((acc, obj) => {
-		const key = Object.keys(obj)[0];
-		acc[key] = obj[key];
-		return acc;
-	}, {});
+	const postersList = usePropertyPhoto(id);
+	const { i18n } = useTranslation();
 
 	return (
 		<li className={cn('yellow-shadow', s.container)}>
-			<Link className={s.inner} href={`/${APP.CATALOG_NAME}/${props.id}`}>
+			<Link className={s.inner} href={`/${APP.CATALOG_NAME}/${id}`}>
 				{postersList[0] && (
 					<Image
 						className={s.image}
@@ -38,25 +47,26 @@ const CatalogCard: FC<{
 				)}
 				<div className={s.info}>
 					<ul className={s.tags}>
-						<li>{props.contract_type}</li>
-						<li>{props.property_type}</li>
+						<li>{contract_type}</li>
+						<li>{property_type}</li>
 					</ul>
-					<h3 className={s.city}>{props.city}</h3>
+					<h3 className={s.city}>{city}</h3>
 					<address className={s.address}>
-						{props.real_estate_type} по {props.address}
+						{real_estate_type} в {formatTranslation(i18n.language, location)} по{' '}
+						{formatTranslation(i18n.language, address)}
 					</address>
 					<ul className={s.description}>
-						<li>{props.price}$</li>
-						{tableInfo?.table_total_area && (
+						<li>{price}$</li>
+						{table.total_area && (
 							<li>
 								<IconFloorPlan />
-								{tableInfo.table_total_area}
+								{table.total_area}
 							</li>
 						)}
-						{tableInfo?.table_offices && (
+						{table.offices && (
 							<li>
 								<IconRuler />
-								{tableInfo.table_offices}
+								{table.offices}
 							</li>
 						)}
 					</ul>

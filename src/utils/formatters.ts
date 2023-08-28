@@ -1,3 +1,5 @@
+import { ITransVersion } from '@modules/common/types';
+
 import { APP } from '@utils/const';
 
 export const formatMetaTitle = (title: string): string =>
@@ -18,4 +20,8 @@ export const formatMetaKeyWords = (
 ): string => {
 	const list = allSubTitles.join(', ');
 	return `${title}, ${APP.TITLE}, ${list}, ${APP.META_COMMON_KEYWORDS}`;
+};
+
+export const formatTranslation = (lang: string, value: ITransVersion) => {
+	return value[lang as keyof typeof value];
 };

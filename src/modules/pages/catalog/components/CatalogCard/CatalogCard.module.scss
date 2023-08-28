@@ -3,7 +3,6 @@
   border-radius: 18px;
   box-shadow: 0 14px 32px 0 rgba(214, 214, 214, 0.36);
   background-color: var(--white);
-  margin-bottom: 40px;
   overflow: hidden;
 }
 
@@ -16,7 +15,7 @@
 .image {
   display: block;
   width: 100%;
-  object-fit: fill;
+  object-fit: cover;
   height: 300px;
 }
 

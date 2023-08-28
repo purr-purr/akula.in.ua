@@ -2,49 +2,127 @@ import { useEffect, useState } from 'react';
 
 import { BACKEND_LOCALHOST } from '@utils/const';
 
-import type { ICatalogData, IInitialData } from '@modules/common/types';
+import type { ICatalogData, IDataBaseResponse } from '@modules/common/types';
+
+type RecordFormattedData = undefined | null | string | number;
 
 const useDataFetching = () => {
-	const [data, setData] = useState<IInitialData[]>([]);
-	const [loading, setLoading] = useState(false);
-
 	const initialData: ICatalogData = {
-		address: '',
 		city: '',
 		contract_type: '',
-		description: '',
 		id: 0,
 		price: 0,
 		property_type: '',
 		real_estate_type: '',
-		services: '',
-		station: '',
-		visibility: 1,
+		services: {
+			ua: null,
+			ru: null,
+			en: null,
+		},
+		station: {
+			ua: null,
+			ru: null,
+			en: null,
+		},
+		visibility: false,
+		description: {
+			ua: null,
+			ru: null,
+			en: null,
+		},
+		address: {
+			ua: null,
+			ru: null,
+			en: null,
+		},
+		location: {
+			ua: null,
+			ru: null,
+			en: null,
+		},
+		table: {},
+	};
+
+	const [data, setData] = useState<ICatalogData[]>([initialData]);
+	const [loading, setLoading] = useState(false);
+
+	const deletePrefix = (inputText: string, wordToDelete: string) => {
+		const regex = new RegExp(wordToDelete, 'g');
+		return inputText.replace(regex, '');
 	};
 
 	useEffect(() => {
 		fetch(`${BACKEND_LOCALHOST}/data`)
 			.then((response) => response.json())
-			.then((data: IInitialData[]) => sortData(data))
+			.then((data: IDataBaseResponse[]) => sortData(data))
 			.catch((error) => console.error('Error fetching data:', error));
 	}, []);
 
-	const sortData = (data: IInitialData[]) => {
-		const result = data.map((item: IInitialData) => {
-			const newObj: IInitialData = { ...item };
-			const tableArray: Record<string, any>[] = [];
+	const sortData = (data: IDataBaseResponse[]) => {
+		const result = data.map((item: IDataBaseResponse) => {
+			const doneResult = Object.create(initialData);
 
-			for (const key in newObj) {
+			const tempObj: IDataBaseResponse = { ...item };
+			let tableArray: Record<string, RecordFormattedData> = {};
+			let descriptionArray: Record<string, RecordFormattedData> = {};
+			let addressArray: Record<string, RecordFormattedData> = {};
+			let locationArray: Record<string, RecordFormattedData> = {};
+			let stationArray: Record<string, RecordFormattedData> = {};
+			let servicesArray: Record<string, RecordFormattedData> = {};
+
+			for (const key in tempObj) {
+				const subKey = key as keyof IDataBaseResponse;
+
 				if (key.startsWith('table_')) {
-					const subKey = key as keyof IInitialData;
-					tableArray.push({ [subKey]: newObj[subKey] });
-					delete newObj[subKey];
+					const newKey = deletePrefix(subKey, 'table_');
+					tableArray[newKey] = tempObj[subKey];
+					delete tempObj[subKey];
+				}
+
+				if (key.endsWith('_description')) {
+					const newKey = deletePrefix(subKey, '_description');
+					descriptionArray[newKey] = tempObj[subKey];
+					delete tempObj[subKey];
+				}
+
+				if (key.endsWith('_location')) {
+					const newKey = deletePrefix(subKey, '_location');
+					locationArray[newKey] = tempObj[subKey];
+					delete tempObj[subKey];
+				}
+
+				if (key.endsWith('_address')) {
+					const newKey = deletePrefix(subKey, '_address');
+					addressArray[newKey] = tempObj[subKey];
+					delete tempObj[subKey];
+				}
+
+				if (key.endsWith('_services')) {
+					const newKey = deletePrefix(subKey, '_services');
+					servicesArray[newKey] = tempObj[subKey];
+					delete tempObj[subKey];
+				}
+
+				if (key.endsWith('_station')) {
+					const newKey = deletePrefix(subKey, '_station');
+					stationArray[newKey] = tempObj[subKey];
+					delete tempObj[subKey];
 				}
 			}
 
-			newObj.table = tableArray;
-			return newObj;
+			let itemFormattedData = Object.assign(tempObj, doneResult);
+			itemFormattedData.visibility = tempObj['visibility'] === 1;
+			itemFormattedData.table = tableArray;
+			itemFormattedData.description = descriptionArray;
+			itemFormattedData.address = addressArray;
+			itemFormattedData.location = locationArray;
+			itemFormattedData.station = stationArray;
+			itemFormattedData.services = servicesArray;
+
+			return itemFormattedData;
 		});
+
+		console.log(result);
 
 		setData(result);
 		setLoading(false);
