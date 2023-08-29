@@ -77,7 +77,7 @@ const CatalogPageDescription: FC<{
 
 				<p className={s[`info-notification`]}>
 					<span className={s.star}>*</span> Згідно з вимогами Закону України «Про
-					рекламу» ціни всіх об'єктів нерухомості на сайті виводяться в гривнях.
+					рекламу» ціни всіх обєктів нерухомості на сайті виводяться в гривнях.
 				</p>
 			</article>
 

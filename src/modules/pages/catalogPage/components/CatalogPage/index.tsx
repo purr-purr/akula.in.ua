@@ -10,7 +10,6 @@ import CatalogPageCarousel from '@modules/pages/catalogPage/components/CatalogPa
 import CatalogPageCrumbs from '@modules/pages/catalogPage/components/CatalogPageCrumbs';
 import CatalogPageDescription from '@modules/pages/catalogPage/components/CatalogPageDescription';
 import CatalogPageHeader from '@modules/pages/catalogPage/components/CatalogPageHeader';
-import CatalogPageAddress from '@modules/pages/catalogPage/components/CatalogPageMap';
 
 import { formatTranslation } from '@utils/formatters';
 
@@ -97,9 +96,8 @@ const CatalogPage: FC = memo(() => {
 						<h5>Cподобалася ця нерухомість?</h5>
 						<p>
 							Якщо вам сподобалася ця нерухомість і ви зацікавлені у ній, будь ласка,
-							заповніть наведену нижче заявку. Наша команда зв'яжеться з вами
-							найближчим часом для надання додаткової інформації та організації
-							перегляду.
+							заповніть наведену нижче заявку. Наша команда звяжеться з вами найближчим
+							часом для надання додаткової інформації та організації перегляду.
 						</p>
 						<FeedbackForm isColumnType message={feedbackMessage} />
 					</div>
