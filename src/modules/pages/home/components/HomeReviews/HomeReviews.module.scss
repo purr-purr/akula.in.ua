@@ -46,14 +46,6 @@
     width: 1px;
     height: 1px;
   }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--secondary-blue);
-  }
-
-  &::-webkit-scrollbar-track-piece {
-    background-color: var(--nude);
-  }
 }
 
 .signature {

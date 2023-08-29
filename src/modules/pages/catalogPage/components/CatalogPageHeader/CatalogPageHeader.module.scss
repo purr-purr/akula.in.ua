@@ -1,13 +1,51 @@
-.container {
-
-}
-
 .heading {
   @include flex-justify-align(space-between, center);
+  margin-bottom: 14px;
+}
+
+.address {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+
+.description {
+  @include flex-align(center);
+  margin-bottom: 24px;
 }
 
 .tags {
   display: flex;
   list-style-type: none;
   gap: 10px;
+  margin-right: 8px;
+
+  li {
+    font-size: 12px;
+    font-weight: 500;
+
+    padding: 6px 12px;
+    border-radius: 14px;
+    background-color: var(--nude);
+  }
+}
+
+.city {
+  @include flex-align(center);
+  gap: 4px;
+  color: var(--gray);
+
+  font-size: 12px;
+  font-weight: 500;
+
+  svg {
+    pointer-events: none;
+  }
 }

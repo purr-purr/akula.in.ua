@@ -56,12 +56,16 @@ const CardSlider: FC<{
 	frameClassName?: string;
 	withoutControls?: boolean;
 	slidesToShow?: number;
+	dragging?: boolean;
+	autoplay?: boolean;
 }> = ({
 	children,
 	childrenClassName,
 	frameClassName,
 	withoutControls = false,
 	slidesToShow = 4,
+	dragging = true,
+	autoplay = false,
 }) => {
 	const childrenRender = Children.map(children, (child) => {
 		if (isValidElement(child)) {
@@ -78,10 +82,10 @@ const CardSlider: FC<{
 			slidesToShow={slidesToShow}
 			cellSpacing={20}
 			dragThreshold={0.3}
-			autoplay={false}
+			autoplay={autoplay}
 			autoplayInterval={3000}
 			disableEdgeSwiping
-			dragging
+			dragging={dragging}
 			wrapAround={true}
 			renderCenterLeftControls={renderCenterLeftControls}
 			renderCenterRightControls={renderCenterRightControls}

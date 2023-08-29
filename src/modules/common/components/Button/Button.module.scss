@@ -9,11 +9,11 @@
   min-width: 161px;
   text-align: center;
   white-space: nowrap;
+  color: var(--dark);
   transition: all 0.4s ease-in-out;
 
   &.primary {
     border-color: var(--primary);
-    color: var(--dark);
     background: linear-gradient(to right, var(--primary) 0%, #FFD952 100%);
     background-size: 200% 200%;
 
@@ -26,12 +26,10 @@
   }
 
   &.transparent {
-    color: var(--gray);
-    border-color: var(--nude);
+    border-color: var(--secondary-blue);
     background-color: var(--white);
 
     &:hover {
-      color: var(--dark);
       border-color: transparent;
       box-shadow: 0 4px 12px 0 rgba(175, 175, 175, 0.25);
       transition: all .4s ease-in-out;

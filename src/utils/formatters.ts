@@ -23,5 +23,14 @@ export const formatMetaKeyWords = (
 };
 
 export const formatTranslation = (lang: string, value: ITransVersion) => {
-	return value[lang as keyof typeof value];
+	return value[lang as keyof typeof value] || '';
+};
+
+export const formatPrice = (value: number) => {
+	const price = value.toString();
+	if (price.length <= 1) {
+		return price;
+	}
+
+	return price[0] + ' ' + price.substring(1) + '$';
 };

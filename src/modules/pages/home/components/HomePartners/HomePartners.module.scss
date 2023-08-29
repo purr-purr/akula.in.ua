@@ -3,17 +3,16 @@
 }
 
 .item {
+  @include flex-align(center);
   background-color: transparent;
   border-color: transparent;
   box-shadow: none;
-  max-width: 240px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  height: 100%;
+  overflow: visible;
 
   img {
     display: block;
-    width: 100%;
-    height: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

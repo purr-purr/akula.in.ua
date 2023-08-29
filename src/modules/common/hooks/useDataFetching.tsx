@@ -14,11 +14,6 @@ const useDataFetching = () => {
 		price: 0,
 		property_type: '',
 		real_estate_type: '',
-		services: {
-			ua: null,
-			ru: null,
-			en: null,
-		},
 		station: {
 			ua: null,
 			ru: null,
@@ -68,8 +63,6 @@ const useDataFetching = () => {
 			let addressArray: Record<string, RecordFormattedData> = {};
 			let locationArray: Record<string, RecordFormattedData> = {};
 			let stationArray: Record<string, RecordFormattedData> = {};
-			let servicesArray: Record<string, RecordFormattedData> = {};
-
 			for (const key in tempObj) {
 				const subKey = key as keyof IDataBaseResponse;
 
@@ -97,12 +90,6 @@ const useDataFetching = () => {
 					delete tempObj[subKey];
 				}
 
-				if (key.endsWith('_services')) {
-					const newKey = deletePrefix(subKey, '_services');
-					servicesArray[newKey] = tempObj[subKey];
-					delete tempObj[subKey];
-				}
-
 				if (key.endsWith('_station')) {
 					const newKey = deletePrefix(subKey, '_station');
 					stationArray[newKey] = tempObj[subKey];
@@ -117,7 +104,6 @@ const useDataFetching = () => {
 			itemFormattedData.address = addressArray;
 			itemFormattedData.location = locationArray;
 			itemFormattedData.station = stationArray;
-			itemFormattedData.services = servicesArray;
 
 			return itemFormattedData;
 		});

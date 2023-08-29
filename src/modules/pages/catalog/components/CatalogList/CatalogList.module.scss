@@ -11,3 +11,10 @@
   @include flex-align(flex-start);
   margin-top: 106px;
 }
+
+.loader {
+  @include flex-justify-align(center, center);
+  flex-direction: column;
+  width: 100%;
+  height: 250px;
+}

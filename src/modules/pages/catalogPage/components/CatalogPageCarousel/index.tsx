@@ -5,6 +5,7 @@ import usePropertyPhoto from '../../../../common/hooks/usePropertyPhoto';
 import s from './CatalogPageCarousel.module.scss';
 
 import 'react-image-gallery/styles/css/image-gallery.css';
+import IconSliderButton from '@modules/icons/components/IconSliderButton';
 
 const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 	const postersList = usePropertyPhoto(id);
@@ -16,6 +17,16 @@ const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 				showBullets
 				items={postersList}
 				additionalClass={s.gallery}
+				renderLeftNav={(onClick, disabled) => (
+					<button className={s[`prev-button`]} onClick={onClick} disabled={disabled}>
+						<IconSliderButton />
+					</button>
+				)}
+				renderRightNav={(onClick, disabled) => (
+					<button className={s[`next-button`]} onClick={onClick} disabled={disabled}>
+						<IconSliderButton />
+					</button>
+				)}
 			/>
 		</article>
 	);

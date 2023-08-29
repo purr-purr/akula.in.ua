@@ -4,15 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import cn from 'classnames';
 
+import { usePropertyPhoto } from '@modules/common/hooks/index';
 import IconFloorPlan from '@modules/icons/components/IconFloorPlan';
 import IconRuler from '@modules/icons/components/IconRuler';
 
 import { APP } from '@utils/const';
-import { formatTranslation } from '@utils/formatters';
+import { formatPrice, formatTranslation } from '@utils/formatters';
 
 import type { ICatalogData } from '@modules/common/types';
 
-import usePropertyPhoto from '../../../../common/hooks/usePropertyPhoto';
+import useFullAddress from '../../../../common/hooks/useFullAddress';
 import s from './CatalogCard.module.scss';
 
 const CatalogCard: FC<{
@@ -32,6 +33,14 @@ const CatalogCard: FC<{
 
 	const postersList = usePropertyPhoto(id);
 	const { i18n } = useTranslation();
+	const itemLocation = formatTranslation(i18n.language, location);
+	const itemAddress = formatTranslation(i18n.language, address);
+
+	const fullAddress = useFullAddress(
+		real_estate_type,
+		itemLocation,
+		itemAddress,
+	);
 
 	return (
 		<li className={cn('yellow-shadow', s.container)}>
@@ -51,12 +60,9 @@ const CatalogCard: FC<{
 						<li>{property_type}</li>
 					</ul>
 					<h3 className={s.city}>{city}</h3>
-					<address className={s.address}>
-						{real_estate_type} в {formatTranslation(i18n.language, location)} по{' '}
-						{formatTranslation(i18n.language, address)}
-					</address>
+					<address className={s.address}>{fullAddress}</address>
 					<ul className={s.description}>
-						<li>{price}$</li>
+						<li>{formatPrice(price)}</li>
 						{table.total_area && (
 							<li>
 								<IconFloorPlan />

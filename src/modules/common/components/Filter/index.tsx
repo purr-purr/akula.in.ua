@@ -27,15 +27,15 @@ const Filter: FC<{
 	const MOCK_FILTERS_LIST = [
 		{
 			category: t('PROPERTY_TYPE'),
-			list: ['All', 'Type1', 'Type2', 'Type3'],
+			list: [t('ALL'), 'Type1', 'Type2', 'Type3'],
 		},
 		{
 			category: t('TYPE_OF_REAL_ESTATE.TYPE_OF_REAL_ESTATE'),
-			list: ['All', 'Looks1', 'Looks2', 'Looks3'],
+			list: [t('ALL'), 'Looks1', 'Looks2', 'Looks3'],
 		},
 		{
 			category: t('CITY'),
-			list: ['All', 'City1', 'City2', 'City3'],
+			list: [t('ALL'), 'City1', 'City2', 'City3'],
 		},
 	];
 

@@ -9,7 +9,7 @@ const IconSliderButton: FC<IIconsProps> = ({
 }) => {
 	return (
 		<svg
-			className="svg-icon"
+			className="svg-slider-button"
 			width={width}
 			height={height}
 			viewBox={`0 0 ${width} ${height}`}
@@ -17,7 +17,7 @@ const IconSliderButton: FC<IIconsProps> = ({
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g filter="url(#filter0_b_27_737)">
-				<circle cx="20" cy="20" r="20" fill={color} fillOpacity="0.2" />
+				<circle cx="20" cy="20" r="20" fill="#fff" fillOpacity="0.9" />
 				<circle cx="20" cy="20" r="19.5" stroke={color} />
 			</g>
 			<path

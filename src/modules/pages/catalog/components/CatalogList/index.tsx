@@ -28,15 +28,15 @@ const CatalogList = () => {
 				<BlockTitle title={t('CATALOG.SEARCH_RESULTS')} />
 				<CatalogSort />
 			</div>
-			<ul className={s.container}>
-				{paginationSortedData.length !== 0 ? (
-					paginationSortedData.map((item: ICatalogData) => (
+			{paginationSortedData.length !== 0 ? (
+				<ul className={s.container}>
+					{paginationSortedData.map((item: ICatalogData) => (
 						<CatalogCard key={item.id} props={item} />
-					))
-				) : (
-					<Loader />
-				)}
-			</ul>
+					))}
+				</ul>
+			) : (
+				<Loader className={s.loader} type="described" />
+			)}
 			<CatalogPagination onPaginationSorting={handlePaginationSorting} />
 		</>
 	);

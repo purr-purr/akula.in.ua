@@ -1,4 +1,9 @@
 {
+  "IN": "в",
+  "ON": "по",
+  "ALL": "Усі",
+  "FIRSTNAME_LASTNAME": "Прізвище Ім’я",
+  "PHONE_NUMBER": "Номер телефону",
   "SELLING": "Продаж",
   "RENT": "Оренда",
   "PROPERTY_TYPE": "Тип нерухомості",

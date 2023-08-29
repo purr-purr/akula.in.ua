@@ -1,4 +1,9 @@
 {
+  "IN": "in",
+  "ON": "on the",
+  "ALL": "All",
+  "FIRSTNAME_LASTNAME": "Full name",
+  "PHONE_NUMBER": "Phone number",
   "SELLING": "Selling",
   "RENT": "Rent",
   "PROPERTY_TYPE": "Property type",

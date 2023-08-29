@@ -16,7 +16,8 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 	message,
 	isColumnType = false,
 }) => {
-	const { t } = useTranslation('common');
+	const { t: tCommon } = useTranslation('common');
+	const { t: tCatalog } = useTranslation('catalog');
 	const { basePath, asPath } = useRouter();
 	const fullLink = `https://akula.in.ua${basePath + asPath}`;
 	const messageText = message ? message : 'Заявка з головної сторінки';
@@ -31,9 +32,12 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 
 	useEffect(() => {
 		if (messageText !== formData.message) {
-			setFormData({ ...formData, message: t('street') + ' ' + messageText });
+			setFormData({
+				...formData,
+				message: tCatalog('HELLO_I_AM_INTERESTED') + ' ' + messageText,
+			});
 		}
-	}, [messageText, t]);
+	}, [messageText, tCatalog]);
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -72,37 +76,30 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 			className={cn(s.container, isColumnType && s.column)}
 			onSubmit={handleSubmit}
 		>
-			<InputField label="Name" color="dark">
+			<InputField label={tCommon('FIRSTNAME_LASTNAME')} color="dark">
 				<input
 					type="text"
 					name="name"
-					placeholder="Name"
+					placeholder={tCommon('FIRSTNAME_LASTNAME')}
 					value={formData.name}
 					onChange={handleChange}
 				/>
 			</InputField>
 
-			<InputField label="Phone" color="dark">
+			<InputField label={tCommon('PHONE_NUMBER')} color="dark">
 				<input
 					type="tel"
 					name="phone"
-					placeholder="Phone"
+					placeholder="+380 __-__-__-___"
 					value={formData.phone}
 					onChange={handleChange}
 				/>
 			</InputField>
 
 			{message && (
-				<InputField label="Message">
-					<textarea
-						name="message"
-						placeholder="message"
-						value={formData.message}
-						onChange={handleChange}
-					/>
-				</InputField>
+				<textarea name="message" value={formData.message} onChange={handleChange} />
 			)}
-			<Button isDisabled={isDisabledButton} text={t('LEAVE_A_REQUEST')} />
+			<Button isDisabled={isDisabledButton} text={tCommon('LEAVE_A_REQUEST')} />
 		</form>
 	);
 };

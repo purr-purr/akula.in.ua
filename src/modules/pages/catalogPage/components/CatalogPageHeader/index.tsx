@@ -1,33 +1,37 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { formatTranslation } from '@utils/formatters';
+import IconMap from '@modules/icons/components/IconMap';
 
-import type { ITransVersion } from '@modules/common/types';
+import { formatPrice } from '@utils/formatters';
 
 import s from './CatalogPageHeader.module.scss';
 
 const CatalogPageHeader: FC<{
 	city: string;
-	address: ITransVersion;
+	address: string;
 	price: number;
 	tags: string[];
 }> = ({ city, address, price, tags }) => {
-	const { i18n } = useTranslation();
-
 	return (
-		<article className={s.container}>
-			<div className={s.heading}>
-				<h1>{city}</h1>
+		<>
+			<article className={s.heading}>
+				<h1 className={s.address}>{address}</h1>
+				<p className={s.price}>{formatPrice(price)}</p>
+			</article>
+
+			<article className={s.description}>
 				<ul className={s.tags}>
 					{tags.map((item, i) => (
 						<li key={item + i}>{item}</li>
 					))}
 				</ul>
-			</div>
-			<h2 className={s.address}>{formatTranslation(i18n.language, address)}</h2>
-			<h3 className={s.price}>{price}</h3>
-		</article>
+
+				<p className={s.city}>
+					<IconMap />
+					{city}
+				</p>
+			</article>
+		</>
 	);
 };
 

@@ -4,7 +4,7 @@
   padding-bottom: 21px;
   position: relative;
   z-index: 2;
-  
+
   &:before {
     content: '';
     position: absolute;
@@ -78,7 +78,7 @@
 .rights {
   font-size: 12px;
   font-weight: 500;
-  color: var(--secondary-gray);
+  color: var(--gray);
   text-align: center;
   margin-top: 50px;
 }

@@ -35,10 +35,6 @@ export interface IDataBaseResponse extends ICatalogStaticData {
 	ua_station: null | string;
 	ru_station: null | string;
 	en_station: null | string;
-
-	ua_services: null | string;
-	ru_services: null | string;
-	en_services: null | string;
 }
 
 export interface ICatalogData extends ICatalogStaticData {
@@ -55,11 +51,6 @@ export interface ICatalogData extends ICatalogStaticData {
 		en: null | string;
 	};
 	address: {
-		ua: null | string;
-		ru: null | string;
-		en: null | string;
-	};
-	services: {
 		ua: null | string;
 		ru: null | string;
 		en: null | string;

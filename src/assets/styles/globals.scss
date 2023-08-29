@@ -4,8 +4,7 @@
   --white: #fff;
   --dark: #222;
   --primary: #FFA700;
-  --gray: #575757;
-  --secondary-gray: #A5A5A5;
+  --gray: #7C7C7C;
   --blue: #2B5865;
   --secondary-blue: #8FBDC2;
   --nude: #F0EDE8;
@@ -28,12 +27,12 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
+    background-color: var(--secondary-blue);
     border-radius: 50px;
   }
 
   &::-webkit-scrollbar-track-piece {
-    background-color: var(--white);
+    background-color: var(--nude);
   }
 }
 
@@ -107,6 +106,31 @@ strong {
     path {
       fill: var(--primary);
       transition: fill .3s ease-in-out;
+    }
+  }
+}
+
+.svg-slider-button {
+  circle, path {
+    transition: all .3s ease-in-out;
+  }
+
+  &:hover {
+    path {
+      fill: var(--white);
+      transition: all .3s ease-in-out;
+    }
+
+    circle {
+      transition: all .3s ease-in-out;
+
+      &:first-child {
+        fill: var(--primary);
+      }
+
+      &:not(:first-child) {
+        stroke: var(--primary);
+      }
     }
   }
 }
