@@ -1,9 +1,15 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import { v4 as uniqueId } from 'uuid';
 
 import CatalogPageMap from '@modules/pages/catalogPage/components/CatalogPageMap';
+
+import { CURRENCY } from '@utils/data';
+import {
+	formatCatalogTranslation,
+	formatTableParameters,
+} from '@utils/formatters';
 
 import type { ICatalogTable } from '@modules/common/types';
 
@@ -28,7 +34,8 @@ const CatalogPageDescription: FC<{
 	realEstateType,
 	contractType,
 }) => {
-	const { t } = useTranslation('common');
+	const { i18n, t: tCommon } = useTranslation('common');
+	const { t: tCatalog } = useTranslation('catalog');
 	const table =
 		tableInfo &&
 		Object.entries(tableInfo)
@@ -42,48 +49,60 @@ const CatalogPageDescription: FC<{
 			})
 			.filter(Boolean);
 
-	const fullAddress = city + ' ' + address;
+	const itemFullAddress = city + ' ' + address;
+	const itemContractType = tCommon(formatCatalogTranslation(contractType));
+	const itemRealEstateType = tCommon(formatCatalogTranslation(realEstateType));
 
 	return (
 		<>
 			<article className={cn(s.frame, s.info)}>
 				<div className={s[`info-heading`]}>
-					<h4 className={s.title}>Info</h4>
+					<h4 className={s.title}>{tCatalog('INFORMATION')}</h4>
 					<p>
-						ID Об’єкту: <span className={s.id}>{id}</span>
+						{tCatalog('OBJECT_ID')} <span className={s.id}>{id}</span>
 					</p>
 				</div>
 
 				<table className={cn(s.table)}>
 					<tbody>
 						<tr>
-							<td>Тип угоди</td>
-							<td>{contractType}</td>
+							<td>{tCatalog('TYPE_OF_AGREEMENT')}</td>
+							<td>{itemContractType}</td>
 						</tr>
 
 						<tr>
-							<td>{t('TYPE_OF_REAL_ESTATE.TYPE_OF_REAL_ESTATE')}</td>
-							<td>{realEstateType}</td>
+							<td>{tCommon('TYPE_OF_REAL_ESTATE.TYPE_OF_REAL_ESTATE')}</td>
+							<td>{itemRealEstateType}</td>
 						</tr>
 
 						{table?.map((item) => (
 							<tr key={uniqueId()}>
-								<td>{item?.key}</td>
-								<td>{item?.value}</td>
+								<td>{tCatalog(`TABLE.${item?.key.toUpperCase()}`)}</td>
+								<td>
+									{item?.value}{' '}
+									<span
+										dangerouslySetInnerHTML={{
+											__html: formatTableParameters(
+												contractType,
+												i18n.language,
+												item?.key.toUpperCase(),
+											),
+										}}
+									/>
+								</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 
-				<p className={s[`info-notification`]}>
-					<span className={s.star}>*</span> Згідно з вимогами Закону України «Про
-					рекламу» ціни всіх обєктів нерухомості на сайті виводяться в гривнях.
+				<p className={s.notification}>
+					<span className="star">*</span> {tCatalog('ACCORDING_TO_THE_REQUIREMENTS')}
 				</p>
 			</article>
 
 			{description && (
 				<article className={cn(s.frame, s.description)}>
-					<h4 className={s.title}>Опис</h4>
+					<h4 className={s.title}>{tCatalog('DESCRIPTION')}</h4>
 					<hr className={s.line} />
 					<p
 						dangerouslySetInnerHTML={{
@@ -94,12 +113,35 @@ const CatalogPageDescription: FC<{
 			)}
 
 			<article className={cn(s.frame, s.address)}>
-				<h4 className={s.title}>Address</h4>
+				<h4 className={s.title}>{tCatalog('ADDRESS')}</h4>
 				<hr className={s.line} />
-				{address && <p>{fullAddress}</p>}
+				{address && <p>{itemFullAddress}</p>}
 				{station && <p>{station}</p>}
-				<CatalogPageMap fullAddress={fullAddress} />
+				<CatalogPageMap fullAddress={itemFullAddress} />
 			</article>
+
+			<p className={s.notification}>
+				<span className="star">*</span>{' '}
+				<Trans
+					t={tCatalog}
+					i18nKey="REQUIREMENTS_OF_THE_LAW_OF_UKRAINE"
+					useDangerouslySetInnerHTML
+					values={{
+						date: CURRENCY.DATE,
+						uah: CURRENCY.UAH,
+					}}
+					components={{
+						Link: (
+							<a
+								className="link"
+								href="https://www.eximb.com/"
+								target="_blank"
+								rel="noreferrer"
+							/>
+						),
+					}}
+				/>
+			</p>
 		</>
 	);
 };

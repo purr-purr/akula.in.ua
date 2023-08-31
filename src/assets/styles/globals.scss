@@ -176,6 +176,18 @@ strong {
   }
 }
 
-//.cont .carousel-slider .control-arrow {
-//  left: -200px;
-//}
+.link {
+  text-decoration: underline;
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: var(--primary);
+    transition: color .3s ease-in-out;
+  }
+}
+
+.star {
+  font-weight: 500;
+  color: var(--primary);
+  margin-right: 6px;
+}

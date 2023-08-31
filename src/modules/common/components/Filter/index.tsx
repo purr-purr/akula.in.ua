@@ -22,7 +22,7 @@ const Filter: FC<{
 		setActiveTabIndex(index);
 	};
 
-	const tabs = [t('SELLING'), t('RENT')];
+	const tabs = [t('OBJECT_INFO.SELLING'), t('OBJECT_INFO.RENT')];
 
 	const MOCK_FILTERS_LIST = [
 		{

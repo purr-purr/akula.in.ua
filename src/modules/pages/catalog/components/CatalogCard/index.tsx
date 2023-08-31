@@ -4,12 +4,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import cn from 'classnames';
 
+import DefaultPoster from '@modules/common/components/DefaultPoster';
 import { usePropertyPhoto } from '@modules/common/hooks/index';
 import IconFloorPlan from '@modules/icons/components/IconFloorPlan';
 import IconRuler from '@modules/icons/components/IconRuler';
 
 import { APP } from '@utils/const';
-import { formatPrice, formatTranslation } from '@utils/formatters';
+import {
+	formatCatalogTranslation,
+	formatCityTranslation,
+	formatPrice,
+} from '@utils/formatters';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -31,35 +36,33 @@ const CatalogCard: FC<{
 		location,
 	} = props;
 
+	const { t } = useTranslation('common');
 	const postersList = usePropertyPhoto(id);
-	const { i18n } = useTranslation();
-	const itemLocation = formatTranslation(i18n.language, location);
-	const itemAddress = formatTranslation(i18n.language, address);
-
-	const fullAddress = useFullAddress(
-		real_estate_type,
-		itemLocation,
-		itemAddress,
-	);
-
+	const itemCity = t(formatCityTranslation(city));
+	const itemContractType = t(formatCatalogTranslation(contract_type));
+	const itemPropertyType = t(formatCatalogTranslation(property_type));
+	const fullAddress = useFullAddress(real_estate_type, location, address);
+	console.log(id, postersList);
 	return (
 		<li className={cn('yellow-shadow', s.container)}>
 			<Link className={s.inner} href={`/${APP.CATALOG_NAME}/${id}`}>
-				{postersList[0] && (
+				{postersList.length > 0 ? (
 					<Image
 						className={s.image}
 						width={400}
 						height={300}
-						src={postersList[0].original}
+						src={postersList[0]?.original}
 						alt=""
 					/>
+				) : (
+					<DefaultPoster className={s.image} />
 				)}
 				<div className={s.info}>
 					<ul className={s.tags}>
-						<li>{contract_type}</li>
-						<li>{property_type}</li>
+						<li>{itemContractType}</li>
+						<li>{itemPropertyType}</li>
 					</ul>
-					<h3 className={s.city}>{city}</h3>
+					<h3 className={s.city}>{itemCity}</h3>
 					<address className={s.address}>{fullAddress}</address>
 					<ul className={s.description}>
 						<li>{formatPrice(price)}</li>

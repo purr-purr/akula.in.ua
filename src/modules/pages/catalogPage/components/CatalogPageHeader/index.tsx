@@ -1,8 +1,9 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import IconMap from '@modules/icons/components/IconMap';
 
-import { formatPrice } from '@utils/formatters';
+import { formatCatalogTranslation, formatPrice } from '@utils/formatters';
 
 import s from './CatalogPageHeader.module.scss';
 
@@ -12,6 +13,7 @@ const CatalogPageHeader: FC<{
 	price: number;
 	tags: string[];
 }> = ({ city, address, price, tags }) => {
+	const { t } = useTranslation('common');
 	return (
 		<>
 			<article className={s.heading}>
@@ -22,7 +24,7 @@ const CatalogPageHeader: FC<{
 			<article className={s.description}>
 				<ul className={s.tags}>
 					{tags.map((item, i) => (
-						<li key={item + i}>{item}</li>
+						<li key={item + i}>{t(formatCatalogTranslation(item))}</li>
 					))}
 				</ul>
 

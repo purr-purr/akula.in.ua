@@ -42,7 +42,7 @@ const CatalogPagination: FC<{
 		onPaginationSorting(dataList.slice(startIndex, endIndex));
 	}, [data, startIndex, endIndex]);
 
-	return dataList.length > 0 ? (
+	return dataList.length > 9 ? (
 		<article className={s.container}>
 			<button onClick={handlePrevBtn} disabled={currentPage === 1}>
 				<IconSliderButton />

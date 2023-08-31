@@ -1,8 +1,17 @@
 .container {
   width: 100%;
   max-width: 940px;
-  height: 850px;
   margin-bottom: 50px;
+
+  &--empty {
+    border-radius: 18px;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  &:not(&--empty) {
+    height: 850px;
+  }
 }
 
 .fullscreen-button {

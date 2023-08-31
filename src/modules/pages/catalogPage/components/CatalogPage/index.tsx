@@ -11,7 +11,7 @@ import CatalogPageCrumbs from '@modules/pages/catalogPage/components/CatalogPage
 import CatalogPageDescription from '@modules/pages/catalogPage/components/CatalogPageDescription';
 import CatalogPageHeader from '@modules/pages/catalogPage/components/CatalogPageHeader';
 
-import { formatTranslation } from '@utils/formatters';
+import { formatCityTranslation, formatTranslation } from '@utils/formatters';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -23,7 +23,8 @@ const CatalogPage: FC = memo(() => {
 	const { data, loading, initialData } = useDataFetching();
 	const router = useRouter();
 	const { catalog } = router.query;
-
+	const { t: tCommon } = useTranslation('common');
+	const { t: tCatalog } = useTranslation('catalog');
 	const [pageData, setPageData] = useState<ICatalogData>(initialData);
 	const {
 		address,
@@ -48,19 +49,14 @@ const CatalogPage: FC = memo(() => {
 	}, [data, router.query.catalog, router.isReady]);
 
 	const itemAddress = formatTranslation(i18n.language, address);
-	const itemLocation = formatTranslation(i18n.language, location);
 	const itemStation = formatTranslation(i18n.language, station);
 	const itemDescription = formatTranslation(i18n.language, description);
-
-	const fullAddress = useFullAddress(
-		real_estate_type,
-		itemLocation,
-		itemAddress,
-	);
+	const itemFullAddress = useFullAddress(real_estate_type, location, address);
+	const itemCity = tCommon(formatCityTranslation(city));
 
 	const tags = [property_type, real_estate_type];
 
-	const feedbackMessage = `[${fullAddress}]`;
+	const feedbackMessage = `[${itemFullAddress}]`;
 
 	if (loading) {
 		return <Loader />;
@@ -68,12 +64,12 @@ const CatalogPage: FC = memo(() => {
 
 	return (
 		<>
-			<Meta title={city} desc={city} keyWords={['text']} />
+			<Meta title={itemCity} desc={itemCity} keyWords={['text']} />
 
 			<CatalogPageCrumbs address={itemAddress} />
 			<CatalogPageHeader
-				city={city}
-				address={fullAddress}
+				city={itemCity}
+				address={itemFullAddress}
 				price={price}
 				tags={tags}
 			/>
@@ -86,19 +82,15 @@ const CatalogPage: FC = memo(() => {
 						id={id}
 						description={itemDescription}
 						tableInfo={table}
-						city={city}
+						city={itemCity}
 						address={itemAddress}
 						station={itemStation}
 					/>
 				</div>
 				<aside>
 					<div className={s.feedback}>
-						<h5>Cподобалася ця нерухомість?</h5>
-						<p>
-							Якщо вам сподобалася ця нерухомість і ви зацікавлені у ній, будь ласка,
-							заповніть наведену нижче заявку. Наша команда звяжеться з вами найближчим
-							часом для надання додаткової інформації та організації перегляду.
-						</p>
+						<h5>{tCatalog('FEEDBACK.LIKE_THIS_PROPERTY')}</h5>
+						<p>{tCatalog('FEEDBACK.IF_YOU_LIKE_THIS_PROPERTY')}</p>
 						<FeedbackForm isColumnType message={feedbackMessage} />
 					</div>
 				</aside>

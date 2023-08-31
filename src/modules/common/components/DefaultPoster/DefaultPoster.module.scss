@@ -1,0 +1,5 @@
+.container {
+  @include flex-justify-align(center, center);
+  background-color: var(--nude);
+  height: 100%;
+}

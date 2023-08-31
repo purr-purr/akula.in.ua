@@ -1,11 +1,10 @@
 {
+  "MAIN_OFFICE_ADDRESS": "Kyiv, str. Poleva, 24 D (03056)",
   "IN": "in",
   "ON": "on the",
   "ALL": "All",
   "FIRSTNAME_LASTNAME": "Full name",
   "PHONE_NUMBER": "Phone number",
-  "SELLING": "Selling",
-  "RENT": "Rent",
   "PROPERTY_TYPE": "Property type",
   "CITY": "City",
   "FIND_REAL_ESTATE": "Find real estate",
@@ -38,5 +37,23 @@
     "TO_LEARN_MORE_DETAILS_ABOUT_OUR_SERVICES_DESC": "To learn more details about our services and to benefit from the support of knowledgeable property management professionals, leave your information in the feedback form below. If you own a property and want to make it a source of income, we know how to help you!",
     "DO_YOU_OWN_REAL_ESTATE": "Do you own real estate?\n",
     "COOPERATION_WITH_THE_AKULA": "Cooperation with the Akula Development Partner team will be beneficial for you. We are ready to provide you with support in the commercially profitable management of the real estate that you own. Our specialists will help you find customers for renting premises and offer a strategy for improving conditions at the facilities in order to obtain maximum profit. If you are interested in effective real estate management, Akula Development Partner has something to offer you."
+  },
+  "CITY_LIST": {
+    "KYIV": "Kyiv"
+  },
+  "OBJECT_INFO": {
+    "SELLING": "Selling",
+    "RENT": "Rent",
+    "GROUND_SECTION": "Ground section",
+    "NON_RESIDENTIAL_REAL_ESTATE": "Non residential real estate",
+    "RESIDENTIAL_REAL_ESTATE": "Residential real estate",
+    "APARTMENT": "Apartment",
+    "NEW_BUILDING": "New building",
+    "HOUSE": "House",
+    "OFFICE": "Office",
+    "PREMISES_FOR_ANY_TYPE_OF_ACTIVITY": "Premises for any type of activity",
+    "RETAIL_SPACE": "Retail space",
+    "STORAGE_ROOM": "Storage room",
+    "LAND": "Land"
   }
 }

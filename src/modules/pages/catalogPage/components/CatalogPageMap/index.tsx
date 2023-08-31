@@ -10,14 +10,19 @@ const CatalogPageMap: FC<{
 }> = ({ fullAddress }) => {
 	const { i18n } = useTranslation();
 
-	// TODO Check this two const's
-	const changedLangCode = i18n.language === 'ua' ? 'uk' : i18n.language;
-	const lang = changedLangCode ? changedLangCode : 'en';
-
+	const lang = i18n.language === 'ua' ? 'uk' : i18n.language;
 	const encodedAddress = encodeURIComponent(fullAddress);
+
 	const embeddedMapURL = `https://www.google.com/maps/embed/v1/place?q=${encodedAddress}&key=${GOOGLE_SERVICES.GOOGLE_MAPS_API_KEY}&language=${lang}`;
 
-	return <iframe className={s.container} src={embeddedMapURL} allowFullScreen />;
+	return (
+		<iframe
+			className={s.container}
+			src={embeddedMapURL}
+			loading="lazy"
+			allowFullScreen
+		/>
+	);
 };
 
 export default CatalogPageMap;

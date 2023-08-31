@@ -16,12 +16,6 @@
     margin-bottom: 24px;
   }
 
-  &-notification {
-    margin-top: 16px;
-    font-size: 12px;
-    color: var(--gray);
-  }
-
   .id {
     font-weight: 500;
   }
@@ -31,6 +25,7 @@
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
+  margin-bottom: 16px;
 
   tr:nth-child(odd) {
     background-color: var(--nude);
@@ -79,8 +74,7 @@
   font-weight: 500;
 }
 
-.star {
-  font-weight: 500;
-  color: var(--primary);
-  margin-right: 6px;
+.notification {
+  font-size: 12px;
+  color: var(--gray);
 }

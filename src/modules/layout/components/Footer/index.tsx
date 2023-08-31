@@ -31,7 +31,7 @@ const Footer = () => {
 
 	const CONTACTS: IContacts[] = [
 		{
-			title: COMPANY_INFO.ADDRESS,
+			title: t('MAIN_OFFICE_ADDRESS'),
 			link: COMPANY_INFO.ADDRESS_MAP,
 			icon: <IconMap color="#fff" />,
 		},
