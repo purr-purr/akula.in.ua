@@ -37,13 +37,17 @@ const Footer = () => {
 		},
 		{
 			title: COMPANY_INFO.MAIN_CONTACT_NUMBER,
-			link: COMPANY_INFO.MAIN_CONTACT_NUMBER,
+			link: `tel:${COMPANY_INFO.MAIN_CONTACT_NUMBER}`,
 			icon: <IconPhone color="#fff" />,
 		},
-		{ title: COMPANY_INFO.EMAIL, link: COMPANY_INFO.EMAIL, icon: <IconEmail /> },
+		{
+			title: COMPANY_INFO.EMAIL,
+			link: `mailto:${COMPANY_INFO.EMAIL}`,
+			icon: <IconEmail />,
+		},
 		{
 			title: COMPANY_INFO.SECOND_CONTACT_NUMBER,
-			link: COMPANY_INFO.SECOND_CONTACT_NUMBER,
+			link: `tel:${COMPANY_INFO.SECOND_CONTACT_NUMBER}`,
 			icon: <IconPhone color="#fff" />,
 		},
 	];
@@ -73,7 +77,7 @@ const Footer = () => {
 				<ul className={s.contacts}>
 					{CONTACTS.map((item) => (
 						<li key={item.link}>
-							<Link href={item.link}>
+							<Link href={item.link} target="_blank">
 								{item.icon}
 								{item.title}
 							</Link>
