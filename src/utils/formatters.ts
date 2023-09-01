@@ -41,7 +41,7 @@ export const formatCityTranslation = (city: string): string => {
 		'київ': 'KYIV',
 	};
 
-	return `CITY_LIST.${translation[city.toLowerCase()] || 'UNKNOWN'}`;
+	return `CITY_LIST.${translation[city.toLowerCase()] || ''}`;
 };
 
 export const formatTableParameters = (
@@ -95,5 +95,5 @@ export const formatCatalogTranslation = (value: string): string => {
 		'земля': 'LAND',
 	};
 
-	return `OBJECT_INFO.${translation[value.toLowerCase()] || 'UNKNOWN'}`;
+	return `OBJECT_INFO.${translation[value.toLowerCase()] || ''}`;
 };

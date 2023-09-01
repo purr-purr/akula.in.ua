@@ -1,3 +1,65 @@
 {
-  "x": ""
+  "COMPANY_SERVICES": "Company services",
+  "AKULA_TEAM": "The <0>Akula Development Partner</0> team are specialists with extensive experience in the real estate market. We provide our clients with exceptional expertise and strategies to maximize real estate investment through effective management and marketing.",
+  "WE_ARE_CONSTANTLY_EXPANDING": "We are constantly expanding the range of our services. If you are interested in generating income from the real estate you own, we are here to help you achieve your desired goal!",
+  "SERVICES_LIST": {
+    "STRATEGIC_SUPPORT_AND_DEVELOPMENT": "Strategic support and development",
+    "CONSULTING_SUPPORT": "Consulting support",
+    "MAINTENANCE_AND_UPGRADE": "Maintenance and upgrade",
+    "COMFORT_AND_SAFETY_OF_OBJECTS": "Comfort and safety of objects",
+    "SUBLIST": {
+      "SERVICES_FOR_DEVELOPERS_INVESTORS": {
+        "TITLE": "Services for developers/investors",
+        "DESC": "<0>Investment analysis of the project.</0><0>Development of the project concept taking into account the analysis and forecasting of the object's payback.</0><0>Research and analysis of the land plot intended for the construction of the object.</0><0>Consulting and support in negotiations.</0><0>Creation of a financial estimate taking into account all the needs for effective management of the real estate object.</0><0>Real estate design development.</0><0>Direct construction of facilities.</0><0>Formation of presentation materials.</0><0>Commissioning of the object.</0><0>Marketing and customer search for a ready-made real estate object.</0><0>Complex management of real estate with the aim of increasing its commercial benefit.</0><0>Complex support, including marketing, legal, accounting and other components.</0>"
+      },
+      "SERVICES_FOR_OWNERS": {
+        "TITLE": "Services for owners",
+        "DESC": "<0>Estimation of the value of the object.</0><0>Search for potential tenants/buyers (brokerage).</0><0>Conclusion of lease agreements and establishment of conditions.</0><0>Creation of new concepts of real estate objects.</0><0>Design and decoration of the object.</0><0>Marketing support.</0><0>Consulting of real estate owners.</0><0>Regular change of tenants and updating of rental rates according to market trends.</0><0>Ensuring compliance with contractual terms by tenants.</0><0>Development and approval of the real estate management budget.</0><0>Functionality audit/change management (if necessary).</0><0>Management, legal, accounting, technical support.</0>"
+      },
+      "SERVICES_FOR_BUSINESS": {
+        "TITLE": "Services for business",
+        "DESC": "<0>Search and selection of suitable real estate objects.</0><0>Designing an estimate of costs necessary for effective management of real estate objects.</0><0>Development of design and arrangement of premises.</0><0>Consulting services for tenants and buyers.</0><0>Management, legal, accounting, technical support.</0>"
+      },
+      "COMMERCIAL_MANAGEMENT": {
+        "TITLE": "Commercial management",
+        "DESC": "<0>Providing services related to legal, accounting and management support of contracts, as well as monitoring the fulfillment of all lease conditions.</0><0>Control of income and indexation of rent in accordance with the terms of the lease agreement, formation of invoices according to lease agreements.</0><0>Management and tracking of timely receipt of rental payments to the account of the property owner.</0><0>Legal consulting and protection of interests of the real estate owner in all public/private organizations.</0><0>Management and implementation of the transfer of objects to tenants of the premises in accordance with the terms of the previously formed contract, acceptance of the premises after the expiration of the lease agreement.</0><0>Control and guarantee of fulfillment of all obligations by tenants in accordance with the formed lease agreement.</0><0>Analysis of problems arising in the process of managing real estate objects.</0><0>Insurance of real estate objects.</0><0>Implementation of quick selection of new clients for rent in case of premature termination of the lease agreement by former tenants.</0><0>Marketing support and implementation of effective strategies in the field of real estate management.</0>"
+      },
+      "BROKERAGE": {
+        "TITLE": "Brokerage",
+        "DESC": "<0>Creation of optimal rental rates taking into account market trends.</0><0>Financial flow balance taking into account the project concept.</0><0>Formation of terms of lease, purchase and sale contracts.</0><0>Creating a pool of tenants in accordance with the requirements and concept of the project.</0><0>Consulting and preliminary negotiations with potential clients.</0><0>Drafting lease agreements.</0><0>Technical brokerage and coordination of transfer of premises to tenants.</0><0>Operational brokerage: search and change of landlords, monitoring trends of rent growth in the market.</0><0>Control and ensuring that lessors fulfill the terms of the lease agreement.</0>"
+      },
+      "CONSULTING": {
+        "TITLE": "Consulting",
+        "DESC": "<0>Formation of real estate development strategy.</0><0>Analysis of optimal and effective options for using real estate objects.</0><0>Project support in the aspect of expert observation, taking into account further exploitation.</0><0>Choosing optimal architectural, construction and engineering solutions for real estate objects.</0><0>Marketing and positioning of the object on the market.</0><0>Formation of the personnel strategy and its further implementation.</0><0>Planning and conducting business trainings and seminars.</0>"
+      },
+      "TECHNICAL_CONSULTING": {
+        "TITLE": "Technical consulting",
+        "DESC": "<0>Formation and analysis of tasks for the development of engineering systems.</0><0>Research of technical solutions from the point of view of their further exploitation.</0><0>Recommendations on the exact formation and placement of energy centers of real estate and commercial objects.</0><0>Research of basic engineering systems from the point of view of their further operation.</0><0>Analysis and approval of existing project documentation in terms of compliance with all current standards and requirements.</0>"
+      },
+      "BEFORE_COMMISSIONING": {
+        "TITLE": "Before commissioning",
+        "DESC": "<0>Formation of a list of systems and structures that require equipment documentation from the general contractor.</0><0>Acceptance of the object with the signing of relevant acts.</0><0>Formation of the repair work schedule and purchase of tools, devices and materials if necessary.</0><0>Creating a warehouse and maintaining documentation related to available materials.</0><0>Control over the performance of works related to the decoration of the lessors' premises.</0>"
+      },
+      "NETWORK_MAINTENANCE": {
+        "TITLE": "Network maintenance",
+        "DESC": "<0>Maintenance of engineering systems, their modernization and management.</0><0>Implementation of necessary repairs for equipment and preparation of relevant documentation.</0><0>Preparation of reports on completed work (periodicity) and development of a capital improvement plan.</0><0>24/7 technical support.</0><0>Development of rules for execution of finishing works and control of their implementation from the point of view of connection to basic engineering systems.</0><0>Processing of tenants' applications for operational services, etc.</0>"
+      },
+      "RENOVATION_OF_OBJECTS": {
+        "TITLE": "Renovation of objects",
+        "DESC": "<0>Modernization and replacement of outdated equipment.</0><0>Change of plans and purpose of premises.</0><0>Conversion and equipping of real estate objects for their comfortable operation.</0><0>Renovation of interiors and redesign of office/residential/commercial spaces.</0><0>Transfer organization on a permanent basis.</0>"
+      },
+      "SECURITY": {
+        "TITLE": "Security",
+        "DESC": "<0>24-hour protection of the object and ensuring the security of the premises.</0><0>Ensuring the safety of people on the site.</0><0>Control and maintenance of alarm systems and fire safety.</0><0>Administrative order support.</0><0>Parking assistance and transport routing.</0>"
+      },
+      "CLEANING": {
+        "TITLE": "Cleaning",
+        "DESC": "<0>Disinfection, derating and pest control of common areas, surrounding areas and facilities.</0><0>Cleaning of glass surfaces, windows and facades.</0><0>Cleaning and care of fixed carpets, replacing them if necessary.</0><0>Care and cleaning of roofs of snow and small debris.</0><0>Post construction and/or general cleaning prior to taking over the facility or changing tenants.</0>"
+      },
+      "RECEPTIONIST": {
+        "TITLE": "Reception",
+        "DESC": "<0>Registration and issuance of electronic passes.</0><0>Accepting appeals and applications from tenants.</0><0>Formation of information and creation of a friendly atmosphere on the territory of the object.</0>"
+      }
+    }
+  }
 }

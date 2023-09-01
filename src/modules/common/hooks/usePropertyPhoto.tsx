@@ -17,7 +17,6 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 	}, [id]);
 
 	const getImageList = (data: string[]) => {
-		console.log(data);
 		const importedImages = data.map((filename: string) => {
 			return {
 				original: getPath(filename).src,

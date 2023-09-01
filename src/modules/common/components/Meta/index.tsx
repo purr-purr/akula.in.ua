@@ -17,7 +17,8 @@ const Meta: FC<{
 	keyWords: string[];
 }> = ({ title, desc, keyWords }) => {
 	const manifestPath: string = '/assets/manifest.webmanifest';
-	const metaTitle: string = formatMetaTitle(title);
+	const metaTitle: string =
+		title.length === 0 ? APP.TITLE : formatMetaTitle(title);
 	const metaDesc: string = formatMetaDesc(desc);
 	const metaKeyWords: string = formatMetaKeyWords(title, keyWords);
 

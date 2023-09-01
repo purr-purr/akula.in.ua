@@ -14,12 +14,18 @@ const useFullAddress = (
 	const itemAddress = formatTranslation(i18n.language, address);
 	const itemRealEstate = formatCatalogTranslation(realEstate);
 
-	const getInString = itemLocation && t('IN');
-	const getLocationString = itemLocation && itemLocation;
+	const getInString = itemLocation && t('IN') + ' ';
+	const getLocationString = itemLocation && itemLocation + ' ';
 
-	return `${t(itemRealEstate)} ${getInString} ${getLocationString} ${t(
-		'ON',
-	)} ${itemAddress}`;
+	return (
+		t(itemRealEstate) +
+		' ' +
+		getInString +
+		getLocationString +
+		t('ON') +
+		' ' +
+		itemAddress
+	);
 };
 
 export default useFullAddress;

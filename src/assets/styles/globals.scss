@@ -88,6 +88,15 @@ strong {
   font-weight: 500;
 }
 
+details > summary {
+  list-style: none;
+}
+
+details > summary::marker,
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
 .layout-container {
   max-width: 1500px;
   width: 100%;

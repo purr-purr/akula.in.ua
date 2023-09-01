@@ -42,7 +42,7 @@ const CatalogCard: FC<{
 	const itemContractType = t(formatCatalogTranslation(contract_type));
 	const itemPropertyType = t(formatCatalogTranslation(property_type));
 	const fullAddress = useFullAddress(real_estate_type, location, address);
-	console.log(id, postersList);
+
 	return (
 		<li className={cn('yellow-shadow', s.container)}>
 			<Link className={s.inner} href={`/${APP.CATALOG_NAME}/${id}`}>

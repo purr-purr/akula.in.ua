@@ -24,6 +24,7 @@ const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 				<ImageGallery
 					showPlayButton={false}
 					showBullets
+					lazyLoad
 					items={postersList}
 					additionalClass={s.gallery}
 					renderLeftNav={(onClick, disabled) => (

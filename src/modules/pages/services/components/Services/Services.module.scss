@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  gap: 42px;
+  list-style-type: none;
+  margin-bottom: 100px;
+
+  & li {
+    @include flex-align(flex-start);
+    gap: 24px;
+    width: 50%;
+  }
+}
+
+.title {
+  margin-top: 50px;
+}

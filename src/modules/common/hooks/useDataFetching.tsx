@@ -108,8 +108,6 @@ const useDataFetching = () => {
 			return itemFormattedData;
 		});
 
-		console.log(result);
-
 		setData(result);
 		setLoading(false);
 	};

@@ -1,7 +1,46 @@
+import { FC } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
+import Image from 'next/image';
+import cn from 'classnames';
+
+import IconArrowUp from '@modules/icons/components/IconArrowUp';
+
 import s from './ServicesListItem.module.scss';
 
-const ServicesListItem = () => {
-	return <li className={s.container}>list item</li>;
+const ServicesListItem: FC<{ text: string; isEvenElement?: boolean }> = ({
+	text,
+	isEvenElement,
+}) => {
+	const { t } = useTranslation('services');
+
+	const getImagePath = (value: string) => {
+		return require(`../../assets/ServicesListItem/${value}.jpg`).default;
+	};
+
+	return (
+		<details className={cn(s.container, isEvenElement && s.even)}>
+			<summary className={s.heading}>
+				<div className={s.headingInner}>
+					<h3>
+						{t(`SERVICES_LIST.SUBLIST.${text}.TITLE`)}
+						<IconArrowUp />
+					</h3>
+
+					<Image
+						className={s.headingPoster}
+						src={getImagePath(`${text}--preview`)}
+						alt="Preview"
+					/>
+				</div>
+			</summary>
+			<ul className={s.content}>
+				<Trans t={t} i18nKey={`SERVICES_LIST.SUBLIST.${text}.DESC`}>
+					<li />
+				</Trans>
+			</ul>
+			<Image className={s.poster} src={getImagePath(text)} alt={''} />
+		</details>
+	);
 };
 
 export default ServicesListItem;

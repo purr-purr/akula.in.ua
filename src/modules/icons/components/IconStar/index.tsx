@@ -9,7 +9,6 @@ const IconStar: FC<IIconsProps> = ({
 }) => {
 	return (
 		<svg
-			className="svg-icon"
 			width={width}
 			height={height}
 			style={{ minWidth: `${width}px` }}

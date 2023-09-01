@@ -42,7 +42,7 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		const botTemplate = `Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}\nOrder from: ${fullLink}`;
+		const botTemplate = `Name: ${formData.name}Phone: ${formData.phone}Message: ${formData.message}Order from: ${fullLink}`;
 
 		for (const chatID of TG_BOT.CHAT_ID_LIST) {
 			try {

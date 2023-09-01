@@ -1,7 +1,6 @@
 export const MOBILE_BREAKPOINT: number = 1024;
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
-// APP
 export const APP = {
 	LINK: 'https://akula.in.ua/',
 	TITLE: 'Akula Development Partner',
@@ -12,7 +11,6 @@ export const APP = {
 	META_COMMON_KEYWORDS: 'text',
 };
 
-// BACKEND
 export const BACKEND_LOCALHOST = IS_PRODUCTION
 	? 'https://akula.in.ua'
 	: 'http://localhost:5000';
