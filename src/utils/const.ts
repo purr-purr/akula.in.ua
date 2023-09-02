@@ -3,16 +3,14 @@ export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 export const APP = {
 	LINK: 'https://akula.in.ua/',
-	TITLE: 'Akula Development Partner',
+	TITLE: 'Akula Development Partner'.toUpperCase(),
 	AUTHOR: 'Anton Shaposhnikov',
 	AUTHOR_SIGNATURE: '=> shaposhnikov.in',
 	CATALOG_NAME: 'catalog',
-	META_DESC: 'text',
-	META_COMMON_KEYWORDS: 'text',
 };
 
 export const BACKEND_LOCALHOST = IS_PRODUCTION
-	? 'https://akula.in.ua'
+	? APP.LINK
 	: 'http://localhost:5000';
 
 export const GOOGLE_SERVICES = {

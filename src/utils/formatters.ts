@@ -1,25 +1,19 @@
+import { useTranslation } from 'react-i18next';
+
 import { ITransVersion } from '@modules/common/types';
 
 import { APP } from '@utils/const';
+import { CURRENCY } from '@utils/data';
 
 export const formatMetaTitle = (title: string): string =>
 	`${title} | ${APP.TITLE}`;
 
-export const formatMetaDesc = (title: string | string[]): string => {
-	if (typeof title !== 'string') {
-		const list = title.join(' and ');
-		return `${list} ${APP.TITLE} ${APP.META_DESC}`;
-	} else {
-		return `${title} ${APP.TITLE} ${APP.META_DESC}`;
-	}
-};
-
-export const formatMetaKeyWords = (
-	title: string,
-	allSubTitles: string[],
+export const formatMetaForCatalogPage = (
+	city: string,
+	address: string,
+	typeRealEstate: string,
 ): string => {
-	const list = allSubTitles.join(', ');
-	return `${title}, ${APP.TITLE}, ${list}, ${APP.META_COMMON_KEYWORDS}`;
+	return `Детальна інформація про об'єкт нерухомості у місті ${city} за адресою ${address}. ${typeRealEstate} у зручному розташуванні. Ідеальний варіант для вашого бізнесу або проживання. Наші експерти готові надати детальну консультацію, організувати перегляд і відповісти на всі ваші запитання.`;
 };
 
 export const formatTranslation = (lang: string, value: ITransVersion) => {
@@ -27,12 +21,25 @@ export const formatTranslation = (lang: string, value: ITransVersion) => {
 };
 
 export const formatPrice = (value: number) => {
+	const usdSymbol = '$';
 	const price = value.toString();
-	if (price.length <= 1) {
-		return price;
+	if (price.length <= 3) {
+		return price + usdSymbol;
 	}
+	return price[0] + ' ' + price.substring(1) + usdSymbol;
+};
 
-	return price[0] + ' ' + price.substring(1) + '$';
+export const formatConvertedPrice = (
+	value: string | number | undefined,
+	separator: string,
+) => {
+	if (value) {
+		const usdSymbol = '$';
+		const priceUah = Number(value) * CURRENCY.UAH;
+		const priceUsd = value + usdSymbol;
+
+		return priceUsd + separator + priceUah.toFixed();
+	}
 };
 
 export const formatCityTranslation = (city: string): string => {
@@ -50,9 +57,27 @@ export const formatTableParameters = (
 	value: string | number | undefined,
 ): string => {
 	const units = {
-		en: { pieces: 'pcs', landPlot: 'acres', squareMeters: 'm²', month: '/month' },
-		ru: { pieces: 'шт.', landPlot: 'соток', squareMeters: 'м²', month: '/мес.' },
-		ua: { pieces: 'шт.', landPlot: 'соток', squareMeters: 'м²', month: '/міс.' },
+		en: {
+			pieces: 'pcs',
+			landPlot: 'acres',
+			squareMeters: 'm²',
+			month: '/month',
+			currency: 'uah',
+		},
+		ru: {
+			pieces: 'шт.',
+			landPlot: 'соток',
+			squareMeters: 'м²',
+			month: '/мес.',
+			currency: 'грн',
+		},
+		ua: {
+			pieces: 'шт.',
+			landPlot: 'соток',
+			squareMeters: 'м²',
+			month: '/міс.',
+			currency: 'грн',
+		},
 	} as Record<string, { [key: string]: string }>;
 
 	const translation: Record<string, string> = {
@@ -66,11 +91,11 @@ export const formatTableParameters = (
 		LAND_PLOT: units[lang].landPlot,
 		RENT_1_M2:
 			contractType === 'Оренда'
-				? `${units[lang].squareMeters}${units[lang].month}<span class="star">*</span>`
+				? `${units[lang].currency}${units[lang].month}<span class="star">*</span>`
 				: units[lang].squareMeters,
 		OPERATIONAL_1_M2:
 			contractType === 'Оренда'
-				? `${units[lang].squareMeters}${units[lang].month}<span class="star">*</span>`
+				? `${units[lang].currency}${units[lang].month}<span class="star">*</span>`
 				: units[lang].squareMeters,
 	};
 

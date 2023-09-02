@@ -11,7 +11,11 @@ import CatalogPageCrumbs from '@modules/pages/catalogPage/components/CatalogPage
 import CatalogPageDescription from '@modules/pages/catalogPage/components/CatalogPageDescription';
 import CatalogPageHeader from '@modules/pages/catalogPage/components/CatalogPageHeader';
 
-import { formatCityTranslation, formatTranslation } from '@utils/formatters';
+import {
+	formatCityTranslation,
+	formatMetaForCatalogPage,
+	formatTranslation,
+} from '@utils/formatters';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -58,13 +62,19 @@ const CatalogPage: FC = memo(() => {
 
 	const feedbackMessage = `[${itemFullAddress}]`;
 
+	const pageMetaDesc = formatMetaForCatalogPage(
+		city,
+		address.ua as keyof typeof address,
+		real_estate_type,
+	);
+
 	if (loading) {
 		return <Loader />;
 	}
 
 	return (
 		<>
-			<Meta title={itemCity} desc={itemCity} keyWords={['text']} />
+			<Meta title={itemFullAddress} desc={pageMetaDesc} />
 
 			<CatalogPageCrumbs address={itemAddress} />
 			<CatalogPageHeader
@@ -84,6 +94,7 @@ const CatalogPage: FC = memo(() => {
 						tableInfo={table}
 						city={itemCity}
 						address={itemAddress}
+						originalAddress={address.ua}
 						station={itemStation}
 					/>
 				</div>

@@ -25,3 +25,21 @@
     color: var(--gray);
   }
 }
+
+.heading {
+  @include flex-justify-align(space-between, center);
+
+  &Button {
+    @include flex-align(center);
+    gap: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray);
+    transition: color .3s ease-in-out;
+
+    &:hover {
+      color: var(--primary);
+      transition: color .3s ease-in-out;
+    }
+  }
+}

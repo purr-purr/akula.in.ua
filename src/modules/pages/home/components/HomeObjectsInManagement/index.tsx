@@ -6,6 +6,7 @@ import cn from 'classnames';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
+import IconArrowUp from '@modules/icons/components/IconArrowUp';
 
 import { APP } from '@utils/const';
 
@@ -32,7 +33,13 @@ const HomeObjectsInManagement = () => {
 
 	return (
 		<section className={s.container}>
-			<BlockTitle title={tHome('OBJECTS_IN_MANAGEMENT.OBJECTS_IN_MANAGEMENT')} />
+			<div className={s.heading}>
+				<BlockTitle title={tHome('OBJECTS_IN_MANAGEMENT.OBJECTS_IN_MANAGEMENT')} />
+				<Link className={s.headingButton} href={`/${APP.CATALOG_NAME}`}>
+					{tCommon('NAVIGATION.ALL_REAL_ESTATE')}
+					<IconArrowUp />
+				</Link>
+			</div>
 			<CardSlider>
 				{list.map((item) => (
 					<Link

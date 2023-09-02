@@ -2,25 +2,24 @@ import { FC } from 'react';
 import Head from 'next/head';
 
 import { APP } from '@utils/const';
-import {
-	formatMetaDesc,
-	formatMetaKeyWords,
-	formatMetaTitle,
-} from '@utils/formatters';
+import { formatMetaTitle } from '@utils/formatters';
+import { META } from '@utils/meta';
 
 import FAVICON from '@public/assets/favicon.ico';
 import LOGO from '@public/assets/logo.svg';
 
 const Meta: FC<{
-	title: string;
-	desc: string | string[];
-	keyWords: string[];
-}> = ({ title, desc, keyWords }) => {
+	title?: string;
+	desc?: string;
+	isDefault?: boolean;
+}> = ({
+	isDefault = false,
+	title = '',
+	desc = META.DESC.HOME_AND_SERVICES,
+}) => {
 	const manifestPath: string = '/assets/manifest.webmanifest';
 	const metaTitle: string =
 		title.length === 0 ? APP.TITLE : formatMetaTitle(title);
-	const metaDesc: string = formatMetaDesc(desc);
-	const metaKeyWords: string = formatMetaKeyWords(title, keyWords);
 
 	return (
 		<Head>
@@ -33,20 +32,25 @@ const Meta: FC<{
 			<link href={FAVICON.src} rel="apple-touch-icon" />
 			<link href={manifestPath} rel="manifest" />
 			<title>{metaTitle}</title>
-			<meta name="description" content={metaDesc} />
-			<meta name="keywords" content={metaKeyWords} />
-			<meta name="author" content={APP.AUTHOR + ' ' + APP.AUTHOR_SIGNATURE} />
-			<meta name="image" content={LOGO.src} />
-			<meta property="og:type" content="website" />
-			<meta property="og:title" content={metaTitle} />
-			<meta property="og:description" content={metaDesc} />
-			<meta property="og:image" content={LOGO.src} />
-			<meta property="og:url" content={APP.LINK} />
 			<link rel="canonical" href={APP.LINK} />
 			<meta name="apple-mobile-web-app-title" content={metaTitle} />
 			<meta name="apple-mobile-web-app-capable" content="yes" />
 			<meta name="format-detection" content="telephone=no" />
 			<meta name="format-detection" content="address=no" />
+
+			{!isDefault && (
+				<>
+					<meta name="description" content={desc} />
+					<meta name="keywords" content={META.KEYWORDS} />
+					<meta name="author" content={APP.AUTHOR + ' ' + APP.AUTHOR_SIGNATURE} />
+					<meta name="image" content={LOGO.src} />
+					<meta property="og:type" content="website" />
+					<meta property="og:title" content={metaTitle} />
+					<meta property="og:description" content={desc} />
+					<meta property="og:image" content={LOGO.src} />
+					<meta property="og:url" content={APP.LINK} />
+				</>
+			)}
 		</Head>
 	);
 };

@@ -15,14 +15,7 @@ const CatalogPageMap: FC<{
 
 	const embeddedMapURL = `https://www.google.com/maps/embed/v1/place?q=${encodedAddress}&key=${GOOGLE_SERVICES.GOOGLE_MAPS_API_KEY}&language=${lang}`;
 
-	return (
-		<iframe
-			className={s.container}
-			src={embeddedMapURL}
-			loading="lazy"
-			allowFullScreen
-		/>
-	);
+	return <iframe className={s.container} src={embeddedMapURL} allowFullScreen />;
 };
 
 export default CatalogPageMap;

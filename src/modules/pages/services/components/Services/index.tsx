@@ -16,11 +16,7 @@ const Services: FC = () => {
 
 	return (
 		<>
-			<Meta
-				title={tCommon('NAVIGATION.SERVICES')}
-				desc="desc"
-				keyWords={['keywords']}
-			/>
+			<Meta title={tCommon('NAVIGATION.SERVICES')} />
 			<BlockTitle className={s.title} title={tServices('COMPANY_SERVICES')} />
 			<ul className={s.container}>
 				{pageDescription.map((item) => (

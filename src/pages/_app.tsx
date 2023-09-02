@@ -11,15 +11,12 @@ import * as gtag from '@utils/gtag';
 import type { AppProps } from 'next/app';
 
 import '@styles/globals.scss';
-import { useTranslation } from 'react-i18next';
-
 import Loader from '@modules/common/components/Loader';
 import Meta from '@modules/common/components/Meta';
 
 function App({ Component, pageProps }: AppProps) {
 	const router = useRouter();
 	const [loading, setLoading] = useState(true);
-	const { t } = useTranslation('common');
 
 	useEffect(() => {
 		const handleRouteChange = (url: URL) => {
@@ -39,7 +36,7 @@ function App({ Component, pageProps }: AppProps) {
 
 	return (
 		<>
-			<Meta title="" desc="desc" keyWords={['keywords']} />
+			<Meta isDefault />
 			{loading ? (
 				<Loader type="fullscreen" />
 			) : (

@@ -97,7 +97,12 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 			</InputField>
 
 			{message && (
-				<textarea name="message" value={formData.message} onChange={handleChange} />
+				<textarea
+					spellCheck="false"
+					name="message"
+					value={formData.message}
+					onChange={handleChange}
+				/>
 			)}
 			<Button isDisabled={isDisabledButton} text={tCommon('LEAVE_A_REQUEST')} />
 		</form>

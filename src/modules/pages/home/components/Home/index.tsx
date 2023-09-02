@@ -15,7 +15,7 @@ const Home = () => {
 	const { t } = useTranslation('common');
 	return (
 		<>
-			<Meta title={t('NAVIGATION.MAIN')} desc="desc" keyWords={['keywords']} />
+			<Meta title={t('NAVIGATION.MAIN')} />
 			<HomeIntro />
 			<Filter />
 			<HomeWhoWeAre />

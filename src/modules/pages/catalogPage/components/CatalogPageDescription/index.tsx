@@ -8,6 +8,7 @@ import CatalogPageMap from '@modules/pages/catalogPage/components/CatalogPageMap
 import { CURRENCY } from '@utils/data';
 import {
 	formatCatalogTranslation,
+	formatConvertedPrice,
 	formatTableParameters,
 } from '@utils/formatters';
 
@@ -21,6 +22,7 @@ const CatalogPageDescription: FC<{
 	tableInfo: ICatalogTable | undefined;
 	city: string;
 	address: string;
+	originalAddress: string | null;
 	station: string;
 	contractType: string;
 	realEstateType: string;
@@ -30,6 +32,7 @@ const CatalogPageDescription: FC<{
 	id,
 	city,
 	address,
+	originalAddress,
 	station,
 	realEstateType,
 	contractType,
@@ -75,23 +78,37 @@ const CatalogPageDescription: FC<{
 							<td>{itemRealEstateType}</td>
 						</tr>
 
-						{table?.map((item) => (
-							<tr key={uniqueId()}>
-								<td>{tCatalog(`TABLE.${item?.key.toUpperCase()}`)}</td>
-								<td>
-									{item?.value}{' '}
-									<span
-										dangerouslySetInnerHTML={{
-											__html: formatTableParameters(
-												contractType,
-												i18n.language,
-												item?.key.toUpperCase(),
-											),
-										}}
-									/>
-								</td>
-							</tr>
-						))}
+						{table?.map((item) => {
+							const separator = tCommon('OR');
+							const isOffices = item?.key === 'offices' && item?.value === 'any';
+							const isUahPrice =
+								item?.key === 'rent_1_m2' || item?.key === 'operational_1_m2';
+
+							return (
+								item?.value !== undefined && (
+									<tr key={uniqueId()}>
+										<td>{tCatalog(`TABLE.${item.key.toUpperCase()}`)}</td>
+										<td>
+											{isOffices}
+											{isUahPrice
+												? formatConvertedPrice(item.value, separator)
+												: isOffices
+												? tCommon('ANY_AMOUNT')
+												: item.value}{' '}
+											<span
+												dangerouslySetInnerHTML={{
+													__html: formatTableParameters(
+														contractType,
+														i18n.language,
+														item.key.toUpperCase(),
+													),
+												}}
+											/>
+										</td>
+									</tr>
+								)
+							);
+						})}
 					</tbody>
 				</table>
 
@@ -117,7 +134,7 @@ const CatalogPageDescription: FC<{
 				<hr className={s.line} />
 				{address && <p>{itemFullAddress}</p>}
 				{station && <p>{station}</p>}
-				<CatalogPageMap fullAddress={itemFullAddress} />
+				<CatalogPageMap fullAddress={originalAddress || itemFullAddress} />
 			</article>
 
 			<p className={s.notification}>
