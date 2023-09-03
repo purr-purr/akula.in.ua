@@ -1,6 +1,7 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
-import { GOOGLE_SERVICES, IS_PRODUCTION } from '@utils/const';
+import { IS_PRODUCTION } from '@utils/const';
+import { GOOGLE_SERVICES } from '@utils/credentials';
 
 export default function Document() {
 	return (

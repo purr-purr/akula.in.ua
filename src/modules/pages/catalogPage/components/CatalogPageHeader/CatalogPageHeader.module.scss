@@ -1,6 +1,7 @@
 .heading {
-  @include flex-justify-align(space-between, center);
+  @include flex-justify-align(space-between, baseline);
   margin-bottom: 14px;
+  gap: 20px;
 }
 
 .address {
@@ -13,6 +14,7 @@
   font-size: 32px;
   font-weight: 700;
   color: var(--blue);
+  min-width: 200px;
 }
 
 

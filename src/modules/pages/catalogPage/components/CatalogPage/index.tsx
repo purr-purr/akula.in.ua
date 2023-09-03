@@ -10,12 +10,9 @@ import CatalogPageCarousel from '@modules/pages/catalogPage/components/CatalogPa
 import CatalogPageCrumbs from '@modules/pages/catalogPage/components/CatalogPageCrumbs';
 import CatalogPageDescription from '@modules/pages/catalogPage/components/CatalogPageDescription';
 import CatalogPageHeader from '@modules/pages/catalogPage/components/CatalogPageHeader';
+import { formatMetaForCatalogPage } from '@modules/pages/catalogPage/utils/formatters';
 
-import {
-	formatCityTranslation,
-	formatMetaForCatalogPage,
-	formatTranslation,
-} from '@utils/formatters';
+import { formatCityTranslation, formatTranslation } from '@utils/formatters';
 
 import type { ICatalogData } from '@modules/common/types';
 
@@ -55,12 +52,23 @@ const CatalogPage: FC = memo(() => {
 	const itemAddress = formatTranslation(i18n.language, address);
 	const itemStation = formatTranslation(i18n.language, station);
 	const itemDescription = formatTranslation(i18n.language, description);
-	const itemFullAddress = useFullAddress(real_estate_type, location, address);
+
+	const itemLocationAndAddress = useFullAddress(
+		real_estate_type,
+		location,
+		address,
+	);
+
 	const itemCity = tCommon(formatCityTranslation(city));
+	const itemOriginalFullAddress = `${city}, ${location.ua}, ${address.ua}`;
+
+	const itemLocation = formatTranslation(i18n.language, location);
+	// const itemAddress = formatTranslation(i18n.language, address);
+
+	const itemCityWithLocationAndAddress = `${itemCity}, ${itemLocation}, ${itemAddress}`;
 
 	const tags = [property_type, real_estate_type];
-
-	const feedbackMessage = `[${itemFullAddress}]`;
+	const feedbackMessage = `[${itemLocationAndAddress}]`;
 
 	const pageMetaDesc = formatMetaForCatalogPage(
 		city,
@@ -74,12 +82,12 @@ const CatalogPage: FC = memo(() => {
 
 	return (
 		<>
-			<Meta title={itemFullAddress} desc={pageMetaDesc} />
+			<Meta title={itemLocationAndAddress} desc={pageMetaDesc} />
 
 			<CatalogPageCrumbs address={itemAddress} />
 			<CatalogPageHeader
 				city={itemCity}
-				address={itemFullAddress}
+				address={itemLocationAndAddress}
 				price={price}
 				tags={tags}
 			/>
@@ -91,16 +99,16 @@ const CatalogPage: FC = memo(() => {
 						realEstateType={real_estate_type}
 						id={id}
 						description={itemDescription}
-						tableInfo={table}
-						city={itemCity}
-						address={itemAddress}
-						originalAddress={address.ua}
+						tableInfo={table || {}}
+						address={itemCityWithLocationAndAddress}
+						originalAddress={itemOriginalFullAddress}
 						station={itemStation}
+						price={price}
 					/>
 				</div>
 				<aside>
 					<div className={s.feedback}>
-						<h5>{tCatalog('FEEDBACK.LIKE_THIS_PROPERTY')}</h5>
+						<h5>{tCatalog('FEEDBACK.DO_YOU_LIKE_THIS_PROPERTY')}</h5>
 						<p>{tCatalog('FEEDBACK.IF_YOU_LIKE_THIS_PROPERTY')}</p>
 						<FeedbackForm isColumnType message={feedbackMessage} />
 					</div>

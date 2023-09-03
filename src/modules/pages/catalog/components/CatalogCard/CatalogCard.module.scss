@@ -89,11 +89,11 @@
     }
 
     & li:nth-child(2) path {
-      fill: var(--primary);
+      stroke: var(--primary);
     }
 
     & li:nth-child(3) path {
-      stroke: var(--primary);
+      fill: var(--primary);
     }
   }
 }

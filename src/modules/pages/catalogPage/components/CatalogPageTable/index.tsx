@@ -1,0 +1,101 @@
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { formatCatalogTranslation } from '@utils/formatters';
+
+import type { ICatalogTable } from '@modules/common/types';
+
+import {
+	formatTableAfterPrefix,
+	formatTableFullPrice,
+	getPrefixAndValue,
+} from '../../utils/formatters';
+import s from './CatalogPageTable.module.scss';
+
+const CatalogPageTable: FC<{
+	tableInfo: ICatalogTable;
+	contractType: string;
+	realEstateType: string;
+	price: string;
+}> = ({ tableInfo, realEstateType, contractType, price }) => {
+	const { i18n, t: tCommon } = useTranslation('common');
+	const { t: tCatalog } = useTranslation('catalog');
+
+	tableInfo.total_cost = price;
+	const table = Object.entries(tableInfo)
+		.map(
+			([key, value]) =>
+				value && {
+					key: key,
+					value: value,
+				},
+		)
+		.filter(Boolean);
+
+	const itemContractType = tCommon(formatCatalogTranslation(contractType));
+	const itemRealEstateType = tCommon(formatCatalogTranslation(realEstateType));
+
+	return (
+		<table className={s.container}>
+			<tbody>
+				<tr>
+					<td>{tCatalog('TYPE_OF_AGREEMENT')}</td>
+					<td>{itemContractType}</td>
+				</tr>
+
+				<tr>
+					<td>{tCommon('TYPE_OF_REAL_ESTATE.TYPE_OF_REAL_ESTATE')}</td>
+					<td>{itemRealEstateType}</td>
+				</tr>
+
+				{table.map((item) => {
+					if (item) {
+						const isCanBeAnyAmount =
+							(item.key === 'offices' ||
+								item.key === 'kitchen' ||
+								item.key === 'bathrooms') &&
+							item.value === 'any';
+
+						const isLandPlot = item.key === 'land_plot';
+						const itemKey = item.key.toUpperCase();
+						const itemValue = item.value.toString();
+
+						const formatAfterPrefix = formatTableAfterPrefix(
+							contractType,
+							i18n.language,
+							itemKey,
+						);
+
+						const isValueWithPrefix = [
+							'RENT_1_M2',
+							'OPERATIONAL_1_M2',
+							'TOTAL_COST',
+						].includes(itemKey);
+
+						return (
+							<tr key={item.key}>
+								<td>{tCatalog(`TABLE.${itemKey}`)}</td>
+								<td>
+									{isValueWithPrefix
+										? formatTableFullPrice(i18n.language, itemValue)
+										: isCanBeAnyAmount
+										? tCommon('ANY_AMOUNT')
+										: isLandPlot
+										? getPrefixAndValue(i18n.language, itemValue)
+										: itemValue}{' '}
+									<span
+										dangerouslySetInnerHTML={{
+											__html: formatAfterPrefix,
+										}}
+									/>
+								</td>
+							</tr>
+						);
+					}
+				})}
+			</tbody>
+		</table>
+	);
+};
+
+export default CatalogPageTable;

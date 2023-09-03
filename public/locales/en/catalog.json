@@ -13,7 +13,7 @@
     "CLEAR_ALL_FILTERS": "Clear all filters"
   },
   "FEEDBACK": {
-    "LIKE_THIS_PROPERTY": "Like this property?",
+    "DO_YOU_LIKE_THIS_PROPERTY": "Do you like this property?",
     "IF_YOU_LIKE_THIS_PROPERTY": "If you like this property and are interested in it, please complete the application below. Our team will contact you shortly to provide additional information and arrange a viewing."
   },
   "TABLE": {
@@ -28,6 +28,7 @@
     "ROOMS": "Rooms",
     "LAND_PLOT": "Land plot",
     "RENT_1_M2": "Rent 1 m²",
-    "OPERATIONAL_1_M2": "Operational 1 m²"
+    "OPERATIONAL_1_M2": "Operational 1 m²",
+    "TOTAL_COST": "Total cost"
   }
 }

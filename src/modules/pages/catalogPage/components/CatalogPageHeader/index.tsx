@@ -2,23 +2,25 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import IconMap from '@modules/icons/components/IconMap';
+import { formatToFullPriceWithPrefix } from '@modules/pages/catalogPage/utils/formatters';
 
-import { formatCatalogTranslation, formatPrice } from '@utils/formatters';
+import { formatCatalogTranslation } from '@utils/formatters';
 
 import s from './CatalogPageHeader.module.scss';
 
 const CatalogPageHeader: FC<{
 	city: string;
 	address: string;
-	price: number;
+	price: string;
 	tags: string[];
 }> = ({ city, address, price, tags }) => {
-	const { t } = useTranslation('common');
+	const { t, i18n } = useTranslation('common');
+	const finalPrice = formatToFullPriceWithPrefix(i18n.language, price);
 	return (
 		<>
 			<article className={s.heading}>
 				<h1 className={s.address}>{address}</h1>
-				<p className={s.price}>{formatPrice(price)}</p>
+				<p className={s.price}>{finalPrice}</p>
 			</article>
 
 			<article className={s.description}>

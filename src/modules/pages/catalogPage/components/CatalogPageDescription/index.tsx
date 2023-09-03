@@ -1,16 +1,11 @@
 import { FC } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import cn from 'classnames';
-import { v4 as uniqueId } from 'uuid';
 
 import CatalogPageMap from '@modules/pages/catalogPage/components/CatalogPageMap';
+import CatalogPageTable from '@modules/pages/catalogPage/components/CatalogPageTable';
 
 import { CURRENCY } from '@utils/data';
-import {
-	formatCatalogTranslation,
-	formatConvertedPrice,
-	formatTableParameters,
-} from '@utils/formatters';
 
 import type { ICatalogTable } from '@modules/common/types';
 
@@ -19,42 +14,25 @@ import s from './CatalogPageDescription.module.scss';
 const CatalogPageDescription: FC<{
 	description: string;
 	id: number;
-	tableInfo: ICatalogTable | undefined;
-	city: string;
+	tableInfo: ICatalogTable;
 	address: string;
-	originalAddress: string | null;
+	originalAddress: string;
 	station: string;
 	contractType: string;
 	realEstateType: string;
+	price: string;
 }> = ({
 	description,
 	tableInfo,
 	id,
-	city,
 	address,
 	originalAddress,
 	station,
 	realEstateType,
 	contractType,
+	price,
 }) => {
-	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
-	const table =
-		tableInfo &&
-		Object.entries(tableInfo)
-			.map(([key, value]) => {
-				if (value) {
-					return {
-						key: key,
-						value: value,
-					};
-				}
-			})
-			.filter(Boolean);
-
-	const itemFullAddress = city + ' ' + address;
-	const itemContractType = tCommon(formatCatalogTranslation(contractType));
-	const itemRealEstateType = tCommon(formatCatalogTranslation(realEstateType));
 
 	return (
 		<>
@@ -66,51 +44,12 @@ const CatalogPageDescription: FC<{
 					</p>
 				</div>
 
-				<table className={cn(s.table)}>
-					<tbody>
-						<tr>
-							<td>{tCatalog('TYPE_OF_AGREEMENT')}</td>
-							<td>{itemContractType}</td>
-						</tr>
-
-						<tr>
-							<td>{tCommon('TYPE_OF_REAL_ESTATE.TYPE_OF_REAL_ESTATE')}</td>
-							<td>{itemRealEstateType}</td>
-						</tr>
-
-						{table?.map((item) => {
-							const separator = tCommon('OR');
-							const isOffices = item?.key === 'offices' && item?.value === 'any';
-							const isUahPrice =
-								item?.key === 'rent_1_m2' || item?.key === 'operational_1_m2';
-
-							return (
-								item?.value !== undefined && (
-									<tr key={uniqueId()}>
-										<td>{tCatalog(`TABLE.${item.key.toUpperCase()}`)}</td>
-										<td>
-											{isOffices}
-											{isUahPrice
-												? formatConvertedPrice(item.value, separator)
-												: isOffices
-												? tCommon('ANY_AMOUNT')
-												: item.value}{' '}
-											<span
-												dangerouslySetInnerHTML={{
-													__html: formatTableParameters(
-														contractType,
-														i18n.language,
-														item.key.toUpperCase(),
-													),
-												}}
-											/>
-										</td>
-									</tr>
-								)
-							);
-						})}
-					</tbody>
-				</table>
+				<CatalogPageTable
+					price={price}
+					contractType={contractType}
+					realEstateType={realEstateType}
+					tableInfo={tableInfo}
+				/>
 
 				<p className={s.notification}>
 					<span className="star">*</span> {tCatalog('ACCORDING_TO_THE_REQUIREMENTS')}
@@ -132,9 +71,9 @@ const CatalogPageDescription: FC<{
 			<article className={cn(s.frame, s.address)}>
 				<h4 className={s.title}>{tCatalog('ADDRESS')}</h4>
 				<hr className={s.line} />
-				{address && <p>{itemFullAddress}</p>}
+				{address && <p>{address}</p>}
 				{station && <p>{station}</p>}
-				<CatalogPageMap fullAddress={originalAddress || itemFullAddress} />
+				<CatalogPageMap fullAddress={originalAddress} />
 			</article>
 
 			<p className={s.notification}>

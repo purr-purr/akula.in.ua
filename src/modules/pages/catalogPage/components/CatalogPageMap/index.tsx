@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { GOOGLE_SERVICES } from '@utils/const';
+import { GOOGLE_SERVICES } from '@utils/credentials';
 
 import s from './CatalogPageMap.module.scss';
 

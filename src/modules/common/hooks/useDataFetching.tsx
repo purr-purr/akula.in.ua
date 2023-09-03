@@ -11,7 +11,7 @@ const useDataFetching = () => {
 		city: '',
 		contract_type: '',
 		id: 0,
-		price: 0,
+		price: '0',
 		property_type: '',
 		real_estate_type: '',
 		station: {
@@ -57,12 +57,13 @@ const useDataFetching = () => {
 		const result = data.map((item: IDataBaseResponse) => {
 			const doneResult = Object.create(initialData);
 
-			const tempObj: IDataBaseResponse = { ...item };
+			let tempObj: IDataBaseResponse = { ...item };
 			let tableArray: Record<string, RecordFormattedData> = {};
 			let descriptionArray: Record<string, RecordFormattedData> = {};
 			let addressArray: Record<string, RecordFormattedData> = {};
 			let locationArray: Record<string, RecordFormattedData> = {};
 			let stationArray: Record<string, RecordFormattedData> = {};
+
 			for (const key in tempObj) {
 				const subKey = key as keyof IDataBaseResponse;
 
@@ -97,18 +98,20 @@ const useDataFetching = () => {
 				}
 			}
 
-			let itemFormattedData = Object.assign(tempObj, doneResult);
-			itemFormattedData.visibility = tempObj['visibility'] === 1;
-			itemFormattedData.table = tableArray;
-			itemFormattedData.description = descriptionArray;
-			itemFormattedData.address = addressArray;
-			itemFormattedData.location = locationArray;
-			itemFormattedData.station = stationArray;
-
-			return itemFormattedData;
+			return {
+				...doneResult,
+				...tempObj,
+				visibility: tempObj['visibility'] === 1,
+				table: tableArray,
+				description: descriptionArray,
+				address: addressArray,
+				location: locationArray,
+				station: stationArray,
+			};
 		});
-
-		setData(result);
+		const sortResult = result.sort((a, b) => b.id - a.id);
+		console.log(sortResult);
+		setData(sortResult);
 		setLoading(false);
 	};
 

@@ -2,7 +2,6 @@
   "MAIN_OFFICE_ADDRESS": "Kyiv, str. Poleva, 24 D (03056)",
   "IN": "in",
   "ON": "on the",
-  "OR": " or ",
   "ALL": "All",
   "ANY_AMOUNT": "Any amount",
   "FIRSTNAME_LASTNAME": "Full name",
@@ -41,7 +40,8 @@
     "COOPERATION_WITH_THE_AKULA": "Cooperation with the Akula Development Partner team will be beneficial for you. We are ready to provide you with support in the commercially profitable management of the real estate that you own. Our specialists will help you find customers for renting premises and offer a strategy for improving conditions at the facilities in order to obtain maximum profit. If you are interested in effective real estate management, Akula Development Partner has something to offer you."
   },
   "CITY_LIST": {
-    "KYIV": "Kyiv"
+    "KYIV": "Kyiv",
+    "KYIV_REGION": "Kyiv region"
   },
   "OBJECT_INFO": {
     "SELLING": "Selling",

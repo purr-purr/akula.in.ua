@@ -4,7 +4,7 @@ interface ICatalogStaticData {
 	property_type: string;
 	real_estate_type: string;
 	city: string;
-	price: number;
+	price: string;
 }
 
 export interface IDataBaseResponse extends ICatalogStaticData {
@@ -67,5 +67,5 @@ export interface ITransVersion {
 }
 
 export interface ICatalogTable {
-	[key: string]: null | string | number | undefined;
+	[key: string]: null | string | number;
 }

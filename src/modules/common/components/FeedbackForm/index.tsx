@@ -6,7 +6,7 @@ import cn from 'classnames';
 import Button from '@modules/common/components/Button';
 import InputField from '@modules/common/components/InputField';
 
-import { TG_BOT } from '@utils/const';
+import { TG_BOT } from '@utils/credentials';
 
 import type { ChangeEvent, FormEvent } from 'react';
 

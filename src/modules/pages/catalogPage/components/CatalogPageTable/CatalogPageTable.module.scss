@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 16px;
+
+  tr:nth-child(odd) {
+    background-color: var(--nude);
+  }
+
+  tr:first-child td:last-child {
+    font-weight: 500;
+  }
+
+  td {
+    height: 40px;
+    padding-left: 20px;
+    font-size: 16px;
+
+    &:first-child {
+      font-weight: 500;
+      width: 300px;
+      border-right: 2px solid var(--white);
+    }
+
+    &:not(:first-child) {
+      font-weight: 300;
+    }
+  }
+}

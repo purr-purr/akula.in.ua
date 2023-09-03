@@ -1,4 +1,4 @@
-import { GOOGLE_SERVICES } from '@utils/const';
+import { GOOGLE_SERVICES } from '@utils/credentials';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL): void => {

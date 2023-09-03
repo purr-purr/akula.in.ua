@@ -8,12 +8,12 @@ import DefaultPoster from '@modules/common/components/DefaultPoster';
 import { usePropertyPhoto } from '@modules/common/hooks/index';
 import IconFloorPlan from '@modules/icons/components/IconFloorPlan';
 import IconRuler from '@modules/icons/components/IconRuler';
+import { formatToFullPriceWithPrefix } from '@modules/pages/catalogPage/utils/formatters';
 
 import { APP } from '@utils/const';
 import {
 	formatCatalogTranslation,
 	formatCityTranslation,
-	formatPrice,
 } from '@utils/formatters';
 
 import type { ICatalogData } from '@modules/common/types';
@@ -36,13 +36,16 @@ const CatalogCard: FC<{
 		location,
 	} = props;
 
-	const { t } = useTranslation('common');
+	const { i18n, t: tCommon } = useTranslation('common');
+	const { t: tCatalog } = useTranslation('catalog');
 	const postersList = usePropertyPhoto(id);
-	const itemCity = t(formatCityTranslation(city));
-	const itemContractType = t(formatCatalogTranslation(contract_type));
-	const itemPropertyType = t(formatCatalogTranslation(property_type));
 	const fullAddress = useFullAddress(real_estate_type, location, address);
+	const itemCity = tCommon(formatCityTranslation(city));
+	const itemContractType = tCommon(formatCatalogTranslation(contract_type));
+	const itemPropertyType = tCommon(formatCatalogTranslation(property_type));
+	const itemTotalArea = Number(table.total_area).toFixed();
 
+	const isRoomsIcon = (table.offices && table.offices !== 'any') || table.rooms;
 	return (
 		<li className={cn('yellow-shadow', s.container)}>
 			<Link className={s.inner} href={`/${APP.CATALOG_NAME}/${id}`}>
@@ -65,17 +68,19 @@ const CatalogCard: FC<{
 					<h3 className={s.city}>{itemCity}</h3>
 					<address className={s.address}>{fullAddress}</address>
 					<ul className={s.description}>
-						<li>{formatPrice(price)}</li>
+						<li>{formatToFullPriceWithPrefix(i18n.language, price)}</li>
 						{table.total_area && (
-							<li>
-								<IconFloorPlan />
-								{table.total_area}
+							<li title={tCatalog('TABLE.TOTAL_AREA')}>
+								<IconRuler />
+								{itemTotalArea}
 							</li>
 						)}
-						{table.offices && (
-							<li>
-								<IconRuler />
-								{table.offices}
+						{isRoomsIcon && (
+							<li
+								title={tCatalog(`${table.offices ? 'TABLE.OFFICES' : 'TABLE.ROOMS'}`)}
+							>
+								<IconFloorPlan />
+								{table.offices || table.rooms}
 							</li>
 						)}
 					</ul>
