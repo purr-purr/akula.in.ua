@@ -5,16 +5,18 @@ import Link from 'next/link';
 import Button from '@modules/common/components/Button';
 import FeedbackModal from '@modules/common/components/FeedbackModal';
 import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
+import { useMediaQuery } from '@modules/common/hooks';
 import IconMap from '@modules/icons/components/IconMap';
 import IconPhone from '@modules/icons/components/IconPhone';
 
-import { APP } from '@utils/const';
+import { APP, MOBILE_BREAKPOINT } from '@utils/const';
 import { COMPANY_INFO } from '@utils/data';
 
 import s from './NavContacts.module.scss';
 
 const NavContacts = () => {
 	const { t } = useTranslation('common');
+	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 	const [isFeedbackModal, setIsFeedbackModal] = useState(false);
 
 	return (
@@ -23,18 +25,23 @@ const NavContacts = () => {
 				<IconPhone />
 			</Link>
 
-			<Link className={s.icon} href={`${COMPANY_INFO.ADDRESS_MAP}`}>
-				<IconMap />
-			</Link>
+			{!isMobile && (
+				<Link className={s.icon} href={`${COMPANY_INFO.ADDRESS_MAP}`}>
+					<IconMap />
+				</Link>
+			)}
 
 			<SelectChangeLanguage />
 
-			<Button
-				type="link"
-				linkPath={`/${APP.CATALOG_NAME}`}
-				color="transparent"
-				text={t('FIND_REAL_ESTATE')}
-			/>
+			{!isMobile && (
+				<Button
+					type="link"
+					linkPath={`/${APP.CATALOG_NAME}`}
+					color="transparent"
+					text={t('FIND_REAL_ESTATE')}
+				/>
+			)}
+
 			<Button
 				onClick={() => setIsFeedbackModal(true)}
 				text={t('LEAVE_A_REQUEST')}

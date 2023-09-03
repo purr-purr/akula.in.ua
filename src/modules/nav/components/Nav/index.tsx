@@ -49,7 +49,7 @@ const Nav = () => {
 				{NAVIGATION.map((item: INavigation) => (
 					<Link
 						key={item.path}
-						className={cn(s.item, item.path === pathname && s.active)}
+						className={cn(s.item, item.path === pathname && s.current)}
 						onClick={() => handleMobileNavMode(false)}
 						href={item.path}
 					>
