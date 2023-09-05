@@ -2,9 +2,9 @@ import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useMediaQuery } from '@hooks/index';
 import cn from 'classnames';
 
-import { useMediaQuery } from '@modules/common/hooks';
 import { HeaderContext } from '@modules/layout/context/HeaderContext';
 import NavButton from '@modules/nav/components/NavBurgerButton';
 import NavContacts from '@modules/nav/components/NavContacts';
@@ -41,6 +41,7 @@ const Nav = () => {
 				`${isMobileNavMode ? `overflow:hidden;` : ``}`,
 			);
 		}
+		// eslint-disable-next-line
 	}, [isMobileNavMode, isMobile]);
 
 	return (

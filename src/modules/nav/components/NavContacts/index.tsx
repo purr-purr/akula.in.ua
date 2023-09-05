@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import { useMediaQuery } from '@hooks/index';
 
 import Button from '@modules/common/components/Button';
 import FeedbackModal from '@modules/common/components/FeedbackModal';
 import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
-import { useMediaQuery } from '@modules/common/hooks';
 import IconMap from '@modules/icons/components/IconMap';
 import IconPhone from '@modules/icons/components/IconPhone';
 

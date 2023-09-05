@@ -20,7 +20,7 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 	const { t: tCatalog } = useTranslation('catalog');
 	const { basePath, asPath } = useRouter();
 	const fullLink = `https://akula.in.ua${basePath + asPath}`;
-	const messageText = message ? message : 'Без повідомлення';
+	const messageText = message ? `[${message}]` : 'Без повідомлення';
 
 	const initFormData = {
 		name: '',
@@ -37,6 +37,7 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 				message: tCatalog('HELLO_I_AM_INTERESTED') + ' ' + messageText,
 			});
 		}
+		// eslint-disable-next-line
 	}, [messageText, tCatalog]);
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {

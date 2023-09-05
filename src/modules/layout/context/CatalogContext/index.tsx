@@ -1,27 +1,29 @@
 import { createContext, FC, useCallback, useState } from 'react';
 
+import { initialFilters } from '@utils/filters';
+
+import type { IFilters } from '@utils/filters';
 import type { ReactNode } from 'react';
 
 interface ICatalogContext {
-	isTestMode: boolean;
-	handleTestMode: (isTestMode: boolean) => void;
+	filters: IFilters;
+	handleFilters: (filters: IFilters) => void;
 }
 
 const CatalogContext = createContext<ICatalogContext>({
-	isTestMode: false,
-	handleTestMode: () => {},
+	filters: initialFilters,
+	handleFilters: () => {},
 });
 
 const CatalogContextWrapper: FC<{ children: ReactNode }> = ({ children }) => {
-	const [isTestMode, setIsTestMode] = useState<boolean>(false);
-
-	const handleTestMode = useCallback((value: boolean) => {
-		setIsTestMode(value);
+	const [filters, setFilters] = useState<IFilters>(initialFilters);
+	const handleFilters = useCallback((value: IFilters) => {
+		setFilters(value);
 	}, []);
 
 	const catalogContext: ICatalogContext = {
-		isTestMode,
-		handleTestMode,
+		filters,
+		handleFilters,
 	};
 
 	return (

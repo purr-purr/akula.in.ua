@@ -6,22 +6,37 @@ import IconArrow from '@modules/icons/components/IconArrow';
 import s from './Dropdown.module.scss';
 
 const Dropdown: FC<{
-	options: string[];
+	options: {
+		value: any;
+		title: string;
+	}[];
 	disabledItem?: string;
 	onClick?: (item: string) => void;
 	customSelectedItem?: string;
 	className?: string;
-}> = ({ options, disabledItem, onClick, customSelectedItem, className }) => {
+	handleOnChange?: (arg0: string, arg1: string) => void;
+	label?: string;
+}> = ({
+	options,
+	disabledItem,
+	onClick,
+	customSelectedItem,
+	className,
+	handleOnChange,
+	label = '',
+}) => {
 	const [isDropdown, setIsDropdown] = useState(false);
-	const [selectedItem, setSelectedItem] = useState<string | undefined>(
-		options[0],
+	const [selectedItem, setSelectedItem] = useState<string>(options[0].title);
+	const [selectedValueItem, setSelectedValueItem] = useState<string>(
+		options[0].value,
 	);
 
 	const targetRef = useRef<HTMLDivElement | null>(null);
 
-	const handleItemClick = (selectedItem: string) => {
+	const handleItemClick = (selectedItem: string, initialItem: string) => {
 		onClick && onClick(selectedItem);
 		setSelectedItem(selectedItem);
+		setSelectedValueItem(initialItem);
 	};
 
 	const handleClickOutside = (event: MouseEvent) => {
@@ -38,31 +53,40 @@ const Dropdown: FC<{
 	}, []);
 
 	useEffect(() => {
+		if (handleOnChange !== undefined) {
+			handleOnChange(selectedValueItem, label);
+		}
+
 		setIsDropdown(false);
+		// eslint-disable-next-line
 	}, [selectedItem]);
 
 	return (
-		<div className={cn(s.container, className)} ref={targetRef}>
+		<div
+			data-label={label}
+			className={cn(s.container, className)}
+			ref={targetRef}
+		>
 			<button
 				onClick={() => setIsDropdown(!isDropdown)}
 				className={cn(s.selected, isDropdown && s.active)}
 			>
-				{customSelectedItem || selectedItem}
+				<span>{customSelectedItem || selectedItem}</span>
 				<IconArrow />
 			</button>
 			{isDropdown && (
 				<ul className={s.list}>
-					{options.map((item) => (
+					{options.map((item, i) => (
 						<li
 							className={cn(
 								s[`list-item`],
-								disabledItem === item && s.disabled,
-								customSelectedItem || (selectedItem === item && s.current),
+								disabledItem === item.value && s.disabled,
+								customSelectedItem || (selectedItem === item.value && s.current),
 							)}
-							key={item}
-							onClick={() => handleItemClick(item)}
+							key={item.value + i}
+							onClick={() => handleItemClick(item.title, item.value)}
 						>
-							{item}
+							{item.title}
 						</li>
 					))}
 				</ul>

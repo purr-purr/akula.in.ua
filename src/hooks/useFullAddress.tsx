@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import { ITransVersion } from '@modules/common/types';
-
 import { formatCatalogTranslation, formatTranslation } from '@utils/formatters';
+
+import type { ITransVersion } from '@global-types/index';
 
 const useFullAddress = (
 	realEstate: string,

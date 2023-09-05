@@ -1,10 +1,9 @@
 import { FC, useEffect, useState } from 'react';
-import cn from 'classnames';
+import { useDataFetching } from '@hooks/index';
 
-import { useDataFetching } from '@modules/common/hooks';
 import IconSliderButton from '@modules/icons/components/IconSliderButton';
 
-import type { ICatalogData } from '@modules/common/types';
+import type { ICatalogData } from '@global-types/index';
 
 import s from './CatalogPagination.module.scss';
 
@@ -40,6 +39,7 @@ const CatalogPagination: FC<{
 
 	useEffect(() => {
 		onPaginationSorting(dataList.slice(startIndex, endIndex));
+		// eslint-disable-next-line
 	}, [data, startIndex, endIndex]);
 
 	return dataList.length > 9 ? (

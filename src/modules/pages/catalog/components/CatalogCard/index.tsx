@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useFullAddress, usePropertyPhoto } from '@hooks/index';
 import cn from 'classnames';
 
 import DefaultPoster from '@modules/common/components/DefaultPoster';
-import { usePropertyPhoto } from '@modules/common/hooks/index';
 import IconFloorPlan from '@modules/icons/components/IconFloorPlan';
 import IconRuler from '@modules/icons/components/IconRuler';
 import { formatToFullPriceWithPrefix } from '@modules/pages/catalogPage/utils/formatters';
@@ -16,9 +16,8 @@ import {
 	formatCityTranslation,
 } from '@utils/formatters';
 
-import type { ICatalogData } from '@modules/common/types';
+import type { ICatalogData } from '@global-types/index';
 
-import useFullAddress from '../../../../common/hooks/useFullAddress';
 import s from './CatalogCard.module.scss';
 
 const CatalogCard: FC<{

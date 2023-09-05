@@ -14,7 +14,15 @@
   font-weight: inherit;
   color: var(--gray);
   padding: 4px 2px;
+  text-align: left;
+
   transition: color .3s ease-in-out;
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   &:hover {
     color: var(--primary);

@@ -9,7 +9,11 @@ export default function SwitchLanguage() {
 	const router = useRouter();
 	const { i18n } = useTranslation();
 
-	const languages: string[] = ['ua', 'ru', 'en'];
+	const languages = [
+		{ value: 'ua', title: 'ua' },
+		{ value: 'ru', title: 'ru' },
+		{ value: 'en', title: 'en' },
+	];
 
 	const switchLanguage = (selectedLanguage: string) => {
 		const { asPath } = router;

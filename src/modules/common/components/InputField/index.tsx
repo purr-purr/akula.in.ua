@@ -1,5 +1,7 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import cn from 'classnames';
+
+import type { ReactNode } from 'react';
 
 import s from './InputField.module.scss';
 

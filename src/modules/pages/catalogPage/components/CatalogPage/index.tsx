@@ -5,18 +5,17 @@ import { useRouter } from 'next/router';
 import FeedbackForm from '@modules/common/components/FeedbackForm';
 import Loader from '@modules/common/components/Loader';
 import Meta from '@modules/common/components/Meta';
-import { useDataFetching } from '@modules/common/hooks';
 import CatalogPageCarousel from '@modules/pages/catalogPage/components/CatalogPageCarousel';
 import CatalogPageCrumbs from '@modules/pages/catalogPage/components/CatalogPageCrumbs';
 import CatalogPageDescription from '@modules/pages/catalogPage/components/CatalogPageDescription';
 import CatalogPageHeader from '@modules/pages/catalogPage/components/CatalogPageHeader';
 import { formatMetaForCatalogPage } from '@modules/pages/catalogPage/utils/formatters';
 
+import { useDataFetching, useFullAddress } from '@hooks/index';
 import { formatCityTranslation, formatTranslation } from '@utils/formatters';
 
-import type { ICatalogData } from '@modules/common/types';
+import type { ICatalogData } from '@global-types/index';
 
-import useFullAddress from '../../../../common/hooks/useFullAddress';
 import s from './CatalogPage.module.scss';
 
 const CatalogPage: FC = memo(() => {
@@ -47,28 +46,23 @@ const CatalogPage: FC = memo(() => {
 		data.map((value: ICatalogData) => {
 			value.id === Number(catalog) && setPageData(value);
 		});
+		// eslint-disable-next-line
 	}, [data, router.query.catalog, router.isReady]);
 
 	const itemAddress = formatTranslation(i18n.language, address);
 	const itemStation = formatTranslation(i18n.language, station);
+	const itemLocation = formatTranslation(i18n.language, location);
 	const itemDescription = formatTranslation(i18n.language, description);
-
 	const itemLocationAndAddress = useFullAddress(
 		real_estate_type,
 		location,
 		address,
 	);
-
 	const itemCity = tCommon(formatCityTranslation(city));
 	const itemOriginalFullAddress = `${city}, ${location.ua}, ${address.ua}`;
-
-	const itemLocation = formatTranslation(i18n.language, location);
-	// const itemAddress = formatTranslation(i18n.language, address);
-
 	const itemCityWithLocationAndAddress = `${itemCity}, ${itemLocation}, ${itemAddress}`;
 
 	const tags = [property_type, real_estate_type];
-	const feedbackMessage = `[${itemLocationAndAddress}]`;
 
 	const pageMetaDesc = formatMetaForCatalogPage(
 		city,
@@ -110,7 +104,7 @@ const CatalogPage: FC = memo(() => {
 					<div className={s.feedback}>
 						<h5>{tCatalog('FEEDBACK.DO_YOU_LIKE_THIS_PROPERTY')}</h5>
 						<p>{tCatalog('FEEDBACK.IF_YOU_LIKE_THIS_PROPERTY')}</p>
-						<FeedbackForm isColumnType message={feedbackMessage} />
+						<FeedbackForm isColumnType message={itemLocationAndAddress} />
 					</div>
 				</aside>
 			</section>

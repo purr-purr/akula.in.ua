@@ -7,7 +7,7 @@ import CatalogPageTable from '@modules/pages/catalogPage/components/CatalogPageT
 
 import { CURRENCY } from '@utils/data';
 
-import type { ICatalogTable } from '@modules/common/types';
+import type { ICatalogTable } from '@global-types/index';
 
 import s from './CatalogPageDescription.module.scss';
 

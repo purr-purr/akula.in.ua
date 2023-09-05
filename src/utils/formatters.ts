@@ -1,6 +1,6 @@
 import { APP } from '@utils/const';
 
-import type { ITransVersion } from '@modules/common/types';
+import type { ITransVersion } from '../types';
 
 export const formatMetaTitle = (title: string): string =>
 	`${title} | ${APP.TITLE}`;
@@ -9,16 +9,12 @@ export const formatTranslation = (lang: string, value: ITransVersion) => {
 	return value[lang as keyof typeof value] || '';
 };
 
-export const formatCityTranslation = (city: string | undefined) => {
+export const formatCityTranslation = (city: string) => {
 	// prettier-ignore
 	const translation: Record<string, string> = {
 		'київ': 'KYIV',
 		'київська область': 'KYIV_REGION',
 	};
-
-	if (!city) {
-		return '';
-	}
 
 	const lowerCaseCity = city.toLowerCase();
 

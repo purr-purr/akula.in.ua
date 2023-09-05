@@ -1,6 +1,5 @@
 import { createContext, FC, useCallback, useState } from 'react';
-
-import { useMediaQuery } from '@modules/common/hooks';
+import { useMediaQuery } from '@hooks/index';
 
 import { MOBILE_BREAKPOINT } from '@utils/const';
 

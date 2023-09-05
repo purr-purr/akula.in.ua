@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import ImageGallery from 'react-image-gallery';
+import { usePropertyPhoto } from '@hooks/index';
 
-import usePropertyPhoto from '../../../../common/hooks/usePropertyPhoto';
 import s from './CatalogPageCarousel.module.scss';
 
 import 'react-image-gallery/styles/css/image-gallery.css';

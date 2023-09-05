@@ -7,7 +7,7 @@ import CatalogCard from '@modules/pages/catalog/components/CatalogCard';
 import CatalogPagination from '@modules/pages/catalog/components/CatalogPagination';
 import CatalogSort from '@modules/pages/catalog/components/CatalogSort';
 
-import type { ICatalogData } from '@modules/common/types';
+import type { ICatalogData } from '@global-types/index';
 
 import s from './CatalogList.module.scss';
 

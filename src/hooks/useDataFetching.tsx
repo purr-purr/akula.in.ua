@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { BACKEND_LOCALHOST } from '@utils/const';
 
-import type { ICatalogData, IDataBaseResponse } from '@modules/common/types';
+import type { ICatalogData, IDataBaseResponse } from '@global-types/index';
 
 type RecordFormattedData = undefined | null | string | number;
 
@@ -11,39 +11,23 @@ const useDataFetching = () => {
 		city: '',
 		contract_type: '',
 		id: 0,
-		price: '0',
+		price: '',
 		property_type: '',
 		real_estate_type: '',
-		station: {
-			ua: null,
-			ru: null,
-			en: null,
-		},
+		station: {},
 		visibility: false,
-		description: {
-			ua: null,
-			ru: null,
-			en: null,
-		},
-		address: {
-			ua: null,
-			ru: null,
-			en: null,
-		},
-		location: {
-			ua: null,
-			ru: null,
-			en: null,
-		},
+		description: {},
+		address: {},
+		location: {},
 		table: {},
 	};
 
 	const [data, setData] = useState<ICatalogData[]>([initialData]);
 	const [loading, setLoading] = useState(false);
 
-	const deletePrefix = (inputText: string, wordToDelete: string) => {
+	const deletePrefix = (inputText: string | number, wordToDelete: string) => {
 		const regex = new RegExp(wordToDelete, 'g');
-		return inputText.replace(regex, '');
+		return inputText.toString().replace(regex, '');
 	};
 
 	useEffect(() => {
@@ -51,6 +35,7 @@ const useDataFetching = () => {
 			.then((response) => response.json())
 			.then((data: IDataBaseResponse[]) => sortData(data))
 			.catch((error) => console.error('Error fetching data:', error));
+		// eslint-disable-next-line
 	}, []);
 
 	const sortData = (data: IDataBaseResponse[]) => {
@@ -110,7 +95,6 @@ const useDataFetching = () => {
 			};
 		});
 		const sortResult = result.sort((a, b) => b.id - a.id);
-		console.log(sortResult);
 		setData(sortResult);
 		setLoading(false);
 	};
