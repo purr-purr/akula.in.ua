@@ -29,7 +29,7 @@ export const getPrefixAndValue = (lang: string, value: string) => {
 	return getPricePrefix(lang, value) + cleanLetters(value);
 };
 
-const cleanLetters = (value: string) => {
+export const cleanLetters = (value: string) => {
 	return value.replace(/[A-Za-z-]+/g, '');
 };
 

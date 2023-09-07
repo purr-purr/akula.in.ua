@@ -23,7 +23,7 @@ const useDataFetching = () => {
 	};
 
 	const [data, setData] = useState<ICatalogData[]>([initialData]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	const deletePrefix = (inputText: string | number, wordToDelete: string) => {
 		const regex = new RegExp(wordToDelete, 'g');

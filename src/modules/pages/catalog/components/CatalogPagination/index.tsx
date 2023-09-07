@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-import { useDataFetching } from '@hooks/index';
 
 import IconSliderButton from '@modules/icons/components/IconSliderButton';
 
@@ -9,9 +8,8 @@ import s from './CatalogPagination.module.scss';
 
 const CatalogPagination: FC<{
 	onPaginationSorting: (arg0: ICatalogData[]) => void;
-}> = ({ onPaginationSorting }) => {
-	const { data } = useDataFetching();
-
+	data: ICatalogData[];
+}> = ({ onPaginationSorting, data }) => {
 	const dataList: ICatalogData[] = data.filter(
 		(item) => item.visibility && item,
 	);

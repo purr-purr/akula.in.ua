@@ -1,5 +1,6 @@
 import { FC, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 import cn from 'classnames';
 
 import Button from '@modules/common/components/Button';
@@ -28,6 +29,7 @@ const Filter: FC<{
 	const [currentFilters, setCurrentFilters] = useState<IFilters>(initialFilters);
 	const { filters, handleFilters } = useContext(CatalogContext);
 	const { data } = useDataFetching();
+	const router = useRouter();
 	const tabs = [t('OBJECT_INFO.SELLING'), t('OBJECT_INFO.RENT')];
 
 	const parseUniqueFilterItem = (
@@ -89,10 +91,14 @@ const Filter: FC<{
 
 	const handleApplyFilters = () => {
 		handleFilters(currentFilters);
+
+		if (router.asPath !== '/catalog') {
+			router.push('/catalog').then();
+		}
 	};
 
 	useEffect(() => {
-		console.log(filters);
+		setCurrentFilters(filters);
 	}, [filters]);
 
 	return (
@@ -112,6 +118,11 @@ const Filter: FC<{
 				{UI_FILTERS_LIST.map((item) => (
 					<InputField key={item.category} label={item.category}>
 						<Dropdown
+							customSelectedItem={
+								currentFilters[item.label] === 'All'
+									? t('ALL')
+									: currentFilters[item.label]
+							}
 							label={item.label}
 							handleOnChange={handleOnChangeFilters}
 							options={item.list}

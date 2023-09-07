@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import Loader from '@modules/common/components/Loader';
+import { CatalogContext } from '@modules/layout/context/CatalogContext';
 import CatalogCard from '@modules/pages/catalog/components/CatalogCard';
 import CatalogPagination from '@modules/pages/catalog/components/CatalogPagination';
 import CatalogSort from '@modules/pages/catalog/components/CatalogSort';
+import { cleanLetters } from '@modules/pages/catalogPage/utils/formatters';
+
+import { useDataFetching } from '@hooks/index';
 
 import type { ICatalogData } from '@global-types/index';
 
@@ -13,31 +17,77 @@ import s from './CatalogList.module.scss';
 
 const CatalogList = () => {
 	const { t } = useTranslation('catalog');
+	const { filters } = useContext(CatalogContext);
+	const { data, loading } = useDataFetching();
 
-	const [paginationSortedData, setPaginationSortedData] = useState<
-		ICatalogData[]
-	>([]);
+	const [sortedData, setSortedData] = useState<ICatalogData[]>([]);
+	const [paginationData, setPaginationData] = useState<ICatalogData[]>([]);
+
+	useEffect(() => {
+		sortData();
+	}, [data, filters]);
 
 	const handlePaginationSorting = (value: ICatalogData[]) => {
-		setPaginationSortedData(value);
+		setPaginationData(value);
+	};
+
+	const sortData = () => {
+		const all = 'All';
+		const sortedData = data
+			.filter(
+				(item) =>
+					(filters.city === all || item.city === filters.city) &&
+					(filters.propertyType === all ||
+						item.property_type === filters.propertyType) &&
+					(filters.realEstateType === all ||
+						item.real_estate_type === filters.realEstateType),
+			)
+			.sort((a, b) => {
+				const prev = Number(cleanLetters(a.price));
+				const next = Number(cleanLetters(b.price));
+				{
+					if (filters.sortByPrice === 'down') {
+						return next - prev;
+					} else if (filters.sortByPrice === 'up') {
+						return prev - next;
+					} else {
+						return 0;
+					}
+				}
+			});
+		setSortedData(sortedData);
 	};
 
 	return (
 		<>
 			<div className={s.sort}>
-				<BlockTitle title={t('CATALOG.SEARCH_RESULTS')} />
+				<BlockTitle className={s.title} title={t('CATALOG.SEARCH_RESULTS')} />
+				<span className={s.counter}>
+					: {sortedData.length} {t('OBJECTS')}
+				</span>
 				<CatalogSort />
 			</div>
-			{paginationSortedData.length !== 0 ? (
-				<ul className={s.container}>
-					{paginationSortedData.map((item: ICatalogData) => (
-						<CatalogCard key={item.id} props={item} />
-					))}
-				</ul>
-			) : (
+
+			{loading ? (
 				<Loader className={s.loader} type="described" />
+			) : (
+				<>
+					{paginationData.length !== 0 ? (
+						<ul className={s.container}>
+							{paginationData.map((item: ICatalogData) => (
+								<CatalogCard key={item.id} props={item} />
+							))}
+						</ul>
+					) : (
+						<p className={s.notFound}>{t('UNFORTUNATELY_NOTHING_WAS_FOUND')}</p>
+					)}
+				</>
 			)}
-			<CatalogPagination onPaginationSorting={handlePaginationSorting} />
+
+			<CatalogPagination
+				data={sortedData}
+				onPaginationSorting={handlePaginationSorting}
+			/>
 		</>
 	);
 };

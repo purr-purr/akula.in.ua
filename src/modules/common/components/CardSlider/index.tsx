@@ -65,7 +65,7 @@ const CardSlider: FC<{
 	withoutControls = false,
 	slidesToShow = 4,
 	dragging = true,
-	autoplay = false,
+	autoplay = true,
 }) => {
 	const childrenRender = Children.map(children, (child) => {
 		if (isValidElement(child)) {
@@ -83,7 +83,7 @@ const CardSlider: FC<{
 			cellSpacing={20}
 			dragThreshold={0.3}
 			autoplay={autoplay}
-			autoplayInterval={3000}
+			autoplayInterval={4000}
 			disableEdgeSwiping
 			dragging={dragging}
 			wrapAround={true}

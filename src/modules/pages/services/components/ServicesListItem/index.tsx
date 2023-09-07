@@ -14,7 +14,12 @@ const ServicesListItem: FC<{ text: string; isEvenElement?: boolean }> = ({
 	const { t } = useTranslation('services');
 
 	const getImagePath = (value: string) => {
-		return require(`../../assets/ServicesListItem/${value}.jpg`).default;
+		try {
+			return require(`../../assets/ServicesListItem/${value}.jpg`).default;
+		} catch {
+			const condition = value.endsWith('--preview') ? '--short' : '';
+			return require(`@public/assets/default-image${condition}.jpg`).default;
+		}
 	};
 
 	return (
@@ -38,7 +43,7 @@ const ServicesListItem: FC<{ text: string; isEvenElement?: boolean }> = ({
 					<li />
 				</Trans>
 			</ul>
-			<Image className={s.poster} src={getImagePath(text)} alt={''} />
+			<Image className={s.poster} src={getImagePath(text)} alt="Poster" />
 		</details>
 	);
 };

@@ -2,14 +2,15 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useFullAddress, usePropertyPhoto } from '@hooks/index';
 import cn from 'classnames';
 
 import DefaultPoster from '@modules/common/components/DefaultPoster';
 import IconFloorPlan from '@modules/icons/components/IconFloorPlan';
 import IconRuler from '@modules/icons/components/IconRuler';
 import { formatToFullPriceWithPrefix } from '@modules/pages/catalogPage/utils/formatters';
+import { UNITS } from '@modules/pages/catalogPage/utils/units';
 
+import { useFullAddress, usePropertyPhoto } from '@hooks/index';
 import { APP } from '@utils/const';
 import {
 	formatCatalogTranslation,
@@ -71,7 +72,7 @@ const CatalogCard: FC<{
 						{table.total_area && (
 							<li title={tCatalog('TABLE.TOTAL_AREA')}>
 								<IconRuler />
-								{itemTotalArea}
+								{itemTotalArea + ' ' + UNITS[i18n.language].squareMeters}
 							</li>
 						)}
 						{isRoomsIcon && (
