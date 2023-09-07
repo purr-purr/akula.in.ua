@@ -5,7 +5,7 @@ import { CURRENCY } from '@utils/data';
 
 export const formatMetaForCatalogPage = (
 	city: string,
-	address: string,
+	address: string | number,
 	typeRealEstate: string,
 ): string => {
 	return `Детальна інформація про об'єкт нерухомості у місті ${city} за адресою ${address}. ${typeRealEstate} у зручному розташуванні. Ідеальний варіант для вашого бізнесу або проживання. Наші експерти готові надати детальну консультацію, організувати перегляд і відповісти на всі ваші запитання.`;
