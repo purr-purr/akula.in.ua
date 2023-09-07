@@ -26,12 +26,12 @@ const CatalogCard: FC<{
 }> = ({ props }) => {
 	const {
 		id,
-		contract_type,
-		property_type,
+		contractType,
+		propertyType,
 		city,
 		price,
 		address,
-		real_estate_type,
+		realEstateType,
 		table,
 		location,
 	} = props;
@@ -39,11 +39,11 @@ const CatalogCard: FC<{
 	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
 	const postersList = usePropertyPhoto(id);
-	const fullAddress = useFullAddress(real_estate_type, location, address);
+	const fullAddress = useFullAddress(realEstateType, location, address);
 	const itemCity = tCommon(formatCityTranslation(city));
-	const itemContractType = tCommon(formatCatalogTranslation(contract_type));
-	const itemPropertyType = tCommon(formatCatalogTranslation(property_type));
-	const itemTotalArea = Number(table.total_area).toFixed();
+	const itemContractType = tCommon(formatCatalogTranslation(contractType));
+	const itemPropertyType = tCommon(formatCatalogTranslation(propertyType));
+	const itemTotalArea = Number(table.totalArea).toFixed();
 
 	const isRoomsIcon = (table.offices && table.offices !== 'any') || table.rooms;
 	return (
@@ -69,7 +69,7 @@ const CatalogCard: FC<{
 					<address className={s.address}>{fullAddress}</address>
 					<ul className={s.description}>
 						<li>{formatToFullPriceWithPrefix(i18n.language, price)}</li>
-						{table.total_area && (
+						{table.totalArea && (
 							<li title={tCatalog('TABLE.TOTAL_AREA')}>
 								<IconRuler />
 								{itemTotalArea + ' ' + UNITS[i18n.language].squareMeters}

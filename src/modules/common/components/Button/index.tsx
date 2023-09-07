@@ -19,7 +19,7 @@ const Button: FC<{
 	color = 'primary',
 	isDisabled = false,
 }) => {
-	const classNameList = cn(s.container, s[color], isDisabled && s.disabled);
+	const classNameList = cn(s.container, s[color]);
 
 	return type === 'link' ? (
 		<Link className={classNameList} href={linkPath} onClick={onClick}>

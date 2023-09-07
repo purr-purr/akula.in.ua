@@ -9,11 +9,11 @@ type RecordFormattedData = undefined | null | string | number;
 const useDataFetching = () => {
 	const initialData: ICatalogData = {
 		city: '',
-		contract_type: '',
+		contractType: '',
 		id: 0,
 		price: '',
-		property_type: '',
-		real_estate_type: '',
+		propertyType: '',
+		realEstateType: '',
 		station: {},
 		visibility: false,
 		description: {},
@@ -94,8 +94,12 @@ const useDataFetching = () => {
 				station: stationArray,
 			};
 		});
-		const sortResult = result.sort((a, b) => b.id - a.id);
+
+		const sortResult = result
+			.sort((a, b) => b.id - a.id)
+			.filter((item) => item.visibility);
 		setData(sortResult);
+		console.log(sortResult);
 		setLoading(false);
 	};
 

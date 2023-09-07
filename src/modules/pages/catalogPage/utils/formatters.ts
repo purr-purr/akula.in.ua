@@ -52,23 +52,23 @@ export const formatTableAfterPrefix = (
 	const starElement = `<span class="star">*</span>`;
 
 	const translation: Record<string, string> = {
-		TOTAL_AREA: UNITS[lang].squareMeters,
-		USABLE_AREA: UNITS[lang].squareMeters,
+		TOTALAREA: UNITS[lang].squareMeters,
+		USABLEAREA: UNITS[lang].squareMeters,
 		OFFICES: UNITS[lang].pieces,
 		KITCHEN: UNITS[lang].squareMeters,
 		BATHROOMS: UNITS[lang].pieces,
-		LIVING_SPACE: UNITS[lang].squareMeters,
+		LIVINGSPACE: UNITS[lang].squareMeters,
 		ROOMS: UNITS[lang].pieces,
-		LAND_PLOT: UNITS[lang].landPlot,
-		RENT_1_M2:
+		LANDPLOT: UNITS[lang].landPlot,
+		RENT1M2:
 			contractType === 'Оренда'
 				? `${UNITS[lang].currency}${UNITS[lang].month}${starElement}`
 				: UNITS[lang].squareMeters,
-		OPERATIONAL_1_M2:
+		OPERATIONAL1M2:
 			contractType === 'Оренда'
 				? `${UNITS[lang].currency}${UNITS[lang].month}${starElement}`
 				: UNITS[lang].squareMeters,
-		TOTAL_COST:
+		TOTALCOST:
 			contractType === 'Оренда'
 				? `${UNITS[lang].currency}${UNITS[lang].month}${starElement}`
 				: UNITS[lang].currency,

@@ -24,13 +24,14 @@
   },
   "TYPE_OF_REAL_ESTATE": {
     "TYPE_OF_REAL_ESTATE": "Вид нерухомості",
-    "BUSINESS_CENTERS": "Бізнес-центри",
-    "SHOPPING_MALLS": "Торгово-розважальні центри",
-    "MARKETPLACES": "Торгові майданчики",
+    "APARTMENTS": "Квартири",
+    "HOUSES": "Будинки",
+    "NEW_BUILDING": "Новобудови",
     "OFFICE_SPACES": "Офісні приміщення",
-    "HOUSES_AND_APARTMENTS": "Будинки та квартири",
-    "LAND_PLOTS": "Земельні ділянки",
-    "WAREHOUSE_FACILITIES": "Складські приміщення"
+    "PREMISES_FOR_ANY_TYPE_OF_ACTIVITY": "Приміщення під будь який вид діяльності",
+    "MARKETPLACES": "Торгові майданчики",
+    "WAREHOUSE_FACILITIES": "Складські приміщення",
+    "LAND_PLOTS": "Земельні ділянки"
   },
   "FEEDBACK": {
     "INTERESTED_IN_COOPERATION": "Зацікавлені у співпраці?",

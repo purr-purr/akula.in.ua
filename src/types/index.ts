@@ -1,8 +1,8 @@
 interface ICatalogStaticData {
 	id: number;
-	contract_type: string;
-	property_type: string;
-	real_estate_type: string;
+	contractType: string;
+	propertyType: string;
+	realEstateType: string;
 	city: string;
 	price: string;
 }

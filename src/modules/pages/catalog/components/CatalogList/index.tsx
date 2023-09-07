@@ -36,11 +36,12 @@ const CatalogList = () => {
 		const sortedData = data
 			.filter(
 				(item) =>
+					filters.contractType === item.contractType &&
 					(filters.city === all || item.city === filters.city) &&
 					(filters.propertyType === all ||
-						item.property_type === filters.propertyType) &&
+						item.propertyType === filters.propertyType) &&
 					(filters.realEstateType === all ||
-						item.real_estate_type === filters.realEstateType),
+						item.realEstateType === filters.realEstateType),
 			)
 			.sort((a, b) => {
 				const prev = Number(cleanLetters(a.price));

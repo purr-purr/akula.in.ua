@@ -1,3 +1,4 @@
+import { fchmod } from 'fs';
 import { FC, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
@@ -30,34 +31,30 @@ const Filter: FC<{
 	const { filters, handleFilters } = useContext(CatalogContext);
 	const { data } = useDataFetching();
 	const router = useRouter();
-	const tabs = [t('OBJECT_INFO.SELLING'), t('OBJECT_INFO.RENT')];
+	const tabs = [t('OBJECT_INFO.RENT'), t('OBJECT_INFO.SELLING')];
 
 	const parseUniqueFilterItem = (
 		data: ICatalogData[],
 		key: keyof ICatalogData,
 	) => {
-		return Array.from(
-			new Set(
-				data
-					.filter((item: ICatalogData) => item.visibility)
-					.map((item) => item[key]),
-			),
-		).map((item) => {
-			return {
-				value: item,
-				title: t(
-					key === 'city'
-						? formatCityTranslation(item.toString())
-						: formatCatalogTranslation(item.toString()),
-				),
-			};
-		});
+		return Array.from(new Set(data.map((item: ICatalogData) => item[key]))).map(
+			(item) => {
+				return {
+					value: item,
+					title: t(
+						key === 'city'
+							? formatCityTranslation(item.toString())
+							: formatCatalogTranslation(item.toString()),
+					),
+				};
+			},
+		);
 	};
 
 	const filterList = (data: ICatalogData[]) => ({
 		city: parseUniqueFilterItem(data, 'city'),
-		propertyType: parseUniqueFilterItem(data, 'property_type'),
-		realEstateType: parseUniqueFilterItem(data, 'real_estate_type'),
+		propertyType: parseUniqueFilterItem(data, 'propertyType'),
+		realEstateType: parseUniqueFilterItem(data, 'realEstateType'),
 	});
 
 	const filterListOptions = filterList(data);
@@ -98,8 +95,17 @@ const Filter: FC<{
 	};
 
 	useEffect(() => {
+		console.log(filters);
 		setCurrentFilters(filters);
 	}, [filters]);
+
+	const handleTabButtonClick = (index: number) => {
+		setActiveTabIndex(index);
+		handleFilters({
+			...filters,
+			contractType: index === 0 ? 'Оренда' : 'Продаж',
+		});
+	};
 
 	return (
 		<section className={cn(s.container, side && s[side])}>
@@ -107,7 +113,7 @@ const Filter: FC<{
 				{tabs.map((tab, index) => (
 					<button
 						key={index}
-						onClick={() => setActiveTabIndex(index)}
+						onClick={() => handleTabButtonClick(index)}
 						className={cn(s.tab, index === activeTabIndex && s.active)}
 					>
 						{tab}

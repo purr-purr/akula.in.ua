@@ -7,7 +7,7 @@ export const COMPANY_INFO = {
 	INSTAGRAM: 'https://www.instagram.com/akuladevelopmentpartner/',
 	FACEBOOK: 'https://www.facebook.com/profile.php?id=61550874983068',
 	VIBER: '3',
-	TELEGRAM: '4',
+	TELEGRAM: 'https://t.me/akuladevelopment',
 	TIKTOK: 'https://www.tiktok.com/@akuladevelopmentpartner',
 	WHATSAPP: 'https://wa.me/message/3HREPFEJSLUAM1',
 };

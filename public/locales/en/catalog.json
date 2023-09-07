@@ -19,18 +19,18 @@
     "IF_YOU_LIKE_THIS_PROPERTY": "If you like this property and are interested in it, please complete the application below. Our team will contact you shortly to provide additional information and arrange a viewing."
   },
   "TABLE": {
-    "TOTAL_AREA": "Total area",
+    "TOTALAREA": "Total area",
     "PURPOSE": "Purpose",
-    "USABLE_AREA": "Usable area",
+    "USABLEAREA": "Usable area",
     "OFFICES": "Offices",
     "KITCHEN": "Kitchen",
     "BATHROOMS": "Bathrooms",
     "FLOOR": "Floor",
-    "LIVING_SPACE": "Living space",
+    "LIVINGSPACE": "Living space",
     "ROOMS": "Rooms",
-    "LAND_PLOT": "Land plot",
-    "RENT_1_M2": "Rent 1 m²",
-    "OPERATIONAL_1_M2": "Operational 1 m²",
-    "TOTAL_COST": "Total cost"
+    "LANDPLOT": "Land plot",
+    "RENT1M2": "Rent 1 m²",
+    "OPERATIONAL1M2": "Operational 1 m²",
+    "TOTALCOST": "Total cost"
   }
 }

@@ -24,13 +24,14 @@
   },
   "TYPE_OF_REAL_ESTATE": {
     "TYPE_OF_REAL_ESTATE": "Type of real estate",
-    "BUSINESS_CENTERS": "Business centers",
-    "SHOPPING_MALLS": "Shopping malls",
+    "APARTMENTS": "Apartments",
+    "HOUSES": "Houses",
+    "NEW_BUILDING": "New Buildings",
+    "OFFICE_SPACES": "Office Spaces",
+    "PREMISES_FOR_ANY_TYPE_OF_ACTIVITY": "Premises for any type of activity",
     "MARKETPLACES": "Marketplaces",
-    "OFFICE_SPACES": "Office spaces",
-    "HOUSES_AND_APARTMENTS": "Houses and apartments",
-    "LAND_PLOTS": "Land plots",
-    "WAREHOUSE_FACILITIES": "Warehouse facilities"
+    "WAREHOUSE_FACILITIES": "Warehouses",
+    "LAND_PLOTS": "Land Plots"
   },
   "FEEDBACK": {
     "INTERESTED_IN_COOPERATION": "Interested in collaborating?",

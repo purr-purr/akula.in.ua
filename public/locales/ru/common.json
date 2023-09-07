@@ -24,13 +24,14 @@
   },
   "TYPE_OF_REAL_ESTATE": {
     "TYPE_OF_REAL_ESTATE": "Вид недвижимости",
-    "BUSINESS_CENTERS": "Бизнес-центры",
-    "SHOPPING_MALLS": "Торгово-развлекательные центры",
-    "MARKETPLACES": "Торговые площадки",
+    "APARTMENTS": "Квартиры",
+    "HOUSES": "Дома",
+    "NEW_BUILDING": "Новостройки",
     "OFFICE_SPACES": "Офисные помещения",
-    "HOUSES_AND_APARTMENTS": "Дома и квартиры",
-    "LAND_PLOTS": "Земельные участки",
-    "WAREHOUSE_FACILITIES": "Складские помещения"
+    "PREMISES_FOR_ANY_TYPE_OF_ACTIVITY": "Помещение под любой вид деятельности",
+    "MARKETPLACES": "Торговые площадки",
+    "WAREHOUSE_FACILITIES": "Складские помещения",
+    "LAND_PLOTS": "Земельные участки"
   },
   "FEEDBACK": {
     "INTERESTED_IN_COOPERATION": "Заинтересованы в сотрудничестве?",

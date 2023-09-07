@@ -21,7 +21,7 @@ const CatalogPageTable: FC<{
 	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
 
-	tableInfo.total_cost = price;
+	tableInfo.totalCost = price;
 	const table = Object.entries(tableInfo)
 		.map(
 			([key, value]) =>
@@ -56,7 +56,7 @@ const CatalogPageTable: FC<{
 								item.key === 'bathrooms') &&
 							item.value === 'any';
 
-						const isLandPlot = item.key === 'land_plot';
+						const isLandPlot = item.key === 'landPlot';
 						const itemKey = item.key.toUpperCase();
 						const itemValue = item.value.toString();
 
@@ -67,9 +67,9 @@ const CatalogPageTable: FC<{
 						);
 
 						const isValueWithPrefix = [
-							'RENT_1_M2',
-							'OPERATIONAL_1_M2',
-							'TOTAL_COST',
+							'RENT1M2',
+							'OPERATIONAL1M2',
+							'TOTALCOST',
 						].includes(itemKey);
 
 						return (

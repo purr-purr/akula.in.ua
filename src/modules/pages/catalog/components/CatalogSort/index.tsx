@@ -6,7 +6,9 @@ import IconPriceDown from '@modules/icons/components/IconPriceDown';
 import IconPriceUp from '@modules/icons/components/IconPriceUp';
 import { CatalogContext } from '@modules/layout/context/CatalogContext';
 
-import { initialFilters, SortByPriceType } from '@utils/filters';
+import { initialFilters } from '@utils/filters';
+
+import type { SortByPriceType } from '@utils/filters';
 
 import s from './CatalogSort.module.scss';
 

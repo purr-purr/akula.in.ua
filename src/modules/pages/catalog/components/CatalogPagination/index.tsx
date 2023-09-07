@@ -1,6 +1,7 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 
 import IconSliderButton from '@modules/icons/components/IconSliderButton';
+import { CatalogContext } from '@modules/layout/context/CatalogContext';
 
 import type { ICatalogData } from '@global-types/index';
 
@@ -10,17 +11,14 @@ const CatalogPagination: FC<{
 	onPaginationSorting: (arg0: ICatalogData[]) => void;
 	data: ICatalogData[];
 }> = ({ onPaginationSorting, data }) => {
-	const dataList: ICatalogData[] = data.filter(
-		(item) => item.visibility && item,
-	);
-
 	const [currentPage, setCurrentPage] = useState<number>(1);
+	const { filters } = useContext(CatalogContext);
 
 	const itemsPerPage: number = 9;
-	const totalPages: number = Math.ceil(dataList.length / itemsPerPage);
+	const totalPages: number = Math.ceil(data.length / itemsPerPage);
 	const startIndex: number = (currentPage - 1) * itemsPerPage;
 	const endIndex: number = startIndex + itemsPerPage;
-	const calcLastPageNumber: number = dataList.length / 10;
+	const calcLastPageNumber: number = data.length / 10;
 	const lastPage: number = Number(calcLastPageNumber.toFixed(0));
 
 	const handlePageChange = (pageNumber: number): void => {
@@ -36,11 +34,15 @@ const CatalogPagination: FC<{
 	};
 
 	useEffect(() => {
-		onPaginationSorting(dataList.slice(startIndex, endIndex));
+		onPaginationSorting(data.slice(startIndex, endIndex));
 		// eslint-disable-next-line
 	}, [data, startIndex, endIndex]);
 
-	return dataList.length > 9 ? (
+	useEffect(() => {
+		setCurrentPage(1);
+	}, [filters]);
+
+	return data.length > 9 ? (
 		<article className={s.container}>
 			<button onClick={handlePrevBtn} disabled={currentPage === 1}>
 				<IconSliderButton />

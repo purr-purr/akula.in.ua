@@ -19,12 +19,12 @@ import type { ICatalogData } from '@global-types/index';
 import s from './CatalogPage.module.scss';
 
 const CatalogPage: FC = memo(() => {
-	const { i18n } = useTranslation();
 	const { data, loading, initialData } = useDataFetching();
 	const router = useRouter();
 	const { catalog } = router.query;
-	const { t: tCommon } = useTranslation('common');
+	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
+
 	const [pageData, setPageData] = useState<ICatalogData>(initialData);
 	const {
 		address,
@@ -32,12 +32,12 @@ const CatalogPage: FC = memo(() => {
 		description,
 		id,
 		price,
-		property_type,
-		real_estate_type,
+		propertyType,
+		realEstateType,
 		station,
 		table,
 		location,
-		contract_type,
+		contractType,
 	} = pageData;
 
 	useEffect(() => {
@@ -54,7 +54,7 @@ const CatalogPage: FC = memo(() => {
 	const itemLocation = formatTranslation(i18n.language, location);
 	const itemDescription = formatTranslation(i18n.language, description);
 	const itemLocationAndAddress = useFullAddress(
-		real_estate_type,
+		realEstateType,
 		location,
 		address,
 	);
@@ -62,12 +62,12 @@ const CatalogPage: FC = memo(() => {
 	const itemOriginalFullAddress = `${city}, ${location.ua}, ${address.ua}`;
 	const itemCityWithLocationAndAddress = `${itemCity}, ${itemLocation}, ${itemAddress}`;
 
-	const tags = [property_type, real_estate_type];
+	const tags = [propertyType, realEstateType];
 
 	const pageMetaDesc = formatMetaForCatalogPage(
 		city,
 		address.ua as keyof typeof address,
-		real_estate_type,
+		realEstateType,
 	);
 
 	if (loading) {
@@ -89,8 +89,8 @@ const CatalogPage: FC = memo(() => {
 				<div>
 					<CatalogPageCarousel id={id} />
 					<CatalogPageDescription
-						contractType={contract_type}
-						realEstateType={real_estate_type}
+						contractType={contractType}
+						realEstateType={realEstateType}
 						id={id}
 						description={itemDescription}
 						tableInfo={table || {}}
