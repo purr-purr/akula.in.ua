@@ -5,7 +5,7 @@
   margin-bottom: -130px;
   position: relative;
   z-index: 1;
-  background: var(--secondary-blue) url('../../assets/CatalogHeader/background-logo.svg') -140px bottom/contain no-repeat;
+  background: var(--secondary-blue) url('assets/background-logo.svg') -140px bottom/contain no-repeat;
 
   h1 {
     max-width: 495px;
@@ -21,6 +21,7 @@
   top: -114px;
   max-width: 810px;
   width: 100%;
+  height: auto;
   pointer-events: none;
   z-index: -1;
 }

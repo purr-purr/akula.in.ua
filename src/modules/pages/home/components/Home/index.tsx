@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import Feedback from '@modules/common/components/Feedback';
 import Filter from '@modules/common/components/Filter';
 import Meta from '@modules/common/components/Meta';
+import Feedback from '@modules/feedback/components/Feedback';
 import HomeAdvantages from '@modules/pages/home/components/HomeAdvantages';
 import HomeIntro from '@modules/pages/home/components/HomeIntro';
 import HomeObjectsInManagement from '@modules/pages/home/components/HomeObjectsInManagement';

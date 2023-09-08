@@ -10,14 +10,14 @@ import IconRuler from '@modules/icons/components/IconRuler';
 import { formatToFullPriceWithPrefix } from '@modules/pages/catalogPage/utils/formatters';
 import { UNITS } from '@modules/pages/catalogPage/utils/units';
 
-import { useFullAddress, usePropertyPhoto } from '@hooks/index';
-import { APP } from '@utils/const';
+import { useCatalogItemFullAddress, usePropertyPhoto } from '@hooks/index';
+import { CATALOG_NAME } from '@utils/const';
 import {
 	formatCatalogTranslation,
 	formatCityTranslation,
 } from '@utils/formatters';
 
-import type { ICatalogData } from '@global-types/index';
+import type { ICatalogData } from '@t-types/data';
 
 import s from './CatalogCard.module.scss';
 
@@ -39,7 +39,11 @@ const CatalogCard: FC<{
 	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
 	const postersList = usePropertyPhoto(id);
-	const fullAddress = useFullAddress(realEstateType, location, address);
+	const fullAddress = useCatalogItemFullAddress(
+		realEstateType,
+		location,
+		address,
+	);
 	const itemCity = tCommon(formatCityTranslation(city));
 	const itemContractType = tCommon(formatCatalogTranslation(contractType));
 	const itemPropertyType = tCommon(formatCatalogTranslation(propertyType));
@@ -48,14 +52,14 @@ const CatalogCard: FC<{
 	const isRoomsIcon = (table.offices && table.offices !== 'any') || table.rooms;
 	return (
 		<li className={cn('yellow-shadow', s.container)}>
-			<Link className={s.inner} href={`/${APP.CATALOG_NAME}/${id}`}>
+			<Link className={s.inner} href={`/${CATALOG_NAME}/${id}`}>
 				{postersList.length > 0 ? (
 					<Image
 						className={s.image}
 						width={400}
 						height={300}
 						src={postersList[0]?.original}
-						alt=""
+						alt="Photo"
 					/>
 				) : (
 					<DefaultPoster className={s.image} />

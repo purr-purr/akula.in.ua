@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { BACKEND_LOCALHOST } from '@utils/const';
 
-import type { ICatalogData, IDataBaseResponse } from '@global-types/index';
+import type { ICatalogData, IDataBaseResponse } from '@t-types/data';
 
 type RecordFormattedData = undefined | null | string | number;
 

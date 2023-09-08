@@ -1,12 +1,4 @@
-export interface IFilters {
-	contractType: string;
-	propertyType: string;
-	realEstateType: string;
-	city: string;
-	sortByPrice: SortByPriceType;
-}
-
-export type SortByPriceType = 'up' | 'down' | 'default' | string;
+import type { IFilters } from '@t-types/filters';
 
 export const allValue = 'All';
 

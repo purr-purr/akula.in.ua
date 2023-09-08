@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { formatCatalogTranslation } from '@utils/formatters';
 
-import type { ICatalogTable } from '../../../../../types';
+import type { ICatalogTable } from '@t-types/data';
 
 import {
 	formatTableAfterPrefix,

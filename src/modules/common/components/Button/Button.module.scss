@@ -12,6 +12,11 @@
   color: var(--dark);
   transition: all 0.4s ease-in-out;
 
+  &.verticalAlign {
+    @include flex-justify-align(center, center);
+    gap: 4px;
+  }
+
   &.primary {
     border-color: var(--primary);
     background: linear-gradient(to right, var(--primary) 0%, #FFD952 100%);
@@ -34,10 +39,6 @@
       box-shadow: 0 4px 12px 0 rgba(175, 175, 175, 0.25);
       transition: all .4s ease-in-out;
     }
-  }
-
-  &:disabled {
-    cursor: not-allowed;
   }
 }
 

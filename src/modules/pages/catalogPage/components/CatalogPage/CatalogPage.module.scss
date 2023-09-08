@@ -12,15 +12,15 @@
   border-radius: 18px;
   box-shadow: 0 14px 32px 0 rgba(214, 214, 214, 0.36);
   border: 1px solid var(--nude);
-  background: url("../../assets/CatalogPage/subtract-line.svg") center bottom / 100% no-repeat;
+  background: url("assets/subtract-line.svg") center bottom / 100% no-repeat;
 
-  & h5 {
+  &Title {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 16px;
   }
 
-  & p {
+  &Description {
     margin-bottom: 24px;
   }
 }

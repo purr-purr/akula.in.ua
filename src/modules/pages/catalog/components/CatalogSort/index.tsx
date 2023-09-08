@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { CatalogContext } from '@context/CatalogContext';
 
 import IconCross from '@modules/icons/components/IconCross';
 import IconPriceDown from '@modules/icons/components/IconPriceDown';
 import IconPriceUp from '@modules/icons/components/IconPriceUp';
-import { CatalogContext } from '@modules/layout/context/CatalogContext';
 
 import { initialFilters } from '@utils/filters';
 
-import type { SortByPriceType } from '@utils/filters';
+import type { SortByPriceType } from '@t-types/filters';
 
 import s from './CatalogSort.module.scss';
 
@@ -30,6 +30,7 @@ const CatalogSort = () => {
 			...filters,
 			sortByPrice,
 		});
+		// eslint-disable-next-line
 	}, [sortByPrice]);
 
 	return (

@@ -1,23 +1,23 @@
-import { fchmod } from 'fs';
 import { FC, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
+import { CatalogContext } from '@context/CatalogContext';
 import cn from 'classnames';
 
 import Button from '@modules/common/components/Button';
 import Dropdown from '@modules/common/components/Dropdown';
 import InputField from '@modules/common/components/InputField';
-import { CatalogContext } from '@modules/layout/context/CatalogContext';
 
 import { useDataFetching } from '@hooks/index';
+import { CATALOG_NAME } from '@utils/const';
 import { initialFilters } from '@utils/filters';
 import {
 	formatCatalogTranslation,
 	formatCityTranslation,
 } from '@utils/formatters';
 
-import type { ICatalogData } from '@global-types/index';
-import type { IFilters } from '@utils/filters';
+import type { ICatalogData } from '@t-types/data';
+import type { IFilters } from '@t-types/filters';
 import type { FormEvent } from 'react';
 
 import s from './Filter.module.scss';
@@ -88,9 +88,10 @@ const Filter: FC<{
 
 	const handleApplyFilters = () => {
 		handleFilters(currentFilters);
+		const catalogPath = `/${CATALOG_NAME}`;
 
-		if (router.asPath !== '/catalog') {
-			router.push('/catalog').then();
+		if (router.asPath !== catalogPath) {
+			router.push(catalogPath).then();
 		}
 	};
 

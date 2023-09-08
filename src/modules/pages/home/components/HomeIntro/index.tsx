@@ -2,10 +2,10 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 
 import Loader from '@modules/common/components/Loader';
-import FIRST_BUILDING from '@modules/pages/home/assets/HomeIntro/first-building.png';
-import THIRD_BUILDING from '@modules/pages/home/assets/HomeIntro/second-building.png';
-import SECOND_BUILDING from '@modules/pages/home/assets/HomeIntro/third-building.png';
 
+import FIRST_BUILDING from './assets/first.png';
+import SECOND_BUILDING from './assets/second.png';
+import THIRD_BUILDING from './assets/third.png';
 import s from './HomeIntro.module.scss';
 
 const HomeIntro = () => {
@@ -30,11 +30,11 @@ const HomeIntro = () => {
 				<ul className={s.list}>
 					{advantages.map((item) => (
 						<li key={item.value}>
-							<p className={s[`list-value`]}>
+							<p className={s.listValue}>
 								{item.value}
 								<span>+</span>
 							</p>
-							<p className={s[`list-text`]}>{item.text}</p>
+							<p className={s.listText}>{item.text}</p>
 						</li>
 					))}
 				</ul>
@@ -42,8 +42,8 @@ const HomeIntro = () => {
 			<article className={s.posters}>
 				<Loader className={s.loader} />
 				<Image className={s.first} src={FIRST_BUILDING} alt={buildingText} />
-				<Image className={s.second} src={THIRD_BUILDING} alt={buildingText} />
-				<Image className={s.third} src={SECOND_BUILDING} alt={buildingText} />
+				<Image className={s.second} src={SECOND_BUILDING} alt={buildingText} />
+				<Image className={s.third} src={THIRD_BUILDING} alt={buildingText} />
 			</article>
 		</section>
 	);

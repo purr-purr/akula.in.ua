@@ -4,7 +4,8 @@ import Image from 'next/image';
 import BlockTitle from '@modules/common/components/BlockTitle';
 import IconStar from '@modules/icons/components/IconStar';
 
-import TEAM from '../../assets/HomeTeam/team-poster.jpg';
+import TEAM from './assets/team-poster.jpg';
+
 import s from './HomeTeam.module.scss';
 
 const HomeTeam = () => {

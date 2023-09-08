@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import Head from 'next/head';
 
-import { APP } from '@utils/const';
-import { formatMetaTitle } from '@utils/formatters';
+import { AUTHOR_INFO, PRODUCTION_LINK } from '@utils/const';
+import { COMPANY_INFO } from '@utils/data';
 import { META } from '@utils/meta';
 
 import FAVICON from '@public/assets/favicon.ico';
@@ -17,9 +17,13 @@ const Meta: FC<{
 	title = '',
 	desc = META.DESC.HOME_AND_SERVICES,
 }) => {
-	const manifestPath: string = '/assets/manifest.webmanifest';
-	const metaTitle: string =
-		title.length === 0 ? APP.TITLE : formatMetaTitle(title);
+	const manifestPath = '/assets/manifest.webmanifest';
+	const formatMetaTitle = (title: string) => {
+		return `${title} | ${COMPANY_INFO.NAME}`;
+	};
+
+	const metaTitle =
+		title.length === 0 ? COMPANY_INFO.NAME : formatMetaTitle(title);
 
 	return (
 		<Head>
@@ -32,7 +36,7 @@ const Meta: FC<{
 			<link href={FAVICON.src} rel="apple-touch-icon" />
 			<link href={manifestPath} rel="manifest" />
 			<title>{metaTitle}</title>
-			<link rel="canonical" href={APP.LINK} />
+			<link rel="canonical" href={PRODUCTION_LINK} />
 			<meta name="apple-mobile-web-app-title" content={metaTitle} />
 			<meta name="apple-mobile-web-app-capable" content="yes" />
 			<meta name="format-detection" content="telephone=no" />
@@ -42,13 +46,16 @@ const Meta: FC<{
 				<>
 					<meta name="description" content={desc} />
 					<meta name="keywords" content={META.KEYWORDS} />
-					<meta name="author" content={APP.AUTHOR + ' ' + APP.AUTHOR_SIGNATURE} />
+					<meta
+						name="author"
+						content={AUTHOR_INFO.NAME + ' ' + AUTHOR_INFO.SIGNATURE}
+					/>
 					<meta name="image" content={LOGO.src} />
 					<meta property="og:type" content="website" />
 					<meta property="og:title" content={metaTitle} />
 					<meta property="og:description" content={desc} />
 					<meta property="og:image" content={LOGO.src} />
-					<meta property="og:url" content={APP.LINK} />
+					<meta property="og:url" content={PRODUCTION_LINK} />
 				</>
 			)}
 		</Head>

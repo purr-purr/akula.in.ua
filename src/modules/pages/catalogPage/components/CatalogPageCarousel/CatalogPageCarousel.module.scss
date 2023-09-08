@@ -14,17 +14,7 @@
   }
 }
 
-.fullscreen-button {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  background-color: transparent;
-  border: none;
-  width: 24px;
-  height: 24px;
-}
-
-.prev-button, .next-button {
+.prevButton, .nextButton {
   border: none;
   background-color: transparent;
   width: 40px;
@@ -36,11 +26,11 @@
   overflow: hidden;
 }
 
-.prev-button {
+.prevButton {
   left: 20px;
 }
 
-.next-button {
+.nextButton {
   right: 20px;
   transform: rotate(-180deg);
 }

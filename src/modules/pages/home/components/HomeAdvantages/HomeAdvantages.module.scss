@@ -16,7 +16,7 @@
   text-align: center;
   background-color: var(--secondary-blue);
   color: var(--white);
-  background-image: url("../../assets/HomeAdvantages/clock.svg");
+  background-image: url("./assets/clock.svg");
   background-position: 330px 22px;
   background-repeat: no-repeat;
   background-size: 164px;
@@ -46,5 +46,7 @@
 
   img {
     border-radius: 12px;
+    width: 80px;
+    height: 80px;
   }
 }

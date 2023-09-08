@@ -56,7 +56,7 @@
     }
   }
 
-  &-value {
+  &Value {
     font-family: 'Playfair Display', serif;
     font-size: 32px;
     font-weight: 700;
@@ -67,7 +67,7 @@
     }
   }
 
-  &-text {
+  &Text {
     color: var(--gray);
   }
 }
@@ -78,6 +78,10 @@
   grid-gap: 10px;
   grid-template-columns: 340px 340px 340px;
   position: relative;
+
+  & img {
+    width: 100%;
+  }
 
   & .first {
     grid-column: 1 / 2;

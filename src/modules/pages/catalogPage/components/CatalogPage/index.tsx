@@ -2,26 +2,31 @@ import { FC, memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 
-import FeedbackForm from '@modules/common/components/FeedbackForm';
 import Loader from '@modules/common/components/Loader';
 import Meta from '@modules/common/components/Meta';
+import FeedbackForm from '@modules/feedback/components/FeedbackForm';
 import CatalogPageCarousel from '@modules/pages/catalogPage/components/CatalogPageCarousel';
 import CatalogPageCrumbs from '@modules/pages/catalogPage/components/CatalogPageCrumbs';
-import CatalogPageDescription from '@modules/pages/catalogPage/components/CatalogPageDescription';
 import CatalogPageHeader from '@modules/pages/catalogPage/components/CatalogPageHeader';
+import CatalogPageInformation from '@modules/pages/catalogPage/components/CatalogPageInformation';
 import { formatMetaForCatalogPage } from '@modules/pages/catalogPage/utils/formatters';
 
-import { useDataFetching, useFullAddress } from '@hooks/index';
-import { formatCityTranslation, formatTranslation } from '@utils/formatters';
+import { useCatalogItemFullAddress, useDataFetching } from '@hooks/index';
+import { CATALOG_NAME } from '@utils/const';
+import {
+	formatCatalogTranslation,
+	formatCityTranslation,
+	formatTranslation,
+} from '@utils/formatters';
 
-import type { ICatalogData } from '@global-types/index';
+import type { ICatalogData } from '@t-types/data';
 
 import s from './CatalogPage.module.scss';
 
 const CatalogPage: FC = memo(() => {
-	const { data, loading, initialData } = useDataFetching();
 	const router = useRouter();
 	const { catalog } = router.query;
+	const { data, loading, initialData } = useDataFetching();
 	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
 
@@ -42,29 +47,35 @@ const CatalogPage: FC = memo(() => {
 
 	useEffect(() => {
 		if (!router.isReady) return;
-
 		data.map((value: ICatalogData) => {
 			value.id === Number(catalog) && setPageData(value);
 		});
 		// eslint-disable-next-line
 	}, [data, router.query.catalog, router.isReady]);
 
+	const realEstateTranslation = tCommon(
+		formatCatalogTranslation(realEstateType),
+	);
+
+	const itemTags = [propertyType, realEstateType];
 	const itemAddress = formatTranslation(i18n.language, address);
 	const itemStation = formatTranslation(i18n.language, station);
 	const itemLocation = formatTranslation(i18n.language, location);
 	const itemDescription = formatTranslation(i18n.language, description);
-	const itemLocationAndAddress = useFullAddress(
+	const itemCity = tCommon(formatCityTranslation(city));
+	const itemOriginalFullAddress = `${city}, ${location.ua}, ${address.ua}`;
+	const itemCityWithLocationAndAddress = `${itemCity}, ${itemLocation}, ${itemAddress}`;
+	const itemRealEstateTypeAndAddress = `${realEstateTranslation} ${tCommon(
+		'ON',
+	)} ${itemAddress}`;
+
+	const itemLocationAndAddress = useCatalogItemFullAddress(
 		realEstateType,
 		location,
 		address,
 	);
-	const itemCity = tCommon(formatCityTranslation(city));
-	const itemOriginalFullAddress = `${city}, ${location.ua}, ${address.ua}`;
-	const itemCityWithLocationAndAddress = `${itemCity}, ${itemLocation}, ${itemAddress}`;
 
-	const tags = [propertyType, realEstateType];
-
-	const pageMetaDesc = formatMetaForCatalogPage(
+	const pageMetaDescription = formatMetaForCatalogPage(
 		city,
 		address.ua as keyof typeof address,
 		realEstateType,
@@ -76,19 +87,19 @@ const CatalogPage: FC = memo(() => {
 
 	return (
 		<>
-			<Meta title={itemLocationAndAddress} desc={pageMetaDesc} />
+			<Meta title={itemLocationAndAddress} desc={pageMetaDescription} />
 
-			<CatalogPageCrumbs address={itemAddress} />
+			<CatalogPageCrumbs address={itemRealEstateTypeAndAddress} />
 			<CatalogPageHeader
 				city={itemCity}
 				address={itemLocationAndAddress}
 				price={price}
-				tags={tags}
+				tags={itemTags}
 			/>
 			<section className={s.container}>
 				<div>
 					<CatalogPageCarousel id={id} />
-					<CatalogPageDescription
+					<CatalogPageInformation
 						contractType={contractType}
 						realEstateType={realEstateType}
 						id={id}
@@ -102,8 +113,12 @@ const CatalogPage: FC = memo(() => {
 				</div>
 				<aside>
 					<div className={s.feedback}>
-						<h5>{tCatalog('FEEDBACK.DO_YOU_LIKE_THIS_PROPERTY')}</h5>
-						<p>{tCatalog('FEEDBACK.IF_YOU_LIKE_THIS_PROPERTY')}</p>
+						<h5 className={s.feedbackTitle}>
+							{tCatalog('FEEDBACK.DO_YOU_LIKE_THIS_PROPERTY')}
+						</h5>
+						<p className={s.feedbackDescription}>
+							{tCatalog('FEEDBACK.IF_YOU_LIKE_THIS_PROPERTY')}
+						</p>
 						<FeedbackForm isColumnType message={itemLocationAndAddress} />
 					</div>
 				</aside>
@@ -111,5 +126,5 @@ const CatalogPage: FC = memo(() => {
 		</>
 	);
 });
-CatalogPage.displayName = 'catalog';
+CatalogPage.displayName = CATALOG_NAME;
 export default CatalogPage;

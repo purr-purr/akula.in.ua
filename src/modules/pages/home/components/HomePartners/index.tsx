@@ -3,12 +3,13 @@ import Image from 'next/image';
 
 import CardSlider from '@modules/common/components/CardSlider';
 
-import STUDIO_95 from '../../assets/HomePartners/95_animation_studio.png';
-import BAT from '../../assets/HomePartners/bat.png';
-import CHERRYMALL from '../../assets/HomePartners/cherrymall.png';
-import ENERGY_SOLUTION from '../../assets/HomePartners/energy_solutions.png';
-import GRAND_STEP from '../../assets/HomePartners/grand_step.png';
-import MARMELAD from '../../assets/HomePartners/marmelad.png';
+import STUDIO_95 from './assets/95_animation_studio.png';
+import BAT from './assets/bat.png';
+import CHERRYMALL from './assets/cherrymall.png';
+import ENERGY_SOLUTION from './assets/energy_solutions.png';
+import GRAND_STEP from './assets/grand_step.png';
+import MARMELAD from './assets/marmelad.png';
+
 import s from './HomePartners.module.scss';
 
 const Partners = () => {
@@ -29,7 +30,7 @@ const Partners = () => {
 			childrenClassName={s.item}
 			slidesToShow={5}
 			dragging={false}
-			autoplay
+			autoplay={false}
 		>
 			{partnersList.map((item, i) => (
 				<Image key={i} src={item} alt={t('IMAGE')} />

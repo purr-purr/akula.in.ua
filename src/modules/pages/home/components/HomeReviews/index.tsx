@@ -6,7 +6,7 @@ import { v4 as uniqueId } from 'uuid';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
-import STAR_ICON from '@modules/pages/home/assets/HomeReviews/star_icon.svg';
+import STAR_ICON from '@modules/pages/home/components/HomeReviews/assets/star_icon.svg';
 
 import s from './HomeReviews.module.scss';
 
@@ -35,6 +35,7 @@ const HomeReviews = () => {
 			color: 'blue',
 		},
 	];
+
 	return (
 		<section className={s.container}>
 			<BlockTitle title={t('REVIEWS.FEEDBACK_ABOUT_COOPERATION')} />

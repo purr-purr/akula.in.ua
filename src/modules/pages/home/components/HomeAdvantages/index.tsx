@@ -19,8 +19,7 @@ const HomeAdvantages = () => {
 	];
 
 	const getImagePath = (value: string) => {
-		return require(`../../assets/HomeAdvantages/${value.toLowerCase()}.jpg`)
-			.default;
+		return require(`./assets/${value.toLowerCase()}.jpg`).default;
 	};
 
 	return (
@@ -33,7 +32,7 @@ const HomeAdvantages = () => {
 				</li>
 				{ADVANTAGES_LIST.map((item) => (
 					<li key={item} className={s.item}>
-						<Image src={getImagePath(item)} alt={''} />
+						<Image src={getImagePath(item)} alt="Item Image" />
 						<p>{t(`ADVANTAGES.LIST_${item}`)}</p>
 					</li>
 				))}

@@ -3,7 +3,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import Button from '@modules/common/components/Button';
 import Loader from '@modules/common/components/Loader';
 
-import { APP } from '@utils/const';
+import { CATALOG_NAME } from '@utils/const';
 
 import s from './Page404.module.scss';
 
@@ -25,7 +25,7 @@ const Page404 = () => {
 					text={t('FIND_REAL_ESTATE')}
 					color="transparent"
 					type="link"
-					linkPath={`/${APP.CATALOG_NAME}`}
+					linkPath={`/${CATALOG_NAME}`}
 				/>
 			</div>
 		</article>

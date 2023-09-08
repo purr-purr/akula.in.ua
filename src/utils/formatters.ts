@@ -1,9 +1,4 @@
-import { APP } from '@utils/const';
-
-import type { ITransVersion } from '../types';
-
-export const formatMetaTitle = (title: string): string =>
-	`${title} | ${APP.TITLE}`;
+import type { ITransVersion } from '@t-types/data';
 
 export const formatTranslation = (lang: string, value: ITransVersion) => {
 	return value[lang as keyof typeof value] || '';

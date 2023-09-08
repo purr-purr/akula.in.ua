@@ -1,4 +1,5 @@
 export const COMPANY_INFO = {
+	NAME: 'AKULA DEVELOPMENT PARTNER',
 	EMAIL: 'akula.in.ua@gmail.com',
 	ADDRESS: 'м. Київ, вул. Польова, 24 Д (03056)',
 	ADDRESS_MAP: 'https://goo.gl/maps/jRdfTgXSXZGxwQ636',

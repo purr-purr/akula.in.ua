@@ -1,0 +1,28 @@
+.container {
+  @include flex-align(flex-end);
+  gap: 30px;
+
+  textarea {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    resize: vertical;
+    max-width: 420px;
+    min-height: 150px;
+    max-height: 300px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--dark);
+    border-radius: 8px;
+    border: 1px solid var(--nude);
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.column {
+  flex-direction: column;
+  align-items: baseline;
+}

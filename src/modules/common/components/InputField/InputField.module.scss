@@ -14,8 +14,8 @@
   }
 
   & > div {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
   }
 
   & > input {
@@ -26,6 +26,17 @@
     border: none;
     font-size: 16px;
     font-weight: 300;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill::first-line,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: var(--gray);
+      transition: background-color 5000s ease-in-out 0s;
+      box-shadow: none;
+    }
 
     &:is(:active, :focus) {
       outline: none;

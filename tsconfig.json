@@ -27,7 +27,10 @@
       "@hooks/*": [
         "./src/hooks/*"
       ],
-      "@global-types/*": [
+      "@context/*": [
+        "./src/context/*"
+      ],
+      "@t-types/*": [
         "./src/types/*"
       ],
       "@utils/*": [

@@ -34,13 +34,13 @@
     color: var(--primary);
   }
 
-  &-list {
+  &List {
     @include flex-align(center);
     gap: 40px;
     list-style-type: none;
   }
 
-  &-item {
+  &Item {
     width: 24px;
     height: 24px;
   }

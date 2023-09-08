@@ -15,7 +15,8 @@ const ServicesListItem: FC<{ text: string; isEvenElement?: boolean }> = ({
 
 	const getImagePath = (value: string) => {
 		try {
-			return require(`../../assets/ServicesListItem/${value}.jpg`).default;
+			return require(`@modules/pages/services/components/ServicesListItem/assets/${value}.jpg`)
+				.default;
 		} catch {
 			const condition = value.endsWith('--preview') ? '--short' : '';
 			return require(`@public/assets/default-image${condition}.jpg`).default;

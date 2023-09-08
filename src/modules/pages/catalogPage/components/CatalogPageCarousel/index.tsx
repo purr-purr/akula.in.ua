@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import ImageGallery from 'react-image-gallery';
+
 import { usePropertyPhoto } from '@hooks/index';
 
 import s from './CatalogPageCarousel.module.scss';
@@ -28,20 +29,12 @@ const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 					items={postersList}
 					additionalClass={s.gallery}
 					renderLeftNav={(onClick, disabled) => (
-						<button
-							className={s[`prev-button`]}
-							onClick={onClick}
-							disabled={disabled}
-						>
+						<button className={s.prevButton} onClick={onClick} disabled={disabled}>
 							<IconSliderButton />
 						</button>
 					)}
 					renderRightNav={(onClick, disabled) => (
-						<button
-							className={s[`next-button`]}
-							onClick={onClick}
-							disabled={disabled}
-						>
+						<button className={s.nextButton} onClick={onClick} disabled={disabled}>
 							<IconSliderButton />
 						</button>
 					)}

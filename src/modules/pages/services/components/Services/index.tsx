@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
-import Feedback from '@modules/common/components/Feedback';
 import Meta from '@modules/common/components/Meta';
+import Feedback from '@modules/feedback/components/Feedback';
 import IconStar from '@modules/icons/components/IconStar';
 import ServicesList from '@modules/pages/services/components/ServicesList';
 

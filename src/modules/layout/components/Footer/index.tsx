@@ -66,9 +66,9 @@ const Footer = () => {
 				<Logo type="white" />
 				<div className={s.socials}>
 					<p>{t('WE_ARE_ON_SOCIAL_NETWORKS')}</p>
-					<ul className={s[`socials-list`]}>
+					<ul className={s.socialsList}>
 						{SOCIALS.map((item, i) => (
-							<li key={item.link + i} className={s[`socials-item`]}>
+							<li key={item.link + i} className={s.socialsItem}>
 								<Link href={item.link}>{item.icon}</Link>
 							</li>
 						))}

@@ -79,7 +79,7 @@ const Dropdown: FC<{
 					{options.map((item, i) => (
 						<li
 							className={cn(
-								s[`list-item`],
+								s.listItem,
 								disabledItem === item.value && s.disabled,
 								customSelectedItem || (selectedItem === item.value && s.current),
 							)}

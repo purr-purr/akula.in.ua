@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 
@@ -10,23 +10,25 @@ const Button: FC<{
 	onClick?: () => void;
 	type?: 'button' | 'link';
 	color?: 'primary' | 'transparent';
-	isDisabled?: boolean;
+	children?: ReactNode;
 }> = ({
 	text,
 	type = 'button',
 	linkPath = '/',
 	onClick,
 	color = 'primary',
-	isDisabled = false,
+	children,
 }) => {
-	const classNameList = cn(s.container, s[color]);
+	const classNameList = cn(s.container, s[color], children && s.verticalAlign);
 
 	return type === 'link' ? (
 		<Link className={classNameList} href={linkPath} onClick={onClick}>
+			{children}
 			{text}
 		</Link>
 	) : (
-		<button disabled={isDisabled} className={classNameList} onClick={onClick}>
+		<button className={classNameList} onClick={onClick}>
+			{children}
 			{text}
 		</button>
 	);

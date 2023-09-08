@@ -1,9 +1,9 @@
 import { FC, useContext, useEffect, useState } from 'react';
+import { CatalogContext } from '@context/CatalogContext';
 
 import IconSliderButton from '@modules/icons/components/IconSliderButton';
-import { CatalogContext } from '@modules/layout/context/CatalogContext';
 
-import type { ICatalogData } from '@global-types/index';
+import type { ICatalogData } from '@t-types/data';
 
 import s from './CatalogPagination.module.scss';
 

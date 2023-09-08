@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { CatalogContext } from '@context/CatalogContext';
 import cn from 'classnames';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
 import IconArrowUp from '@modules/icons/components/IconArrowUp';
-import { CatalogContext } from '@modules/layout/context/CatalogContext';
 
 import { useDataFetching } from '@hooks/index';
-import { APP } from '@utils/const';
+import { CATALOG_NAME } from '@utils/const';
 
 import s from './HomeObjectsInManagement.module.scss';
 
@@ -29,12 +29,11 @@ const HomeObjectsInManagement = () => {
 	};
 
 	const getImagePath = (value: string) => {
-		return require(`../../assets/HomeObjectsInManagement/${value.toLowerCase()}.jpg`)
-			.default;
+		return require(`./assets/${value.toLowerCase()}.jpg`).default;
 	};
 
 	const handleCardClick = (value: string) => {
-		router.push('/catalog').then();
+		router.push(`/${CATALOG_NAME}`).then();
 		handleFilters({
 			...filters,
 			realEstateType: value,
@@ -59,7 +58,7 @@ const HomeObjectsInManagement = () => {
 		<section className={s.container}>
 			<div className={s.heading}>
 				<BlockTitle title={tHome('OBJECTS_IN_MANAGEMENT.OBJECTS_IN_MANAGEMENT')} />
-				<Link className={s.headingButton} href={`/${APP.CATALOG_NAME}`}>
+				<Link className={s.headingButton} href={`/${CATALOG_NAME}`}>
 					{tCommon('NAVIGATION.ALL_REAL_ESTATE')}
 					<IconArrowUp />
 				</Link>
@@ -69,18 +68,18 @@ const HomeObjectsInManagement = () => {
 					const itemAmount = getAmountItems(item.filter);
 					return (
 						<Link
-							href={`/${APP.CATALOG_NAME}`}
+							href={`/${CATALOG_NAME}`}
 							className={cn('yellow-shadow', s.item)}
 							key={item.text}
 							onClick={() => handleCardClick(item.filter)}
 						>
 							<Image src={getImagePath(item.text)} alt={tCommon('IMAGE')} />
 							<div>
-								<p className={s[`item-text`]}>
+								<p className={s.itemText}>
 									{tCommon(`TYPE_OF_REAL_ESTATE.${item.text}`)}
 								</p>
 								{itemAmount > 0 && (
-									<p className={s[`item-counter`]}>
+									<p className={s.itemCounter}>
 										{itemAmount + ' ' + tHome('OBJECTS_IN_MANAGEMENT.IN_THE_LIST')}
 									</p>
 								)}
