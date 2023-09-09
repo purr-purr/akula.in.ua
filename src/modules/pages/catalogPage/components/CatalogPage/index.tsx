@@ -82,7 +82,7 @@ const CatalogPage: FC = memo(() => {
 	);
 
 	if (loading) {
-		return <Loader />;
+		return <Loader type="fullscreen" />;
 	}
 
 	return (

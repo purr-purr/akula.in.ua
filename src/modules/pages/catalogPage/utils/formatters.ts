@@ -11,7 +11,7 @@ export const formatMetaForCatalogPage = (
 	return `Детальна інформація про об'єкт нерухомості у місті ${city} за адресою ${address}. ${typeRealEstate} у зручному розташуванні. Ідеальний варіант для вашого бізнесу або проживання. Наші експерти готові надати детальну консультацію, організувати перегляд і відповісти на всі ваші запитання.`;
 };
 
-const getPricePrefix = (lang: string, value: string) => {
+const formatToPricePrefix = (lang: string, value: string) => {
 	const stringValue = value.toString();
 	if (stringValue.startsWith('from-') || stringValue.startsWith('to-')) {
 		return stringValue.startsWith('from-')
@@ -22,26 +22,26 @@ const getPricePrefix = (lang: string, value: string) => {
 };
 
 export const formatToFullPriceWithPrefix = (lang: string, value: string) => {
-	return getPrefixAndValue(lang, value) + USD_SYMBOL;
+	return formatToPrefixAndPrice(lang, value) + USD_SYMBOL;
 };
 
-export const getPrefixAndValue = (lang: string, value: string) => {
-	return getPricePrefix(lang, value) + cleanLetters(value);
+export const formatToPrefixAndPrice = (lang: string, value: string) => {
+	return formatToPricePrefix(lang, value) + formatToNumbersOnly(value);
 };
 
-export const cleanLetters = (value: string) => {
-	return value.replace(/[A-Za-z-]+/g, '');
+export const formatToNumbersOnly = (value: string) => {
+	return value.replace(/[^0-9]/g, '');
 };
 
 export const formatTableFullPrice = (lang: string, value: string) => {
 	const convertToFullPrice = (value: string) => {
-		const removedLetters = cleanLetters(value);
+		const removedLetters = formatToNumbersOnly(value);
 		const priceUah = Number(removedLetters) * CURRENCY.UAH;
 		const priceUsd = removedLetters + USD_SYMBOL;
 		return priceUsd + UNITS[lang].separator + priceUah.toFixed();
 	};
 
-	return getPricePrefix(lang, value) + convertToFullPrice(value);
+	return formatToPricePrefix(lang, value) + convertToFullPrice(value);
 };
 
 export const formatTableAfterPrefix = (

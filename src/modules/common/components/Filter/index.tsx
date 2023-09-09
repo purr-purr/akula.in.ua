@@ -26,7 +26,9 @@ const Filter: FC<{
 	side?: 'left' | 'center';
 }> = ({ side = 'left' }) => {
 	const { t } = useTranslation('common');
-	const [activeTabIndex, setActiveTabIndex] = useState(0);
+	const [activeTabIndex, setActiveTabIndex] = useState<string>(
+		initialFilters.contractType,
+	);
 	const [currentFilters, setCurrentFilters] = useState<IFilters>(initialFilters);
 	const { filters, handleFilters } = useContext(CatalogContext);
 	const { data } = useDataFetching();
@@ -98,13 +100,20 @@ const Filter: FC<{
 	useEffect(() => {
 		console.log(filters);
 		setCurrentFilters(filters);
+		setActiveTabIndex(filters.contractType);
 	}, [filters]);
 
+	const getCurrentTabName = (index: number) => {
+		return index === 0 ? 'Оренда' : 'Продаж';
+	};
+
 	const handleTabButtonClick = (index: number) => {
-		setActiveTabIndex(index);
+		const currentTab = getCurrentTabName(index);
+
+		setActiveTabIndex(currentTab);
 		handleFilters({
 			...filters,
-			contractType: index === 0 ? 'Оренда' : 'Продаж',
+			contractType: currentTab,
 		});
 	};
 
@@ -115,7 +124,10 @@ const Filter: FC<{
 					<button
 						key={index}
 						onClick={() => handleTabButtonClick(index)}
-						className={cn(s.tab, index === activeTabIndex && s.active)}
+						className={cn(
+							s.tab,
+							getCurrentTabName(index) === activeTabIndex && s.active,
+						)}
 					>
 						{tab}
 					</button>

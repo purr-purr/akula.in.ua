@@ -74,7 +74,7 @@ const CatalogCard: FC<{
 					<ul className={s.description}>
 						<li>{formatToFullPriceWithPrefix(i18n.language, price)}</li>
 						{table.totalArea && (
-							<li title={tCatalog('TABLE.TOTAL_AREA')}>
+							<li title={tCatalog('TABLE.TOTALAREA')}>
 								<IconRuler />
 								{itemTotalArea + ' ' + UNITS[i18n.language].squareMeters}
 							</li>

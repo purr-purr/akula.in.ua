@@ -2,7 +2,7 @@ import { createContext, FC, useCallback, useState } from 'react';
 
 import { initialFilters } from '@utils/filters';
 
-import { IFilters } from '@t-types/filters';
+import type { IFilters } from '@t-types/filters';
 import type { ReactNode } from 'react';
 
 interface ICatalogContext {

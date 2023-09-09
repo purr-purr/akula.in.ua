@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { BACKEND_LOCALHOST } from '@utils/const';
 
@@ -31,10 +31,16 @@ const useDataFetching = () => {
 	};
 
 	useEffect(() => {
-		fetch(`${BACKEND_LOCALHOST}/data`)
+		const controller = new AbortController();
+
+		fetch(`${BACKEND_LOCALHOST}/data`, {
+			signal: controller.signal,
+		})
 			.then((response) => response.json())
-			.then((data: IDataBaseResponse[]) => sortData(data))
+			.then((data: IDataBaseResponse[]) => memoizedSortData(data))
 			.catch((error) => console.error('Error fetching data:', error));
+
+		return () => controller.abort();
 		// eslint-disable-next-line
 	}, []);
 
@@ -99,9 +105,18 @@ const useDataFetching = () => {
 			.sort((a, b) => b.id - a.id)
 			.filter((item) => item.visibility);
 		setData(sortResult);
-		console.log(sortResult);
 		setLoading(false);
 	};
+
+	const memoizedSortData = useMemo(
+		() => sortData,
+		// eslint-disable-next-line
+		[],
+	);
+
+	useEffect(() => {
+		console.log('data was changed', data);
+	}, [data]);
 
 	return {
 		data,

@@ -7,7 +7,7 @@ import Loader from '@modules/common/components/Loader';
 import CatalogCard from '@modules/pages/catalog/components/CatalogCard';
 import CatalogPagination from '@modules/pages/catalog/components/CatalogPagination';
 import CatalogSort from '@modules/pages/catalog/components/CatalogSort';
-import { cleanLetters } from '@modules/pages/catalogPage/utils/formatters';
+import { formatToNumbersOnly } from '@modules/pages/catalogPage/utils/formatters';
 
 import { useDataFetching } from '@hooks/index';
 
@@ -25,6 +25,7 @@ const CatalogList = () => {
 
 	useEffect(() => {
 		sortData();
+		// eslint-disable-next-line
 	}, [data, filters]);
 
 	const handlePaginationSorting = (value: ICatalogData[]) => {
@@ -44,8 +45,8 @@ const CatalogList = () => {
 						item.realEstateType === filters.realEstateType),
 			)
 			.sort((a, b) => {
-				const prev = Number(cleanLetters(a.price));
-				const next = Number(cleanLetters(b.price));
+				const prev = Number(formatToNumbersOnly(a.price));
+				const next = Number(formatToNumbersOnly(b.price));
 				{
 					if (filters.sortByPrice === 'down') {
 						return next - prev;

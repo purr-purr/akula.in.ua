@@ -5,13 +5,16 @@ import Meta from '@modules/common/components/Meta';
 import CatalogHeader from '@modules/pages/catalog/components/CatalogHeader';
 import CatalogList from '@modules/pages/catalog/components/CatalogList';
 
-import { META } from '@utils/meta';
+import { APP_META_DATA } from '@utils/meta';
 
 const Catalog = () => {
 	const { t } = useTranslation('common');
 	return (
 		<>
-			<Meta title={t('NAVIGATION.ALL_REAL_ESTATE')} desc={META.DESC.CATALOG} />
+			<Meta
+				title={t('NAVIGATION.ALL_REAL_ESTATE')}
+				desc={APP_META_DATA.DESC.CATALOG}
+			/>
 			<CatalogHeader />
 			<Filter side="center" />
 			<CatalogList />

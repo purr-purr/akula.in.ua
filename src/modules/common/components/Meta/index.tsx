@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import { AUTHOR_INFO, PRODUCTION_LINK } from '@utils/const';
 import { COMPANY_INFO } from '@utils/data';
-import { META } from '@utils/meta';
+import { APP_META_DATA } from '@utils/meta';
 
 import FAVICON from '@public/assets/favicon.ico';
 import LOGO from '@public/assets/logo.svg';
@@ -15,7 +15,7 @@ const Meta: FC<{
 }> = ({
 	isDefault = false,
 	title = '',
-	desc = META.DESC.HOME_AND_SERVICES,
+	desc = APP_META_DATA.DESC.HOME_AND_SERVICES,
 }) => {
 	const manifestPath = '/assets/manifest.webmanifest';
 	const formatMetaTitle = (title: string) => {
@@ -45,7 +45,7 @@ const Meta: FC<{
 			{!isDefault && (
 				<>
 					<meta name="description" content={desc} />
-					<meta name="keywords" content={META.KEYWORDS} />
+					<meta name="keywords" content={APP_META_DATA.KEYWORDS} />
 					<meta
 						name="author"
 						content={AUTHOR_INFO.NAME + ' ' + AUTHOR_INFO.SIGNATURE}

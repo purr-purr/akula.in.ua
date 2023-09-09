@@ -8,7 +8,7 @@ import type { ICatalogTable } from '@t-types/data';
 import {
 	formatTableAfterPrefix,
 	formatTableFullPrice,
-	getPrefixAndValue,
+	formatToPrefixAndPrice,
 } from '../../utils/formatters';
 import s from './CatalogPageTable.module.scss';
 
@@ -81,7 +81,7 @@ const CatalogPageTable: FC<{
 										: isCanBeAnyAmount
 										? tCommon('ANY_AMOUNT')
 										: isLandPlot
-										? getPrefixAndValue(i18n.language, itemValue)
+										? formatToPrefixAndPrice(i18n.language, itemValue)
 										: itemValue}{' '}
 									<span
 										dangerouslySetInnerHTML={{
