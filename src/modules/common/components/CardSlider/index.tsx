@@ -5,6 +5,9 @@ import { v4 as uniqueId } from 'uuid';
 
 import IconSliderButton from '@modules/icons/components/IconSliderButton';
 
+import { useMediaQuery } from '@hooks/index';
+import { TABLET_BREAKPOINT } from '@utils/const';
+
 import type { ReactNode } from 'react';
 
 import s from './CardSlider.module.scss';
@@ -65,8 +68,11 @@ const CardSlider: FC<{
 	withoutControls = false,
 	slidesToShow = 4,
 	dragging = true,
-	autoplay = true,
+	autoplay = false,
 }) => {
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
+	const cellSpacing = isTablet ? 10 : 20;
+
 	const childrenRender = Children.map(children, (child) => {
 		if (isValidElement(child)) {
 			return cloneElement(child);
@@ -80,7 +86,7 @@ const CardSlider: FC<{
 			withoutControls={withoutControls}
 			slidesToScroll={1}
 			slidesToShow={slidesToShow}
-			cellSpacing={20}
+			cellSpacing={cellSpacing}
 			dragThreshold={0.3}
 			autoplay={autoplay}
 			autoplayInterval={4000}

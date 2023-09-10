@@ -1,12 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 
 import Button from '@modules/common/components/Button';
 import InputField from '@modules/common/components/InputField';
-import IconArrowUp from '@modules/icons/components/IconArrowUp';
+import IconBird from '@modules/icons/components/IconBird';
 
 import { TG_BOT } from '@utils/credentials';
 
@@ -130,7 +129,7 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 				/>
 			)}
 			<Button text={tCommon(isSuccessfulOrderAlert ? 'SENT' : 'LEAVE_A_REQUEST')}>
-				{/*{!isSuccessfulOrderAlert && <IconArrowUp width={17} height={17} />}*/}
+				{isSuccessfulOrderAlert && <IconBird />}
 			</Button>
 		</form>
 	);

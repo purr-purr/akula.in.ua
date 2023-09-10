@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 
+import CLOCK_IMG from './assets/clock.svg';
+
 import s from './HomeAdvantages.module.scss';
 
 const HomeAdvantages = () => {
@@ -23,12 +25,13 @@ const HomeAdvantages = () => {
 	};
 
 	return (
-		<>
+		<section className={s.container}>
 			<BlockTitle title={t('ADVANTAGES.ADVANTAGES_OF_THE_COMPANY')} />
-			<ul className={s.container}>
+			<ul className={s.list}>
 				<li className={s.techSupport}>
 					<p>{t('ADVANTAGES.TECHNICAL_CUSTOMER_SUPPORT')}</p>
 					<span>24/7</span>
+					<Image className={s.clock} src={CLOCK_IMG} alt="Clock Image" />
 				</li>
 				{ADVANTAGES_LIST.map((item) => (
 					<li key={item} className={s.item}>
@@ -37,7 +40,7 @@ const HomeAdvantages = () => {
 					</li>
 				))}
 			</ul>
-		</>
+		</section>
 	);
 };
 

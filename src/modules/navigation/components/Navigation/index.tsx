@@ -9,7 +9,11 @@ import NavigationBurgerButton from '@modules/navigation/components/NavigationBur
 import NavigationContacts from '@modules/navigation/components/NavigationContacts';
 
 import { useMediaQuery } from '@hooks/index';
-import { CATALOG_NAME, MOBILE_BREAKPOINT } from '@utils/const';
+import {
+	CATALOG_NAME,
+	MOBILE_BREAKPOINT,
+	TABLET_BREAKPOINT,
+} from '@utils/const';
 
 import s from './Navigation.module.scss';
 

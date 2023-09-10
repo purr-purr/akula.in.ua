@@ -6,6 +6,10 @@
   padding: 67px 20px 24px;
   overflow: visible;
   position: relative;
+
+  @include media-tablet {
+    padding-top: 75px;
+  }
 }
 
 .text {
@@ -22,6 +26,11 @@
     top: -20px;
     width: 80px;
     height: 63px;
+
+    @include media-mobile {
+      width: 70px;
+      height: 55px;
+    }
   }
 
   &.gray {

@@ -1,4 +1,8 @@
 .container {
   font-size: 32px;
   margin-bottom: 24px;
+
+  @include media-tablet {
+    font-size: 26px;
+  }
 }

@@ -1,7 +1,11 @@
 .container {
   display: flex;
   margin-left: 67px;
-  gap: 30px;
+  gap: 38px;
+
+  @include media-tablet {
+    gap: 24px;
+  }
 
   @include media-mobile {
     display: none;
@@ -24,7 +28,7 @@
 .item {
   font-weight: 500;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.2;
   color: var(--gray);
   padding-top: 4px;
   padding-bottom: 4px;

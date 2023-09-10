@@ -9,14 +9,19 @@ import IconMap from '@modules/icons/components/IconMap';
 import IconPhone from '@modules/icons/components/IconPhone';
 
 import { useMediaQuery } from '@hooks/index';
-import { CATALOG_NAME, MOBILE_BREAKPOINT } from '@utils/const';
+import {
+	CATALOG_NAME,
+	MOBILE_BREAKPOINT,
+	TABLET_BREAKPOINT,
+} from '@utils/const';
 import { COMPANY_INFO } from '@utils/data';
 
 import s from './NavigationContacts.module.scss';
 
 const NavigationContacts = () => {
 	const { t } = useTranslation('common');
-	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
+
 	const [isFeedbackModal, setIsFeedbackModal] = useState(false);
 
 	return (
@@ -25,7 +30,7 @@ const NavigationContacts = () => {
 				<IconPhone />
 			</Link>
 
-			{!isMobile && (
+			{!isTablet && (
 				<Link className={s.icon} href={`${COMPANY_INFO.ADDRESS_MAP}`}>
 					<IconMap />
 				</Link>
@@ -33,7 +38,7 @@ const NavigationContacts = () => {
 
 			<SelectChangeLanguage />
 
-			{!isMobile && (
+			{!isTablet && (
 				<Button
 					type="link"
 					linkPath={`/${CATALOG_NAME}`}

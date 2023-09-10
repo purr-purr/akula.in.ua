@@ -2,6 +2,10 @@
   @include flex-align(center);
   gap: 45px;
   margin-bottom: 150px;
+
+  @include media-tablet {
+    gap: 24px;
+  }
 }
 
 .poster {
@@ -10,6 +14,10 @@
   border-top-left-radius: 60px;
   border-bottom-right-radius: 60px;
   overflow: hidden;
+
+  @include media-tablet {
+    max-width: 506px;
+  }
 
   img {
     display: block;
@@ -26,12 +34,24 @@
 .list {
   margin-top: 42px;
 
+  @include media-tablet {
+    margin-top: 24px;
+  }
+
   & li {
     @include flex-align(center);
     gap: 24px;
 
+    @include media-tablet {
+      gap: 16px;
+    }
+
     &:not(:last-of-type) {
       margin-bottom: 42px;
+
+      @include media-tablet {
+        margin-bottom: 24px;
+      }
     }
   }
 }

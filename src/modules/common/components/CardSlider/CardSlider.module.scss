@@ -4,6 +4,11 @@
   padding-top: 20px;
   width: calc(100% + 20px) !important;
   margin-left: -10px;
+
+  @include media-tablet {
+    width: 100% !important;
+    margin-left: 0;
+  }
 }
 
 .card {
@@ -20,13 +25,27 @@
   border: none;
   background-color: transparent;
 
+  @include media-tablet {
+    width: 34px;
+    height: 34px;
+  }
+
   &.prev {
     margin-left: -30px;
+
+    @include media-tablet {
+      margin-left: -18px;
+    }
+
   }
 
   &.next {
     margin-right: -30px;
     transform: rotate(-180deg);
+
+    @include media-tablet {
+      margin-right: -18px;
+    }
   }
 }
 
@@ -36,6 +55,11 @@
   list-style-type: none;
   margin-bottom: -20px;
   margin-top: 20px;
+
+  @include media-tablet {
+    margin-bottom: -10px;
+    margin-top: 10px;
+  }
 }
 
 .dot {

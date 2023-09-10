@@ -6,6 +6,10 @@
 .inner {
   padding: 64px 20px 64px 375px;
   background: url('./assets/transparent-logo.svg') left bottom/contain no-repeat;
+
+  @include media-tablet {
+    padding: 52px 20px 52px 300px;
+  }
 }
 
 .desc {
@@ -23,5 +27,9 @@
     height: 100%;
     background-color: var(--primary);
     border-radius: 10px;
+
+    @include media-tablet {
+      left: -16px;
+    }
   }
 }

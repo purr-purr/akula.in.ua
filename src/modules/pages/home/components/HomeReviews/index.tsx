@@ -8,10 +8,20 @@ import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
 import STAR_ICON from '@modules/pages/home/components/HomeReviews/assets/star_icon.svg';
 
+import { useMediaQuery } from '@hooks/index';
+import {
+	LOW_MOBILE_BREAKPOINT,
+	MOBILE_BREAKPOINT,
+	TABLET_BREAKPOINT,
+} from '@utils/const';
+
 import s from './HomeReviews.module.scss';
 
 const HomeReviews = () => {
 	const { t } = useTranslation('home');
+	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
+	const slidesToShow = isMobile ? 1 : isTablet ? 2 : 3;
 
 	const CASES = [
 		{
@@ -40,7 +50,7 @@ const HomeReviews = () => {
 		<section className={s.container}>
 			<BlockTitle title={t('REVIEWS.FEEDBACK_ABOUT_COOPERATION')} />
 
-			<CardSlider childrenClassName={s.card} slidesToShow={3}>
+			<CardSlider childrenClassName={s.card} slidesToShow={slidesToShow}>
 				{CASES.map((item) => {
 					return (
 						<Fragment key={uniqueId()}>

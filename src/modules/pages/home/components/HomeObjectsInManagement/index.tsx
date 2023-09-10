@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,8 +10,13 @@ import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
 import IconArrowUp from '@modules/icons/components/IconArrowUp';
 
-import { useDataFetching } from '@hooks/index';
-import { CATALOG_NAME } from '@utils/const';
+import { useDataFetching, useMediaQuery } from '@hooks/index';
+import {
+	CATALOG_NAME,
+	LOW_MOBILE_BREAKPOINT,
+	MOBILE_BREAKPOINT,
+	TABLET_BREAKPOINT,
+} from '@utils/const';
 
 import s from './HomeObjectsInManagement.module.scss';
 
@@ -21,6 +26,9 @@ const HomeObjectsInManagement = () => {
 	const { data } = useDataFetching();
 	const router = useRouter();
 	const { filters, handleFilters } = useContext(CatalogContext);
+	const isLowMobile = useMediaQuery(LOW_MOBILE_BREAKPOINT);
+	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 
 	const getAmountItems = (value: string) => {
 		return data.filter((item) =>
@@ -54,6 +62,8 @@ const HomeObjectsInManagement = () => {
 		{ text: 'LAND_PLOTS', filter: 'Земля' },
 	];
 
+	const slidesToShow = isLowMobile ? 1 : isMobile ? 2 : isTablet ? 3 : 4;
+
 	return (
 		<section className={s.container}>
 			<div className={s.heading}>
@@ -63,7 +73,7 @@ const HomeObjectsInManagement = () => {
 					<IconArrowUp />
 				</Link>
 			</div>
-			<CardSlider>
+			<CardSlider frameClassName={s.cardSlider} slidesToShow={slidesToShow}>
 				{objectsInManagement.map((item) => {
 					const itemAmount = getAmountItems(item.filter);
 					return (

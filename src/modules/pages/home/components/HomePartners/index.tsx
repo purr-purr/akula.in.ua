@@ -3,6 +3,13 @@ import Image from 'next/image';
 
 import CardSlider from '@modules/common/components/CardSlider';
 
+import { useMediaQuery } from '@hooks/index';
+import {
+	LOW_MOBILE_BREAKPOINT,
+	MOBILE_BREAKPOINT,
+	TABLET_BREAKPOINT,
+} from '@utils/const';
+
 import STUDIO_95 from './assets/95_animation_studio.png';
 import BAT from './assets/bat.png';
 import CHERRYMALL from './assets/cherrymall.png';
@@ -22,15 +29,19 @@ const Partners = () => {
 		GRAND_STEP,
 	];
 	const { t } = useTranslation('common');
+	const isLowMobile = useMediaQuery(LOW_MOBILE_BREAKPOINT);
+	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
+	const slidesToShow = isLowMobile ? 2 : isMobile ? 3 : isTablet ? 4 : 5;
 
 	return (
 		<CardSlider
 			frameClassName={s.container}
 			withoutControls
 			childrenClassName={s.item}
-			slidesToShow={5}
+			slidesToShow={slidesToShow}
 			dragging={false}
-			autoplay={false}
+			autoplay={true}
 		>
 			{partnersList.map((item, i) => (
 				<Image key={i} src={item} alt={t('IMAGE')} />

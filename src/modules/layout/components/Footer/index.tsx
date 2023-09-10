@@ -11,6 +11,7 @@ import IconPhone from '@modules/icons/components/IconPhone';
 import IconTelegram from '@modules/icons/components/IconTelegram';
 import IconTiktok from '@modules/icons/components/IconTiktok';
 import IconViber from '@modules/icons/components/IconViber';
+import IconWhatsapp from '@modules/icons/components/IconWhatsapp';
 
 import { COMPANY_INFO } from '@utils/data';
 
@@ -58,6 +59,7 @@ const Footer = () => {
 		{ icon: <IconTiktok />, link: COMPANY_INFO.TIKTOK },
 		{ icon: <IconViber />, link: COMPANY_INFO.VIBER },
 		{ icon: <IconTelegram />, link: COMPANY_INFO.TELEGRAM },
+		{ icon: <IconWhatsapp />, link: COMPANY_INFO.WHATSAPP },
 	];
 
 	return (

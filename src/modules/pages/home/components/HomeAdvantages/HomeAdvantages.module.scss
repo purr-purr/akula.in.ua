@@ -1,9 +1,18 @@
 .container {
+  margin-bottom: 150px;
+}
+
+.list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   list-style-type: none;
-  margin-bottom: 150px;
+
+  @include media-tablet {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 16px;
+  }
 }
 
 .item, .techSupport {
@@ -16,10 +25,21 @@
   text-align: center;
   background-color: var(--secondary-blue);
   color: var(--white);
-  background-image: url("./assets/clock.svg");
-  background-position: 330px 22px;
-  background-repeat: no-repeat;
-  background-size: 164px;
+  position: relative;
+  overflow: hidden;
+
+  @include media-tablet {
+    padding-top: 27px;
+    padding-bottom: 27px;
+  }
+
+  .clock {
+    position: absolute;
+    right: -38px;
+    bottom: -50px;
+    width: 164px;
+    height: 164px;
+  }
 
   p {
     font-size: 20px;
@@ -28,6 +48,12 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+
+    @include media-tablet {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
   }
 
   span {
@@ -35,6 +61,10 @@
     font-size: 50px;
     line-height: 1;
     font-weight: 700;
+
+    @include media-tablet {
+      font-size: 32px;
+    }
   }
 }
 

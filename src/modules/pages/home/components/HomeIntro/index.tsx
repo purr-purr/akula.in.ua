@@ -6,6 +6,7 @@ import Loader from '@modules/common/components/Loader';
 import FIRST_BUILDING from './assets/first.png';
 import SECOND_BUILDING from './assets/second.png';
 import THIRD_BUILDING from './assets/third.png';
+
 import s from './HomeIntro.module.scss';
 
 const HomeIntro = () => {
@@ -24,7 +25,7 @@ const HomeIntro = () => {
 
 	return (
 		<section className={s.container}>
-			<article>
+			<article className={s.intro}>
 				<h1 className={s.title}>{tHome('INTRO.WE_WILL_FIND')}</h1>
 				<p className={s.description}>{tHome('INTRO.YOUR_RELIABLE_ASSISTANT')}</p>
 				<ul className={s.list}>

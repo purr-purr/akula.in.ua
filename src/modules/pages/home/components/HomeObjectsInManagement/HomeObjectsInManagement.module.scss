@@ -1,5 +1,10 @@
 .container {
   margin-bottom: 150px;
+
+  @include media-tablet {
+    margin-top: 150px;
+    margin-bottom: 120px;
+  }
 }
 
 .item {
@@ -8,6 +13,8 @@
   padding: 20px;
 
   img {
+    width: 80px;
+    height: 80px;
     pointer-events: none;
     border-radius: 12px;
   }
@@ -37,9 +44,21 @@
     color: var(--gray);
     transition: color .3s ease-in-out;
 
+    @include media-tablet {
+      svg {
+        width: 17px;
+        height: 17px;
+      }
+    }
+
     &:hover {
       color: var(--primary);
       transition: color .3s ease-in-out;
     }
   }
 }
+
+.cardSlider {
+  margin-top: -20px;
+}
+

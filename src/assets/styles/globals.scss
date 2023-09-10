@@ -73,7 +73,7 @@ p {
   line-height: 1.2;
   font-weight: 300;
 
-  @include media-mobile {
+  @include media-tablet {
     font-size: 14px;
   }
 }
@@ -108,6 +108,11 @@ details > summary::-webkit-details-marker {
   margin-right: auto;
   padding-left: 40px;
   padding-right: 40px;
+
+  @include media-tablet {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .svg-icon {

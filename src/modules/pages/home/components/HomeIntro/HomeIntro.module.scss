@@ -3,22 +3,43 @@
   margin-top: 100px;
   margin-bottom: 136px;
   gap: 120px;
+
+  @include media-tablet {
+    gap: 90px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+}
+
+.intro {
+  @include media-tablet {
+    max-width: 660px;
+    width: 100%;
+  }
 }
 
 .title {
   margin-bottom: 24px;
   font-size: 50px;
+
+  @include media-tablet {
+    font-size: 34px;
+  }
 }
 
 .description {
   font-size: 20px;
-  font-weight: 300;
   margin-bottom: 68px;
+
+  @include media-tablet {
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
 }
 
 .list {
   display: grid;
-  grid-template-columns: 200px 1fr max(150px);
+  grid-template-columns:  minmax(150px, 200px) minmax(200px, 1fr) minmax(100px, 150px);
   list-style-type: none;
 
   & li {
@@ -31,6 +52,11 @@
       position: relative;
       padding-left: 50px;
       padding-right: 50px;
+
+      @include media-tablet {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
 
       &:after, &:before {
         content: '';
@@ -73,11 +99,18 @@
 }
 
 .posters {
-  min-width: 700px;
+  max-width: 700px;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 340px 340px 340px;
   position: relative;
+  margin-right: -10px;
+
+  @include media-tablet {
+    margin-right: 0;
+    max-width: 506px;
+    grid-template-columns: 248px 248px 248px;
+  }
 
   & img {
     width: 100%;
@@ -89,6 +122,10 @@
     height: 300px;
     border-radius: 60px;
     background-color: var(--secondary-blue);
+
+    @include media-tablet {
+      height: 220px;
+    }
   }
 
   & .second {
@@ -98,6 +135,10 @@
     border-bottom-right-radius: 60px;
     background-color: var(--primary);
     max-height: 610px;
+
+    @include media-tablet {
+      max-height: 450px;
+    }
   }
 
   & .third {
@@ -106,6 +147,10 @@
     height: 300px;
     border-radius: 60px;
     background-color: var(--nude);
+
+    @include media-tablet {
+      height: 220px;
+    }
   }
 }
 
@@ -113,4 +158,8 @@
   position: absolute;
   left: -65px;
   top: 29px;
+
+  @include media-tablet {
+    top: 16px;
+  }
 }

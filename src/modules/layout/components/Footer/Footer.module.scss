@@ -5,6 +5,11 @@
   position: relative;
   z-index: 2;
 
+  @include media-tablet {
+    padding-top: 40px;
+    padding-bottom: 16px;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -21,6 +26,10 @@
   display: grid;
   grid-template-columns: auto auto 1fr;
   column-gap: 50px;
+
+  @include media-tablet {
+    column-gap: 24px;
+  }
 }
 
 .socials {
@@ -32,12 +41,20 @@
     font-weight: 500;
     margin-bottom: 16px;
     color: var(--primary);
+
+    @include media-tablet {
+      font-size: 16px;
+    }
   }
 
   &List {
     @include flex-align(center);
     gap: 40px;
     list-style-type: none;
+
+    @include media-tablet {
+      gap: 24px;
+    }
   }
 
   &Item {
@@ -53,11 +70,17 @@
   grid-gap: 20px;
   max-width: 600px;
   width: 100%;
-
   list-style-type: none;
   color: var(--white);
   font-size: 16px;
   font-weight: 300;
+
+  @include media-tablet {
+    font-size: 14px;
+    grid-template-columns: 275px 155px;
+    max-width: 530px;
+    width: fit-content;
+  }
 
   & a {
     @include flex-align(center);
@@ -81,4 +104,8 @@
   color: var(--gray);
   text-align: center;
   margin-top: 50px;
+
+  @include media-tablet {
+    margin-top: 40px;
+  }
 }

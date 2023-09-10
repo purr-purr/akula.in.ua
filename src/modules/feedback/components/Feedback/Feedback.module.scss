@@ -1,6 +1,10 @@
 .container {
   margin-top: 75px;
   margin-bottom: 150px;
+
+  @include media-tablet {
+    margin-bottom: 100px;
+  }
 }
 
 .inner {
@@ -10,8 +14,16 @@
   z-index: 2;
   max-width: 50%;
 
+  @include media-tablet {
+    max-width: 58%;
+  }
+
   &.reverse {
     margin-left: 480px;
+
+    @include media-tablet {
+      margin-left: 406px;
+    }
   }
 }
 
@@ -31,7 +43,11 @@
   width: auto;
   height: 112%;
   min-width: 460px;
-  
+
+  @include media-tablet {
+    min-width: 334px;
+  }
+
   &.reverse {
     left: 0;
   }
