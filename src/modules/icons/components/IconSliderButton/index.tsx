@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
 import { useMediaQuery } from '@hooks/index';
-import { TABLET_BREAKPOINT } from '@utils/const';
+import { LAPTOP_BREAKPOINT } from '@utils/const';
 
 import type { IIconsProps } from '@modules/icons/types';
 
 const IconSliderButton: FC<IIconsProps> = ({ color = '#8FBDC2' }) => {
-	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
-	const size = isTablet ? 34 : 40;
+	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
+	const size = isLaptop ? 34 : 40;
 
 	return (
 		<svg
@@ -18,7 +18,7 @@ const IconSliderButton: FC<IIconsProps> = ({ color = '#8FBDC2' }) => {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			{isTablet ? (
+			{isLaptop ? (
 				<>
 					<g filter="url(#filter0_b_323_3838)">
 						<circle cx="17" cy="17" r="17" fill="#fff" fillOpacity="0.9" />

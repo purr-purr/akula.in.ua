@@ -3,7 +3,7 @@
   gap: 45px;
   margin-bottom: 150px;
 
-  @include media-tablet {
+  @include media-laptop {
     gap: 24px;
   }
 }
@@ -15,7 +15,7 @@
   border-bottom-right-radius: 60px;
   overflow: hidden;
 
-  @include media-tablet {
+  @include media-laptop {
     max-width: 506px;
   }
 
@@ -34,7 +34,7 @@
 .list {
   margin-top: 42px;
 
-  @include media-tablet {
+  @include media-laptop {
     margin-top: 24px;
   }
 
@@ -42,14 +42,14 @@
     @include flex-align(center);
     gap: 24px;
 
-    @include media-tablet {
+    @include media-laptop {
       gap: 16px;
     }
 
     &:not(:last-of-type) {
       margin-bottom: 42px;
 
-      @include media-tablet {
+      @include media-laptop {
         margin-bottom: 24px;
       }
     }

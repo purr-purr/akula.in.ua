@@ -14,6 +14,12 @@
   align-items: $align-position;
 }
 
+@mixin media-laptop {
+  @media (max-width: $laptop-bp) {
+    @content;
+  }
+}
+
 @mixin media-tablet {
   @media (max-width: $tablet-bp) {
     @content;

@@ -1,7 +1,7 @@
 import { createContext, FC, useCallback, useState } from 'react';
-import { useMediaQuery } from '@hooks/index';
 
-import { MOBILE_BREAKPOINT } from '@utils/const';
+import { useMediaQuery } from '@hooks/index';
+import { TABLET_BREAKPOINT } from '@utils/const';
 
 import type { ReactNode } from 'react';
 
@@ -16,7 +16,7 @@ const HeaderContext = createContext<IHeaderContext>({
 });
 
 const HeaderContextWrapper: FC<{ children: ReactNode }> = ({ children }) => {
-	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const [isMobileNavMode, setIsMobileNavMode] = useState<boolean>(false);
 
 	const handleMobileNavMode = useCallback((value: boolean) => {
@@ -28,7 +28,7 @@ const HeaderContextWrapper: FC<{ children: ReactNode }> = ({ children }) => {
 		handleMobileNavMode,
 	};
 
-	if (!isMobile) {
+	if (!isTablet) {
 		return <>{children}</>;
 	}
 

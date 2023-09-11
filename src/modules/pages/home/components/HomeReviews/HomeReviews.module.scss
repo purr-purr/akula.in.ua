@@ -7,7 +7,7 @@
   overflow: visible;
   position: relative;
 
-  @include media-tablet {
+  @include media-laptop {
     padding-top: 75px;
   }
 }
@@ -27,7 +27,7 @@
     width: 80px;
     height: 63px;
 
-    @include media-mobile {
+    @include media-tablet {
       width: 70px;
       height: 55px;
     }

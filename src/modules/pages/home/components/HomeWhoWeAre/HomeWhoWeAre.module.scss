@@ -1,14 +1,24 @@
 .container {
   margin-top: 150px;
   margin-bottom: 150px;
+
+  @include media-tablet {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
 }
 
 .inner {
   padding: 64px 20px 64px 375px;
   background: url('./assets/transparent-logo.svg') left bottom/contain no-repeat;
 
-  @include media-tablet {
+  @include media-laptop {
     padding: 52px 20px 52px 300px;
+  }
+
+  @include media-tablet {
+    padding: 40px 0 40px 16px;
+    background-image: none;
   }
 }
 
@@ -28,7 +38,7 @@
     background-color: var(--primary);
     border-radius: 10px;
 
-    @include media-tablet {
+    @include media-laptop {
       left: -16px;
     }
   }

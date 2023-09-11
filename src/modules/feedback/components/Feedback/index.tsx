@@ -6,6 +6,9 @@ import cn from 'classnames';
 import BlockTitle from '@modules/common/components/BlockTitle';
 import FeedbackForm from '@modules/feedback/components/FeedbackForm';
 
+import { useMediaQuery } from '@hooks/index';
+import { TABLET_BREAKPOINT } from '@utils/const';
+
 import BLUE_BUILDING from './assets/blue-building.png';
 import YELLOW_BUILDING from './assets/yellow-building.png';
 
@@ -15,6 +18,7 @@ const Feedback: FC<{
 	type: 'owner' | 'cooperation';
 }> = ({ type = 'owner' }) => {
 	const { t } = useTranslation('common');
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 
 	const info = {
 		owner: {
@@ -35,11 +39,13 @@ const Feedback: FC<{
 				<FeedbackForm />
 			</article>
 
-			<Image
-				className={cn(s.poster, type === 'owner' && s.reverse)}
-				src={type === 'cooperation' ? BLUE_BUILDING : YELLOW_BUILDING}
-				alt="Poster"
-			/>
+			{!isTablet && (
+				<Image
+					className={cn(s.poster, type === 'owner' && s.reverse)}
+					src={type === 'cooperation' ? BLUE_BUILDING : YELLOW_BUILDING}
+					alt="Poster"
+				/>
+			)}
 		</section>
 	);
 };

@@ -1,7 +1,7 @@
 .container {
   margin-bottom: 150px;
 
-  @include media-tablet {
+  @include media-laptop {
     margin-bottom: 80px;
   }
 }
@@ -20,7 +20,7 @@
     margin-right: auto;
     max-width: 100%;
 
-    @include media-mobile {
+    @include media-tablet {
       max-width: 140px;
       height: auto;
     }

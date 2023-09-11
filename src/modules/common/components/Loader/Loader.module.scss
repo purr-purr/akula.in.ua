@@ -17,7 +17,7 @@
     height: 110px;
     animation: rotate 20s linear infinite;
 
-    @include media-mobile {
+    @include media-tablet {
       width: 80px;
       height: 80px;
     }

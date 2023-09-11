@@ -10,7 +10,7 @@ import STAR_ICON from '@modules/pages/home/components/HomeReviews/assets/star_ic
 
 import { useMediaQuery } from '@hooks/index';
 import {
-	LOW_MOBILE_BREAKPOINT,
+	LAPTOP_BREAKPOINT,
 	MOBILE_BREAKPOINT,
 	TABLET_BREAKPOINT,
 } from '@utils/const';
@@ -19,9 +19,9 @@ import s from './HomeReviews.module.scss';
 
 const HomeReviews = () => {
 	const { t } = useTranslation('home');
-	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
-	const slidesToShow = isMobile ? 1 : isTablet ? 2 : 3;
+	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
+	const slidesToShow = isTablet ? 1 : isLaptop ? 2 : 3;
 
 	const CASES = [
 		{

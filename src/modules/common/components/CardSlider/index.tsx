@@ -6,7 +6,7 @@ import { v4 as uniqueId } from 'uuid';
 import IconSliderButton from '@modules/icons/components/IconSliderButton';
 
 import { useMediaQuery } from '@hooks/index';
-import { TABLET_BREAKPOINT } from '@utils/const';
+import { LAPTOP_BREAKPOINT } from '@utils/const';
 
 import type { ReactNode } from 'react';
 
@@ -70,8 +70,8 @@ const CardSlider: FC<{
 	dragging = true,
 	autoplay = false,
 }) => {
-	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
-	const cellSpacing = isTablet ? 10 : 20;
+	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
+	const cellSpacing = isLaptop ? 10 : 20;
 
 	const childrenRender = Children.map(children, (child) => {
 		if (isValidElement(child)) {

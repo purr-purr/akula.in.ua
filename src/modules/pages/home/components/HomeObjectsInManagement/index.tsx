@@ -13,7 +13,7 @@ import IconArrowUp from '@modules/icons/components/IconArrowUp';
 import { useDataFetching, useMediaQuery } from '@hooks/index';
 import {
 	CATALOG_NAME,
-	LOW_MOBILE_BREAKPOINT,
+	LAPTOP_BREAKPOINT,
 	MOBILE_BREAKPOINT,
 	TABLET_BREAKPOINT,
 } from '@utils/const';
@@ -26,9 +26,9 @@ const HomeObjectsInManagement = () => {
 	const { data } = useDataFetching();
 	const router = useRouter();
 	const { filters, handleFilters } = useContext(CatalogContext);
-	const isLowMobile = useMediaQuery(LOW_MOBILE_BREAKPOINT);
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
+	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 
 	const getAmountItems = (value: string) => {
 		return data.filter((item) =>
@@ -62,7 +62,7 @@ const HomeObjectsInManagement = () => {
 		{ text: 'LAND_PLOTS', filter: 'Земля' },
 	];
 
-	const slidesToShow = isLowMobile ? 1 : isMobile ? 2 : isTablet ? 3 : 4;
+	const slidesToShow = isMobile ? 1 : isTablet ? 2 : isLaptop ? 3 : 4;
 
 	return (
 		<section className={s.container}>

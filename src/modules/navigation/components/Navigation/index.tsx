@@ -9,11 +9,7 @@ import NavigationBurgerButton from '@modules/navigation/components/NavigationBur
 import NavigationContacts from '@modules/navigation/components/NavigationContacts';
 
 import { useMediaQuery } from '@hooks/index';
-import {
-	CATALOG_NAME,
-	MOBILE_BREAKPOINT,
-	TABLET_BREAKPOINT,
-} from '@utils/const';
+import { CATALOG_NAME, TABLET_BREAKPOINT } from '@utils/const';
 
 import s from './Navigation.module.scss';
 
@@ -23,7 +19,7 @@ interface INavigation {
 }
 
 const Navigation = () => {
-	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const { isMobileNavMode, handleMobileNavMode } = useContext(HeaderContext);
 	const { t } = useTranslation('common');
 	const { pathname } = useRouter();
@@ -36,7 +32,7 @@ const Navigation = () => {
 
 	useEffect(() => {
 		const element = document.querySelector('html');
-		if (!isMobile) {
+		if (!isTablet) {
 			handleMobileNavMode(false);
 		}
 		if (element) {
@@ -46,25 +42,27 @@ const Navigation = () => {
 			);
 		}
 		// eslint-disable-next-line
-	}, [isMobileNavMode, isMobile]);
+	}, [isMobileNavMode, isTablet]);
 
 	return (
 		<>
 			<nav className={cn(s.container, isMobileNavMode && s.active)}>
-				{NAVIGATION.map((item: INavigation) => (
-					<Link
-						key={item.path}
-						className={cn(s.item, item.path === pathname && s.current)}
-						onClick={() => handleMobileNavMode(false)}
-						href={item.path}
-					>
-						{t(`NAVIGATION.${item.title}`)}
-					</Link>
-				))}
-			</nav>
+				<ul className={s.list}>
+					{NAVIGATION.map((item: INavigation) => (
+						<li key={item.path} onClick={() => handleMobileNavMode(false)}>
+							<Link
+								href={item.path}
+								className={cn(s.item, item.path === pathname && s.current)}
+							>
+								{t(`NAVIGATION.${item.title}`)}
+							</Link>
+						</li>
+					))}
+				</ul>
 
-			<NavigationContacts />
-			{isMobile && <NavigationBurgerButton />}
+				<NavigationContacts />
+			</nav>
+			{isTablet && <NavigationBurgerButton />}
 		</>
 	);
 };

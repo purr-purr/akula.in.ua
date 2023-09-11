@@ -5,7 +5,7 @@ import CardSlider from '@modules/common/components/CardSlider';
 
 import { useMediaQuery } from '@hooks/index';
 import {
-	LOW_MOBILE_BREAKPOINT,
+	LAPTOP_BREAKPOINT,
 	MOBILE_BREAKPOINT,
 	TABLET_BREAKPOINT,
 } from '@utils/const';
@@ -29,10 +29,10 @@ const Partners = () => {
 		GRAND_STEP,
 	];
 	const { t } = useTranslation('common');
-	const isLowMobile = useMediaQuery(LOW_MOBILE_BREAKPOINT);
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
-	const slidesToShow = isLowMobile ? 2 : isMobile ? 3 : isTablet ? 4 : 5;
+	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
+	const slidesToShow = isMobile ? 2 : isTablet ? 3 : isLaptop ? 4 : 5;
 
 	return (
 		<CardSlider

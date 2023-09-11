@@ -2,7 +2,7 @@
   margin-top: 75px;
   margin-bottom: 150px;
 
-  @include media-tablet {
+  @include media-laptop {
     margin-bottom: 100px;
   }
 }
@@ -14,15 +14,23 @@
   z-index: 2;
   max-width: 50%;
 
-  @include media-tablet {
+  @include media-laptop {
     max-width: 58%;
+  }
+
+  @include media-tablet {
+    max-width: 100%;
   }
 
   &.reverse {
     margin-left: 480px;
 
-    @include media-tablet {
+    @include media-laptop {
       margin-left: 406px;
+    }
+
+    @include media-tablet {
+      margin-left: 0;
     }
   }
 }
@@ -44,7 +52,7 @@
   height: 112%;
   min-width: 460px;
 
-  @include media-tablet {
+  @include media-laptop {
     min-width: 334px;
   }
 
