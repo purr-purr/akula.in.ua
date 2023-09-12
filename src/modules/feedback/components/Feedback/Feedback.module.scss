@@ -20,6 +20,8 @@
 
   @include media-tablet {
     max-width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   &.reverse {
@@ -36,11 +38,10 @@
 }
 
 .description {
-  margin-bottom: 25px;
+  margin-bottom: 24px;
   max-width: 675px;
   width: 100%;
 }
-
 
 .poster {
   position: absolute;

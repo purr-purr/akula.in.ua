@@ -6,6 +6,12 @@
   @include media-laptop {
     gap: 24px;
   }
+
+  @include media-tablet {
+    flex-direction: column;
+    align-items: baseline;
+    margin-bottom: 100px;
+  }
 }
 
 .poster {
@@ -17,6 +23,11 @@
 
   @include media-laptop {
     max-width: 506px;
+  }
+
+  @include media-tablet {
+    order: 1;
+    max-width: 600px;
   }
 
   img {
@@ -38,6 +49,10 @@
     margin-top: 24px;
   }
 
+  @include media-tablet {
+    margin-top: 16px;
+  }
+
   & li {
     @include flex-align(center);
     gap: 24px;
@@ -51,6 +66,10 @@
 
       @include media-laptop {
         margin-bottom: 24px;
+      }
+
+      @include media-tablet {
+        margin-bottom: 16px;
       }
     }
   }

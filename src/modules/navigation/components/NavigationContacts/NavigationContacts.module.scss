@@ -7,7 +7,12 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-left: 0;
-    max-width: 270px;
+    max-width: 250px;
+    gap: 65px;
+
+    & button {
+      order: -1;
+    }
   }
 }
 

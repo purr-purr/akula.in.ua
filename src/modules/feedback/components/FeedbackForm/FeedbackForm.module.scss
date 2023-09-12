@@ -2,6 +2,15 @@
   @include flex-align(flex-end);
   gap: 30px;
 
+  @include media-tablet {
+    gap: 24px;
+  }
+
+  @include media-mobile {
+    flex-direction: column;
+    align-items: baseline;
+  }
+
   textarea {
     font-family: 'Montserrat', sans-serif;
     width: 100%;

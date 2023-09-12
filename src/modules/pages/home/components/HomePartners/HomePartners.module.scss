@@ -4,6 +4,10 @@
   @include media-laptop {
     margin-bottom: 80px;
   }
+  
+  @include media-tablet {
+    margin-bottom: 50px;
+  }
 }
 
 .item {

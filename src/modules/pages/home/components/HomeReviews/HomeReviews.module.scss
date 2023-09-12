@@ -1,5 +1,9 @@
 .container {
   margin-bottom: 150px;
+
+  @include media-tablet {
+    margin-bottom: 100px;
+  }
 }
 
 .card {
@@ -10,6 +14,12 @@
   @include media-laptop {
     padding-top: 75px;
   }
+
+  @include media-tablet {
+    padding-top: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .text {
@@ -19,6 +29,11 @@
   overflow-x: hidden;
   overflow-y: scroll;
 
+  @include media-tablet {
+    margin-bottom: 40px;
+    height: 203px;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -26,6 +41,7 @@
     top: -20px;
     width: 80px;
     height: 63px;
+    background-size: 100%;
 
     @include media-tablet {
       width: 70px;

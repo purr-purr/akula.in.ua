@@ -68,10 +68,12 @@ const HomeObjectsInManagement = () => {
 		<section className={s.container}>
 			<div className={s.heading}>
 				<BlockTitle title={tHome('OBJECTS_IN_MANAGEMENT.OBJECTS_IN_MANAGEMENT')} />
-				<Link className={s.headingButton} href={`/${CATALOG_NAME}`}>
-					{tCommon('NAVIGATION.ALL_REAL_ESTATE')}
-					<IconArrowUp />
-				</Link>
+				{!isTablet && (
+					<Link className={s.headingButton} href={`/${CATALOG_NAME}`}>
+						{tCommon('NAVIGATION.ALL_REAL_ESTATE')}
+						<IconArrowUp />
+					</Link>
+				)}
 			</div>
 			<CardSlider frameClassName={s.cardSlider} slidesToShow={slidesToShow}>
 				{objectsInManagement.map((item) => {

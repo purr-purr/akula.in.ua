@@ -5,6 +5,11 @@
     margin-top: 150px;
     margin-bottom: 120px;
   }
+
+  @include media-tablet {
+    margin-top: 100px;
+    margin-bottom: 60px;
+  }
 }
 
 .item {
