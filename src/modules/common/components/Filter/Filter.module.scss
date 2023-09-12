@@ -13,7 +13,7 @@
   }
 
   @include media-tablet {
-    padding: 24px 16px 40px;
+    padding: 24px 16px;
   }
 
   &.left {
@@ -26,6 +26,11 @@
 
   &.center {
     border-radius: 18px;
+
+    @include media-mobile {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
   }
 }
 
@@ -90,8 +95,20 @@
   }
 
   @include media-tablet {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  @include media-low-tablet {
     flex-direction: column;
     align-items: baseline;
-    gap: 24px;
+  }
+}
+
+.inputField {
+  max-width: 200px;
+
+  @include media-low-tablet {
+    max-width: 380px;
   }
 }

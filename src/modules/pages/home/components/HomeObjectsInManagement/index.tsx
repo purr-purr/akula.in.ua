@@ -8,6 +8,7 @@ import cn from 'classnames';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
+import InnerLink from '@modules/common/components/InnerLink';
 import IconArrowUp from '@modules/icons/components/IconArrowUp';
 
 import { useDataFetching, useMediaQuery } from '@hooks/index';
@@ -69,10 +70,11 @@ const HomeObjectsInManagement = () => {
 			<div className={s.heading}>
 				<BlockTitle title={tHome('OBJECTS_IN_MANAGEMENT.OBJECTS_IN_MANAGEMENT')} />
 				{!isTablet && (
-					<Link className={s.headingButton} href={`/${CATALOG_NAME}`}>
-						{tCommon('NAVIGATION.ALL_REAL_ESTATE')}
-						<IconArrowUp />
-					</Link>
+					<InnerLink
+						type="link"
+						linkPath={`/${CATALOG_NAME}`}
+						text={tCommon('NAVIGATION.ALL_REAL_ESTATE')}
+					/>
 				)}
 			</div>
 			<CardSlider frameClassName={s.cardSlider} slidesToShow={slidesToShow}>

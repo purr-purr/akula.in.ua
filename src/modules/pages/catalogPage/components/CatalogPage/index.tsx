@@ -1,5 +1,5 @@
 import { FC, memo, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 
 import Loader from '@modules/common/components/Loader';
@@ -9,10 +9,12 @@ import CatalogPageCarousel from '@modules/pages/catalogPage/components/CatalogPa
 import CatalogPageCrumbs from '@modules/pages/catalogPage/components/CatalogPageCrumbs';
 import CatalogPageHeader from '@modules/pages/catalogPage/components/CatalogPageHeader';
 import CatalogPageInformation from '@modules/pages/catalogPage/components/CatalogPageInformation';
+import CatalogPageNotice from '@modules/pages/catalogPage/components/CatalogPageNotice';
 import { formatMetaForCatalogPage } from '@modules/pages/catalogPage/utils/formatters';
 
 import { useCatalogItemFullAddress, useDataFetching } from '@hooks/index';
 import { CATALOG_NAME } from '@utils/const';
+import { CURRENCY } from '@utils/data';
 import {
 	formatCatalogTranslation,
 	formatCityTranslation,
@@ -123,6 +125,8 @@ const CatalogPage: FC = memo(() => {
 					</div>
 				</aside>
 			</section>
+
+			{/*<CatalogPageNotice />*/}
 		</>
 	);
 });

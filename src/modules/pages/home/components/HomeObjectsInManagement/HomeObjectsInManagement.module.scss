@@ -40,27 +40,6 @@
 
 .heading {
   @include flex-justify-align(space-between, center);
-
-  &Button {
-    @include flex-align(center);
-    gap: 3px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--gray);
-    transition: color .3s ease-in-out;
-
-    @include media-laptop {
-      svg {
-        width: 17px;
-        height: 17px;
-      }
-    }
-
-    &:hover {
-      color: var(--primary);
-      transition: color .3s ease-in-out;
-    }
-  }
 }
 
 .cardSlider {

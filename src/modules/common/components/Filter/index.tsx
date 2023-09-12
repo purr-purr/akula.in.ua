@@ -135,7 +135,11 @@ const Filter: FC<{
 			</div>
 			<form className={s.form} onSubmit={handleFormSubmit}>
 				{UI_FILTERS_LIST.map((item) => (
-					<InputField key={item.category} label={item.category}>
+					<InputField
+						className={s.inputField}
+						key={item.category}
+						label={item.category}
+					>
 						<Dropdown
 							customSelectedItem={
 								currentFilters[item.label] === 'All'

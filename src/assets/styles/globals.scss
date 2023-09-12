@@ -122,13 +122,13 @@ details > summary::-webkit-details-marker {
 
 .svg-icon {
   path {
-    transition: fill .3s ease-in-out;
+    transition: fill .4s ease-in-out;
   }
 
   &:hover {
     path {
       fill: var(--primary);
-      transition: fill .3s ease-in-out;
+      transition: fill .4s ease-in-out;
     }
   }
 }

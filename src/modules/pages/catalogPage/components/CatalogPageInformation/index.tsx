@@ -1,11 +1,10 @@
 import { FC } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
 import CatalogPageMap from '@modules/pages/catalogPage/components/CatalogPageMap';
+import CatalogPageNotice from '@modules/pages/catalogPage/components/CatalogPageNotice';
 import CatalogPageTable from '@modules/pages/catalogPage/components/CatalogPageTable';
-
-import { CURRENCY } from '@utils/data';
 
 import type { ICatalogTable } from '@t-types/data';
 
@@ -51,9 +50,7 @@ const CatalogPageInformation: FC<{
 					tableInfo={tableInfo}
 				/>
 
-				<p className={s.notification}>
-					<span className="star">*</span> {t('ACCORDING_TO_THE_REQUIREMENTS')}
-				</p>
+				<CatalogPageNotice type="short" />
 			</article>
 
 			{description && (
@@ -76,28 +73,7 @@ const CatalogPageInformation: FC<{
 				<CatalogPageMap fullAddress={originalAddress} />
 			</article>
 
-			<p className={s.notification}>
-				<span className="star">*</span>{' '}
-				<Trans
-					t={t}
-					i18nKey="REQUIREMENTS_OF_THE_LAW_OF_UKRAINE"
-					useDangerouslySetInnerHTML
-					values={{
-						date: CURRENCY.DATE,
-						uah: CURRENCY.UAH,
-					}}
-					components={{
-						Link: (
-							<a
-								className="link"
-								href="https://www.eximb.com/"
-								target="_blank"
-								rel="noreferrer"
-							/>
-						),
-					}}
-				/>
-			</p>
+			<CatalogPageNotice />
 		</>
 	);
 };

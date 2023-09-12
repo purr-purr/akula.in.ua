@@ -5,6 +5,9 @@ import cn from 'classnames';
 
 import IconArrowUp from '@modules/icons/components/IconArrowUp';
 
+import { useMediaQuery } from '@hooks/index';
+import { TABLET_BREAKPOINT } from '@utils/const';
+
 import s from './ServicesListItem.module.scss';
 
 const ServicesListItem: FC<{ text: string; isEvenElement?: boolean }> = ({
@@ -12,6 +15,7 @@ const ServicesListItem: FC<{ text: string; isEvenElement?: boolean }> = ({
 	isEvenElement,
 }) => {
 	const { t } = useTranslation('services');
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 
 	const getImagePath = (value: string) => {
 		try {
@@ -32,11 +36,13 @@ const ServicesListItem: FC<{ text: string; isEvenElement?: boolean }> = ({
 						<IconArrowUp />
 					</h3>
 
-					<Image
-						className={s.headingPoster}
-						src={getImagePath(`${text}--preview`)}
-						alt="Preview"
-					/>
+					{!isTablet && (
+						<Image
+							className={s.headingPoster}
+							src={getImagePath(`${text}--preview`)}
+							alt="Preview"
+						/>
+					)}
 				</div>
 			</summary>
 			<ul className={s.content}>

@@ -1,8 +1,11 @@
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import ServicesListItem from '@modules/pages/services/components/ServicesListItem';
+
+import s from './ServicesList.module.scss';
 
 const ServicesList = () => {
 	const { t } = useTranslation('services');
@@ -42,7 +45,10 @@ const ServicesList = () => {
 		<>
 			{SERVICES_LIST.map((item, index) => (
 				<Fragment key={item.title}>
-					<BlockTitle title={t(`SERVICES_LIST.${item.title}`)} />
+					<BlockTitle
+						className={cn(index !== 0 && s.blockTitle)}
+						title={t(`SERVICES_LIST.${item.title}`)}
+					/>
 
 					{item.list.map((subItem) => (
 						<ServicesListItem

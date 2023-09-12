@@ -9,9 +9,10 @@ const InputField: FC<{
 	label: string;
 	color?: 'light' | 'dark';
 	children: ReactNode;
-}> = ({ label, children, color = 'light' }) => {
+	className?: string;
+}> = ({ label, children, color = 'light', className }) => {
 	return (
-		<label className={cn(s.container, s[color])}>
+		<label className={cn(s.container, s[color], className)}>
 			<span className={s.label}>{label}</span>
 			{children}
 		</label>

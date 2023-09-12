@@ -3,15 +3,39 @@
   height: 328px;
   padding: 65px 120px;
   margin-bottom: -130px;
+  margin-top: 24px;
   position: relative;
   z-index: 1;
   background: var(--secondary-blue) url('assets/background-logo.svg') -140px bottom/contain no-repeat;
+
+  @include media-laptop {
+    height: 280px;
+    padding: 47px 80px;
+  }
+
+  @include media-tablet {
+    margin-top: 0;
+    padding: 56px 16px;
+    height: 320px;
+    background-position-x: -165px;
+    overflow: hidden;
+  }
+
+  @include media-mobile {
+    background-position: -80px top;
+    background-size: 300px;
+  }
 
   h1 {
     max-width: 495px;
     width: 100%;
     font-size: 50px;
     color: var(--white);
+
+    @include media-laptop {
+      font-size: 32px;
+      max-width: 355px;
+    }
   }
 }
 
@@ -24,4 +48,14 @@
   height: auto;
   pointer-events: none;
   z-index: -1;
+
+  @include media-laptop {
+    max-width: 620px;
+  }
+
+  @include media-tablet {
+    max-width: 400px;
+    right: -130px;
+    top: -1px;
+  }
 }

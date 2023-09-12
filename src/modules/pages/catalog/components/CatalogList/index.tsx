@@ -9,7 +9,8 @@ import CatalogPagination from '@modules/pages/catalog/components/CatalogPaginati
 import CatalogSort from '@modules/pages/catalog/components/CatalogSort';
 import { formatToNumbersOnly } from '@modules/pages/catalogPage/utils/formatters';
 
-import { useDataFetching } from '@hooks/index';
+import { useDataFetching, useMediaQuery } from '@hooks/index';
+import { MOBILE_BREAKPOINT } from '@utils/const';
 
 import type { ICatalogData } from '@t-types/data';
 
@@ -18,6 +19,8 @@ import s from './CatalogList.module.scss';
 const CatalogList = () => {
 	const { t } = useTranslation('catalog');
 	const { filters } = useContext(CatalogContext);
+	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+
 	const { data, loading } = useDataFetching();
 
 	const [sortedData, setSortedData] = useState<ICatalogData[]>([]);
@@ -63,10 +66,15 @@ const CatalogList = () => {
 	return (
 		<>
 			<div className={s.sort}>
-				<BlockTitle className={s.title} title={t('CATALOG.SEARCH_RESULTS')} />
-				<span className={s.counter}>
-					: {sortedData.length} {t('OBJECTS')}
-				</span>
+				<div className={s.heading}>
+					<BlockTitle
+						className={s.headingItem}
+						title={t('CATALOG.SEARCH_RESULTS')}
+					/>
+					<span className={s.headingCounter}>
+						: {sortedData.length} {!isMobile && t('OBJECTS')}
+					</span>
+				</div>
 				<CatalogSort />
 			</div>
 

@@ -6,6 +6,10 @@
   margin-right: auto;
   margin-bottom: 100px;
 
+  @include media-tablet {
+    margin-bottom: 70px;
+  }
+
   button {
     background-color: transparent;
     border: none;

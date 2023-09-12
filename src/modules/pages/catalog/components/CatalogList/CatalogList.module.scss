@@ -5,23 +5,46 @@
   row-gap: 40px;
   margin-bottom: 40px;
   list-style-type: none;
+
+  @include media-laptop {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 24px;
+  }
+
+  @include media-low-tablet {
+    margin-bottom: 24px;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .sort {
-  @include flex-align(center);
-  margin-top: 106px;
+  @include flex-justify-align(space-between, center);
+  margin-top: 100px;
   margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.counter {
-  font-size: 20px;
-  margin-top: 10px;
-  color: var(--gray);
+.heading {
+  @include flex-align(flex-end);
+  margin-right: 16px;
+
+  &Item {
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  &Counter {
+    font-size: 20px;
+    color: var(--gray);
+
+    @include media-laptop {
+      font-size: 16px;
+    }
+  }
 }
 
-.title {
-  margin-bottom: 0;
-}
 
 .loader {
   @include flex-justify-align(center, center);

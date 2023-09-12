@@ -34,7 +34,7 @@ const CatalogSort = () => {
 	}, [sortByPrice]);
 
 	return (
-		<>
+		<aside className={s.container}>
 			<button className={s.clean} onClick={handleClearAllFilters}>
 				{t('CATALOG.CLEAR_ALL_FILTERS')}
 				<IconCross />
@@ -42,7 +42,7 @@ const CatalogSort = () => {
 			<button className={s.price} onClick={handlePriceSorting}>
 				{sortByPrice === 'up' ? <IconPriceUp /> : <IconPriceDown />}
 			</button>
-		</>
+		</aside>
 	);
 };
 

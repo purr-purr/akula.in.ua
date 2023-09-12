@@ -4,9 +4,9 @@
   cursor: pointer;
   font-weight: 300;
 
-  @include media-tablet {
-    max-width: 450px;
-  }
+  //@include media-tablet {
+  //  max-width: 450px;
+  //}
 
   @include media-mobile {
     max-width: 100%;

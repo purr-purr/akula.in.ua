@@ -7,12 +7,17 @@ import Feedback from '@modules/feedback/components/Feedback';
 import IconStar from '@modules/icons/components/IconStar';
 import ServicesList from '@modules/pages/services/components/ServicesList';
 
+import { useMediaQuery } from '@hooks/index';
+import { TABLET_BREAKPOINT } from '@utils/const';
+
 import s from './Services.module.scss';
 
 const Services: FC = () => {
 	const { t: tServices } = useTranslation('services');
 	const { t: tCommon } = useTranslation('common');
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const pageDescription = ['AKULA_TEAM', 'WE_ARE_CONSTANTLY_EXPANDING'];
+	const starSize = isTablet ? 16 : 25;
 
 	return (
 		<>
@@ -21,7 +26,7 @@ const Services: FC = () => {
 			<ul className={s.container}>
 				{pageDescription.map((item) => (
 					<li key={item}>
-						<IconStar />
+						<IconStar width={starSize} />
 						<p>
 							<Trans t={tServices} i18nKey={item}>
 								<b />

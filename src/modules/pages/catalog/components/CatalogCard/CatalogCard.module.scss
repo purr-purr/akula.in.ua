@@ -20,17 +20,27 @@
   width: 100%;
   object-fit: cover;
   height: 300px;
+
+  @include media-tablet {
+    height: 220px;
+  }
 }
 
 .info {
   padding: 14px 20px 24px;
+
+  @include media-tablet {
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .tags {
   @include flex-align(center);
   gap: 8px;
   list-style-type: none;
-  margin-bottom: 17px;
+  margin-bottom: 16px;
 
   & li {
     font-size: 12px;
@@ -38,6 +48,11 @@
     border-radius: 14px;
     padding: 8px 12px;
     background-color: var(--nude);
+    text-align: center;
+    
+    @include media-tablet {
+      padding: 6px 10px;
+    }
   }
 }
 
@@ -46,12 +61,22 @@
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 8px;
+
+  @include media-tablet {
+    font-size: 16px;
+  }
 }
 
 .address {
   margin-bottom: 20px;
   min-height: 58px;
   font-style: normal;
+
+  @include media-tablet {
+    font-size: 14px;
+    min-height: 52px;
+    margin-bottom: 10px;
+  }
 }
 
 .description {
@@ -67,6 +92,10 @@
     font-size: 20px;
     font-weight: 700;
     margin-right: auto;
+
+    @include media-tablet {
+      font-size: 16px;
+    }
   }
 
   & li:not(:first-child) {

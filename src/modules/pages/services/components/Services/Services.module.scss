@@ -4,13 +4,34 @@
   list-style-type: none;
   margin-bottom: 100px;
 
+  @include media-laptop {
+    gap: 10px;
+  }
+
+  @include media-tablet {
+    margin-bottom: 48px;
+    flex-direction: column;
+  }
+
   & li {
     @include flex-align(flex-start);
     gap: 24px;
     width: 50%;
+
+    @include media-tablet {
+      width: 100%;
+    }
   }
 }
 
 .title {
   margin-top: 50px;
+
+  @include media-laptop {
+    margin-top: 40px;
+  }
+
+  @include media-tablet {
+    margin-top: 24px;
+  }
 }
