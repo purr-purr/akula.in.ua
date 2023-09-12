@@ -10,11 +10,17 @@ export const formatCityTranslation = (city: string): string => {
 	const lowerCaseCity = city.toLowerCase();
 
 	if (CITY_TRANSLATION.hasOwnProperty(lowerCaseCity)) {
-		return `CITY_LIST.${CITY_TRANSLATION[lowerCaseCity]}`;
+		return `CITY_LIST.${
+			CITY_TRANSLATION[lowerCaseCity as keyof typeof CITY_TRANSLATION]
+		}`;
 	}
 	return city;
 };
 
 export const formatCatalogTranslation = (value: string): string => {
-	return `OBJECT_INFO.${OBJECT_INFO_TRANSLATION[value.toLowerCase()]}`;
+	return `OBJECT_INFO.${
+		OBJECT_INFO_TRANSLATION[
+			value.toLowerCase() as keyof typeof OBJECT_INFO_TRANSLATION
+		]
+	}`;
 };
