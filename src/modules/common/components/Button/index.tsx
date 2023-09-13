@@ -11,6 +11,7 @@ const Button: FC<{
 	type?: 'button' | 'link';
 	color?: 'primary' | 'transparent';
 	children?: ReactNode;
+	className?: string;
 }> = ({
 	text,
 	type = 'button',
@@ -18,8 +19,14 @@ const Button: FC<{
 	onClick,
 	color = 'primary',
 	children,
+	className,
 }) => {
-	const classNameList = cn(s.container, s[color], children && s.verticalAlign);
+	const classNameList = cn(
+		s.container,
+		s[color],
+		children && s.verticalAlign,
+		className,
+	);
 
 	return type === 'link' ? (
 		<Link className={classNameList} href={linkPath} onClick={onClick}>

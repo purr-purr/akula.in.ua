@@ -6,6 +6,9 @@ import BlockTitle from '@modules/common/components/BlockTitle';
 import FeedbackForm from '@modules/feedback/components/FeedbackForm';
 import IconCross from '@modules/icons/components/IconCross';
 
+import { useMediaQuery } from '@hooks/index';
+import { TABLET_BREAKPOINT } from '@utils/const';
+
 import BACKGROUND_IMG from './assets/background.png';
 
 import s from './FeedbackModal.module.scss';
@@ -14,6 +17,7 @@ const FeedbackModal: FC<{
 	onClick: () => void;
 }> = ({ onClick }) => {
 	const { t } = useTranslation('common');
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 
 	const handleModalCloseClick = () => {
 		onClick();
@@ -32,11 +36,13 @@ const FeedbackModal: FC<{
 
 				<FeedbackForm isColumnType />
 
-				<Image
-					className={s.background}
-					src={BACKGROUND_IMG}
-					alt="Background image"
-				/>
+				{!isTablet && (
+					<Image
+						className={s.background}
+						src={BACKGROUND_IMG}
+						alt="Background image"
+					/>
+				)}
 			</article>
 		</section>
 	);

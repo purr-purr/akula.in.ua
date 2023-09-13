@@ -12,9 +12,12 @@ import CatalogPageInformation from '@modules/pages/catalogPage/components/Catalo
 import CatalogPageNotice from '@modules/pages/catalogPage/components/CatalogPageNotice';
 import { formatMetaForCatalogPage } from '@modules/pages/catalogPage/utils/formatters';
 
-import { useCatalogItemFullAddress, useDataFetching } from '@hooks/index';
-import { CATALOG_NAME } from '@utils/const';
-import { CURRENCY } from '@utils/data';
+import {
+	useCatalogItemFullAddress,
+	useDataFetching,
+	useMediaQuery,
+} from '@hooks/index';
+import { CATALOG_NAME, LAPTOP_BREAKPOINT } from '@utils/const';
 import {
 	formatCatalogTranslation,
 	formatCityTranslation,
@@ -31,6 +34,7 @@ const CatalogPage: FC = memo(() => {
 	const { data, loading, initialData } = useDataFetching();
 	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
+	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 
 	const [pageData, setPageData] = useState<ICatalogData>(initialData);
 	const {
@@ -126,7 +130,7 @@ const CatalogPage: FC = memo(() => {
 				</aside>
 			</section>
 
-			{/*<CatalogPageNotice />*/}
+			{isLaptop && <CatalogPageNotice />}
 		</>
 	);
 });

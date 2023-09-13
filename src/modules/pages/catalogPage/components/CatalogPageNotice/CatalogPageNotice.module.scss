@@ -1,3 +1,13 @@
 .container {
   font-size: 12px;
+
+  &--full {
+    @include media-laptop {
+      margin-bottom: 100px;
+    }
+
+    @include media-tablet {
+      margin-bottom: 70px;
+    }
+  }
 }

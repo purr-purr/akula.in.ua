@@ -3,21 +3,64 @@
   grid-template-columns: minmax(500px, 1fr) minmax(300px, 460px);
   gap: 20px;
   padding-bottom: 100px;
+
+  @include media-laptop {
+    grid-template-columns: 1fr;
+    gap: unset;
+    padding-bottom: 48px;
+  }
 }
 
 .feedback {
   position: sticky;
   top: 90px;
-  padding: 40px 20px;
+  padding: 40px 20px 58px;
   border-radius: 18px;
   box-shadow: 0 14px 32px 0 rgba(214, 214, 214, 0.36);
   border: 1px solid var(--nude);
-  background: url("assets/subtract-line.svg") center bottom / 100% no-repeat;
+  overflow: hidden;
+
+  @include media-laptop {
+    position: relative;
+    top: unset;
+  }
+
+  @include media-tablet {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  &:before {
+    z-index: 2;
+    bottom: 18px;
+    height: 18px;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    background-color: var(--white);
+  }
+
+  &:after {
+    z-index: 1;
+    bottom: 0;
+    height: 35px;
+    background-color: var(--secondary-blue);
+  }
 
   &Title {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 16px;
+
+    @include media-laptop {
+      font-size: 16px;
+    }
   }
 
   &Description {

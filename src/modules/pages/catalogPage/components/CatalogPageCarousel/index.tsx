@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import ImageGallery from 'react-image-gallery';
 
-import { usePropertyPhoto } from '@hooks/index';
+import { useMediaQuery, usePropertyPhoto } from '@hooks/index';
 
 import s from './CatalogPageCarousel.module.scss';
 
@@ -11,7 +11,10 @@ import cn from 'classnames';
 import DefaultPoster from '@modules/common/components/DefaultPoster';
 import IconSliderButton from '@modules/icons/components/IconSliderButton';
 
+import { TABLET_BREAKPOINT } from '@utils/const';
+
 const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const postersList = usePropertyPhoto(id);
 
 	return (
@@ -23,6 +26,8 @@ const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 		>
 			{postersList.length ? (
 				<ImageGallery
+					showNav={!isTablet}
+					showThumbnails={!isTablet}
 					showPlayButton={false}
 					showBullets
 					lazyLoad

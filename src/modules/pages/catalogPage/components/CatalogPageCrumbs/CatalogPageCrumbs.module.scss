@@ -4,6 +4,11 @@
   margin-top: 14px;
   margin-bottom: 42px;
 
+  @include media-tablet {
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+
   & a, p {
     font-size: 12px;
     font-weight: 500;

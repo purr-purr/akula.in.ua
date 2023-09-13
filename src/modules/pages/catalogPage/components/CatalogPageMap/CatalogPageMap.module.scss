@@ -5,4 +5,10 @@
   margin-left: -20px;
   border: none;
   margin-top: 24px;
+
+  @include media-tablet {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    height: 200px;
+  }
 }

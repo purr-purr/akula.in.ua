@@ -12,8 +12,16 @@ const InnerLink: FC<{
 	onClick?: () => void;
 	type?: 'button' | 'link';
 	className?: string;
-}> = ({ text, type = 'button', linkPath = '/', onClick, className }) => {
-	const classNameList = cn(s.container, className);
+	isReverseType?: boolean;
+}> = ({
+	text,
+	type = 'button',
+	linkPath = '/',
+	onClick,
+	className,
+	isReverseType = false,
+}) => {
+	const classNameList = cn(s.container, className, isReverseType && s.reverse);
 
 	return type === 'link' ? (
 		<Link className={classNameList} href={linkPath} onClick={onClick}>

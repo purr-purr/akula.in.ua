@@ -6,6 +6,9 @@ import CatalogPageMap from '@modules/pages/catalogPage/components/CatalogPageMap
 import CatalogPageNotice from '@modules/pages/catalogPage/components/CatalogPageNotice';
 import CatalogPageTable from '@modules/pages/catalogPage/components/CatalogPageTable';
 
+import { useMediaQuery } from '@hooks/index';
+import { LAPTOP_BREAKPOINT } from '@utils/const';
+
 import type { ICatalogTable } from '@t-types/data';
 
 import s from './CatalogPageInformation.module.scss';
@@ -32,10 +35,11 @@ const CatalogPageInformation: FC<{
 	price,
 }) => {
 	const { t } = useTranslation('catalog');
+	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 
 	return (
 		<>
-			<article className={cn(s.frame, s.info)}>
+			<article className={cn(s.container, s.info)}>
 				<div className={s.infoHeading}>
 					<h4 className={s.title}>{t('INFORMATION')}</h4>
 					<p>
@@ -54,7 +58,7 @@ const CatalogPageInformation: FC<{
 			</article>
 
 			{description && (
-				<article className={cn(s.frame, s.description)}>
+				<article className={cn(s.container, s.description)}>
 					<h4 className={s.title}>{t('DESCRIPTION')}</h4>
 					<hr className={s.line} />
 					<p
@@ -65,7 +69,7 @@ const CatalogPageInformation: FC<{
 				</article>
 			)}
 
-			<article className={cn(s.frame, s.address)}>
+			<article className={cn(s.container, s.address)}>
 				<h4 className={s.title}>{t('ADDRESS')}</h4>
 				<hr className={s.line} />
 				{address && <p>{address}</p>}
@@ -73,7 +77,7 @@ const CatalogPageInformation: FC<{
 				<CatalogPageMap fullAddress={originalAddress} />
 			</article>
 
-			<CatalogPageNotice />
+			{!isLaptop && <CatalogPageNotice />}
 		</>
 	);
 };

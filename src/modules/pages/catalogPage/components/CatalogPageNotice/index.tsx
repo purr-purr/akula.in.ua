@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import cn from 'classnames';
 
 import { CURRENCY } from '@utils/data';
 
@@ -10,7 +11,7 @@ const CatalogPageNotice: FC<{
 }> = ({ type = 'full' }) => {
 	const { t } = useTranslation('catalog');
 	return (
-		<p className={s.container}>
+		<p className={cn(s.container, type === 'full' && s[`container--full`])}>
 			<span className="star">*</span>
 			{type === 'short' ? (
 				t('ACCORDING_TO_THE_REQUIREMENTS')

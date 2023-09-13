@@ -64,8 +64,7 @@ const HomeAdvantages = () => {
 				<InnerLink
 					className={s.allRealEstateButton}
 					onClick={handleAllRealEstateButtonClick}
-					linkPath={`/${CATALOG_NAME}`}
-					text={tCommon('NAVIGATION.ALL_REAL_ESTATE')}
+					text={tHome('ADVANTAGES.ALL_ADVANTAGES')}
 				/>
 			)}
 		</section>

@@ -1,9 +1,17 @@
-.frame {
+.container {
   border-radius: 18px;
   border: 1px solid var(--nude);
   box-shadow: 0 14px 32px 0 rgba(214, 214, 214, 0.36);
-  padding: 40px 20px 0;
-  margin-bottom: 50px;
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 48px;
+  overflow: hidden;
+
+  @include media-tablet {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
   &:not(&.address) {
     padding-bottom: 40px;
@@ -14,6 +22,10 @@
   &Heading {
     @include flex-justify-align(space-between, center);
     margin-bottom: 24px;
+
+    @include media-tablet {
+      margin-bottom: 16px;
+    }
   }
 
   .id {
@@ -36,10 +48,18 @@
   border-bottom: none;
   margin-top: 16px;
   margin-bottom: 24px;
+
+  @include media-tablet {
+    margin-bottom: 16px;
+  }
 }
 
 .title {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 500;
+
+  @include media-laptop {
+    font-size: 16px;
+  }
 }

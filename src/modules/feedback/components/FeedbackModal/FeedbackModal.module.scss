@@ -8,6 +8,11 @@
   background-color: rgba(34, 34, 34, 0.60);
   backdrop-filter: blur(6px);
   cursor: pointer;
+
+  @include media-tablet {
+    top: -61px;
+    padding: 20px;
+  }
 }
 
 .inner {
@@ -21,6 +26,11 @@
   z-index: 3;
   overflow: hidden;
   cursor: auto;
+
+  @include media-tablet {
+    min-height: unset;
+    padding: 80px 40px;
+  }
 
   &:after {
     content: '';
@@ -41,6 +51,11 @@
     background-color: transparent;
     border: none;
     z-index: 5;
+
+    @include media-tablet {
+      right: 36px;
+      top: 36px;
+    }
 
     &:hover {
       path {

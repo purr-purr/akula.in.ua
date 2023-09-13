@@ -4,10 +4,6 @@
   cursor: pointer;
   font-weight: 300;
 
-  //@include media-tablet {
-  //  max-width: 450px;
-  //}
-
   @include media-mobile {
     max-width: 100%;
   }
@@ -33,6 +29,10 @@
     border: none;
     font-size: 16px;
     font-weight: 300;
+
+    @include media-laptop {
+      font-size: 14px;
+    }
 
     &:-webkit-autofill,
     &:-webkit-autofill::first-line,

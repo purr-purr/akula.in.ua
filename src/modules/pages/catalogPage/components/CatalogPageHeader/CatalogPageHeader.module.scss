@@ -2,12 +2,21 @@
   @include flex-justify-align(space-between, baseline);
   margin-bottom: 14px;
   gap: 20px;
+
+  @include media-tablet {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
 
 .address {
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
   font-weight: 400;
+
+  @include media-laptop {
+    font-size: 24px;
+  }
 }
 
 .price {
@@ -15,19 +24,37 @@
   font-weight: 700;
   color: var(--blue);
   min-width: 200px;
+
+  @include media-laptop {
+    font-size: 28px;
+  }
 }
 
 
 .description {
   @include flex-align(center);
+  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 24px;
+
+  @include media-laptop {
+    margin-bottom: 40px;
+  }
+
+  @include media-tablet {
+    margin-bottom: 24px;
+  }
 }
 
 .tags {
   display: flex;
   list-style-type: none;
   gap: 10px;
-  margin-right: 8px;
+  flex-wrap: wrap;
+
+  @include media-laptop {
+    gap: 8px;
+  }
 
   li {
     font-size: 12px;

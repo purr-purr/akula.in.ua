@@ -8,6 +8,11 @@
   border: none;
   transition: color .3s ease-in-out;
 
+  &.reverse svg {
+    order: -1;
+    transform: rotate(270deg);
+  }
+
   @include media-laptop {
     svg {
       width: 17px;

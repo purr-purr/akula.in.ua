@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import { HeaderContext } from '@context/HeaderContext';
 
 import Button from '@modules/common/components/Button';
 import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
@@ -25,6 +26,10 @@ const NavigationContacts = () => {
 
 	const [isFeedbackModal, setIsFeedbackModal] = useState(false);
 
+	const handleLeaveRequest = () => {
+		setIsFeedbackModal(true);
+	};
+
 	return (
 		<article className={s.container}>
 			<Link className={s.icon} href={`tel:${COMPANY_INFO.MAIN_CONTACT_NUMBER}`}>
@@ -41,6 +46,7 @@ const NavigationContacts = () => {
 
 			{!isLaptop && !isTablet && (
 				<Button
+					className={s.actionButtons}
 					type="link"
 					linkPath={`/${CATALOG_NAME}`}
 					color="transparent"
@@ -49,7 +55,8 @@ const NavigationContacts = () => {
 			)}
 
 			<Button
-				onClick={() => setIsFeedbackModal(true)}
+				className={s.actionButtons}
+				onClick={handleLeaveRequest}
 				text={t('LEAVE_A_REQUEST')}
 			/>
 
