@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 
 import { useMediaQuery, usePropertyPhoto } from '@hooks/index';
@@ -16,6 +16,23 @@ import { TABLET_BREAKPOINT } from '@utils/const';
 const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const postersList = usePropertyPhoto(id);
+	const [isFullScreenMode, setIsFullScreenMode] = useState<boolean>(false);
+
+	const handleOnScreenChange = (value: boolean) => {
+		isFullScreenMode !== value && setIsFullScreenMode(value);
+	};
+
+	useEffect(() => {
+		const element = document.querySelector('html');
+
+		if (element) {
+			element.setAttribute(
+				'style',
+				`${isFullScreenMode ? `overflow:hidden;` : ``}`,
+			);
+		}
+		// eslint-disable-next-line
+	}, [isFullScreenMode]);
 
 	return (
 		<article
@@ -26,6 +43,7 @@ const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 		>
 			{postersList.length ? (
 				<ImageGallery
+					onScreenChange={handleOnScreenChange}
 					showNav={!isTablet}
 					showThumbnails={!isTablet}
 					showPlayButton={false}

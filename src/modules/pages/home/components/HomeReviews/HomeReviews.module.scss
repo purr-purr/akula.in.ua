@@ -26,7 +26,8 @@
   height: 210px;
   margin-bottom: 24px;
   padding-right: 8px;
-  overflow-y: auto;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 
   @include media-tablet {
     margin-bottom: 40px;
