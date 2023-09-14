@@ -5,6 +5,13 @@
   flex-direction: column;
   margin-top: 200px;
   margin-bottom: 200px;
+  padding-right: 20px;
+  padding-left: 20px;
+
+  @include media-tablet {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
 
   p {
     max-width: 623px;
@@ -19,6 +26,11 @@
   gap: 24px;
   margin-bottom: 36px;
 
+  @include media-tablet {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
   & span {
     color: var(--blue);
     font-size: 150px;
@@ -26,11 +38,21 @@
     font-family: "Playfair Display", serif;
     font-weight: 700;
     font-variant: lining-nums;
+
+    @include media-tablet {
+      font-size: 100px;
+    }
   }
 }
 
 .nav {
-  @include flex-align(center);
+  @include flex-justify-align(center, center);
+  flex-wrap: wrap;
   gap: 24px;
   margin-top: 24px;
+
+  @include media-tablet {
+    gap: 16px;
+    margin-top: 16px;
+  }
 }

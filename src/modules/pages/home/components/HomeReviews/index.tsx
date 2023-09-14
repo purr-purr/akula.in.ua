@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useRef } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import cn from 'classnames';
@@ -18,6 +18,13 @@ const HomeReviews = () => {
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 	const slidesToShow = isTablet ? 1 : isLaptop ? 2 : 3;
+	const elementRef = useRef<HTMLInputElement | null>(null);
+
+	const handleClick = () => {
+		if (elementRef.current) {
+			elementRef.current.focus();
+		}
+	};
 
 	const CASES = [
 		{
@@ -50,7 +57,11 @@ const HomeReviews = () => {
 				{CASES.map((item) => {
 					return (
 						<Fragment key={uniqueId()}>
-							<p className={cn(s.text, s[item.color])}>
+							<p
+								onClick={handleClick}
+								ref={elementRef}
+								className={cn(s.text, s[item.color])}
+							>
 								<Trans t={t} i18nKey={`REVIEWS.${item.text}`}>
 									<br />
 								</Trans>

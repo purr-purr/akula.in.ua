@@ -33,6 +33,7 @@ const Filter: FC<{
 	const { filters, handleFilters } = useContext(CatalogContext);
 	const { data } = useDataFetching();
 	const router = useRouter();
+
 	const tabs = [t('OBJECT_INFO.RENT'), t('OBJECT_INFO.SELLING')];
 
 	const parseUniqueFilterItem = (
@@ -103,6 +104,12 @@ const Filter: FC<{
 		setActiveTabIndex(filters.contractType);
 	}, [filters]);
 
+	useEffect(() => {
+		return () => {
+			handleFilters(initialFilters);
+		};
+	}, []);
+
 	const getCurrentTabName = (index: number) => {
 		return index === 0 ? 'Оренда' : 'Продаж';
 	};
@@ -111,10 +118,26 @@ const Filter: FC<{
 		const currentTab = getCurrentTabName(index);
 
 		setActiveTabIndex(currentTab);
-		handleFilters({
-			...filters,
+		// handleFilters({
+		// 	...filters,
+		// 	contractType: currentTab,
+		// });
+
+		setCurrentFilters({
+			...currentFilters,
 			contractType: currentTab,
 		});
+	};
+
+	const formatUIInputValue = (label: string) => {
+		const labelKey = label as keyof IFilters;
+		if (currentFilters[labelKey] === 'All') {
+			return t('ALL');
+		}
+		if (labelKey === 'city') {
+			return t(formatCityTranslation(currentFilters[labelKey]));
+		}
+		return t(formatCatalogTranslation(currentFilters[labelKey]));
 	};
 
 	return (
@@ -141,11 +164,7 @@ const Filter: FC<{
 						label={item.category}
 					>
 						<Dropdown
-							customSelectedItem={
-								currentFilters[item.label] === 'All'
-									? t('ALL')
-									: currentFilters[item.label]
-							}
+							customSelectedItem={formatUIInputValue(item.label)}
 							label={item.label}
 							handleOnChange={handleOnChangeFilters}
 							options={item.list}
