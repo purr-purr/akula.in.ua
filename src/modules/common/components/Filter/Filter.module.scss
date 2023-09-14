@@ -106,7 +106,9 @@
 }
 
 .inputField {
-  max-width: 200px;
+  @include media-tablet {
+    max-width: 200px;
+  }
 
   @include media-low-tablet {
     max-width: 380px;

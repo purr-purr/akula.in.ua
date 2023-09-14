@@ -4,7 +4,7 @@
   left: calc((100% - 100vw) / 2);
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh + 4px);
   background-color: rgba(34, 34, 34, 0.60);
   backdrop-filter: blur(6px);
   cursor: pointer;

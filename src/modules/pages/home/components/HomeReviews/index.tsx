@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import cn from 'classnames';
 import { v4 as uniqueId } from 'uuid';
@@ -9,11 +9,7 @@ import CardSlider from '@modules/common/components/CardSlider';
 import STAR_ICON from '@modules/pages/home/components/HomeReviews/assets/star_icon.svg';
 
 import { useMediaQuery } from '@hooks/index';
-import {
-	LAPTOP_BREAKPOINT,
-	MOBILE_BREAKPOINT,
-	TABLET_BREAKPOINT,
-} from '@utils/const';
+import { LAPTOP_BREAKPOINT, TABLET_BREAKPOINT } from '@utils/const';
 
 import s from './HomeReviews.module.scss';
 
@@ -50,11 +46,19 @@ const HomeReviews = () => {
 		<section className={s.container}>
 			<BlockTitle title={t('REVIEWS.FEEDBACK_ABOUT_COOPERATION')} />
 
-			<CardSlider childrenClassName={s.card} slidesToShow={slidesToShow}>
+			<CardSlider
+				swiping={false}
+				childrenClassName={s.card}
+				slidesToShow={slidesToShow}
+			>
 				{CASES.map((item) => {
 					return (
 						<Fragment key={uniqueId()}>
-							<p className={cn(s.text, s[item.color])}>{t(`REVIEWS.${item.text}`)}</p>
+							<p className={cn(s.text, s[item.color])}>
+								<Trans t={t} i18nKey={`REVIEWS.${item.text}`}>
+									<br />
+								</Trans>
+							</p>
 							<p className={s.signature}>{t(`REVIEWS.${item.signature}`)}</p>
 							<ul className={s.rating}>
 								{[...Array(5)].map((_) => (

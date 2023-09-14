@@ -102,6 +102,10 @@
       @include media-laptop {
         padding-left: 20px;
       }
+
+      @include media-tablet {
+        padding-left: 11px;
+      }
     }
   }
 

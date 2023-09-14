@@ -6,7 +6,7 @@ import { useMediaQuery } from '@hooks/index';
 import { LAPTOP_BREAKPOINT, TABLET_BREAKPOINT } from '@utils/const';
 
 import LOGO_WHITE from '@public/assets/logo--white.svg';
-import LOGO from '@public/assets/logo.svg';
+import LOGO from '@public/assets/logo.png';
 
 const Logo: FC<{ type?: 'white' | 'black' }> = ({ type = 'black' }) => {
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);

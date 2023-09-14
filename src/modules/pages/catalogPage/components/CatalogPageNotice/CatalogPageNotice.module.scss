@@ -1,5 +1,6 @@
 .container {
   font-size: 12px;
+  color: var(--gray);
 
   &--full {
     @include media-laptop {

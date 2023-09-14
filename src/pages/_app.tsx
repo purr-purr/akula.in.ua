@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { appWithI18Next } from 'ni18n';
+import { appWithI18Next, useSyncLanguage } from 'ni18n';
 import { ni18nConfig } from 'ni18n.config';
 
 import Layout from '@modules/layout/components/Layout';
@@ -15,6 +15,11 @@ import Loader from '@modules/common/components/Loader';
 import Meta from '@modules/common/components/Meta';
 
 function App({ Component, pageProps }: AppProps) {
+	const locale =
+		typeof window !== 'undefined' && window.localStorage.getItem('userLanguage');
+
+	useSyncLanguage(locale ? locale : 'ua');
+
 	const router = useRouter();
 	const [loading, setLoading] = useState(true);
 
