@@ -149,10 +149,6 @@
 
   :global(.image-gallery-bullets) {
     bottom: -32px;
-
-    @include media-tablet {
-      bottom: 0;
-    }
   }
 
   :global(.image-gallery-bullets .image-gallery-bullet) {
@@ -187,5 +183,9 @@
 
   :global(.fullscreen .image-gallery-fullscreen-button) {
     bottom: -30px;
+
+    @include media-tablet {
+      bottom: 0;
+    }
   }
 }
