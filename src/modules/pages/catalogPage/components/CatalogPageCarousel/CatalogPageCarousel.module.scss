@@ -68,6 +68,10 @@
     }
   }
 
+  :global(.image-gallery.fullscreen-modal) {
+    z-index: 101;
+  }
+
   :global(.image-gallery-slide-wrapper) {
     height: 100%;
   }

@@ -50,7 +50,10 @@ const HomeReviews = () => {
 				{CASES.map((item) => {
 					return (
 						<Fragment key={uniqueId()}>
-							<p className={cn(s.text, s[item.color])}>
+							<p
+								onTouchStart={(e) => e.preventDefault()}
+								className={cn(s.text, s[item.color])}
+							>
 								<Trans t={t} i18nKey={`REVIEWS.${item.text}`}>
 									<br />
 								</Trans>
