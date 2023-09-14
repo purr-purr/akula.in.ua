@@ -97,6 +97,10 @@
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     width: auto;
     max-width: 100%;
+
+    & li:nth-child(2) {
+      order: 1;
+    }
   }
 
   @include media-mobile {

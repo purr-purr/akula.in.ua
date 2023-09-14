@@ -61,7 +61,6 @@ const CardSlider: FC<{
 	slidesToShow?: number;
 	dragging?: boolean;
 	autoplay?: boolean;
-	swiping?: boolean;
 }> = ({
 	children,
 	childrenClassName,
@@ -70,7 +69,6 @@ const CardSlider: FC<{
 	slidesToShow = 4,
 	dragging = true,
 	autoplay = false,
-	swiping = true,
 }) => {
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 	const cellSpacing = isLaptop ? 10 : 20;
@@ -94,7 +92,6 @@ const CardSlider: FC<{
 			autoplayInterval={4000}
 			disableEdgeSwiping
 			dragging={dragging}
-			swiping={swiping}
 			wrapAround={true}
 			renderCenterLeftControls={renderCenterLeftControls}
 			renderCenterRightControls={renderCenterRightControls}

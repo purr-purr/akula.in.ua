@@ -208,7 +208,7 @@
   }
 
   @include media-tablet {
-    left: auto;
+    left: unset;
     right: -47px;
   }
 

@@ -31,7 +31,7 @@ const NavigationContacts = () => {
 	};
 
 	return (
-		<article className={s.container}>
+		<article className={s.container} onClick={(e) => e.stopPropagation()}>
 			<Link className={s.icon} href={`tel:${COMPANY_INFO.MAIN_CONTACT_NUMBER}`}>
 				<IconPhone />
 			</Link>

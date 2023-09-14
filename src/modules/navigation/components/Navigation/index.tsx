@@ -46,8 +46,11 @@ const Navigation = () => {
 
 	return (
 		<>
-			<nav className={cn(s.container, isMobileNavMode && s.active)}>
-				<ul className={s.list}>
+			<nav
+				onClick={() => handleMobileNavMode(false)}
+				className={cn(s.container, isMobileNavMode && s.active)}
+			>
+				<ul className={s.list} onClick={(e) => e.stopPropagation()}>
 					{NAVIGATION.map((item: INavigation) => (
 						<li key={item.path} onClick={() => handleMobileNavMode(false)}>
 							<Link

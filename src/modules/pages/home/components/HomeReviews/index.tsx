@@ -46,11 +46,7 @@ const HomeReviews = () => {
 		<section className={s.container}>
 			<BlockTitle title={t('REVIEWS.FEEDBACK_ABOUT_COOPERATION')} />
 
-			<CardSlider
-				swiping={false}
-				childrenClassName={s.card}
-				slidesToShow={slidesToShow}
-			>
+			<CardSlider childrenClassName={s.card} slidesToShow={slidesToShow}>
 				{CASES.map((item) => {
 					return (
 						<Fragment key={uniqueId()}>

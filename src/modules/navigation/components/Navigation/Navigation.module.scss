@@ -7,11 +7,11 @@
   }
 
   &.active {
+    height: calc(100dvh - 60px);
+    width: 100%;
     @include flex-justify-align(center, center);
     flex-direction: column;
     position: absolute;
-    width: 100%;
-    height: calc(100vh - 60px);
     background-color: var(--white);
     left: 0;
     top: 60px;

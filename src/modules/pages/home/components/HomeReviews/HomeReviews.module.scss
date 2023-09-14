@@ -27,7 +27,7 @@
   margin-bottom: 24px;
   padding-right: 8px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @include media-tablet {
     margin-bottom: 40px;
