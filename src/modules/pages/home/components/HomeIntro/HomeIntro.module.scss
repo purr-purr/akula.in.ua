@@ -50,7 +50,7 @@
   list-style-type: none;
 
   @include media-mobile {
-    grid-template-columns:  minmax(117px, 170px) 1fr minmax(95px, 130px);
+    grid-template-columns: 2fr 2fr minmax(98px, 98px);
   }
 
   & li {
@@ -148,13 +148,10 @@
     grid-template-columns: 1fr;
   }
 
-  & img {
-    width: 100%;
-  }
-
   & .first {
     grid-column: 1 / 2;
     grid-row: 1;
+    width: 100%;
     height: 300px;
     border-radius: 60px;
     background-color: var(--secondary-blue);
@@ -171,6 +168,7 @@
     border-bottom-right-radius: 60px;
     background-color: var(--primary);
     max-height: 610px;
+    width: 100%;
 
     @include media-laptop {
       max-height: 420px;
@@ -181,6 +179,7 @@
     grid-column: 1/2;
     grid-row: 2;
     height: 300px;
+    width: 100%;
     border-radius: 60px;
     background-color: var(--nude);
 
@@ -195,6 +194,7 @@
     background-color: var(--primary);
     height: auto;
     max-width: 420px;
+    width: 100%;
   }
 }
 
