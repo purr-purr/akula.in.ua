@@ -82,6 +82,7 @@ const CardSlider: FC<{
 
 	return (
 		<Carousel
+			swiping={false}
 			className={cn(s.container, frameClassName)}
 			withoutControls={withoutControls}
 			slidesToScroll={1}
