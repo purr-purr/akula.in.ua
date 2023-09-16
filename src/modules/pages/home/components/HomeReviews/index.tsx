@@ -59,6 +59,7 @@ const HomeReviews = () => {
 						<Fragment key={uniqueId()}>
 							<div
 								onClick={handleScrollBlockFocus}
+								onTouchStart={handleScrollBlockFocus}
 								className={cn(s.text, s[item.color])}
 								ref={elementRef}
 							>
