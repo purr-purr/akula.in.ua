@@ -20,7 +20,7 @@ const HomeReviews = () => {
 	const slidesToShow = isTablet ? 1 : isLaptop ? 2 : 3;
 	const elementRef = useRef<HTMLInputElement | null>(null);
 
-	const handleClick = () => {
+	const handleScrollBlockFocus = () => {
 		if (elementRef.current) {
 			elementRef.current.focus();
 		}
@@ -57,15 +57,17 @@ const HomeReviews = () => {
 				{CASES.map((item) => {
 					return (
 						<Fragment key={uniqueId()}>
-							<p
-								onClick={handleClick}
-								ref={elementRef}
+							<div
+								onClick={handleScrollBlockFocus}
 								className={cn(s.text, s[item.color])}
+								ref={elementRef}
 							>
-								<Trans t={t} i18nKey={`REVIEWS.${item.text}`}>
-									<br />
-								</Trans>
-							</p>
+								<p>
+									<Trans t={t} i18nKey={`REVIEWS.${item.text}`}>
+										<br />
+									</Trans>
+								</p>
+							</div>
 							<p className={s.signature}>{t(`REVIEWS.${item.signature}`)}</p>
 							<ul className={s.rating}>
 								{[...Array(5)].map((_) => (

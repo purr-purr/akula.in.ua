@@ -3,40 +3,25 @@ import cn from 'classnames';
 
 import IconArrow from '@modules/icons/components/IconArrow';
 
+import type { DropdownOptions } from '@modules/common/types/dropdown';
+
 import s from './Dropdown.module.scss';
 
 const Dropdown: FC<{
-	options: {
-		value: any;
-		title: string;
-	}[];
-	disabledItem?: string;
-	onClick?: (item: string) => void;
-	customSelectedItem?: string;
+	options: DropdownOptions[];
+	currentOption: DropdownOptions;
 	className?: string;
-	handleOnChange?: (arg0: string, arg1: string) => void;
+	handleOnChange: (arg0: DropdownOptions, arg1: string) => void;
 	label?: string;
-}> = ({
-	options,
-	disabledItem,
-	onClick,
-	customSelectedItem,
-	className,
-	handleOnChange,
-	label = '',
-}) => {
+}> = ({ options, currentOption, className, handleOnChange, label = '' }) => {
 	const [isDropdown, setIsDropdown] = useState(false);
-	const [selectedItem, setSelectedItem] = useState<string>(options[0].title);
-	const [selectedValueItem, setSelectedValueItem] = useState<string>(
-		options[0].value,
+	const [selectedOption, setSelectedOption] = useState<DropdownOptions>(
+		currentOption || options[0],
 	);
-
 	const targetRef = useRef<HTMLDivElement | null>(null);
 
-	const handleItemClick = (selectedItem: string, initialItem: string) => {
-		onClick && onClick(selectedItem);
-		setSelectedItem(selectedItem);
-		setSelectedValueItem(initialItem);
+	const handleItemClick = (value: DropdownOptions) => {
+		setSelectedOption(value);
 	};
 
 	const handleClickOutside = (event: MouseEvent) => {
@@ -53,25 +38,25 @@ const Dropdown: FC<{
 	}, []);
 
 	useEffect(() => {
-		if (handleOnChange !== undefined) {
-			handleOnChange(selectedValueItem, label);
-		}
-
+		handleOnChange(selectedOption, label);
 		setIsDropdown(false);
 		// eslint-disable-next-line
-	}, [selectedItem]);
+	}, [selectedOption]);
+
+	useEffect(() => {
+		if (currentOption.value !== selectedOption.value) {
+			setSelectedOption(currentOption);
+		}
+		// eslint-disable-next-line
+	}, [currentOption]);
 
 	return (
-		<div
-			data-label={label}
-			className={cn(s.container, className)}
-			ref={targetRef}
-		>
+		<div className={cn(s.container, className)} ref={targetRef}>
 			<button
 				onClick={() => setIsDropdown(!isDropdown)}
 				className={cn(s.selected, isDropdown && s.active)}
 			>
-				<span>{customSelectedItem || selectedItem}</span>
+				<span>{selectedOption.title}</span>
 				<IconArrow />
 			</button>
 			{isDropdown && (
@@ -80,11 +65,10 @@ const Dropdown: FC<{
 						<li
 							className={cn(
 								s.listItem,
-								disabledItem === item.value && s.disabled,
-								customSelectedItem || (selectedItem === item.value && s.current),
+								item.value === selectedOption.value && s.current,
 							)}
 							key={item.value + i}
-							onClick={() => handleItemClick(item.title, item.value)}
+							onClick={() => handleItemClick(item)}
 						>
 							{item.title}
 						</li>

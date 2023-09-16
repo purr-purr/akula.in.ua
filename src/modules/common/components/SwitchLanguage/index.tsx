@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 
 import Dropdown from '@modules/common/components/Dropdown';
 
+import type { DropdownOptions } from '@modules/common/types/dropdown';
+
 import s from './SwitchLanguage.module.scss';
 
 export default function SwitchLanguage() {
@@ -15,20 +17,24 @@ export default function SwitchLanguage() {
 		{ value: 'en', title: 'en' },
 	];
 
-	const switchLanguage = (selectedLanguage: string) => {
+	const switchLanguage = (selectedLanguage: DropdownOptions) => {
 		const { asPath } = router;
-		i18n.changeLanguage(selectedLanguage).then();
-		router.push(asPath, asPath, { locale: selectedLanguage }).then();
-		localStorage.setItem('userLanguage', selectedLanguage);
+		i18n.changeLanguage(selectedLanguage.value).then();
+		router.push(asPath, asPath, { locale: selectedLanguage.value }).then();
+		localStorage.setItem('userLanguage', selectedLanguage.value);
+	};
+
+	const getCurrentSelectedLanguage = () => {
+		const result = languages.filter((item) => item.value === i18n.language);
+		return result[0];
 	};
 
 	return (
 		<Dropdown
-			onClick={switchLanguage}
+			handleOnChange={switchLanguage}
 			options={languages}
-			disabledItem={i18n.language}
-			customSelectedItem={i18n.language}
-			className={s.size}
+			currentOption={getCurrentSelectedLanguage()}
+			className={s.container}
 		/>
 	);
 }

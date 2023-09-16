@@ -16,6 +16,7 @@ import {
 	formatCityTranslation,
 } from '@utils/formatters';
 
+import type { DropdownOptions } from '@modules/common/types/dropdown';
 import type { ICatalogData } from '@t-types/data';
 import type { IFilters } from '@t-types/filters';
 import type { FormEvent } from 'react';
@@ -43,7 +44,7 @@ const Filter: FC<{
 		return Array.from(new Set(data.map((item: ICatalogData) => item[key]))).map(
 			(item) => {
 				return {
-					value: item,
+					value: item.toString(),
 					title: t(
 						key === 'city'
 							? formatCityTranslation(item.toString())
@@ -65,23 +66,23 @@ const Filter: FC<{
 		category: string,
 		label: keyof typeof filterListOptions,
 	) => ({
-		category: category,
+		category: t(category),
 		label: label,
 		list: [{ value: 'All', title: t('ALL') }, ...filterListOptions[label]],
 	});
 
 	const UI_FILTERS_LIST = [
-		createUIFilterItem(t('PROPERTY_TYPE'), 'propertyType'),
+		createUIFilterItem('PROPERTY_TYPE', 'propertyType'),
 		createUIFilterItem(
-			t('TYPE_OF_REAL_ESTATE.TYPE_OF_REAL_ESTATE'),
+			'TYPE_OF_REAL_ESTATE.TYPE_OF_REAL_ESTATE',
 			'realEstateType',
 		),
-		createUIFilterItem(t('CITY'), 'city'),
+		createUIFilterItem('CITY', 'city'),
 	];
 
-	const handleOnChangeFilters = (initial: string, label: string) => {
+	const handleOnChangeFilters = (item: DropdownOptions, label: string) => {
 		const currentObject: IFilters = { ...currentFilters };
-		currentObject[label as keyof IFilters] = initial;
+		currentObject[label as keyof IFilters] = item.value;
 		setCurrentFilters(currentObject);
 	};
 
@@ -91,24 +92,17 @@ const Filter: FC<{
 
 	const handleApplyFilters = () => {
 		handleFilters(currentFilters);
-		const catalogPath = `/${CATALOG_NAME}`;
 
+		const catalogPath = `/${CATALOG_NAME}`;
 		if (router.asPath !== catalogPath) {
 			router.push(catalogPath).then();
 		}
 	};
 
 	useEffect(() => {
-		console.log(filters);
 		setCurrentFilters(filters);
 		setActiveTabIndex(filters.contractType);
 	}, [filters]);
-
-	useEffect(() => {
-		return () => {
-			handleFilters(initialFilters);
-		};
-	}, []);
 
 	const getCurrentTabName = (index: number) => {
 		return index === 0 ? 'Оренда' : 'Продаж';
@@ -116,28 +110,22 @@ const Filter: FC<{
 
 	const handleTabButtonClick = (index: number) => {
 		const currentTab = getCurrentTabName(index);
-
 		setActiveTabIndex(currentTab);
-		// handleFilters({
-		// 	...filters,
-		// 	contractType: currentTab,
-		// });
-
-		setCurrentFilters({
-			...currentFilters,
+		handleFilters({
+			...filters,
 			contractType: currentTab,
 		});
 	};
 
-	const formatUIInputValue = (label: string) => {
+	const translateInputValue = (label: string) => {
 		const labelKey = label as keyof IFilters;
 		if (currentFilters[labelKey] === 'All') {
-			return t('ALL');
+			return 'ALL';
 		}
 		if (labelKey === 'city') {
-			return t(formatCityTranslation(currentFilters[labelKey]));
+			return formatCityTranslation(currentFilters[labelKey]);
 		}
-		return t(formatCatalogTranslation(currentFilters[labelKey]));
+		return formatCatalogTranslation(currentFilters[labelKey]);
 	};
 
 	return (
@@ -164,7 +152,10 @@ const Filter: FC<{
 						label={item.category}
 					>
 						<Dropdown
-							customSelectedItem={formatUIInputValue(item.label)}
+							currentOption={{
+								value: currentFilters[item.label],
+								title: t(translateInputValue(item.label)),
+							}}
 							label={item.label}
 							handleOnChange={handleOnChangeFilters}
 							options={item.list}
