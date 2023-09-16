@@ -23,7 +23,7 @@ const HomeReviews = () => {
 	const elementRef = useRef<HTMLInputElement | null>(null);
 
 	const handleScrollBlockFocus = (e: TouchEvent | MouseEvent) => {
-		e.stopPropagation();
+		e.preventDefault();
 		if (elementRef.current) {
 			elementRef.current.focus();
 		}
