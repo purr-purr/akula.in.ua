@@ -11,6 +11,8 @@ import STAR_ICON from '@modules/pages/home/components/HomeReviews/assets/star_ic
 import { useMediaQuery } from '@hooks/index';
 import { LAPTOP_BREAKPOINT, TABLET_BREAKPOINT } from '@utils/const';
 
+import type { MouseEvent, TouchEvent } from 'react';
+
 import s from './HomeReviews.module.scss';
 
 const HomeReviews = () => {
@@ -20,7 +22,8 @@ const HomeReviews = () => {
 	const slidesToShow = isTablet ? 1 : isLaptop ? 2 : 3;
 	const elementRef = useRef<HTMLInputElement | null>(null);
 
-	const handleScrollBlockFocus = () => {
+	const handleScrollBlockFocus = (e: TouchEvent | MouseEvent) => {
+		e.stopPropagation();
 		if (elementRef.current) {
 			elementRef.current.focus();
 		}
@@ -58,8 +61,8 @@ const HomeReviews = () => {
 					return (
 						<Fragment key={uniqueId()}>
 							<div
-								onClick={handleScrollBlockFocus}
-								onTouchStart={handleScrollBlockFocus}
+								onClick={(e) => handleScrollBlockFocus(e)}
+								onTouchStart={(e) => handleScrollBlockFocus(e)}
 								className={cn(s.text, s[item.color])}
 								ref={elementRef}
 							>
