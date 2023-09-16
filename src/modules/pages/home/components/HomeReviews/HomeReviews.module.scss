@@ -29,10 +29,12 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  will-change: height;
+  user-select: none;
 
   @include media-tablet {
     margin-bottom: 40px;
-    height: 206px;
+    height: calc(205px + 1px);
   }
 
   &:before {
