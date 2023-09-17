@@ -33,7 +33,6 @@
   user-select: none;
   scroll-snap-type: y mandatory;
   -webkit-user-drag: none;
-  width: 100%;
 
   @include media-tablet {
     pointer-events: all;
@@ -42,7 +41,6 @@
   }
 
   @supports (-webkit-touch-callout: none) {
-    white-space: nowrap;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
   }
