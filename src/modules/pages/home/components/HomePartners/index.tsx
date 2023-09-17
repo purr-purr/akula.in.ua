@@ -40,7 +40,7 @@ const Partners = () => {
 			withoutControls
 			childrenClassName={s.item}
 			slidesToShow={slidesToShow}
-			dragging={false}
+			dragging={isTablet}
 			autoplay={true}
 		>
 			{partnersList.map((item, i) => (

@@ -9,7 +9,6 @@ import cn from 'classnames';
 import BlockTitle from '@modules/common/components/BlockTitle';
 import CardSlider from '@modules/common/components/CardSlider';
 import InnerLink from '@modules/common/components/InnerLink';
-import IconArrowUp from '@modules/icons/components/IconArrowUp';
 
 import { useDataFetching, useMediaQuery } from '@hooks/index';
 import {

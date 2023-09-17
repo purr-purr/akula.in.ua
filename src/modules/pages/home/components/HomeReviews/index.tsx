@@ -69,7 +69,11 @@ const HomeReviews = () => {
 
 			<BlockTitle title={t('REVIEWS.FEEDBACK_ABOUT_COOPERATION')} />
 
-			<CardSlider childrenClassName={s.card} slidesToShow={slidesToShow}>
+			<CardSlider
+				dragging={false}
+				childrenClassName={s.card}
+				slidesToShow={slidesToShow}
+			>
 				{CASES.map((item) => {
 					return (
 						<Fragment key={uniqueId()}>
