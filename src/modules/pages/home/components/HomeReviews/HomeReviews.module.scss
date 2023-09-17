@@ -31,6 +31,8 @@
   -webkit-overflow-scrolling: touch;
   will-change: height;
   user-select: none;
+  scroll-snap-type: y mandatory;
+  width: 100%;
 
   @include media-tablet {
     pointer-events: all;
