@@ -37,9 +37,8 @@
   display: inline-block;
   pointer-events: all;
   position: relative;
-  min-height: fit-content;
-
-
+  //min-height: fit-content;
+  
   @include media-tablet {
     margin-bottom: 40px;
     height: calc(205px + 1px);
