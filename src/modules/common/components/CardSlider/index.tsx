@@ -83,7 +83,7 @@ const CardSlider: FC<{
 	return (
 		<Carousel
 			enableKeyboardControls={true}
-			swiping={true}
+			swiping={false}
 			className={cn(s.container, frameClassName)}
 			withoutControls={withoutControls}
 			slidesToScroll={1}
