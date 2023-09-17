@@ -54,6 +54,19 @@ const HomeReviews = () => {
 
 	return (
 		<section className={s.container}>
+			<div
+				onClick={(e) => handleScrollBlockFocus(e)}
+				onTouchStart={(e) => handleScrollBlockFocus(e)}
+				className={cn(s.text)}
+				ref={elementRef}
+			>
+				<p>
+					<Trans t={t} i18nKey={`REVIEWS.ENERGY_SOLUTIONS_TEXT`}>
+						<br />
+					</Trans>
+				</p>
+			</div>
+
 			<BlockTitle title={t('REVIEWS.FEEDBACK_ABOUT_COOPERATION')} />
 
 			<CardSlider childrenClassName={s.card} slidesToShow={slidesToShow}>

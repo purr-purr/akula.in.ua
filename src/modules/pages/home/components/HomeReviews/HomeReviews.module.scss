@@ -32,12 +32,19 @@
   will-change: height;
   user-select: none;
   scroll-snap-type: y mandatory;
+  -webkit-user-drag: none;
   width: 100%;
 
   @include media-tablet {
     pointer-events: all;
     margin-bottom: 40px;
     height: calc(205px + 1px);
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    white-space: nowrap;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 
   &:before {
