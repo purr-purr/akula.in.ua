@@ -1,12 +1,4 @@
-import {
-	Children,
-	cloneElement,
-	FC,
-	isValidElement,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
+import { Children, cloneElement, FC, isValidElement } from 'react';
 import cn from 'classnames';
 import Carousel from 'nuka-carousel';
 import { v4 as uniqueId } from 'uuid';
@@ -16,6 +8,7 @@ import IconSliderButton from '@modules/icons/components/IconSliderButton';
 import { useMediaQuery } from '@hooks/index';
 import { LAPTOP_BREAKPOINT } from '@utils/const';
 
+import type { CSSProperties } from 'react';
 import type { ReactNode } from 'react';
 
 import s from './CardSlider.module.scss';
@@ -62,6 +55,7 @@ const renderBottomCenterControls = ({
 };
 
 const CardSlider: FC<{
+	styles?: CSSProperties;
 	children: ReactNode | ReactNode[];
 	childrenClassName?: string;
 	frameClassName?: string;
@@ -79,6 +73,7 @@ const CardSlider: FC<{
 	dragging = true,
 	autoplay = false,
 	adaptiveHeight = false,
+	styles,
 }) => {
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 	const cellSpacing = isLaptop ? 10 : 20;
@@ -90,26 +85,9 @@ const CardSlider: FC<{
 		return child;
 	});
 
-	const elementRef = useRef<HTMLDivElement | null>(null);
-	// const [initialAutoHeight, setInitialAutoHeight] = useState<string>('auto');
-	//
-	// useEffect(() => {
-	// 	if (adaptiveHeight && elementRef.current) {
-	// 		// console.log(elementRef);
-	// 		const styles = window.getComputedStyle(elementRef.current);
-	// 		// console.log(styles);
-	// 		setInitialAutoHeight(styles.height);
-	// 		// console.log(styles.height);
-	// 	}
-	// }, []);
-
-	// useEffect(() => {
-	// 	console.log(initialAutoHeight);
-	// }, [initialAutoHeight]);
-
 	return (
 		<Carousel
-			// adaptiveHeightAnimation
+			style={styles}
 			frameAriaLabel={uniqueId()}
 			adaptiveHeight={adaptiveHeight}
 			enableKeyboardControls={true}
@@ -131,19 +109,7 @@ const CardSlider: FC<{
 		>
 			{childrenRender &&
 				childrenRender.map((item) => (
-					<div
-						key={uniqueId()}
-						// style={
-						// 	initialAutoHeight !== 'auto'
-						// 		? {
-						// 				color: 'red',
-						// 				height: initialAutoHeight,
-						// 		  }
-						// 		: undefined
-						// }
-						className={cn(s.card, childrenClassName)}
-						ref={elementRef}
-					>
+					<div key={uniqueId()} className={cn(s.card, childrenClassName)}>
 						{item}
 					</div>
 				))}

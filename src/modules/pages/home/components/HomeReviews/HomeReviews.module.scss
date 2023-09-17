@@ -7,16 +7,14 @@
 }
 
 .frame {
-  //min-height: calc(100% + 50px);
-  //min-height: 397px;
-  //height: fit-content !important;
-  //
   padding-bottom: 0;
-  padding-top: 0;
+
+  @include media-tablet {
+    padding-top: 0;
+  }
 }
 
 .card {
-  //margin-bottom: 20px;
   padding: 67px 20px 24px;
   overflow: visible;
   position: relative;
@@ -34,30 +32,24 @@
 
 .text {
   height: 210px;
+  min-height: 210px;
   margin-bottom: 24px;
   padding-right: 8px;
   overflow-y: scroll;
 
-  //scroll-behavior: smooth;
-  //-webkit-overflow-scrolling: touch;
-  //will-change: height;
-  //user-select: none;
-  //-webkit-scroll-snap-type: y mandatory;
-  //scroll-snap-type: y mandatory;
-  //-webkit-user-drag: auto;
-  //display: inline-block;
-  //pointer-events: all;
-  //min-height: fit-content;
-
   @include media-tablet {
     margin-bottom: 40px;
-    height: fit-content;
+    height: auto;
+    min-height: 100px;
   }
 
-  //@supports (-webkit-touch-callout: none) {
-  //  overflow: scroll;
-  //  -webkit-overflow-scrolling: touch;
-  //}
+  @include media-low-tablet {
+    min-height: 130px;
+  }
+
+  @include media-mobile {
+    min-height: 230px;
+  }
 
   &:before {
     content: '';

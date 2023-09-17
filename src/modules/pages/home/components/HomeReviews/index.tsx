@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef } from 'react';
+import { Fragment } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import cn from 'classnames';
@@ -10,8 +10,6 @@ import STAR_ICON from '@modules/pages/home/components/HomeReviews/assets/star_ic
 
 import { useMediaQuery } from '@hooks/index';
 import { LAPTOP_BREAKPOINT, TABLET_BREAKPOINT } from '@utils/const';
-
-import type { MouseEvent, TouchEvent } from 'react';
 
 import s from './HomeReviews.module.scss';
 
@@ -50,7 +48,7 @@ const HomeReviews = () => {
 
 			<CardSlider
 				frameClassName={s.frame}
-				adaptiveHeight
+				adaptiveHeight={isTablet}
 				dragging={false}
 				childrenClassName={s.card}
 				slidesToShow={slidesToShow}
