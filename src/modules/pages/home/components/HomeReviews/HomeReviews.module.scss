@@ -6,7 +6,17 @@
   }
 }
 
+.frame {
+  //min-height: calc(100% + 50px);
+  //min-height: 397px;
+  //height: fit-content !important;
+  //
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
 .card {
+  //margin-bottom: 20px;
   padding: 67px 20px 24px;
   overflow: visible;
   position: relative;
@@ -16,7 +26,7 @@
   }
 
   @include media-tablet {
-    padding-top: 50px;
+    padding-top: 60px;
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -27,43 +37,45 @@
   margin-bottom: 24px;
   padding-right: 8px;
   overflow-y: scroll;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  will-change: height;
-  user-select: none;
-  -webkit-scroll-snap-type: y mandatory;
-  scroll-snap-type: y mandatory;
-  -webkit-user-drag: auto;
-  display: inline-block;
-  pointer-events: all;
-  position: relative;
+
+  //scroll-behavior: smooth;
+  //-webkit-overflow-scrolling: touch;
+  //will-change: height;
+  //user-select: none;
+  //-webkit-scroll-snap-type: y mandatory;
+  //scroll-snap-type: y mandatory;
+  //-webkit-user-drag: auto;
+  //display: inline-block;
+  //pointer-events: all;
   //min-height: fit-content;
-  
+
   @include media-tablet {
     margin-bottom: 40px;
-    height: calc(205px + 1px);
-    max-height: calc(205px + 1px);
+    height: fit-content;
   }
 
-  @supports (-webkit-touch-callout: none) {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  //&:before {
-  //  content: '';
-  //  position: absolute;
-  //  left: 20px;
-  //  top: -20px;
-  //  width: 80px;
-  //  height: 63px;
-  //  background-size: 100%;
-  //
-  //  @include media-tablet {
-  //    width: 70px;
-  //    height: 55px;
-  //  }
+  //@supports (-webkit-touch-callout: none) {
+  //  overflow: scroll;
+  //  -webkit-overflow-scrolling: touch;
   //}
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 80px;
+    height: 63px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    @include media-tablet {
+      left: 17px;
+      top: 12px;
+      width: 45px;
+      height: 36px;
+    }
+  }
 
   &.gray {
     &:before {

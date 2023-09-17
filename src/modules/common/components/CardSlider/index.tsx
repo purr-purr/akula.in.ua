@@ -1,4 +1,12 @@
-import { Children, cloneElement, FC, isValidElement } from 'react';
+import {
+	Children,
+	cloneElement,
+	FC,
+	isValidElement,
+	useEffect,
+	useRef,
+	useState,
+} from 'react';
 import cn from 'classnames';
 import Carousel from 'nuka-carousel';
 import { v4 as uniqueId } from 'uuid';
@@ -61,6 +69,7 @@ const CardSlider: FC<{
 	slidesToShow?: number;
 	dragging?: boolean;
 	autoplay?: boolean;
+	adaptiveHeight?: boolean;
 }> = ({
 	children,
 	childrenClassName,
@@ -69,6 +78,7 @@ const CardSlider: FC<{
 	slidesToShow = 4,
 	dragging = true,
 	autoplay = false,
+	adaptiveHeight = false,
 }) => {
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 	const cellSpacing = isLaptop ? 10 : 20;
@@ -80,8 +90,28 @@ const CardSlider: FC<{
 		return child;
 	});
 
+	const elementRef = useRef<HTMLDivElement | null>(null);
+	// const [initialAutoHeight, setInitialAutoHeight] = useState<string>('auto');
+	//
+	// useEffect(() => {
+	// 	if (adaptiveHeight && elementRef.current) {
+	// 		// console.log(elementRef);
+	// 		const styles = window.getComputedStyle(elementRef.current);
+	// 		// console.log(styles);
+	// 		setInitialAutoHeight(styles.height);
+	// 		// console.log(styles.height);
+	// 	}
+	// }, []);
+
+	// useEffect(() => {
+	// 	console.log(initialAutoHeight);
+	// }, [initialAutoHeight]);
+
 	return (
 		<Carousel
+			// adaptiveHeightAnimation
+			frameAriaLabel={uniqueId()}
+			adaptiveHeight={adaptiveHeight}
 			enableKeyboardControls={true}
 			swiping={false}
 			className={cn(s.container, frameClassName)}
@@ -101,7 +131,19 @@ const CardSlider: FC<{
 		>
 			{childrenRender &&
 				childrenRender.map((item) => (
-					<div key={uniqueId()} className={cn(s.card, childrenClassName)}>
+					<div
+						key={uniqueId()}
+						// style={
+						// 	initialAutoHeight !== 'auto'
+						// 		? {
+						// 				color: 'red',
+						// 				height: initialAutoHeight,
+						// 		  }
+						// 		: undefined
+						// }
+						className={cn(s.card, childrenClassName)}
+						ref={elementRef}
+					>
 						{item}
 					</div>
 				))}

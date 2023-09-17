@@ -1,4 +1,4 @@
-import { Fragment, useRef } from 'react';
+import { Fragment, useEffect, useRef } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import cn from 'classnames';
@@ -20,14 +20,6 @@ const HomeReviews = () => {
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 	const slidesToShow = isTablet ? 1 : isLaptop ? 2 : 3;
-	const elementRef = useRef<HTMLInputElement | null>(null);
-
-	const handleScrollBlockFocus = (e: TouchEvent | MouseEvent) => {
-		e.preventDefault();
-		if (elementRef.current) {
-			elementRef.current.focus();
-		}
-	};
 
 	const CASES = [
 		{
@@ -54,22 +46,11 @@ const HomeReviews = () => {
 
 	return (
 		<section className={s.container}>
-			<div
-				onClick={(e) => handleScrollBlockFocus(e)}
-				onTouchStart={(e) => handleScrollBlockFocus(e)}
-				className={cn(s.text)}
-				ref={elementRef}
-			>
-				<p>
-					<Trans t={t} i18nKey={`REVIEWS.ENERGY_SOLUTIONS_TEXT`}>
-						<br />
-					</Trans>
-				</p>
-			</div>
-
 			<BlockTitle title={t('REVIEWS.FEEDBACK_ABOUT_COOPERATION')} />
 
 			<CardSlider
+				frameClassName={s.frame}
+				adaptiveHeight
 				dragging={false}
 				childrenClassName={s.card}
 				slidesToShow={slidesToShow}
@@ -77,12 +58,7 @@ const HomeReviews = () => {
 				{CASES.map((item) => {
 					return (
 						<Fragment key={uniqueId()}>
-							<div
-								onClick={(e) => handleScrollBlockFocus(e)}
-								onTouchStart={(e) => handleScrollBlockFocus(e)}
-								className={cn(s.text, s[item.color])}
-								ref={elementRef}
-							>
+							<div className={cn(s.text, s[item.color])}>
 								<p>
 									<Trans t={t} i18nKey={`REVIEWS.${item.text}`}>
 										<br />
