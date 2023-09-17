@@ -31,13 +31,19 @@
   -webkit-overflow-scrolling: touch;
   will-change: height;
   user-select: none;
+  -webkit-scroll-snap-type: y mandatory;
   scroll-snap-type: y mandatory;
-  -webkit-user-drag: none;
+  -webkit-user-drag: auto;
+  display: inline-block;
+  pointer-events: all;
+  position: relative;
+  min-height: fit-content;
+
 
   @include media-tablet {
-    pointer-events: all;
     margin-bottom: 40px;
     height: calc(205px + 1px);
+    max-height: calc(205px + 1px);
   }
 
   @supports (-webkit-touch-callout: none) {
@@ -45,20 +51,20 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: -20px;
-    width: 80px;
-    height: 63px;
-    background-size: 100%;
-
-    @include media-tablet {
-      width: 70px;
-      height: 55px;
-    }
-  }
+  //&:before {
+  //  content: '';
+  //  position: absolute;
+  //  left: 20px;
+  //  top: -20px;
+  //  width: 80px;
+  //  height: 63px;
+  //  background-size: 100%;
+  //
+  //  @include media-tablet {
+  //    width: 70px;
+  //    height: 55px;
+  //  }
+  //}
 
   &.gray {
     &:before {
