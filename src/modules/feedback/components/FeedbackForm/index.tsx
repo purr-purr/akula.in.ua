@@ -128,7 +128,7 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 					onChange={handleInputChange}
 				/>
 			)}
-			<Button text={tCommon(isSuccessfulOrderAlert ? 'SENT' : 'LEAVE_A_REQUEST')}>
+			<Button text={tCommon(isSuccessfulOrderAlert ? 'SENT' : 'SEND_A_REQUEST')}>
 				{isSuccessfulOrderAlert && <IconBird />}
 			</Button>
 		</form>

@@ -57,7 +57,7 @@ const NavigationContacts = () => {
 			<Button
 				className={s.actionButtons}
 				onClick={handleLeaveRequest}
-				text={t('LEAVE_A_REQUEST')}
+				text={t('SEND_A_REQUEST')}
 			/>
 
 			{isFeedbackModal && (

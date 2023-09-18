@@ -8,8 +8,7 @@ import IconSliderButton from '@modules/icons/components/IconSliderButton';
 import { useMediaQuery } from '@hooks/index';
 import { LAPTOP_BREAKPOINT } from '@utils/const';
 
-import type { CSSProperties } from 'react';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 import s from './CardSlider.module.scss';
 
@@ -91,7 +90,7 @@ const CardSlider: FC<{
 			frameAriaLabel={uniqueId()}
 			adaptiveHeight={adaptiveHeight}
 			enableKeyboardControls={true}
-			swiping={false}
+			swiping
 			className={cn(s.container, frameClassName)}
 			withoutControls={withoutControls}
 			slidesToScroll={1}

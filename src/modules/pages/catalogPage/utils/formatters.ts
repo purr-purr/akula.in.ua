@@ -15,8 +15,8 @@ const formatToPricePrefix = (lang: string, value: string) => {
 	const stringValue = value.toString();
 	if (stringValue.startsWith('from-') || stringValue.startsWith('to-')) {
 		return stringValue.startsWith('from-')
-			? UNITS[lang].priceFrom
-			: UNITS[lang].priceTo;
+			? UNITS[lang]?.priceFrom
+			: UNITS[lang]?.priceTo;
 	}
 	return '';
 };

@@ -44,9 +44,10 @@ const Dropdown: FC<{
 	}, [selectedOption]);
 
 	useEffect(() => {
-		if (currentOption.value !== selectedOption.value) {
+		if (currentOption?.value && currentOption.value !== selectedOption.value) {
 			setSelectedOption(currentOption);
 		}
+
 		// eslint-disable-next-line
 	}, [currentOption]);
 

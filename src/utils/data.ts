@@ -14,6 +14,6 @@ export const COMPANY_INFO = {
 };
 
 export const CURRENCY = {
-	DATE: '31.08.2023',
+	DATE: '18.09.2023',
 	UAH: 39.4,
 };
