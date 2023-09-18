@@ -19,9 +19,14 @@ export default function SwitchLanguage() {
 
 	const switchLanguage = (selectedLanguage: DropdownOptions) => {
 		const { asPath } = router;
-		i18n.changeLanguage(selectedLanguage.value).then();
-		router.push(asPath, asPath, { locale: selectedLanguage.value }).then();
-		localStorage.setItem('userLanguage', selectedLanguage.value);
+
+		try {
+			i18n.changeLanguage(selectedLanguage.value).then();
+			router.push(asPath, asPath, { locale: selectedLanguage.value }).then();
+			localStorage.setItem('userLanguage', selectedLanguage.value);
+		} catch (error) {
+			console.error('Error while changing language:', error);
+		}
 	};
 
 	const getCurrentSelectedLanguage = () => {
