@@ -1,26 +1,25 @@
 .container {
-  display: flex;
-  gap: 42px;
   list-style-type: none;
   margin-bottom: 100px;
 
-  @include media-laptop {
-    gap: 10px;
-  }
-
   @include media-tablet {
     margin-bottom: 48px;
-    flex-direction: column;
   }
 
   & li {
     @include flex-align(flex-start);
     gap: 24px;
-    width: 50%;
 
     @include media-tablet {
-      width: 100%;
       gap: 16px;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 24px;
+
+      @include media-tablet {
+        gap: 16px;
+      }
     }
   }
 }

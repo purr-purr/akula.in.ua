@@ -1,0 +1,11 @@
+.container:hover {
+  & > path {
+    fill: var(--primary);
+    transition: fill .4s ease-in-out;
+  }
+
+  g path {
+    stroke: var(--primary);
+    transition: stroke .4s ease-in-out;
+  }
+}

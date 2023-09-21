@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CatalogContext } from '@context/CatalogContext';
 
@@ -23,21 +23,18 @@ const CatalogList = () => {
 
 	const { data, loading } = useDataFetching();
 
-	const [sortedData, setSortedData] = useState<ICatalogData[]>([]);
 	const [paginationData, setPaginationData] = useState<ICatalogData[]>([]);
-
-	useEffect(() => {
-		sortData();
-		// eslint-disable-next-line
-	}, [data, filters]);
 
 	const handlePaginationSorting = (value: ICatalogData[]) => {
 		setPaginationData(value);
 	};
 
-	const sortData = () => {
+	const sortedDataList = useMemo(() => {
 		const all = 'All';
-		const sortedData = data
+		const down = 'down';
+		const up = 'up';
+
+		return data
 			.filter(
 				(item) =>
 					filters.contractType === item.contractType &&
@@ -48,20 +45,38 @@ const CatalogList = () => {
 						item.realEstateType === filters.realEstateType),
 			)
 			.sort((a, b) => {
-				const prev = Number(formatToNumbersOnly(a.price));
-				const next = Number(formatToNumbersOnly(b.price));
-				{
-					if (filters.sortByPrice === 'down') {
-						return next - prev;
-					} else if (filters.sortByPrice === 'up') {
-						return prev - next;
-					} else {
-						return 0;
-					}
+				const prev = formatToNumbersOnly(a.price);
+				const next = formatToNumbersOnly(b.price);
+				if (filters.sortByPrice === down) {
+					console.log('d');
+					return next - prev;
+				} else if (filters.sortByPrice === up) {
+					console.log('u');
+					return prev - next;
+				} else {
+					return 0;
+				}
+			})
+			.sort((a, b) => {
+				const prev = Number(a.table.totalArea);
+				const next = Number(b.table.totalArea);
+				if (filters.sortByTotalArea === down) {
+					console.log('d - area');
+					return next - prev;
+				} else if (filters.sortByTotalArea === up) {
+					console.log('up - area');
+					return prev - next;
+				} else {
+					return 0;
 				}
 			});
-		setSortedData(sortedData);
-	};
+	}, [data, filters]);
+
+	const [sortedData, setSortedData] = useState<ICatalogData[]>(sortedDataList);
+
+	useEffect(() => {
+		setSortedData(sortedDataList);
+	}, [sortedDataList]);
 
 	return (
 		<>

@@ -9,7 +9,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import cn from 'classnames';
 
 import DefaultPoster from '@modules/common/components/DefaultPoster';
-import IconSliderButton from '@modules/icons/components/IconSliderButton';
+import IconSliderButton from '@icons/components/IconSliderButton';
 
 import { TABLET_BREAKPOINT } from '@utils/const';
 

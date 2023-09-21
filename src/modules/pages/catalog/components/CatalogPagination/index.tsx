@@ -1,7 +1,7 @@
 import { FC, useContext, useEffect, useState } from 'react';
 import { CatalogContext } from '@context/CatalogContext';
 
-import IconSliderButton from '@modules/icons/components/IconSliderButton';
+import IconSliderButton from '@icons/components/IconSliderButton';
 
 import type { ICatalogData } from '@t-types/data';
 

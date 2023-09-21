@@ -12,7 +12,9 @@
   "CATALOG": {
     "CHOOSE_THE_PERFECT_PROPERTY": "Choose the perfect property",
     "SEARCH_RESULTS": "Search Results",
-    "CLEAR_ALL_FILTERS": "Clear all filters"
+    "CLEAR_ALL_FILTERS": "Clear all filters",
+    "SORTING_BY_TOTAL_AREA": "Sorting by Total Area",
+    "SORTING_BY_PRICE": "Sorting by Price"
   },
   "FEEDBACK": {
     "DO_YOU_LIKE_THIS_PROPERTY": "Do you like this property?",

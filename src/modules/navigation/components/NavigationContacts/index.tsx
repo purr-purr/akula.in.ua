@@ -1,13 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { HeaderContext } from '@context/HeaderContext';
+import IconMap from '@icons/components/IconMap';
+import IconPhone from '@icons/components/IconPhone';
 
 import Button from '@modules/common/components/Button';
 import SelectChangeLanguage from '@modules/common/components/SwitchLanguage';
 import FeedbackModal from '@modules/feedback/components/FeedbackModal';
-import IconMap from '@modules/icons/components/IconMap';
-import IconPhone from '@modules/icons/components/IconPhone';
 
 import { useMediaQuery } from '@hooks/index';
 import {

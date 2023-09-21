@@ -1,9 +1,8 @@
 import { Children, cloneElement, FC, isValidElement } from 'react';
+import IconSliderButton from '@icons/components/IconSliderButton';
 import cn from 'classnames';
 import Carousel from 'nuka-carousel';
 import { v4 as uniqueId } from 'uuid';
-
-import IconSliderButton from '@modules/icons/components/IconSliderButton';
 
 import { useMediaQuery } from '@hooks/index';
 import { LAPTOP_BREAKPOINT } from '@utils/const';

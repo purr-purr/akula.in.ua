@@ -1,7 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react';
+import IconArrow from '@icons/components/IconArrow';
 import cn from 'classnames';
-
-import IconArrow from '@modules/icons/components/IconArrow';
 
 import type { DropdownOptions } from '@modules/common/types/dropdown';
 

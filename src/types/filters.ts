@@ -3,7 +3,8 @@ export interface IFilters {
 	propertyType: string;
 	realEstateType: string;
 	city: string;
-	sortByPrice: SortByPriceType;
+	sortByPrice: SortByItemType;
+	sortByTotalArea: SortByItemType;
 }
 
-export type SortByPriceType = 'up' | 'down' | 'default' | string;
+export type SortByItemType = 'up' | 'down' | 'default' | string;

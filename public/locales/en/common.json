@@ -1,4 +1,5 @@
 {
+  "SITE_DEVELOPMENT": "Site development",
   "THE_REQUEST_COULD_NOT_BE_SENT": "The request could not be sent. Try again",
   "SENT": "Sent",
   "INPUT_PHONE_VALIDATION": "Enter a 12-digit phone number (starting with +, numbers only, no spaces or dashes)",

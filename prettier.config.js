@@ -12,6 +12,7 @@ module.exports = {
 		'<THIRD_PARTY_MODULES>',
 		'',
 		'^@modules/(.*)$',
+		'^@icons/(.*)$',
 		'',
 		'^@hooks/(.*)$',
 		'^@utils/(.*)$',

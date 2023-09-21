@@ -2,7 +2,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import Image from 'next/image';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
-import IconStar from '@modules/icons/components/IconStar';
+import IconStar from '@icons/components/IconStar';
 
 import TEAM from './assets/team-poster.jpg';
 

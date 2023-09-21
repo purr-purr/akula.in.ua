@@ -8,4 +8,5 @@ export const initialFilters: IFilters = {
 	realEstateType: allValue,
 	city: allValue,
 	sortByPrice: 'default',
+	sortByTotalArea: 'default',
 };

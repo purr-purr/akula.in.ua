@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import BlockTitle from '@modules/common/components/BlockTitle';
 import FeedbackForm from '@modules/feedback/components/FeedbackForm';
-import IconCross from '@modules/icons/components/IconCross';
+import IconCross from '@icons/components/IconCross';
 
 import { useMediaQuery } from '@hooks/index';
 import { TABLET_BREAKPOINT } from '@utils/const';

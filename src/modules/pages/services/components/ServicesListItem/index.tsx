@@ -3,7 +3,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import cn from 'classnames';
 
-import IconArrowUp from '@modules/icons/components/IconArrowUp';
+import IconArrowUp from '@icons/components/IconArrowUp';
 
 import { useMediaQuery } from '@hooks/index';
 import { TABLET_BREAKPOINT } from '@utils/const';

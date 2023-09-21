@@ -3,16 +3,17 @@ import Link from 'next/link';
 import cn from 'classnames';
 
 import Logo from '@modules/common/components/Logo';
-import IconEmail from '@modules/icons/components/IconEmail';
-import IconFacebook from '@modules/icons/components/IconFacebook';
-import IconInstagram from '@modules/icons/components/IconInstagram';
-import IconMap from '@modules/icons/components/IconMap';
-import IconPhone from '@modules/icons/components/IconPhone';
-import IconTelegram from '@modules/icons/components/IconTelegram';
-import IconTiktok from '@modules/icons/components/IconTiktok';
-import IconViber from '@modules/icons/components/IconViber';
-import IconWhatsapp from '@modules/icons/components/IconWhatsapp';
+import IconEmail from '@icons/components/IconEmail';
+import IconFacebook from '@icons/components/IconFacebook';
+import IconInstagram from '@icons/components/IconInstagram';
+import IconMap from '@icons/components/IconMap';
+import IconPhone from '@icons/components/IconPhone';
+import IconTelegram from '@icons/components/IconTelegram';
+import IconTiktok from '@icons/components/IconTiktok';
+import IconViber from '@icons/components/IconViber';
+import IconWhatsapp from '@icons/components/IconWhatsapp';
 
+import { AUTHOR_INFO } from '@utils/const';
 import { COMPANY_INFO } from '@utils/data';
 
 import s from './Footer.module.scss';
@@ -71,7 +72,9 @@ const Footer = () => {
 					<ul className={s.socialsList}>
 						{SOCIALS.map((item, i) => (
 							<li key={item.link + i} className={s.socialsItem}>
-								<Link href={item.link}>{item.icon}</Link>
+								<a href={item.link} target="_blank" rel="noreferrer">
+									{item.icon}
+								</a>
 							</li>
 						))}
 					</ul>
@@ -79,7 +82,7 @@ const Footer = () => {
 				<ul className={s.contacts}>
 					{CONTACTS.map((item) => (
 						<li key={item.link}>
-							<Link href={item.link} target="_blank">
+							<Link href={item.link}>
 								{item.icon}
 								{item.title}
 							</Link>
@@ -88,7 +91,16 @@ const Footer = () => {
 				</ul>
 			</article>
 			<p className={s.rights}>
-				{t('ALL_RIGHTS_RESERVED')}/{currentYear}
+				{t('SITE_DEVELOPMENT')}{' '}
+				<a
+					className="link"
+					target="_blank"
+					rel="noreferrer"
+					href={`https://${AUTHOR_INFO.SIGNATURE}`}
+				>
+					{AUTHOR_INFO.SIGNATURE}
+				</a>{' '}
+				&bull; {t('ALL_RIGHTS_RESERVED')}/{currentYear}
 			</p>
 		</footer>
 	);

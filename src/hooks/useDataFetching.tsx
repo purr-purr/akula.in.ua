@@ -115,7 +115,7 @@ const useDataFetching = () => {
 	);
 
 	useEffect(() => {
-		console.log('data was changed', data);
+		console.log('Data fetched', data);
 	}, [data]);
 
 	return {

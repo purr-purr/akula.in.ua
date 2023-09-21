@@ -5,7 +5,7 @@ import cn from 'classnames';
 
 import Button from '@modules/common/components/Button';
 import InputField from '@modules/common/components/InputField';
-import IconBird from '@modules/icons/components/IconBird';
+import IconBird from '@icons/components/IconBird';
 
 import { TG_BOT } from '@utils/credentials';
 

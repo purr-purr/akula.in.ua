@@ -7,13 +7,13 @@ export const COMPANY_INFO = {
 	SECOND_CONTACT_NUMBER: '+38 068 373 33 22',
 	INSTAGRAM: 'https://www.instagram.com/akuladevelopmentpartner/',
 	FACEBOOK: 'https://www.facebook.com/profile.php?id=61550874983068',
-	VIBER: '3',
+	VIBER: 'https://viber.click/380501342976',
 	TELEGRAM: 'https://t.me/akuladevelopment',
 	TIKTOK: 'https://www.tiktok.com/@akuladevelopmentpartner',
 	WHATSAPP: 'https://wa.me/message/3HREPFEJSLUAM1',
 };
 
 export const CURRENCY = {
-	DATE: '18.09.2023',
-	UAH: 39.4,
+	DATE: '21.09.2023',
+	UAH: 37.85,
 };

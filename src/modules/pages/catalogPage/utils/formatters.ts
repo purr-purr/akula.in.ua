@@ -21,27 +21,36 @@ const formatToPricePrefix = (lang: string, value: string) => {
 	return '';
 };
 
-export const formatToFullPriceWithPrefix = (lang: string, value: string) => {
-	return formatToPrefixAndPrice(lang, value) + USD_SYMBOL;
-};
-
 export const formatToPrefixAndPrice = (lang: string, value: string) => {
-	return formatToPricePrefix(lang, value) + formatToNumbersOnly(value);
+	const formatToNumbers = formatToNumbersOnly(value);
+	const price = convertToFullUahPrice(formatToNumbers);
+	return formatToPricePrefix(lang, value) + price + ' ' + UNITS[lang].currency;
 };
 
 export const formatToNumbersOnly = (value: string) => {
-	return value.replace(/[^0-9]/g, '');
+	return Number(value.replace(/[^0-9]/g, ''));
+};
+
+const convertToFullUahPrice = (value: number) => {
+	const calcPriceUah = value * CURRENCY.UAH;
+	const slicePriceUah = calcPriceUah.toFixed();
+
+	return new Intl.NumberFormat('uk-UA', {
+		currency: 'UAH',
+	}).format(Number(slicePriceUah));
 };
 
 export const formatTableFullPrice = (lang: string, value: string) => {
-	const convertToFullPrice = (value: string) => {
-		const removedLetters = formatToNumbersOnly(value);
-		const priceUah = Number(removedLetters) * CURRENCY.UAH;
-		const priceUsd = removedLetters + USD_SYMBOL;
-		return priceUsd + UNITS[lang].separator + priceUah.toFixed();
-	};
+	const removedLetters = formatToNumbersOnly(value);
+	const priceUsd = removedLetters + USD_SYMBOL;
 
-	return formatToPricePrefix(lang, value) + convertToFullPrice(value);
+	return (
+		formatToPricePrefix(lang, value) +
+		convertToFullUahPrice(removedLetters) +
+		UNITS[lang].currency +
+		UNITS[lang].separator +
+		priceUsd
+	);
 };
 
 export const formatTableAfterPrefix = (
@@ -62,16 +71,14 @@ export const formatTableAfterPrefix = (
 		LANDPLOT: UNITS[lang].landPlot,
 		RENT1M2:
 			contractType === 'Оренда'
-				? `${UNITS[lang].currency}${UNITS[lang].month}${starElement}`
+				? `${UNITS[lang].month}${starElement}`
 				: UNITS[lang].squareMeters,
 		OPERATIONAL1M2:
 			contractType === 'Оренда'
-				? `${UNITS[lang].currency}${UNITS[lang].month}${starElement}`
+				? `${UNITS[lang].month}${starElement}`
 				: UNITS[lang].squareMeters,
 		TOTALCOST:
-			contractType === 'Оренда'
-				? `${UNITS[lang].currency}${UNITS[lang].month}${starElement}`
-				: UNITS[lang].currency,
+			contractType === 'Оренда' ? `${UNITS[lang].month}${starElement}` : '',
 	};
 
 	return (value && translation[value]) || '';

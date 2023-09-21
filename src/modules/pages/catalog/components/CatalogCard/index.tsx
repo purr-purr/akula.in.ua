@@ -5,10 +5,10 @@ import Link from 'next/link';
 import cn from 'classnames';
 
 import DefaultPoster from '@modules/common/components/DefaultPoster';
-import IconFloorPlan from '@modules/icons/components/IconFloorPlan';
-import IconRuler from '@modules/icons/components/IconRuler';
-import { formatToFullPriceWithPrefix } from '@modules/pages/catalogPage/utils/formatters';
+import { formatToPrefixAndPrice } from '@modules/pages/catalogPage/utils/formatters';
 import { UNITS } from '@modules/pages/catalogPage/utils/units';
+import IconFloorPlan from '@icons/components/IconFloorPlan';
+import IconRuler from '@icons/components/IconRuler';
 
 import { useCatalogItemFullAddress, usePropertyPhoto } from '@hooks/index';
 import { CATALOG_NAME } from '@utils/const';
@@ -72,7 +72,7 @@ const CatalogCard: FC<{
 					<h3 className={s.city}>{itemCity}</h3>
 					<address className={s.address}>{fullAddress}</address>
 					<ul className={s.description}>
-						<li>{formatToFullPriceWithPrefix(i18n.language, price)}</li>
+						<li>{formatToPrefixAndPrice(i18n.language, price)}</li>
 						{table.totalArea && (
 							<li title={tCatalog('TABLE.TOTALAREA')}>
 								<IconRuler />

@@ -48,7 +48,7 @@ const Meta: FC<{
 					<meta name="keywords" content={APP_META_DATA.KEYWORDS} />
 					<meta
 						name="author"
-						content={AUTHOR_INFO.NAME + ' ' + AUTHOR_INFO.SIGNATURE}
+						content={AUTHOR_INFO.NAME + ' => ' + AUTHOR_INFO.SIGNATURE}
 					/>
 					<meta name="image" content={LOGO.src} />
 					<meta property="og:type" content="website" />

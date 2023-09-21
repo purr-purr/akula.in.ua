@@ -23,7 +23,8 @@
   font-size: 32px;
   font-weight: 700;
   color: var(--blue);
-  min-width: 200px;
+  min-width: 300px;
+  text-align: right;
 
   @include media-laptop {
     font-size: 28px;

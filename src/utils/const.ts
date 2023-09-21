@@ -8,7 +8,7 @@ export const CATALOG_NAME = 'catalog';
 
 export const AUTHOR_INFO = {
 	NAME: 'Anton Shaposhnikov',
-	SIGNATURE: '=> shaposhnikov.in',
+	SIGNATURE: 'shaposhnikov.in',
 };
 
 export const BACKEND_LOCALHOST = IS_PRODUCTION

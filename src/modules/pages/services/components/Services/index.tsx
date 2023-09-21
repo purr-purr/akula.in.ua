@@ -4,8 +4,8 @@ import { Trans, useTranslation } from 'react-i18next';
 import BlockTitle from '@modules/common/components/BlockTitle';
 import Meta from '@modules/common/components/Meta';
 import Feedback from '@modules/feedback/components/Feedback';
-import IconStar from '@modules/icons/components/IconStar';
 import ServicesList from '@modules/pages/services/components/ServicesList';
+import IconStar from '@icons/components/IconStar';
 
 import { useMediaQuery } from '@hooks/index';
 import { TABLET_BREAKPOINT } from '@utils/const';
@@ -16,7 +16,11 @@ const Services: FC = () => {
 	const { t: tServices } = useTranslation('services');
 	const { t: tCommon } = useTranslation('common');
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
-	const pageDescription = ['AKULA_TEAM', 'WE_ARE_CONSTANTLY_EXPANDING'];
+	const pageDescription = [
+		'AKULA_TEAM',
+		'WE_ARE_CONSTANTLY_EXPANDING',
+		'WE_ARE_A_SPECIALIZED_COMPANY',
+	];
 	const starSize = isTablet ? 16 : 25;
 
 	return (

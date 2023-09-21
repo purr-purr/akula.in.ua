@@ -6,7 +6,8 @@ export const GOOGLE_SERVICES = {
 export const TG_BOT = {
 	TOKEN: process.env.NEXT_PUBLIC_TG_BOT_TOKEN,
 	CHAT_ID_LIST: [
-		process.env.NEXT_PUBLIC_TG_CHAT_ID_ANTON,
-		process.env.NEXT_PUBLIC_TG_CHAT_ID_ALINA,
+		process.env.NEXT_PUBLIC_TG_CHAT_ID_ADMIN,
+		process.env.NEXT_PUBLIC_TG_CHAT_ID_NATALIA,
+		process.env.NEXT_PUBLIC_TG_CHAT_ID_NATALIA_SECOND,
 	],
 };

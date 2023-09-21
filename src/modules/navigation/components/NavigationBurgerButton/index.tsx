@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { HeaderContext } from '@context/HeaderContext';
 
-import IconCross from '@modules/icons/components/IconCross';
-import IconMobileNav from '@modules/icons/components/IconMobileNav';
+import IconCross from '@icons/components/IconCross';
+import IconMobileNav from '@icons/components/IconMobileNav';
 
 import s from './NavigationBurgerButton.module.scss';
 

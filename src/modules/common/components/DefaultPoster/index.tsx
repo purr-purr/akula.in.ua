@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import cn from 'classnames';
 
-import IconGrayLogo from '@modules/icons/components/IconGrayLogo';
+import IconGrayLogo from '@icons/components/IconGrayLogo';
 
 import s from './DefaultPoster.module.scss';
 

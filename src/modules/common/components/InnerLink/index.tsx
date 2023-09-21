@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 
-import IconArrowUp from '@modules/icons/components/IconArrowUp';
+import IconArrowUp from '@icons/components/IconArrowUp';
 
 import s from './InnerLink.module.scss';
 
