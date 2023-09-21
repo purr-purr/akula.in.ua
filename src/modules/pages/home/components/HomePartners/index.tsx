@@ -41,7 +41,6 @@ const Partners = () => {
 			childrenClassName={s.item}
 			slidesToShow={slidesToShow}
 			dragging={isTablet}
-			autoplay
 		>
 			{partnersList.map((item, i) => (
 				<Image key={i} src={item} alt={t('IMAGE')} />

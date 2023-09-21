@@ -23,7 +23,7 @@ const formatToPricePrefix = (lang: string, value: string) => {
 
 export const formatToPrefixAndPrice = (lang: string, value: string) => {
 	const formatToNumbers = formatToNumbersOnly(value);
-	const price = convertToFullUahPrice(formatToNumbers);
+	const price = formatToFullUahPrice(formatToNumbers);
 	return formatToPricePrefix(lang, value) + price + ' ' + UNITS[lang].currency;
 };
 
@@ -31,22 +31,26 @@ export const formatToNumbersOnly = (value: string) => {
 	return Number(value.replace(/[^0-9]/g, ''));
 };
 
-const convertToFullUahPrice = (value: number) => {
+const formatToSeparatedNumber = (value: number) => {
+	return new Intl.NumberFormat('uk-UA', {
+		currency: 'UAH',
+	}).format(value);
+};
+
+const formatToFullUahPrice = (value: number) => {
 	const calcPriceUah = value * CURRENCY.UAH;
 	const slicePriceUah = calcPriceUah.toFixed();
 
-	return new Intl.NumberFormat('uk-UA', {
-		currency: 'UAH',
-	}).format(Number(slicePriceUah));
+	return formatToSeparatedNumber(+slicePriceUah);
 };
 
 export const formatTableFullPrice = (lang: string, value: string) => {
 	const removedLetters = formatToNumbersOnly(value);
-	const priceUsd = removedLetters + USD_SYMBOL;
+	const priceUsd = formatToSeparatedNumber(removedLetters) + USD_SYMBOL;
 
 	return (
 		formatToPricePrefix(lang, value) +
-		convertToFullUahPrice(removedLetters) +
+		formatToFullUahPrice(removedLetters) +
 		UNITS[lang].currency +
 		UNITS[lang].separator +
 		priceUsd
