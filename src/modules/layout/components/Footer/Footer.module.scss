@@ -134,6 +134,12 @@
     margin-top: 40px;
   }
 
+  @include media-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
   a {
     text-decoration: none;
   }

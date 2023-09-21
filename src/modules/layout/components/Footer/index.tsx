@@ -13,7 +13,8 @@ import IconTiktok from '@icons/components/IconTiktok';
 import IconViber from '@icons/components/IconViber';
 import IconWhatsapp from '@icons/components/IconWhatsapp';
 
-import { AUTHOR_INFO } from '@utils/const';
+import { useMediaQuery } from '@hooks/index';
+import { AUTHOR_INFO, MOBILE_BREAKPOINT } from '@utils/const';
 import { COMPANY_INFO } from '@utils/data';
 
 import s from './Footer.module.scss';
@@ -30,6 +31,7 @@ interface IContacts extends ISocials {
 const Footer = () => {
 	const { t } = useTranslation('common');
 	const currentYear = new Date().getFullYear();
+	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 
 	const CONTACTS: IContacts[] = [
 		{
@@ -91,16 +93,19 @@ const Footer = () => {
 				</ul>
 			</article>
 			<p className={s.rights}>
-				{t('SITE_DEVELOPMENT')}{' '}
-				<a
-					className="link"
-					target="_blank"
-					rel="noreferrer"
-					href={`https://${AUTHOR_INFO.SIGNATURE}`}
-				>
-					{AUTHOR_INFO.SIGNATURE}
-				</a>{' '}
-				&bull; {t('ALL_RIGHTS_RESERVED')}/{currentYear}
+				<span>
+					{t('SITE_DEVELOPMENT')}{' '}
+					<a
+						className="link"
+						target="_blank"
+						rel="noreferrer"
+						href={`https://${AUTHOR_INFO.SIGNATURE}`}
+					>
+						{AUTHOR_INFO.SIGNATURE}
+					</a>{' '}
+				</span>
+				{!isMobile && ` • `}
+				{t('ALL_RIGHTS_RESERVED')}/{currentYear}
 			</p>
 		</footer>
 	);
