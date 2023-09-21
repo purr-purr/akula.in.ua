@@ -7,7 +7,7 @@ export const COMPANY_INFO = {
 	SECOND_CONTACT_NUMBER: '+38 068 373 33 22',
 	INSTAGRAM: 'https://www.instagram.com/akuladevelopmentpartner/',
 	FACEBOOK: 'https://www.facebook.com/profile.php?id=61550874983068',
-	VIBER: 'https://viber.click/380501342976',
+	VIBER: 'viber://add?number=380501342976',
 	TELEGRAM: 'https://t.me/akuladevelopment',
 	TIKTOK: 'https://www.tiktok.com/@akuladevelopmentpartner',
 	WHATSAPP: 'https://wa.me/message/3HREPFEJSLUAM1',
