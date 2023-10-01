@@ -13,9 +13,11 @@ import {
 import STUDIO_95 from './assets/95_animation_studio.png';
 import BAT from './assets/bat.png';
 import CHERRYMALL from './assets/cherrymall.png';
+import EKOL from './assets/ekol.png';
 import ENERGY_SOLUTION from './assets/energy_solutions.png';
 import GRAND_STEP from './assets/grand_step.png';
 import MARMELAD from './assets/marmelad.png';
+import MUZVAR from './assets/muzvar.png';
 
 import s from './HomePartners.module.scss';
 
@@ -23,8 +25,10 @@ const Partners = () => {
 	const partnersList = [
 		STUDIO_95,
 		CHERRYMALL,
+		EKOL,
 		MARMELAD,
 		BAT,
+		MUZVAR,
 		ENERGY_SOLUTION,
 		GRAND_STEP,
 	];
