@@ -48,10 +48,8 @@ const CatalogList = () => {
 				const prev = formatToNumbersOnly(a.price);
 				const next = formatToNumbersOnly(b.price);
 				if (filters.sortByPrice === down) {
-					console.log('d');
 					return next - prev;
 				} else if (filters.sortByPrice === up) {
-					console.log('u');
 					return prev - next;
 				} else {
 					return 0;
@@ -61,10 +59,8 @@ const CatalogList = () => {
 				const prev = Number(a.table.totalArea);
 				const next = Number(b.table.totalArea);
 				if (filters.sortByTotalArea === down) {
-					console.log('d - area');
 					return next - prev;
 				} else if (filters.sortByTotalArea === up) {
-					console.log('up - area');
 					return prev - next;
 				} else {
 					return 0;

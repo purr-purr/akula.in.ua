@@ -1,11 +1,15 @@
 const express = require('express');
 const mysql = require('mysql');
+const cheerio = require('cheerio');
+const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const app = express();
 const port = 5000;
 const isProduction = app.get('env') === 'production';
 const IP = isProduction ? 'https://akula.in.ua' : 'http://localhost:3000';
+const currencyRateUrl =
+	'https://www.eximb.com/ua/business/pryvatnym-klientam/pryvatnym-klientam-inshi-poslugy/obmin-valyut/kursy-valyut.html';
 
 require('dotenv').config();
 
@@ -36,12 +40,43 @@ const db = mysql.createConnection({
 
 db.connect();
 
-app.get('/data', (req, res) => {
-	const query = 'SELECT * FROM real_estate';
+const dataRequest = (table, req, res) => {
+	const query = `SELECT * FROM ${table}`;
 	db.query(query, (error, results) => {
 		if (error) throw error;
 		res.json(results);
 	});
+};
+
+app.get('/data', (req, res) => {
+	dataRequest('real_estate', req, res);
+});
+
+app.get('/currency', async (req, res) => {
+	try {
+		const response = await axios.get(currencyRateUrl);
+
+		if (response.status === 200) {
+			const html = response.data;
+			const $ = cheerio.load(html);
+
+			const elementTable = $('.styled-table tr td').text();
+			const elementDate = $('#depoList h5').text();
+
+			const result = {
+				table: elementTable,
+				date: elementDate,
+			};
+			res.json(result);
+		} else {
+			const errorText = 'Failed to fetch the webpage www.eximb.com';
+			console.error(errorText);
+			res.status(500).send(errorText);
+		}
+	} catch (error) {
+		console.error('Error:', error);
+		res.status(500).send('An error occurred');
+	}
 });
 
 app.listen(port, () => {

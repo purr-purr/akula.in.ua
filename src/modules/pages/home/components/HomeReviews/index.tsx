@@ -21,23 +21,23 @@ const HomeReviews = () => {
 
 	const CASES = [
 		{
-			text: 'BAT_UKRAINE_TEXT',
-			signature: 'BAT_UKRAINE_TITLE',
+			name: 'BAT_UKRAINE',
 			color: 'gray',
 		},
 		{
-			text: 'EKOL_LOGISTICS_TEXT',
-			signature: 'EKOL_LOGISTICS_TITLE',
+			name: 'EKOL_LOGISTICS',
 			color: 'blue',
 		},
 		{
-			text: 'ENERGY_SOLUTIONS_TEXT',
-			signature: 'ENERGY_SOLUTIONS_TITLE',
+			name: 'ENERGY_SOLUTIONS',
 			color: 'darkBlue',
 		},
 		{
-			text: 'ANIMATION_STUDIO_95_TEXT',
-			signature: 'ANIMATION_STUDIO_95_TITLE',
+			name: 'ANIMATION_STUDIO_95',
+			color: 'gray',
+		},
+		{
+			name: 'MUZVAR',
 			color: 'blue',
 		},
 	];
@@ -58,12 +58,12 @@ const HomeReviews = () => {
 						<Fragment key={uniqueId()}>
 							<div className={cn(s.text, s[item.color])}>
 								<p>
-									<Trans t={t} i18nKey={`REVIEWS.${item.text}`}>
+									<Trans t={t} i18nKey={`REVIEWS.${item.name}_TEXT`}>
 										<br />
 									</Trans>
 								</p>
 							</div>
-							<p className={s.signature}>{t(`REVIEWS.${item.signature}`)}</p>
+							<p className={s.signature}>{t(`REVIEWS.${item.name}_TITLE`)}</p>
 							<ul className={s.rating}>
 								{[...Array(5)].map((_) => (
 									<li key={uniqueId()}>

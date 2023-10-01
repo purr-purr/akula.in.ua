@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useCurrencyFetching } from '@hooks/index';
 import { formatCatalogTranslation } from '@utils/formatters';
 
 import type { ICatalogTable } from '@t-types/data';
@@ -20,6 +21,7 @@ const CatalogPageTable: FC<{
 }> = ({ tableInfo, realEstateType, contractType, price }) => {
 	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
+	const { currencyRate } = useCurrencyFetching();
 
 	tableInfo.totalCost = price;
 	const table = Object.entries(tableInfo)
@@ -77,11 +79,11 @@ const CatalogPageTable: FC<{
 								<td>{tCatalog(`TABLE.${itemKey}`)}</td>
 								<td>
 									{isValueWithPrefix
-										? formatTableFullPrice(i18n.language, itemValue)
+										? formatTableFullPrice(i18n.language, itemValue, currencyRate)
 										: isCanBeAnyAmount
 										? tCommon('ANY_AMOUNT')
 										: isLandPlot
-										? formatToPrefixAndPrice(i18n.language, itemValue)
+										? formatToPrefixAndPrice(i18n.language, itemValue, currencyRate)
 										: itemValue}{' '}
 									<span
 										dangerouslySetInnerHTML={{

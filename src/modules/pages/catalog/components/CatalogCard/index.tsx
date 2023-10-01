@@ -10,7 +10,11 @@ import { UNITS } from '@modules/pages/catalogPage/utils/units';
 import IconFloorPlan from '@icons/components/IconFloorPlan';
 import IconRuler from '@icons/components/IconRuler';
 
-import { useCatalogItemFullAddress, usePropertyPhoto } from '@hooks/index';
+import {
+	useCatalogItemFullAddress,
+	useCurrencyFetching,
+	usePropertyPhoto,
+} from '@hooks/index';
 import { CATALOG_NAME } from '@utils/const';
 import {
 	formatCatalogTranslation,
@@ -38,6 +42,8 @@ const CatalogCard: FC<{
 
 	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
+	const { currencyRate } = useCurrencyFetching();
+
 	const postersList = usePropertyPhoto(id);
 	const fullAddress = useCatalogItemFullAddress(
 		realEstateType,
@@ -72,7 +78,10 @@ const CatalogCard: FC<{
 					<h3 className={s.city}>{itemCity}</h3>
 					<address className={s.address}>{fullAddress}</address>
 					<ul className={s.description}>
-						<li>{formatToPrefixAndPrice(i18n.language, price)}</li>
+						<li>
+							{currencyRate &&
+								formatToPrefixAndPrice(i18n.language, price, currencyRate)}
+						</li>
 						{table.totalArea && (
 							<li title={tCatalog('TABLE.TOTALAREA')}>
 								<IconRuler />

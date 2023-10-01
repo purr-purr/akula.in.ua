@@ -1,7 +1,6 @@
 import { UNITS } from '@modules/pages/catalogPage/utils/units';
 
 import { USD_SYMBOL } from '@utils/const';
-import { CURRENCY } from '@utils/data';
 
 export const formatMetaForCatalogPage = (
 	city: string,
@@ -21,9 +20,13 @@ const formatToPricePrefix = (lang: string, value: string) => {
 	return '';
 };
 
-export const formatToPrefixAndPrice = (lang: string, value: string) => {
+export const formatToPrefixAndPrice = (
+	lang: string,
+	value: string,
+	currencyRate: number,
+) => {
 	const formatToNumbers = formatToNumbersOnly(value);
-	const price = formatToFullUahPrice(formatToNumbers);
+	const price = formatToFullUahPrice(formatToNumbers, currencyRate);
 	return formatToPricePrefix(lang, value) + price + ' ' + UNITS[lang].currency;
 };
 
@@ -37,20 +40,24 @@ const formatToSeparatedNumber = (value: number) => {
 	}).format(value);
 };
 
-const formatToFullUahPrice = (value: number) => {
-	const calcPriceUah = value * CURRENCY.UAH;
+const formatToFullUahPrice = (value: number, currencyRate: number) => {
+	const calcPriceUah = value * currencyRate;
 	const slicePriceUah = calcPriceUah.toFixed();
 
 	return formatToSeparatedNumber(+slicePriceUah);
 };
 
-export const formatTableFullPrice = (lang: string, value: string) => {
+export const formatTableFullPrice = (
+	lang: string,
+	value: string,
+	currencyRate: number,
+) => {
 	const removedLetters = formatToNumbersOnly(value);
 	const priceUsd = formatToSeparatedNumber(removedLetters) + USD_SYMBOL;
 
 	return (
 		formatToPricePrefix(lang, value) +
-		formatToFullUahPrice(removedLetters) +
+		formatToFullUahPrice(removedLetters, currencyRate) +
 		UNITS[lang].currency +
 		UNITS[lang].separator +
 		priceUsd

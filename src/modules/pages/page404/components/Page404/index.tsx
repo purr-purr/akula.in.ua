@@ -9,6 +9,7 @@ import s from './Page404.module.scss';
 
 const Page404 = () => {
 	const { t } = useTranslation('common');
+
 	return (
 		<article className={s.container}>
 			<div className={s.code}>

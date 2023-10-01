@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { formatToPrefixAndPrice } from '@modules/pages/catalogPage/utils/formatters';
 import IconMap from '@icons/components/IconMap';
 
+import { useCurrencyFetching } from '@hooks/index';
 import { formatCatalogTranslation } from '@utils/formatters';
 
 import s from './CatalogPageHeader.module.scss';
@@ -15,7 +16,12 @@ const CatalogPageHeader: FC<{
 	tags: string[];
 }> = ({ city, address, price, tags }) => {
 	const { t, i18n } = useTranslation('common');
-	const finalPrice = formatToPrefixAndPrice(i18n.language, price);
+	const { currencyRate } = useCurrencyFetching();
+
+	const finalPrice = currencyRate
+		? formatToPrefixAndPrice(i18n.language, price, currencyRate)
+		: '-';
+
 	return (
 		<>
 			<article className={s.heading}>
