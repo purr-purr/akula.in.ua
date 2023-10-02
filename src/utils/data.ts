@@ -12,3 +12,8 @@ export const COMPANY_INFO = {
 	TIKTOK: 'https://www.tiktok.com/@akuladevelopmentpartner',
 	WHATSAPP: 'https://wa.me/message/3HREPFEJSLUAM1',
 };
+
+export const DEFAULT_CURRENCY_INFO = {
+	RATE: 37.77,
+	DATE: '01.10',
+};

@@ -29,6 +29,10 @@
   @include media-laptop {
     font-size: 28px;
   }
+
+  @include media-tablet {
+    text-align: left;
+  }
 }
 
 

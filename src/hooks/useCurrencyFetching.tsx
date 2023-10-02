@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { BACKEND_LOCALHOST } from '@utils/const';
+import { DEFAULT_CURRENCY_INFO } from '@utils/data';
 import { MONTH_NAME_TO_NUMBER } from '@utils/translations';
 
 interface ICurrencyParse {
@@ -9,17 +10,14 @@ interface ICurrencyParse {
 }
 
 const useCurrencyFetching = () => {
-	const [currencyRate, setCurrencyRate] = useState<number>(0);
-	const [currencyDate, setCurrencyDate] = useState<string>('');
+	const [currencyRate, setCurrencyRate] = useState<number>(
+		DEFAULT_CURRENCY_INFO.RATE,
+	);
+	const [currencyDate, setCurrencyDate] = useState<string>(
+		DEFAULT_CURRENCY_INFO.DATE,
+	);
 	const currentYear = new Date().getFullYear();
-
-	const formatData = (data: ICurrencyParse) => {
-		if (!data) {
-			return;
-		}
-		rateFinder(data.table);
-		dateFinder(data.date);
-	};
+	const isMounted = useRef(true);
 
 	const getMonth = (text: string) => {
 		const monthPattern = /([а-я]+?)\s+\d{4}/;
@@ -42,12 +40,10 @@ const useCurrencyFetching = () => {
 		const parts = text.split(' ');
 		let day;
 
-		for (let i = 0; i < parts.length; i++) {
-			const part = parts[i];
+		for (const part of parts) {
 			const dayCandidate = parseInt(part, 10);
 			if (!isNaN(dayCandidate)) {
 				day = dayCandidate;
-				break;
 			}
 		}
 		return day;
@@ -56,15 +52,15 @@ const useCurrencyFetching = () => {
 	const dateFinder = (text: string) => {
 		const datePattern = /(\d{1,2}\s+[а-я]+?\s+\d{4})/;
 		const match = datePattern.exec(text);
-		let month, day;
 
 		if (match) {
 			const foundDate = match[0];
-			month = getMonth(foundDate);
-			day = getDay(foundDate);
-		}
+			const dateTemplate = `${getDay(foundDate)}.${getMonth(foundDate)}`;
 
-		setCurrencyDate(day + '.' + month);
+			if (currencyDate !== dateTemplate) {
+				setCurrencyDate(dateTemplate);
+			}
+		}
 	};
 
 	const rateFinder = (text: string) => {
@@ -86,11 +82,34 @@ const useCurrencyFetching = () => {
 		fetch(`${BACKEND_LOCALHOST}/currency`, {
 			signal: controller.signal,
 		})
-			.then((response) => response.json())
-			.then((data: ICurrencyParse) => formatData(data))
-			.catch((error) => console.error('Error fetching currency data:', error));
+			.then((response) => {
+				if (!isMounted.current) {
+					return;
+				}
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.then((data: ICurrencyParse) => {
+				if (!isMounted.current) {
+					return;
+				}
+				if (data) {
+					rateFinder(data.table);
+					dateFinder(data.date);
+				}
+			})
+			.catch((error) => {
+				if (isMounted.current) {
+					console.error('Error fetching currency data:', error);
+				}
+			});
 
-		return () => controller.abort();
+		return () => {
+			isMounted.current = false;
+			controller.abort();
+		};
 		// eslint-disable-next-line
 	}, []);
 

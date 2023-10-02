@@ -40,16 +40,12 @@ const db = mysql.createConnection({
 
 db.connect();
 
-const dataRequest = (table, req, res) => {
-	const query = `SELECT * FROM ${table}`;
+app.get('/data', (req, res) => {
+	const query = `SELECT * FROM real_estate`;
 	db.query(query, (error, results) => {
 		if (error) throw error;
 		res.json(results);
 	});
-};
-
-app.get('/data', (req, res) => {
-	dataRequest('real_estate', req, res);
 });
 
 app.get('/currency', (req, res) => {
