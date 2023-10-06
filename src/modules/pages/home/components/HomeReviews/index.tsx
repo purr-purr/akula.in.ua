@@ -40,6 +40,10 @@ const HomeReviews = () => {
 			name: 'MUZVAR',
 			color: 'blue',
 		},
+		{
+			name: 'APPLIANCES_FOR_BUSINESS',
+			color: 'darkBlue',
+		},
 	];
 
 	return (

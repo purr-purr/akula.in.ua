@@ -11,6 +11,7 @@ import {
 } from '@utils/const';
 
 import STUDIO_95 from './assets/95_animation_studio.png';
+// import APPLIANCES_FOR_BUSINESS from './assets/appliances_for_business.png';
 import BAT from './assets/bat.png';
 import CHERRYMALL from './assets/cherrymall.png';
 import EKOL from './assets/ekol.png';
@@ -31,6 +32,7 @@ const Partners = () => {
 		MUZVAR,
 		ENERGY_SOLUTION,
 		GRAND_STEP,
+		// APPLIANCES_FOR_BUSINESS,
 	];
 	const { t } = useTranslation('common');
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
