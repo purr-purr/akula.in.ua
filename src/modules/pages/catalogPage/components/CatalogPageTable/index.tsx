@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useCurrencyFetching } from '@hooks/index';
@@ -9,7 +9,7 @@ import type { ICatalogTable } from '@t-types/data';
 import {
 	formatTableAfterPrefix,
 	formatTableFullPrice,
-	formatToPrefixAndPrice,
+	formatToPrefixOnly,
 } from '../../utils/formatters';
 import s from './CatalogPageTable.module.scss';
 
@@ -83,7 +83,7 @@ const CatalogPageTable: FC<{
 										: isCanBeAnyAmount
 										? tCommon('ANY_AMOUNT')
 										: isLandPlot
-										? formatToPrefixAndPrice(i18n.language, itemValue, currencyRate)
+										? formatToPrefixOnly(i18n.language, itemValue)
 										: itemValue}{' '}
 									<span
 										dangerouslySetInnerHTML={{

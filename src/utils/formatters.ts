@@ -18,9 +18,10 @@ export const formatCityTranslation = (city: string): string => {
 };
 
 export const formatCatalogTranslation = (value: string): string => {
-	return `OBJECT_INFO.${
+	const getTranslationValue =
 		OBJECT_INFO_TRANSLATION[
 			value.toLowerCase() as keyof typeof OBJECT_INFO_TRANSLATION
-		]
-	}`;
+		];
+
+	return getTranslationValue ? `OBJECT_INFO.${getTranslationValue}` : '';
 };

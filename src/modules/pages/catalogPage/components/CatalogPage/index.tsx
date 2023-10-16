@@ -35,6 +35,7 @@ const CatalogPage: FC = memo(() => {
 	const { i18n, t: tCommon } = useTranslation('common');
 	const { t: tCatalog } = useTranslation('catalog');
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
+	const currentPageId = Number(catalog);
 
 	const [pageData, setPageData] = useState<ICatalogData>(initialData);
 	const {
@@ -54,8 +55,11 @@ const CatalogPage: FC = memo(() => {
 	useEffect(() => {
 		if (!router.isReady) return;
 		data.map((value: ICatalogData) => {
-			value.id === Number(catalog) && setPageData(value);
+			if (value.id === currentPageId) {
+				setPageData(value);
+			}
 		});
+
 		// eslint-disable-next-line
 	}, [data, router.query.catalog, router.isReady]);
 

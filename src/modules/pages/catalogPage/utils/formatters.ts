@@ -30,6 +30,10 @@ export const formatToPrefixAndPrice = (
 	return formatToPricePrefix(lang, value) + price + ' ' + UNITS[lang].currency;
 };
 
+export const formatToPrefixOnly = (lang: string, value: string) => {
+	return formatToPricePrefix(lang, value) + formatToNumbersOnly(value);
+};
+
 export const formatToNumbersOnly = (value: string) => {
 	return Number(value.replace(/[^0-9]/g, ''));
 };
