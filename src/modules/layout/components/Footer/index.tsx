@@ -49,11 +49,12 @@ const Footer = () => {
 			link: `mailto:${COMPANY_INFO.EMAIL}`,
 			icon: <IconEmail />,
 		},
-		{
-			title: COMPANY_INFO.SECOND_CONTACT_NUMBER,
-			link: `tel:${COMPANY_INFO.SECOND_CONTACT_NUMBER}`,
-			icon: <IconPhone color="#fff" />,
-		},
+		// TODO Temporarily unused Phone number
+		// {
+		// 	title: COMPANY_INFO.SECOND_CONTACT_NUMBER,
+		// 	link: `tel:${COMPANY_INFO.SECOND_CONTACT_NUMBER}`,
+		// 	icon: <IconPhone color="#fff" />,
+		// },
 	];
 
 	const SOCIALS: ISocials[] = [
