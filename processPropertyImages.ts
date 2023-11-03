@@ -6,7 +6,7 @@ const inputDirectory = 'public/assets/property/source';
 const outputDirectory = 'public/assets/property/production';
 const watermarkPath = 'public/assets/watermark.png';
 
-function imagesInDirectory(directory: string): void {
+const imagesInDirectory = (directory: string): void => {
 	const files = fs.readdirSync(directory);
 
 	for (const file of files) {
@@ -18,15 +18,15 @@ function imagesInDirectory(directory: string): void {
 			compressAndSaveImage(filePath).then();
 		}
 	}
-}
+};
 
-function isImageFile(filePath: string): boolean {
+const isImageFile = (filePath: string): boolean => {
 	const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
 	const extname = path.extname(filePath).toLowerCase();
 	return allowedExtensions.includes(extname);
-}
+};
 
-async function compressAndSaveImage(filePath: string): Promise<void> {
+const compressAndSaveImage = async (filePath: string): Promise<void> => {
 	const relativePath = path.relative(inputDirectory, filePath);
 	const outputPath = path.join(outputDirectory, relativePath);
 	const outputDir = path.dirname(outputPath);
@@ -59,7 +59,7 @@ async function compressAndSaveImage(filePath: string): Promise<void> {
 			console.error(`Error compressing ${filePath}: ${err.message}`);
 		});
 	console.log(`Image edited: ${outputPath}`);
-}
+};
 
 const processPropertyImages = (): void => {
 	imagesInDirectory(inputDirectory);
