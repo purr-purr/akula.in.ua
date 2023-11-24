@@ -47,13 +47,13 @@ const compressAndSaveImage = async (filePath) => {
 	});
 	
 	await sourceImage
-	.rotate()
 	.composite([
 		{
 			input: await watermarkImage.toBuffer(),
 			gravity: 'center',
 		},
 	])
+	.withMetadata()
 	.toFormat('jpeg')
 	.toFile(outputPath)
 	.catch((err) => {
