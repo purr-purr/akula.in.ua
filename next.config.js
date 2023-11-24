@@ -1,8 +1,7 @@
 /**
  * @type {import('next').NextConfig}
- **/
-
-module.exports = {
+ */
+const nextConfig = {
 	sassOptions: {
 		additionalData: `@import "src/assets/styles/variables.scss"; @import "src/assets/styles/mixins.scss";`,
 	},
@@ -11,11 +10,32 @@ module.exports = {
 		defaultLocale: 'ua',
 		localeDetection: false,
 	},
-	exportPathMap: async function () {
+	exportPathMap: async () => {
 		const paths = {
-			'/': { page: '/' },
-			'/catalog': { page: '/catalog' },
-			'/services': { page: '/services' },
+			'/': {
+				page: '/',
+				query: {
+					lang: 'ua',
+					__nextDefaultLocale: 'ua',
+					__nextLocale: 'ua',
+				},
+			},
+			'/catalog': {
+				page: '/catalog',
+				query: {
+					lang: 'ua',
+					__nextDefaultLocale: 'ua',
+					__nextLocale: 'ua',
+				},
+			},
+			'/services': {
+				page: '/services',
+				query: {
+					lang: 'ua',
+					__nextDefaultLocale: 'ua',
+					__nextLocale: 'ua',
+				},
+			},
 		};
 
 		const languages = ['en', 'ru', 'ua'];
@@ -47,6 +67,9 @@ module.exports = {
 				},
 			};
 		}
+
 		return paths;
 	},
 };
+
+export default nextConfig;

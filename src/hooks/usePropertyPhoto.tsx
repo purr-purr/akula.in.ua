@@ -13,7 +13,7 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 
 	const getPath = useMemo(() => {
 		return (fileName: string) =>
-			require(`public/assets/property/${id}/${fileName}`).default;
+			require(`public/assets/property/production/${id}/${fileName}`).default;
 	}, [id]);
 
 	const getImageList = (data: string[]) => {

@@ -7,7 +7,7 @@ import type { DropdownOptions } from '@modules/common/types/dropdown';
 
 import s from './SwitchLanguage.module.scss';
 
-export default function SwitchLanguage() {
+const SwitchLanguage = () => {
 	const router = useRouter();
 	const { i18n } = useTranslation();
 
@@ -42,4 +42,5 @@ export default function SwitchLanguage() {
 			className={s.container}
 		/>
 	);
-}
+};
+export default SwitchLanguage;
