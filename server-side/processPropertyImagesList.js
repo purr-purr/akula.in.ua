@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const processPropertyImagesList = (req, res) => {
 	const imagesPath =
-		'public/assets/property/production/' + req.params.folderName;
+		'../public/assets/property/production/' + req.params.folderName;
 	const folderPath = path.join(__dirname, imagesPath);
 	
 	fs.readdir(folderPath, (err, files) => {

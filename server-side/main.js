@@ -1,5 +1,4 @@
 import express from 'express';
-
 import processPropertyImages from './processPropertyImages.js';
 import routes from './routes.js';
 
@@ -13,10 +12,17 @@ app.use((req, res, next) => {
 	next();
 });
 
-processPropertyImages();
+const startServer = () => {
+	try {
+		processPropertyImages();
+		app.use('/', routes);
+		
+		app.listen(port, () => {
+			console.log(`Backend server is running on port:${port}`);
+		});
+	} catch (error) {
+		console.error(error);
+	}
+}
 
-app.use('/', routes);
-
-app.listen(port, () => {
-	console.log(`Backend server is running on port:${port}`);
-});
+startServer();
