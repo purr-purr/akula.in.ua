@@ -28,7 +28,6 @@ yarn-error.log*
 
 # local env files
 .env
-.env
 /.env
 
 # vercel
@@ -39,3 +38,4 @@ yarn-error.log*
 next-env.d.ts
 
 .idea
+/public/assets/property/production/*
