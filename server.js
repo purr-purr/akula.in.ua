@@ -1,7 +1,7 @@
 import express from 'express';
 
-import processPropertyImages from './processPropertyImages';
-import routes from './routes';
+import processPropertyImages from './processPropertyImages.js';
+import routes from './routes.js';
 
 const app = express();
 const port = 5000;

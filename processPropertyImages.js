@@ -6,12 +6,12 @@ const inputDirectory = 'public/assets/property/source';
 const outputDirectory = 'public/assets/property/production';
 const watermarkPath = 'public/assets/watermark.png';
 
-const imagesInDirectory = (directory: string): void => {
+const imagesInDirectory = (directory) => {
 	const files = fs.readdirSync(directory);
-
+	
 	for (const file of files) {
 		const filePath = path.join(directory, file);
-
+		
 		if (fs.statSync(filePath).isDirectory()) {
 			imagesInDirectory(filePath);
 		} else if (isImageFile(filePath)) {
@@ -20,13 +20,13 @@ const imagesInDirectory = (directory: string): void => {
 	}
 };
 
-const isImageFile = (filePath: string): boolean => {
+const isImageFile = (filePath) => {
 	const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
 	const extname = path.extname(filePath).toLowerCase();
 	return allowedExtensions.includes(extname);
 };
 
-const compressAndSaveImage = async (filePath: string): Promise<void> => {
+const compressAndSaveImage = async (filePath) => {
 	const relativePath = path.relative(inputDirectory, filePath);
 	const outputPath = path.join(outputDirectory, relativePath);
 	const outputDir = path.dirname(outputPath);
@@ -36,32 +36,32 @@ const compressAndSaveImage = async (filePath: string): Promise<void> => {
 	const watermarkImageWidth = sourceImageMetadata.width
 		? Math.round(sourceImageMetadata.width / 5)
 		: 150;
-
+	
 	if (!fs.existsSync(outputDir)) {
-		fs.mkdirSync(outputDir, { recursive: true });
+		fs.mkdirSync(outputDir, {recursive: true});
 	}
-
+	
 	watermarkImage.ensureAlpha(0.5).resize({
 		width: watermarkImageWidth,
 		fit: sharp.fit.contain,
 	});
-
+	
 	await sourceImage
-		.composite([
-			{
-				input: await watermarkImage.toBuffer(),
-				gravity: 'center',
-			},
-		])
-		.toFormat('jpeg')
-		.toFile(outputPath)
-		.catch((err: Error) => {
-			console.error(`Error compressing ${filePath}: ${err.message}`);
-		});
+	.composite([
+		{
+			input: await watermarkImage.toBuffer(),
+			gravity: 'center',
+		},
+	])
+	.toFormat('jpeg')
+	.toFile(outputPath)
+	.catch((err) => {
+		console.error(`Error compressing ${filePath}: ${err.message}`);
+	});
 	console.log(`Image edited: ${outputPath}`);
 };
 
-const processPropertyImages = (): void => {
+const processPropertyImages = () => {
 	imagesInDirectory(inputDirectory);
 };
 
