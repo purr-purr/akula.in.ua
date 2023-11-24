@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npx tsx server.js\" \"next dev\"",
+    "dev": "concurrently \"node server.js\" \"next dev\"",
     "build": "next build",
-    "start": "concurrently \"NODE_ENV=production npx tsx server.js\" \"next start -p 4400\"",
-    "prod": "git pull origin main && next build && concurrently \"NODE_ENV=production npx tsx server.js\" \"next start -p 4400\"",
+    "start": "concurrently \"NODE_ENV=production node server.js\" \"next start -p 4400\"",
+    "prod": "git pull origin main && next build && concurrently \"NODE_ENV=production node server.js\" \"next start -p 4400\"",
     "lint": "next lint",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx}\""
   },
