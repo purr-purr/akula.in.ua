@@ -4,10 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "image-processing": "node server-side/processPropertyImages.js",
     "dev": "concurrently \"node server-side/main.js\" \"next dev\"",
-    "build": "next build",
     "start": "concurrently \"NODE_ENV=production node server-side/main.js\" \"next start -p 4400\"",
     "prod": "git pull origin main && next build && concurrently \"NODE_ENV=production node server-side/main.js\" \"next start -p 4400\"",
+    "git-pull": "git pull origin main",
+    "build": "next build",
     "lint": "next lint",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx}\""
   },
@@ -48,6 +50,7 @@
     "concurrently": "^8.2.0",
     "eslint": "8.22.0",
     "eslint-config-next": "13.1.1",
+    "next-images": "^1.8.5",
     "prettier": "2.8.1",
     "sass": "^1.57.1",
     "typescript": "^5.3.2"

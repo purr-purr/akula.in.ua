@@ -1,7 +1,7 @@
-import { FC, useEffect, useState } from 'react';
+import {FC, useEffect, useState} from 'react';
 import ImageGallery from 'react-image-gallery';
 
-import { useMediaQuery, usePropertyPhoto } from '@hooks/index';
+import {useMediaQuery, usePropertyPhoto} from '@hooks/index';
 
 import s from './CatalogPageCarousel.module.scss';
 
@@ -11,9 +11,9 @@ import cn from 'classnames';
 import DefaultPoster from '@modules/common/components/DefaultPoster';
 import IconSliderButton from '@icons/components/IconSliderButton';
 
-import { TABLET_BREAKPOINT } from '@utils/const';
+import {TABLET_BREAKPOINT} from '@utils/const';
 
-const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
+const CatalogPageCarousel: FC<{ id: number }> = ({id}) => {
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const postersList = usePropertyPhoto(id);
 	const [isFullScreenMode, setIsFullScreenMode] = useState<boolean>(false);
@@ -34,6 +34,8 @@ const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 		// eslint-disable-next-line
 	}, [isFullScreenMode]);
 
+	console.log(postersList)
+
 	return (
 		<article
 			className={cn(
@@ -52,18 +54,20 @@ const CatalogPageCarousel: FC<{ id: number }> = ({ id }) => {
 					items={postersList}
 					additionalClass={s.gallery}
 					renderLeftNav={(onClick, disabled) => (
-						<button className={s.prevButton} onClick={onClick} disabled={disabled}>
-							<IconSliderButton />
+						<button className={s.prevButton} onClick={onClick}
+						        disabled={disabled}>
+							<IconSliderButton/>
 						</button>
 					)}
 					renderRightNav={(onClick, disabled) => (
-						<button className={s.nextButton} onClick={onClick} disabled={disabled}>
-							<IconSliderButton />
+						<button className={s.nextButton} onClick={onClick}
+						        disabled={disabled}>
+							<IconSliderButton/>
 						</button>
 					)}
 				/>
 			) : (
-				<DefaultPoster />
+				<DefaultPoster/>
 			)}
 		</article>
 	);
