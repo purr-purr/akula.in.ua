@@ -16,6 +16,35 @@ const imagesInDirectory = (directory) => {
 			imagesInDirectory(filePath);
 		} else if (isImageFile(filePath)) {
 			compressAndSaveImage(filePath).then();
+		} else {
+			//TODO Not finished moving not images files with saving folder structure
+			// const destinationPath = filePath.replace('source', 'production');
+			const name = path.basename(filePath);
+			const folder = outputDirectory + '/' + 'test/';
+			const folderWithName = folder + name;
+			
+			fs.mkdir(folder, {recursive: true}, (err) => {
+				if (err) {
+					console.error(`Error: ${err}`);
+					return;
+				}
+				
+				fs.readFile(filePath, (err, data) => {
+					if (err) {
+						console.error(`Error reading source file: ${err}`);
+						return;
+					}
+					
+					fs.writeFile(folderWithName, data, (err) => {
+						if (err) {
+							console.error(`Error writing to destination file: ${err}`);
+							return;
+						}
+						
+						console.log('File moved successfully!');
+					});
+				})
+			})
 		}
 	}
 };
@@ -30,34 +59,37 @@ const compressAndSaveImage = async (filePath) => {
 	const relativePath = path.relative(inputDirectory, filePath);
 	const outputPath = path.join(outputDirectory, relativePath);
 	const outputDir = path.dirname(outputPath);
+	
 	const sourceImage = sharp(filePath);
 	const sourceImageMetadata = await sourceImage.metadata();
-	const watermarkImage = sharp(watermarkPath);
-	const watermarkImageWidth = sourceImageMetadata.width
-		? Math.round(sourceImageMetadata.width / 5)
+	const sourceImageWidth = sourceImageMetadata.width;
+	
+	const watermarkImageWidth = sourceImageWidth
+		? Math.round(sourceImageWidth / 5)
 		: 150;
 	
 	if (!fs.existsSync(outputDir)) {
 		fs.mkdirSync(outputDir, {recursive: true});
 	}
 	
-	watermarkImage.ensureAlpha(0.5).resize({
+	const watermarkImage = sharp(watermarkPath)
+	.resize({
 		width: watermarkImageWidth,
 		fit: sharp.fit.contain,
 	});
 	
 	await sourceImage
+	.withMetadata()
+	.rotate()
 	.composite([
 		{
 			input: await watermarkImage.toBuffer(),
 			gravity: 'center',
 		},
 	])
-	.withMetadata()
-	.toFormat('jpeg')
 	.toFile(outputPath)
 	.catch((err) => {
-		console.error(`Error compressing ${filePath}: ${err.message}`);
+		console.error(`Error editing ${filePath}: ${err.message}`);
 	});
 	console.log(`Image edited: ${outputPath}`);
 };
