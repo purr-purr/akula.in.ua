@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import {useEffect, useRef, useState} from 'react';
 
-import { BACKEND_LOCALHOST } from '@utils/const';
-import { DEFAULT_CURRENCY_INFO } from '@utils/data';
-import { MONTH_NAME_TO_NUMBER } from '@utils/translations';
+import {BACKEND_LOCALHOST} from '@utils/const';
+import {DEFAULT_CURRENCY_INFO} from '@utils/data';
+import {MONTH_NAME_TO_NUMBER} from '@utils/translations';
 
 interface ICurrencyParse {
 	table: string;
@@ -20,7 +20,7 @@ const useCurrencyFetching = () => {
 	const isMounted = useRef(true);
 
 	const getMonth = (text: string) => {
-		const monthPattern = /([а-я]+?)\s+\d{4}/;
+		const monthPattern = /([а-яґєії]+?)\s+\d{4}/;
 		const match = monthPattern.exec(text);
 		let result;
 
@@ -50,9 +50,8 @@ const useCurrencyFetching = () => {
 	};
 
 	const dateFinder = (text: string) => {
-		const datePattern = /(\d{1,2}\s+[а-я]+?\s+\d{4})/;
+		const datePattern = /(\d{1,2}\s+[а-яґєії]+?\s+\d{4})/;
 		const match = datePattern.exec(text);
-
 		if (match) {
 			const foundDate = match[0];
 			const dateTemplate = `${getDay(foundDate)}.${getMonth(foundDate)}`;
@@ -113,7 +112,7 @@ const useCurrencyFetching = () => {
 		// eslint-disable-next-line
 	}, []);
 
-	return { currencyRate, currencyDate: `${currencyDate}.${currentYear}` };
+	return {currencyRate, currencyDate: `${currencyDate}.${currentYear}`};
 };
 
 export default useCurrencyFetching;
