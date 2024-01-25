@@ -3,13 +3,13 @@ import ImageGallery from 'react-image-gallery';
 
 import {useMediaQuery, usePropertyPhoto} from '@hooks/index';
 
-import s from './CatalogPageCarousel.module.scss';
-
 import 'react-image-gallery/styles/css/image-gallery.css';
 import cn from 'classnames';
 
 import DefaultPoster from '@modules/common/components/DefaultPoster';
 import IconSliderButton from '@icons/components/IconSliderButton';
+
+import s from './CatalogPageCarousel.module.scss';
 
 import {TABLET_BREAKPOINT} from '@utils/const';
 
@@ -33,8 +33,6 @@ const CatalogPageCarousel: FC<{ id: number }> = ({id}) => {
 		}
 		// eslint-disable-next-line
 	}, [isFullScreenMode]);
-
-	console.log(postersList)
 
 	return (
 		<article

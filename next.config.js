@@ -74,7 +74,7 @@ const nextConfig = {
 	},
 	webpack: (config, {isServer}) => {
 		config.module.rules.push({
-			test: /\.(mp4|webm)$/,
+			test: /\.(mp4|webm|mov)$/,
 			use: {
 				loader: 'url-loader',
 				options: {

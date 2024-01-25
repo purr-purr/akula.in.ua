@@ -15,7 +15,6 @@ const processPropertyImagesList = (req, res) => {
 			console.error(err);
 			return res.status(500).json({error: 'Error reading folder'});
 		}
-		
 		res.json(files);
 	});
 };

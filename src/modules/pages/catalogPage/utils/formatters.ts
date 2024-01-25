@@ -1,6 +1,6 @@
-import { UNITS } from '@modules/pages/catalogPage/utils/units';
+import {UNITS} from '@modules/pages/catalogPage/utils/units';
 
-import { USD_SYMBOL } from '@utils/const';
+import {USD_SYMBOL} from '@utils/const';
 
 export const formatMetaForCatalogPage = (
 	city: string,
@@ -35,7 +35,7 @@ export const formatToPrefixOnly = (lang: string, value: string) => {
 };
 
 export const formatToNumbersOnly = (value: string) => {
-	return Number(value.replace(/[^0-9]/g, ''));
+	return Number(value.replace(/[^\d.]/g, ''));
 };
 
 const formatToSeparatedNumber = (value: number) => {

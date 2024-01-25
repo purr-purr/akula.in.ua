@@ -1,15 +1,20 @@
-import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import {FC} from 'react';
+import {useTranslation} from 'react-i18next';
 import cn from 'classnames';
 
-import CatalogPageMap from '@modules/pages/catalogPage/components/CatalogPageMap';
-import CatalogPageNotice from '@modules/pages/catalogPage/components/CatalogPageNotice';
-import CatalogPageTable from '@modules/pages/catalogPage/components/CatalogPageTable';
+import CatalogPageMap
+	from '@modules/pages/catalogPage/components/CatalogPageMap';
+import CatalogPageNotice
+	from '@modules/pages/catalogPage/components/CatalogPageNotice';
+import CatalogPageTable
+	from '@modules/pages/catalogPage/components/CatalogPageTable';
+import CatalogPageVideo
+	from "@modules/pages/catalogPage/components/CatalogPageVideo";
 
-import { useMediaQuery } from '@hooks/index';
-import { LAPTOP_BREAKPOINT } from '@utils/const';
+import {useMediaQuery, usePropertyPhoto} from '@hooks/index';
+import {LAPTOP_BREAKPOINT} from '@utils/const';
 
-import type { ICatalogTable } from '@t-types/data';
+import type {ICatalogTable} from '@t-types/data';
 
 import s from './CatalogPageInformation.module.scss';
 
@@ -24,21 +29,33 @@ const CatalogPageInformation: FC<{
 	realEstateType: string;
 	price: string;
 }> = ({
-	description,
-	tableInfo,
-	id,
-	address,
-	originalAddress,
-	station,
-	realEstateType,
-	contractType,
-	price,
-}) => {
-	const { t } = useTranslation('catalog');
+	      description,
+	      tableInfo,
+	      id,
+	      address,
+	      originalAddress,
+	      station,
+	      realEstateType,
+	      contractType,
+	      price,
+      }) => {
+	const {t} = useTranslation('catalog');
+	const postersList = usePropertyPhoto(id);
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
+	const isVideoBlock = postersList.some(item => item.video);
 
 	return (
 		<>
+			{isVideoBlock && (
+				<article className={s.container}>
+					<h4 className={s.title}>{t('VIDEO')}</h4>
+					<hr className={s.line}/>
+					{postersList.map((item) => item.video && (
+						<CatalogPageVideo key={item.video} source={item.video}/>
+					))}
+				</article>
+			)}
+
 			<article className={cn(s.container, s.info)}>
 				<div className={s.infoHeading}>
 					<h4 className={s.title}>{t('INFORMATION')}</h4>
@@ -54,13 +71,13 @@ const CatalogPageInformation: FC<{
 					tableInfo={tableInfo}
 				/>
 
-				<CatalogPageNotice type="short" />
+				<CatalogPageNotice type="short"/>
 			</article>
 
 			{description && (
-				<article className={cn(s.container, s.description)}>
+				<article className={cn(s.container)}>
 					<h4 className={s.title}>{t('DESCRIPTION')}</h4>
-					<hr className={s.line} />
+					<hr className={s.line}/>
 					<p
 						dangerouslySetInnerHTML={{
 							__html: description,
@@ -71,13 +88,13 @@ const CatalogPageInformation: FC<{
 
 			<article className={cn(s.container, s.address)}>
 				<h4 className={s.title}>{t('ADDRESS')}</h4>
-				<hr className={s.line} />
+				<hr className={s.line}/>
 				{address && <p>{address}</p>}
 				{station && <p>{station}</p>}
-				<CatalogPageMap fullAddress={originalAddress} />
+				<CatalogPageMap fullAddress={originalAddress}/>
 			</article>
 
-			{!isLaptop && <CatalogPageNotice />}
+			{!isLaptop && <CatalogPageNotice/>}
 		</>
 	);
 };

@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import {useEffect, useMemo, useState} from 'react';
 
-import { BACKEND_LOCALHOST } from '@utils/const';
+import {BACKEND_LOCALHOST} from '@utils/const';
 
-import type { ICatalogData, IDataBaseResponse } from '@t-types/data';
+import type {ICatalogData, IDataBaseResponse} from '@t-types/data';
 
 type RecordFormattedData = undefined | null | string | number;
 
@@ -48,7 +48,7 @@ const useDataFetching = () => {
 		const result = data.map((item: IDataBaseResponse) => {
 			const doneResult = Object.create(initialData);
 
-			let tempObj: IDataBaseResponse = { ...item };
+			let tempObj: IDataBaseResponse = {...item};
 			let tableArray: Record<string, RecordFormattedData> = {};
 			let descriptionArray: Record<string, RecordFormattedData> = {};
 			let addressArray: Record<string, RecordFormattedData> = {};
@@ -113,10 +113,6 @@ const useDataFetching = () => {
 		// eslint-disable-next-line
 		[],
 	);
-
-	useEffect(() => {
-		console.log('Data fetched', data);
-	}, [data]);
 
 	return {
 		data,

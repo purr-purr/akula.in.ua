@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import axios from 'axios';
 
-import { BACKEND_LOCALHOST } from '@utils/const';
+import {BACKEND_LOCALHOST} from '@utils/const';
 
 interface IGalleryList {
 	original: string;
 	thumbnail: string;
+	video?: string;
 }
 
 const usePropertyPhoto = (id: number): IGalleryList[] => {
@@ -18,9 +19,13 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 
 	const getImageList = (data: string[]) => {
 		const importedImages = data.map((filename: string) => {
+			const videoRegExp = /(mp4|webm|mov)/;
+			const isVideo = videoRegExp.test(filename);
+			const filePath = getPath(filename);
 			return {
-				original: getPath(filename).src,
-				thumbnail: getPath(filename).src,
+				original: filePath.src,
+				thumbnail: filePath.src,
+				video: isVideo ? filePath : null,
 			};
 		});
 		setFileList(importedImages);

@@ -1,39 +1,47 @@
-import { FC, memo, useEffect, useState } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
-import { useRouter } from 'next/router';
+import {FC, memo, useEffect, useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {useRouter} from 'next/router';
 
 import Loader from '@modules/common/components/Loader';
 import Meta from '@modules/common/components/Meta';
 import FeedbackForm from '@modules/feedback/components/FeedbackForm';
-import CatalogPageCarousel from '@modules/pages/catalogPage/components/CatalogPageCarousel';
-import CatalogPageCrumbs from '@modules/pages/catalogPage/components/CatalogPageCrumbs';
-import CatalogPageHeader from '@modules/pages/catalogPage/components/CatalogPageHeader';
-import CatalogPageInformation from '@modules/pages/catalogPage/components/CatalogPageInformation';
-import CatalogPageNotice from '@modules/pages/catalogPage/components/CatalogPageNotice';
-import { formatMetaForCatalogPage } from '@modules/pages/catalogPage/utils/formatters';
+import CatalogPageCarousel
+	from '@modules/pages/catalogPage/components/CatalogPageCarousel';
+import CatalogPageCrumbs
+	from '@modules/pages/catalogPage/components/CatalogPageCrumbs';
+import CatalogPageHeader
+	from '@modules/pages/catalogPage/components/CatalogPageHeader';
+import CatalogPageInformation
+	from '@modules/pages/catalogPage/components/CatalogPageInformation';
+import CatalogPageNotice
+	from '@modules/pages/catalogPage/components/CatalogPageNotice';
+import {
+	formatMetaForCatalogPage
+} from '@modules/pages/catalogPage/utils/formatters';
 
 import {
 	useCatalogItemFullAddress,
 	useDataFetching,
 	useMediaQuery,
 } from '@hooks/index';
-import { CATALOG_NAME, LAPTOP_BREAKPOINT } from '@utils/const';
+import {CATALOG_NAME, LAPTOP_BREAKPOINT} from '@utils/const';
 import {
 	formatCatalogTranslation,
 	formatCityTranslation,
 	formatTranslation,
 } from '@utils/formatters';
 
-import type { ICatalogData } from '@t-types/data';
+import type {ICatalogData} from '@t-types/data';
 
 import s from './CatalogPage.module.scss';
+import Page404 from "@modules/pages/page404/components/Page404";
 
 const CatalogPage: FC = memo(() => {
 	const router = useRouter();
-	const { catalog } = router.query;
-	const { data, loading, initialData } = useDataFetching();
-	const { i18n, t: tCommon } = useTranslation('common');
-	const { t: tCatalog } = useTranslation('catalog');
+	const {catalog} = router.query;
+	const {data, loading, initialData} = useDataFetching();
+	const {i18n, t: tCommon} = useTranslation('common');
+	const {t: tCatalog} = useTranslation('catalog');
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
 	const currentPageId = Number(catalog);
 
@@ -92,14 +100,18 @@ const CatalogPage: FC = memo(() => {
 	);
 
 	if (loading) {
-		return <Loader type="fullscreen" />;
+		return <Loader type="fullscreen"/>;
+	}
+
+	if (pageData.id === 0) {
+		return <Page404/>
 	}
 
 	return (
 		<>
-			<Meta title={itemLocationAndAddress} desc={pageMetaDescription} />
+			<Meta title={itemLocationAndAddress} desc={pageMetaDescription}/>
 
-			<CatalogPageCrumbs address={itemRealEstateTypeAndAddress} />
+			<CatalogPageCrumbs address={itemRealEstateTypeAndAddress}/>
 			<CatalogPageHeader
 				city={itemCity}
 				address={itemLocationAndAddress}
@@ -108,7 +120,7 @@ const CatalogPage: FC = memo(() => {
 			/>
 			<section className={s.container}>
 				<div>
-					<CatalogPageCarousel id={id} />
+					<CatalogPageCarousel id={id}/>
 					<CatalogPageInformation
 						contractType={contractType}
 						realEstateType={realEstateType}
@@ -129,12 +141,12 @@ const CatalogPage: FC = memo(() => {
 						<p className={s.feedbackDescription}>
 							{tCatalog('FEEDBACK.IF_YOU_LIKE_THIS_PROPERTY')}
 						</p>
-						<FeedbackForm isColumnType message={itemLocationAndAddress} />
+						<FeedbackForm isColumnType message={itemLocationAndAddress}/>
 					</div>
 				</aside>
 			</section>
 
-			{isLaptop && <CatalogPageNotice />}
+			{isLaptop && <CatalogPageNotice/>}
 		</>
 	);
 });

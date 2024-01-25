@@ -1,25 +1,25 @@
-import { FC, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/router';
+import {FC, useEffect, useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {useRouter} from 'next/router';
 import cn from 'classnames';
 
 import Button from '@modules/common/components/Button';
 import InputField from '@modules/common/components/InputField';
 import IconBird from '@icons/components/IconBird';
 
-import { TG_BOT } from '@utils/credentials';
+import {TG_BOT} from '@utils/credentials';
 
-import type { ChangeEvent, FormEvent } from 'react';
+import type {ChangeEvent, FormEvent} from 'react';
 
 import s from './FeedbackForm.module.scss';
 
 const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
-	message,
-	isColumnType = false,
-}) => {
-	const { t: tCommon } = useTranslation('common');
-	const { t: tCatalog } = useTranslation('catalog');
-	const { basePath, asPath } = useRouter();
+	                                                                        message,
+	                                                                        isColumnType = false,
+                                                                        }) => {
+	const {t: tCommon} = useTranslation('common');
+	const {t: tCatalog} = useTranslation('catalog');
+	const {basePath, asPath} = useRouter();
 
 	const orderWasByLink = `https://akula.in.ua${basePath + asPath}`;
 	const messageText = message ? `[${message}]` : 'Без повідомлення';
@@ -69,7 +69,7 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 			try {
 				await fetch(`https://api.telegram.org/bot${TG_BOT.TOKEN}/sendMessage`, {
 					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
+					headers: {'Content-Type': 'application/json'},
 					body: JSON.stringify({
 						chat_id: chatID,
 						text: botResponseMessage,
@@ -80,7 +80,7 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 				console.log('Request sent successfully!');
 			} catch (error) {
 				window.alert(tCommon('THE_REQUEST_COULD_NOT_BE_SENT'));
-				console.log(error);
+				console.error(error);
 			}
 		}
 	};
@@ -88,7 +88,7 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 	const handleInputChange = (
 		event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => {
-		setFormData({ ...formData, [event.target.name]: event.target.value });
+		setFormData({...formData, [event.target.name]: event.target.value});
 	};
 
 	return (
@@ -128,8 +128,9 @@ const FeedbackForm: FC<{ message?: string; isColumnType?: boolean }> = ({
 					onChange={handleInputChange}
 				/>
 			)}
-			<Button text={tCommon(isSuccessfulOrderAlert ? 'SENT' : 'SEND_A_REQUEST')}>
-				{isSuccessfulOrderAlert && <IconBird />}
+			<Button
+				text={tCommon(isSuccessfulOrderAlert ? 'SENT' : 'SEND_A_REQUEST')}>
+				{isSuccessfulOrderAlert && <IconBird/>}
 			</Button>
 		</form>
 	);
