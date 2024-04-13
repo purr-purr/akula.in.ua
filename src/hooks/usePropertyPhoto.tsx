@@ -18,7 +18,24 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 	}, [id]);
 
 	const getImageList = (data: string[]) => {
-		const importedImages = data.map((filename: string) => {
+		const sortFiles = data.sort((a, b) => {
+			const firstItemPattern = '1.';
+			const lastItemPattern = '999.';
+
+			if (a.includes(firstItemPattern) && !b.includes(firstItemPattern)) {
+				return -1;
+			} else if (!a.includes(firstItemPattern) && b.includes(firstItemPattern)) {
+				return 1;
+			} else if (a.includes(lastItemPattern) && !b.includes(lastItemPattern)) {
+				return 1;
+			} else if (!a.includes(lastItemPattern) && b.includes(lastItemPattern)) {
+				return -1;
+			} else {
+				return a.localeCompare(b);
+			}
+		});
+
+		const buildImagesList = sortFiles.map((filename: string) => {
 			const videoRegExp = /(mp4|webm|mov)/;
 			const isVideo = videoRegExp.test(filename);
 			const filePath = getPath(filename);
@@ -28,7 +45,8 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 				video: isVideo ? filePath : null,
 			};
 		});
-		setFileList(importedImages);
+
+		setFileList(buildImagesList);
 	};
 
 	useEffect(() => {

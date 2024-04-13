@@ -1,12 +1,14 @@
-import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import {FC} from 'react';
+import {useTranslation} from 'react-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import cn from 'classnames';
 
 import DefaultPoster from '@modules/common/components/DefaultPoster';
-import { formatToPrefixAndPrice } from '@modules/pages/catalogPage/utils/formatters';
-import { UNITS } from '@modules/pages/catalogPage/utils/units';
+import {
+	formatToPrefixAndPrice
+} from '@modules/pages/catalogPage/utils/formatters';
+import {UNITS} from '@modules/pages/catalogPage/utils/units';
 import IconFloorPlan from '@icons/components/IconFloorPlan';
 import IconRuler from '@icons/components/IconRuler';
 
@@ -15,19 +17,19 @@ import {
 	useCurrencyFetching,
 	usePropertyPhoto,
 } from '@hooks/index';
-import { CATALOG_NAME } from '@utils/const';
+import {CATALOG_NAME} from '@utils/const';
 import {
 	formatCatalogTranslation,
 	formatCityTranslation,
 } from '@utils/formatters';
 
-import type { ICatalogData } from '@t-types/data';
+import type {ICatalogData} from '@t-types/data';
 
 import s from './CatalogCard.module.scss';
 
 const CatalogCard: FC<{
 	props: ICatalogData;
-}> = ({ props }) => {
+}> = ({props}) => {
 	const {
 		id,
 		contractType,
@@ -40,9 +42,9 @@ const CatalogCard: FC<{
 		location,
 	} = props;
 
-	const { i18n, t: tCommon } = useTranslation('common');
-	const { t: tCatalog } = useTranslation('catalog');
-	const { currencyRate } = useCurrencyFetching();
+	const {i18n, t: tCommon} = useTranslation('common');
+	const {t: tCatalog} = useTranslation('catalog');
+	const {currencyRate} = useCurrencyFetching();
 
 	const postersList = usePropertyPhoto(id);
 	const fullAddress = useCatalogItemFullAddress(
@@ -64,11 +66,11 @@ const CatalogCard: FC<{
 						className={s.image}
 						width={400}
 						height={300}
-						src={postersList[0]?.original}
+						src={postersList[0].original}
 						alt="Photo"
 					/>
 				) : (
-					<DefaultPoster className={s.image} />
+					<DefaultPoster className={s.image}/>
 				)}
 				<div className={s.info}>
 					<ul className={s.tags}>
@@ -84,7 +86,7 @@ const CatalogCard: FC<{
 						</li>
 						{table.totalArea && (
 							<li title={tCatalog('TABLE.TOTALAREA')}>
-								<IconRuler />
+								<IconRuler/>
 								{itemTotalArea + ' ' + UNITS[i18n.language].squareMeters}
 							</li>
 						)}
@@ -92,7 +94,7 @@ const CatalogCard: FC<{
 							<li
 								title={tCatalog(`${table.offices ? 'TABLE.OFFICES' : 'TABLE.ROOMS'}`)}
 							>
-								<IconFloorPlan />
+								<IconFloorPlan/>
 								{table.offices || table.rooms}
 							</li>
 						)}
