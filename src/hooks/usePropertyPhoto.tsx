@@ -21,6 +21,7 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 		const sortFiles = data.sort((a, b) => {
 			const firstItemPattern = '1.';
 			const lastItemPattern = '999';
+			const beforeLastItemPattern = '998';
 
 			if (a.includes(firstItemPattern) && !b.includes(firstItemPattern)) {
 				return -1;
@@ -29,6 +30,10 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 			} else if (a.includes(lastItemPattern) && !b.includes(lastItemPattern)) {
 				return 1;
 			} else if (!a.includes(lastItemPattern) && b.includes(lastItemPattern)) {
+				return -1;
+			} else if (a.includes(beforeLastItemPattern) && !b.includes(beforeLastItemPattern)) {
+				return 1;
+			} else if (!a.includes(beforeLastItemPattern) && b.includes(beforeLastItemPattern)) {
 				return -1;
 			} else {
 				return a.localeCompare(b);
