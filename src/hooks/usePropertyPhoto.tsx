@@ -20,7 +20,7 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 	const getImageList = (data: string[]) => {
 		const sortFiles = data.sort((a, b) => {
 			const firstItemPattern = '1.';
-			const lastItemPattern = '999.';
+			const lastItemPattern = '999';
 
 			if (a.includes(firstItemPattern) && !b.includes(firstItemPattern)) {
 				return -1;
