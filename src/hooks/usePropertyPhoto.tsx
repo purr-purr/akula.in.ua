@@ -41,7 +41,7 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 		});
 
 		const buildImagesList = sortFiles.map((filename: string) => {
-			const videoRegExp = /(mp4|webm|mov)/;
+			const videoRegExp = /(mp4|webm|mov|MOV|WEBM|MP4)/;
 			const isVideo = videoRegExp.test(filename);
 			const filePath = getPath(filename);
 			return {

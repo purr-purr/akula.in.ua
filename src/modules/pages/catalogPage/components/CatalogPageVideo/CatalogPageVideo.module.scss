@@ -1,8 +1,13 @@
 .container {
-  width: 100%;
-  height: auto;
+	width: 100%;
+	height: auto;
+	max-height: 500px;
 
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
+	@include media-mobile() {
+		max-height: 400px;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
 }
