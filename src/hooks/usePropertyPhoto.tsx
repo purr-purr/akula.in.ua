@@ -18,18 +18,22 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 	}, [id]);
 
 	const getImageList = (data: string[]) => {
-		const rules = [
-			{test: s => s.includes('1.'), weight: 0},
-			{test: s => s.includes('998'), weight: 2},
-			{test: s => s.includes('999'), weight: 3},
+		const rules: { test: (s: string) => boolean; weight: number }[] = [
+			{test: (s: string) => s.includes("1."), weight: 0},
+			{test: (s: string) => s.includes("998"), weight: 2},
+			{test: (s: string) => s.includes("999"), weight: 3},
 		];
 
-		const score = s => {
-			for (const {test, weight} of rules) if (test(s)) return weight;
+		const score = (s: string): number => {
+			for (const {test, weight} of rules) {
+				if (test(s)) return weight;
+			}
 			return 1;
 		};
 
-		const sortFiles = [...data].sort((a, b) => (score(a) - score(b)) || a.localeCompare(b));
+		const sortFiles = [...data].sort(
+			(a: string, b: string) => score(a) - score(b) || a.localeCompare(b)
+		);
 
 		const buildImagesList = sortFiles.map((filename: string) => {
 			const videoRegExp = /(mp4|webm|mov|MOV|WEBM|MP4)/;
