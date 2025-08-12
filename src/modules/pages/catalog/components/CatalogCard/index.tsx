@@ -57,7 +57,7 @@ const CatalogCard: FC<{
 	const itemPropertyType = tCommon(formatCatalogTranslation(propertyType));
 	const itemTotalArea = Number(table.totalArea).toFixed();
 
-	const isRoomsIcon = (table.offices && table.offices !== 'any') || table.rooms;
+	const isRoomsIcon = (table.offices && table.offices !== 'any') || (table.rooms && table.rooms !== 'any');
 	return (
 		<li className={cn('yellow-shadow', s.container)}>
 			<Link className={s.inner} href={`/${CATALOG_NAME}/${id}`}>

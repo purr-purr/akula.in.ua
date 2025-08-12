@@ -55,6 +55,7 @@ const CatalogPageTable: FC<{
 					const isCanBeAnyAmount =
 						(item.key === 'offices' ||
 							item.key === 'kitchen' ||
+							item.key === 'rooms' ||
 							item.key === 'bathrooms') &&
 						item.value === 'any';
 
