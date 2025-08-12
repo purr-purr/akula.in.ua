@@ -18,27 +18,18 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 	}, [id]);
 
 	const getImageList = (data: string[]) => {
-		const sortFiles = data.sort((a, b) => {
-			const firstItemPattern = '1.';
-			const lastItemPattern = '999';
-			const beforeLastItemPattern = '998';
+		const rules = [
+			{test: s => s.includes('1.'), weight: 0},
+			{test: s => s.includes('998'), weight: 2},
+			{test: s => s.includes('999'), weight: 3},
+		];
 
-			if (a.includes(firstItemPattern) && !b.includes(firstItemPattern)) {
-				return -1;
-			} else if (!a.includes(firstItemPattern) && b.includes(firstItemPattern)) {
-				return 1;
-			} else if (a.includes(lastItemPattern) && !b.includes(lastItemPattern)) {
-				return 1;
-			} else if (!a.includes(lastItemPattern) && b.includes(lastItemPattern)) {
-				return -1;
-			} else if (a.includes(beforeLastItemPattern) && !b.includes(beforeLastItemPattern)) {
-				return 1;
-			} else if (!a.includes(beforeLastItemPattern) && b.includes(beforeLastItemPattern)) {
-				return -1;
-			} else {
-				return a.localeCompare(b);
-			}
-		});
+		const score = s => {
+			for (const {test, weight} of rules) if (test(s)) return weight;
+			return 1;
+		};
+
+		const sortFiles = [...data].sort((a, b) => (score(a) - score(b)) || a.localeCompare(b));
 
 		const buildImagesList = sortFiles.map((filename: string) => {
 			const videoRegExp = /(mp4|webm|mov|MOV|WEBM|MP4)/;
@@ -75,6 +66,7 @@ const usePropertyPhoto = (id: number): IGalleryList[] => {
 		// eslint-disable-next-line
 	}, [id]);
 
+	console.log(`fileList`, fileList)
 	return fileList;
 };
 

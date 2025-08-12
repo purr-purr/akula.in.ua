@@ -6,7 +6,18 @@ const sourceDirectory = 'public/assets/property/source';
 const outputDirectory = 'public/assets/property/production';
 const watermarkPath = 'public/assets/watermark.png';
 
+const deleteProductionFolder = () => {
+	for (const item of fs.readdirSync(outputDirectory)) {
+		console.log(`Deleted folder: property/production/${item}`)
+		const itemPath = path.join(outputDirectory, item);
+		if (fs.statSync(itemPath).isDirectory()) {
+			fs.rmSync(itemPath, {recursive: true, force: true});
+		}
+	}
+}
+
 const processPropertyFiles = (directory) => {
+	deleteProductionFolder();
 	const files = fs.readdirSync(directory);
 	
 	for (const file of files) {
