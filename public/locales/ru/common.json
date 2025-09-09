@@ -62,6 +62,7 @@
     "PREMISES_FOR_ANY_TYPE_OF_ACTIVITY": "Помещение под любой вид деятельности",
     "RETAIL_SPACE": "Торговая площадь",
     "STORAGE_ROOM": "Складское помещение",
-    "LAND": "Земля"
+    "LAND": "Земля",
+    "AUDIENCE": "Аудитория"
   }
 }

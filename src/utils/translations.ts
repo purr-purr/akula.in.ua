@@ -1,7 +1,7 @@
 // prettier-ignore
 export const CITY_TRANSLATION = {
 	'київ': 'KYIV',
-	'київська область': 'KYIV_REGION',
+	'київська область': 'KYIV_REGION'
 };
 
 // prettier-ignore
@@ -19,6 +19,7 @@ export const OBJECT_INFO_TRANSLATION = {
 	'торгова площа': 'RETAIL_SPACE',
 	'складське приміщення': 'STORAGE_ROOM',
 	'земля': 'LAND',
+	'аудиторія': 'AUDIENCE'
 };
 
 // prettier-ignore
