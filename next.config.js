@@ -4,6 +4,9 @@
 // const withImages = require('next-images');
 
 const nextConfig = {
+	output: 'standalone',
+	poweredByHeader: false,
+	compress: true,
 	swcMinify: true,
 	productionBrowserSourceMaps: false,
 	eslint: {ignoreDuringBuilds: true},
