@@ -8,11 +8,11 @@ const pool = mysql.createPool({
 	host: process.env.DB_HOST,
 	user: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
-	database: process.env.DB_TABLE_NAME,
+	database: process.env.DB_TABLE_NAME
 });
 
 const databaseConnection = (res) => {
-	const query = 'SELECT * FROM real_estate LIMIT 1;';
+	const query = 'SELECT * FROM real_estate';
 
 	pool.getConnection((err, connection) => {
 		if (err) {
