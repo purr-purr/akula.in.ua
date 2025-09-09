@@ -4,13 +4,21 @@
 // const withImages = require('next-images');
 
 const nextConfig = {
+	swcMinify: true,
+	productionBrowserSourceMaps: false,
+	eslint: {ignoreDuringBuilds: true},
+	modularizeImports: {
+		lodash: {transform: 'lodash/{{member}}'},
+		'date-fns': {transform: 'date-fns/{{member}}'},
+		ramda: {transform: 'ramda/src/{{member}}'}
+	},
 	sassOptions: {
-		additionalData: `@import "src/assets/styles/variables.scss"; @import "src/assets/styles/mixins.scss";`,
+		additionalData: `@import "src/assets/styles/variables.scss"; @import "src/assets/styles/mixins.scss";`
 	},
 	i18n: {
 		locales: ['en', 'ru', 'ua'],
 		defaultLocale: 'ua',
-		localeDetection: false,
+		localeDetection: false
 	},
 	exportPathMap: async () => {
 		const paths = {
@@ -19,57 +27,57 @@ const nextConfig = {
 				query: {
 					lang: 'ua',
 					__nextDefaultLocale: 'ua',
-					__nextLocale: 'ua',
-				},
+					__nextLocale: 'ua'
+				}
 			},
 			'/catalog': {
 				page: '/catalog',
 				query: {
 					lang: 'ua',
 					__nextDefaultLocale: 'ua',
-					__nextLocale: 'ua',
-				},
+					__nextLocale: 'ua'
+				}
 			},
 			'/services': {
 				page: '/services',
 				query: {
 					lang: 'ua',
 					__nextDefaultLocale: 'ua',
-					__nextLocale: 'ua',
-				},
-			},
+					__nextLocale: 'ua'
+				}
+			}
 		};
-		
+
 		const languages = ['en', 'ru', 'ua'];
 		const defaultLanguage = 'ua';
-		
+
 		for (const language of languages) {
 			paths[`/${language}`] = {
 				page: `/${language}`,
 				query: {
 					lang: language,
 					__nextDefaultLocale: defaultLanguage,
-					__nextLocale: language,
-				},
+					__nextLocale: language
+				}
 			};
 			paths[`/${language}/services`] = {
 				page: '/services',
 				query: {
 					lang: language,
 					__nextDefaultLocale: defaultLanguage,
-					__nextLocale: language,
-				},
+					__nextLocale: language
+				}
 			};
 			paths[`/${language}/catalog`] = {
 				page: '/catalog',
 				query: {
 					lang: language,
 					__nextDefaultLocale: defaultLanguage,
-					__nextLocale: language,
-				},
+					__nextLocale: language
+				}
 			};
 		}
-		
+
 		return paths;
 	},
 	webpack: (config, {isServer}) => {
@@ -82,13 +90,13 @@ const nextConfig = {
 					fallback: 'file-loader',
 					publicPath: '/_next/static/media/',
 					outputPath: `${isServer ? '../' : ''}/_next/static/media/`,
-					name: '[name].[ext]',
-				},
-			},
+					name: '[name].[ext]'
+				}
+			}
 		});
-		
+		config.parallelism = 1;
 		return config;
-	},
+	}
 };
 
 export default nextConfig;
