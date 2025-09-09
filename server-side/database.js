@@ -12,18 +12,18 @@ const pool = mysql.createPool({
 });
 
 const databaseConnection = (res) => {
-	const query = 'SELECT * FROM real_estate';
-	
+	const query = 'SELECT * FROM real_estate LIMIT 1;';
+
 	pool.getConnection((err, connection) => {
 		if (err) {
 			console.error('Error getting database connection:', err);
 			res.status(500).json({error: 'Database connection error'});
 			return;
 		}
-		
+
 		connection.query(query, (error, results) => {
 			connection.release();
-			
+
 			if (error) {
 				console.error('Database query error:', error);
 				res.status(500).json({error: 'Database query error'});
