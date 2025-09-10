@@ -1,5 +1,5 @@
-import {FC} from 'react';
-import {useTranslation} from 'react-i18next';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
 import CatalogPageMap
@@ -11,10 +11,10 @@ import CatalogPageTable
 import CatalogPageVideo
 	from "@modules/pages/catalogPage/components/CatalogPageVideo";
 
-import {useMediaQuery, usePropertyPhoto} from '@hooks/index';
-import {LAPTOP_BREAKPOINT} from '@utils/const';
+import { useMediaQuery, usePropertyPhoto } from '@hooks/index';
+import { LAPTOP_BREAKPOINT } from '@utils/const';
 
-import type {ICatalogTable} from '@t-types/data';
+import type { ICatalogTable } from '@t-types/data';
 
 import s from './CatalogPageInformation.module.scss';
 
@@ -29,16 +29,16 @@ const CatalogPageInformation: FC<{
 	realEstateType: string;
 	price: string;
 }> = ({
-	      description,
-	      tableInfo,
-	      id,
-	      address,
-	      originalAddress,
-	      station,
-	      realEstateType,
-	      contractType,
-	      price,
-      }) => {
+	description,
+	tableInfo,
+	id,
+	address,
+	originalAddress,
+	station,
+	realEstateType,
+	contractType,
+	price
+}) => {
 	const {t} = useTranslation('catalog');
 	const postersList = usePropertyPhoto(id);
 	const isLaptop = useMediaQuery(LAPTOP_BREAKPOINT);
@@ -51,7 +51,7 @@ const CatalogPageInformation: FC<{
 					<h4 className={s.title}>{t('VIDEO')}</h4>
 					<hr className={s.line}/>
 					{postersList.map((item) => item.video && (
-						<CatalogPageVideo key={item.video} source={item.video}/>
+						<CatalogPageVideo key={item.video + id} source={item.video}/>
 					))}
 				</article>
 			)}
@@ -80,7 +80,7 @@ const CatalogPageInformation: FC<{
 					<hr className={s.line}/>
 					<p
 						dangerouslySetInnerHTML={{
-							__html: description,
+							__html: description
 						}}
 					/>
 				</article>
